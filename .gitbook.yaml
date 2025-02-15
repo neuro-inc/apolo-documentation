@@ -1,6 +1,5 @@
+root: ./use-cases/
 
-  apolo-documentation/
-     use-cases/
-        .gitbook.yaml
+structure:
         README.md
         SUMMARY.md
