@@ -1,4 +1,4 @@
-root: ./apolo-documentation/use-cases
+root: ./use-cases
 ​structure:
   readme: README.md
   summary: SUMMARY.md​
