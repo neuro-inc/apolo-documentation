@@ -1,3 +1,3 @@
-root: ./use-cases/
+root: ./
 ​structure:
-  summary: SUMMARY.md​
+  summary: ./SUMMARY.md​
