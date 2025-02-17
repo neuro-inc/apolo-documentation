@@ -4,7 +4,7 @@
 
 The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo CLI. To learn more about the Files app and how you can use it in Apolo Console, visit the main [Files app](../../documentation/english/core/apps/pre-installed/files.md) page.
 
-## **Command Line Interface**
+## **Command Line Interface (CLI)**
 
 In addition to the graphical interface, you can manage your storage through our powerful command-line interface (CLI). The CLI provides advanced capabilities for file operations, particularly useful for automation and bulk operations.
 
