@@ -48,7 +48,7 @@
 
 ## Apolo CLI 
 
-* [Installing CLI](apolo-cli-concepts-concepts/installing.md)
+* [Installing CLI](apolo-cli-concepts/installing.md)
 * [Apps](apolo-cli-concepts-concepts/apps/README.md)
   * [Files](apolo-cli-concepts-concepts/apps/files.md)
   * [Jobs](apolo-cli-concepts-concepts/apps/jobs.md)
