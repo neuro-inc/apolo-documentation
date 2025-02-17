@@ -12,7 +12,7 @@
 * [Troubleshooting](getting-started/troubleshooting.md)
 * [References](getting-started/references.md)
 
-## Apolo Console 
+## Apolo Console
 
 * [Getting started](apolo-console/getting-started/README.md)
   * [Sign Up, Login](apolo-console/getting-started/sign-up-login.md)
@@ -22,7 +22,7 @@
 * [Apps](apolo-console/apps/README.md)
   * [Pre-installed apps](apolo-console/apps/pre-installed/README.md)
     * [Files](apolo-console/apps/pre-installed/files.md)
-    * [Buckets](coapolo-consolere/apps/pre-installed/buckets.md)
+    * [Buckets](apolo-console/apps/pre-installed/buckets.md)
     * [Disks](apolo-console/apps/pre-installed/disks.md)
     * [Images](apolo-console/apps/pre-installed/images.md)
     * [Secrets](apolo-console/apps/pre-installed/secrets.md)
@@ -46,14 +46,13 @@
     * [Fooocus](apolo-console/apps/available-apps/fooocus.md)
     * [Stable Diffusion](apolo-console/apps/available-apps/stable-diffusion.md)
 
-## Apolo CLI 
+## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
 * [Installing CLI](apolo-concepts-cli/installing.md)
 * [Apps](apolo-concepts-cli/apps/README.md)
   * [Files](apolo-concepts-cli/apps/files.md)
   * [Jobs](apolo-concepts-cli/apps/jobs.md)
   * [Images](apolo-concepts-cli/apps/images.md)
-
 
 ## Administration
 
