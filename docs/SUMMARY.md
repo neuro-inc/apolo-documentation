@@ -48,11 +48,11 @@
 
 ## Apolo CLI 
 
-* [Installing CLI](apolo-cli/installing.md)
-* [Apps](apolo-cli/apps/README.md)
-  * [Files](apolo-cli/apps/files.md)
-  * [Jobs](apolo-cli/apps/jobs.md)
-  * [Images](apolo-cli/apps/images.md)
+* [Installing CLI](apolo-cli-concepts-concepts/installing.md)
+* [Apps](apolo-cli-concepts-concepts/apps/README.md)
+  * [Files](apolo-cli-concepts-concepts/apps/files.md)
+  * [Jobs](apolo-cli-concepts-concepts/apps/jobs.md)
+  * [Images](apolo-cli-concepts-concepts/apps/images.md)
 
 ## Administration
 
