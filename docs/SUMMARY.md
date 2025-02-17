@@ -46,14 +46,6 @@
     * [Fooocus](apolo-console/apps/available-apps/fooocus.md)
     * [Stable Diffusion](apolo-console/apps/available-apps/stable-diffusion.md)
 
-## Apolo CLI 
-
-* [Installing CLI](apolo-cli-concepts/installing.md)
-* [Apps](apolo-cli-concepts/apps/README.md)
-  * [Files](apolo-cli-concepts/apps/files.md)
-  * [Jobs](apolo-cli-concepts/apps/jobs.md)
-  * [Images](apolo-cli-concepts/apps/images.md)
-
 ## Administration
 
 * [Overview and Installation](administration/overview-and-installation/README.md)
