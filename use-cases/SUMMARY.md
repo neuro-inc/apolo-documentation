@@ -10,3 +10,4 @@
 ## Large language models <a href="#llms" id="llms"></a>
 
 * [DeepSeek-R1 distilled models](llms/deepseek-r1-distilled-models.md)
+* [DeepSeek-R1 model deployment](llms/deepseek-r1-model-deployment.md)
