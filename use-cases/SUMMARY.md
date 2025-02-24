@@ -11,3 +11,5 @@
 
 * [DeepSeek-R1 distilled models](llms/deepseek-r1-distilled-models.md)
 * [DeepSeek-R1 model deployment](llms/deepseek-r1-model-deployment.md)
+* [Teaching Models To Reason - Training, Fine-Tuning, and Evaluating Models with LLaMA Factory on Apolo](llms/teaching-models-to-reason-training-fine-tuning-and-evaluating-models-with-llama-factory-on-apolo.md)
+* [Autonomous Research with AgentLaboratory: DeepSeek R1 vs. OpenAI o1](llms/autonomous-research-with-agentlaboratory-deepseek-r1-vs.-openai-o1.md)

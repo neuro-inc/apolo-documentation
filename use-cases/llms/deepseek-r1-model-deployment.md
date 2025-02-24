@@ -62,8 +62,8 @@ After the scheduling, a Ray head job will start waiting for the incoming connect
 
 Before going further, note the output of the following command:
 
-{% code fullWidth="true" %}
-```bash
+{% code fullWidth="false" %}
+```
 $ apolo status ray-head                                                                 
  Job                      job-324eab93-5fec-4cf6-bda5-3b6c701162bb                  
  Name                     ray-head  
@@ -94,7 +94,7 @@ Second, let's start a Ray worker node. Open a new console window and copy-paste 
 ```bash
 $ apolo run --preset dgx --http-port 8000 --no-http-auth --name ray-worker -v storage:hf-cache:/root/.cache/huggingface --entrypoint bash -e HF_TOKEN=secret:HF_TOKEN --life-span 10d vllm/vllm-openai:v0.7.2 \
 -- -c '
-ray start --address=ray-head--0e1436ea6a.platform-jobs:6379 python3 -m vllm.entrypoints.openai.api_server --model cognitivecomputations/DeepSeek-R1-AWQ --tokenizer cognitivecomputations/DeepSeek-R1-AWQ --dtype=float16 --tensor-parallel-size=8 --pipeline-parallel-size=2 --trust-remote-code --max-model-len=128000 --enforce-eager
+ray start --address=ray-head--0e1436ea6a.platform-jobs:6379; python3 -m vllm.entrypoints.openai.api_server --model cognitivecomputations/DeepSeek-R1-AWQ --tokenizer cognitivecomputations/DeepSeek-R1-AWQ --dtype=float16 --tensor-parallel-size=8 --pipeline-parallel-size=2 --trust-remote-code --max-model-len=128000 --enforce-eager
 '
 ```
 {% endcode %}
@@ -112,10 +112,8 @@ INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 
 When the model is up and running, you could use any standard client to query it. To derive the endpoint for sending the request, check the status of a ray-worker job:
 
-{% code fullWidth="true" %}
-```bash
-apolo status ray-worker
- Job                      job-5cf69164-0f64-4d3f-8354-b4d02ee0c8f8                                                                                                                                                 
+<pre data-full-width="false"><code><strong>$ apolo status ray-worker
+</strong> Job                      job-5cf69164-0f64-4d3f-8354-b4d02ee0c8f8                                                                                                                                                 
  Name                     ray-worker                                                                                                                                                                               
  ...
  Image                    vllm/vllm-openai:v0.7.2                                                                                                                                                                  
@@ -133,9 +131,8 @@ apolo status ray-worker
  Volumes                   /root/.cache/huggingface  storage:ollama_server/cache                                                                                                                                   
  Internal Hostname        job-5cf69164-0f64-4d3f-8354-b4d02ee0c8f8.platform-jobs                                                                                                                                   
  Internal Hostname Named  ray-worker--0e1436ea6a.platform-jobs                                                                                                                                                     
- Http URL                 https://ray-worker--0e1436ea6a.jobs.cl1.org.apolo.us <<=== THIS ONE! <====
-```
-{% endcode %}
+ Http URL                 https://ray-worker--0e1436ea6a.jobs.cl1.org.apolo.us &#x3C;&#x3C;=== THIS ONE! &#x3C;====
+</code></pre>
 
 There you are going to see  a public domain name of the job, at the `Http URL` row. Now, let's use `curl`to send the request:
 
@@ -184,7 +181,7 @@ This is it! You now have a fully operational DeepSeek R1 distributed model deplo
 
 Apolo Flow allows one to template the workloads configuration into config files. The below configuration file snippet arranges the previously discussed deployment process in a couple of Apolo-Flow job descriptions. We also expand this scenario with the deployment of [OpenWebUI](https://openwebui.com/) server that acts as a web interface for chatting with your models.
 
-{% code fullWidth="true" %}
+{% code fullWidth="false" %}
 ```yaml
 kind: live
 

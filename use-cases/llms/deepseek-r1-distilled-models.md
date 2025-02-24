@@ -38,7 +38,7 @@ Let’s get started!
 
 The easiest way to start the server is to utilize CLI.
 
-First, make sure you've completed the getting-started guide from the main documentation page since here we assume  that you already installed Apolo CLI, logged into the platform, created (or joined ) organization and project.
+First, make sure you've completed the getting-started guide from the main documentation page since here we assume that you already installed Apolo CLI, logged into the platform, created (or joined ) organization and project.
 
 Second, pick the resource preset you want to run you server on. For this, checkout the Apolo cluster settings either in web console, or via CLI command `apolo config show`.
 
@@ -62,8 +62,9 @@ Resource Presets:
 
 70B Llama model requires around 140 GB of vRAM in FP16 format. Therefore, we use H100x2 here.
 
-To start vLLM server, use the following  CLI command:
+To start vLLM server, use the following CLI command:
 
+{% code fullWidth="true" %}
 ```bash
 $ apolo run -s H100x2 -v storage:hf-cache:/root/.cache/huggingface --http-port 8000 vllm/vllm-openai -- '
     --model=deepseek-ai/DeepSeek-R1-Distill-Llama-70B 
@@ -71,6 +72,7 @@ $ apolo run -s H100x2 -v storage:hf-cache:/root/.cache/huggingface --http-port 8
     --tensor-parallel-size=2 
     --max-model-len=1000'
 ```
+{% endcode %}
 
 The rest will be done by the platform: it allocates the resources, creates needed job, starts the server, exposes the endpoint, collects the metrics and so on...
 
@@ -109,6 +111,7 @@ INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
 
 When the model is up and running, you could use any standard client to query it. In this example, we use `curl`to send the request:
 
+{% code fullWidth="true" %}
 ```bash
 curl -s https://job-5bd3ab12-7c94-4e3a-85eb-e56e6320c1b0.jobs.cl1.org.apolo.us/v1/completions \
     -H "Content-Type: application/json" \
@@ -142,12 +145,13 @@ curl -s https://job-5bd3ab12-7c94-4e3a-85eb-e56e6320c1b0.jobs.cl1.org.apolo.us/v
   }
 }
 ```
+{% endcode %}
 
 Note, the usage of authorization header ("Authorization: Bearer...") is obligatory here, however, you could disable it. See the description of all possible job parameters and configurations in Apolo CLI documentation.
 
 To cleanup hit ctrl+c in the console window, where the job was launched. Alternatively, use cli command:
 
-&#x20;`apolo kill <job-id>`
+`apolo kill <job-id>`
 
 to terminate the job.
 
@@ -226,7 +230,7 @@ $ apolo-flow run vllm
 
 You can observe server startup process by connecting to the logs stream using cli command:
 
-&#x20;`apolo-flow logs vllm`.
+`apolo-flow logs vllm`.
 
 ### Query the model
 
@@ -261,16 +265,14 @@ Apolo applications allow you to deploy various systems together with their auxil
 
 The deployment process itself is quite straightforward: navigate to the Apolo web console, select LLM Inference application and start installation.
 
-The following configuration screenshot resembles the previously discussed case:&#x20;
+The following configuration screenshot resembles the previously discussed case:
 
 <figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>LLM Inference application configuration</p></figcaption></figure>
 
-After the installation completes, you can find the endpoint for inference in application outputs.&#x20;
-
-
+After the installation completes, you can find the endpoint for inference in application outputs.
 
 ## Deploy other DeepSeek-R1 distilled models
 
 To deploy any other model, simply derive the amount of required vRAM to fit the model. Afterwards, select a corresponding resource preset and adjust vLLM CLI arguments. For vLLM you might need to tweak the number tensor parallel replicas as well as context length (max-model-len).
 
-The rest stays the same — Apolo takes care of operations leaving you focused on the job.  &#x20;
+The rest stays the same — Apolo takes care of operations leaving you focused on the job.
