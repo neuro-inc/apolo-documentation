@@ -45,7 +45,7 @@ You can try this yourself by deploying R1 variants on Apolo and cloning the Agen
 
 * [DeepSeek R1 model deployment](https://docs.apolo.us/index/use-cases/llms/deepseek-r1-model-deployment)&#x20;
 * [DeepSeek R1 distilled models deployment](https://docs.apolo.us/index/use-cases/llms/deepseek-r1-distilled-models)
-* [AgentLaboratory](https://github.com/SamuelSchmidgall/AgentLaboratory) (official) or use the [fork](https://github.com/taddeusb90/AgentLaboratory) mentioned above
+* [AgentLaboratory](https://github.com/SamuelSchmidgall/AgentLaboratory) (official) or use the [fork](https://github.com/neuro-inc/AgentLaboratory) mentioned above
 
 ### Goal
 
