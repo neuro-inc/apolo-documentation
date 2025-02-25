@@ -14,7 +14,55 @@ DeepSeek-R1 model way exceeds the memory capacity of a single GPU or even the en
 
 You could estimate your model vRAM requirements using any on-line calculator, for instance [ollama-gpu-calculator](https://aleibovici.github.io/ollama-gpu-calculator/).
 
-However, for most of the use-cases it's more efficient to host a quantized version of the model that drastically reduces the required vRAM for weights and speeds-up the inference process slightly sacrificing a quality of results. Therefore, here we going to deploy an AWQ-quantized version of the DeepSeek-R1 model ([cognitivecomputations/DeepSeek-R1-AWQ](https://huggingface.co/cognitivecomputations/DeepSeek-R1-AWQ)). We are going to use two NVIDIA DGX nodes with 8 x NVIDIA Tesla H100 SMX cards (80 Gb of vRAM) within.
+For most of the use-cases it's more efficient to host a quantized version of the model that drastically reduces the memory requirements and speeds-up the inference process slightly sacrificing a quality of the results. Here we are going to deploy an AWQ-quantized version of the DeepSeek-R1 model ([cognitivecomputations/DeepSeek-R1-AWQ](https://huggingface.co/cognitivecomputations/DeepSeek-R1-AWQ)). We are going to use two NVIDIA DGX nodes with 8 x NVIDIA Tesla H100 SMX cards (80 Gb of vRAM) within which in sum gives us approx 1.2 TB of vRAM, more than enough to fit the model at full context length.
+
+If you have access to a different resource pools in your cluster, you should first find out how many workers should be connected to the Ray cluster. You better use the same resource preset to split the load evenly. Here is what you need to do:
+
+1. &#x20;Identify the amount of vRAM each GPU has. Either from the GPU model, or manually:
+
+```
+$ apolo run --preset <your-preset> ubuntu -- nvidia-smi
+Using preset '<your-preset>'
+Using image 'ubuntu:latest'
+√ Job ID: job-7f36c1c3-f21e-4d14-9e59-8a69079bae22
+- Status: pending Creating
+- Status: pending Scheduling
+- Status: pending ContainerCreating
+√ Status: running Restarting
+√ Http URL: https://job-7f36c1c3-f21e-4d14-9e59-8a69079bae22.jobs.cluster.org.apolo.us
+√ The job will die in a day. See --life-span option documentation for details.
+
+√ =========== Job is running in terminal mode ===========
+√ (If you don't see a command prompt, try pressing enter)
+√ (Use Ctrl-P Ctrl-Q key sequence to detach from the job)
+Tue Feb 25 21:13:10 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 550.54.14              Driver Version: 550.54.14      CUDA Version: 12.4     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA A100-SXM4-80GB          Off |   00000000:81:00.0 Off |                    0 |
+| N/A   25C    P0             64W /  500W |      13MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA A100-SXM4-80GB          Off |   00000000:C1:00.0 Off |                    0 |
+| N/A   22C    P0             57W /  500W |      13MiB /  81920MiB |      0%      Default |
+|                                         |                        |             Disabled |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI        PID   Type   Process name                              GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
+√ Job job-7f36c1c3-f21e-4d14-9e59-8a69079bae22 finished successfully
+```
+
+In this case, we have 2 GPUs with 80 GB of vRAM each. This means, to you will need to have \~ 7 workers running on this preset (assuming we need 1.2 Tb of vRAM).
 
 ## Software Consideration
 
@@ -41,7 +89,7 @@ Before going further, make sure you've completed the getting-started guide from 
 
 Please note, the deployment consists of two main components: Ray head job and Ray worker job, which together form a static Ray cluster for hosting the vLLM server. Within a Ray worker node we will launch vLLM server that will be spread across the virtual cluster.
 
-First, let's start a Ray head job:
+**First**, let's start a Ray head job:
 
 {% code overflow="wrap" fullWidth="true" %}
 ```bash
@@ -88,7 +136,19 @@ $ apolo status ray-head
 
 It derives a runtime information from the running job on the platform. We are particularly interested in `Internal Hostname named` row. This is a domain name within the cluster, needed for the worker job to connect to the head.
 
-Second, let's start a Ray worker node. Open a new console window and copy-paste the following command. Please parameterize the address of your Ray head job accordingly.
+**Second**, let's start a Ray worker(s) node(s). If you need more than one worker nodes, you should start all of them but one now. If you are good with only one worker, proceed to the next step.
+
+Open a new console window and copy-paste the following command. Please parameterize the address of your Ray head job accordingly.
+
+{% code overflow="wrap" fullWidth="true" %}
+```bash
+$ apolo run --preset <your-preset> --tag ray-worker -v storage:hf-cache:/root/.cache/ -e HF_TOKEN=secret:HF_TOKEN --life-span 10d --detach vllm/vllm-openai:v0.7.2 -- start --address=ray-head--0e1436ea6a.platform-jobs:6379 --block
+```
+{% endcode %}
+
+**Third,** let's start last Ray worker, that will also start the model deployment. The model's endpoint will be hosted at this job, therefore, you should use this job's host URL to send the requests.
+
+Run the following command in your console:
 
 {% code overflow="wrap" fullWidth="true" %}
 ```bash
@@ -99,7 +159,7 @@ ray start --address=ray-head--0e1436ea6a.platform-jobs:6379; python3 -m vllm.ent
 ```
 {% endcode %}
 
-This instructs Apolo to start Ray worker Job on another DGX machine. Within this job, we will also launch vLLM server on top of the running Ray cluster that will utilize a high-throughput intra-cluster communication (InfiniBand) protocol to serve a model distributed onto two machines. The startup process might take some time, depending on your cluster settings.
+This instructs Apolo to start Ray worker Job on another DGX machine (unless you change the preset name). Within this job, we will also launch vLLM server on top of the running Ray cluster that will utilize a high-throughput intra-cluster communication (InfiniBand) protocol to serve a model distributed onto two machines. The startup process might take some time, depending on your cluster settings.
 
 You will see the following line when the server is ready to accept requests:
 
@@ -169,17 +229,18 @@ curl -s https://ray-worker--0e1436ea6a.jobs.cl1.org.apolo.us/v1/completions \
 }
 ```
 
-To cleanup hit ctrl+c in the console windows, where the jobs were launched. Alternatively, use cli command:
+To cleanup hit ctrl+c in the console windows, where the jobs were launched. Alternatively, use cli commands:
 
-`apolo kill <job-id>`
-
-to terminate the job.
+* `apolo ps` to list your running jobs
+* `apolo kill <job-id1> <job-id2> ...` to terminate the job(s)
 
 This is it! You now have a fully operational DeepSeek R1 distributed model deployment on Apolo, serving inference requests efficiently with vLLM!
 
 ## Deploy with Apolo Flow
 
 Apolo Flow allows one to template the workloads configuration into config files. The below configuration file snippet arranges the previously discussed deployment process in a couple of Apolo-Flow job descriptions. We also expand this scenario with the deployment of [OpenWebUI](https://openwebui.com/) server that acts as a web interface for chatting with your models.
+
+You should also adjust the preset names according to the [#hardware-considerations](deepseek-r1-model-deployment.md#hardware-considerations "mention").
 
 {% code fullWidth="false" %}
 ```yaml
@@ -225,6 +286,21 @@ jobs:
     cmd: >
       start --block --head --port=6379 --dashboard-host=0.0.0.0
 
+  ray_extra_worker:
+    image: vllm/vllm-openai:v0.7.2
+    preset: dgx
+    multi: true
+    detach: true
+    http_port: "8000"
+    http_auth: false
+    life_span: 10d
+    volumes:
+      - ${{ volumes.hf_cache.ref_rw }}
+    env:
+      HF_TOKEN: secret:HF_TOKEN
+    cmd: >
+      ray start --address=${{ inspect_job('ray_head').internal_hostname_named }}:6379
+
   ray_worker:
     image: vllm/vllm-openai:v0.7.2
     name: ray-worker
@@ -251,6 +327,7 @@ Now start `ray_head`, `ray_worker` and `web` jobs. Please give Ray a minute to s
 
 ```bash
 apolo-flow run ray_head # wait a munite after running head job, so it starts
+apolo-flow run ray_extra_worker # run extra workers if needed
 apolo-flow run ray_worker # it will connect to the ray_head
 apolo-flow run web # this will attach to the worker node 
 ```
@@ -289,4 +366,4 @@ This will terminate all jobs launched in this flow.
 
 
 
-[^1]: Read as a "memory" of the LLM, or its "inputs"
+[^1]: "memory" of the LLM, its "inputs"
