@@ -7,6 +7,10 @@
   * [Architecture Overview](visual-rag-on-complex-pdfs-enterprise-ready-multimodal-ai/architecture-overview.md)
   * [Implementation](visual-rag-on-complex-pdfs-enterprise-ready-multimodal-ai/implementation.md)
 
+## Generic
+
+* [End-to-End ML Model Lifecycle on Apolo Platform](generic/end-to-end-ml-model-lifecycle-on-apolo-platform.md)
+
 ## Large language models <a href="#llms" id="llms"></a>
 
 * [DeepSeek-R1 distilled models](llms/deepseek-r1-distilled-models.md)

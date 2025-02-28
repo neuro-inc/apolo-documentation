@@ -255,7 +255,7 @@ $ apolo-flow run web
 
 Now the mentioned above OpenWebUI job's URL will be automatically opened in your default browser. After you log into the system, you will be able to chat with your model. Just make sure vllm finished it startup.
 
-<figure><img src="../.gitbook/assets/image (2).png" alt=""><figcaption><p>OpenWebUI attached to vLLM serving deepseek-ai/DeepSeek-R1-Distill-Llama-70B</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>OpenWebUI attached to vLLM serving deepseek-ai/DeepSeek-R1-Distill-Llama-70B</p></figcaption></figure>
 
 This is it! You have crated and ran a flow from template, your flow has spun up a DeepSeek distilled model using vLLM and exposed its interface via web browser using OpenWebUI web-server app.
 
@@ -267,7 +267,7 @@ The deployment process itself is quite straightforward: navigate to the Apolo we
 
 The following configuration screenshot resembles the previously discussed case:
 
-<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>LLM Inference application configuration</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>LLM Inference application configuration</p></figcaption></figure>
 
 After the installation completes, you can find the endpoint for inference in application outputs.
 
