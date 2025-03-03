@@ -34,6 +34,7 @@
     * [Terminal](apolo-console/apps/available-apps/terminal.md)
     * [LLM Inference](apolo-console/apps/available-apps/llm-inference/README.md)
       * [vLLM Inference details](apolo-console/apps/available-apps/llm-inference/vllm-inference-details.md)
+      * [Multi-GPU Benchmarks Report](apolo-console/apps/available-apps/llm-inference/multi-gpu-benchmarks-report.md)
     * [PostgreSQL](apolo-console/apps/available-apps/postgre-sql.md)
     * [Text Embeddings Inference](apolo-console/apps/available-apps/text-embeddings-inference.md)
     * [Jupyter Notebook](apolo-console/apps/available-apps/jupyter-notebook.md)
