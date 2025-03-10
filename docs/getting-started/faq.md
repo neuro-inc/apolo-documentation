@@ -20,22 +20,7 @@ downloads dataset to your current directory locally.
 
 You can access your dataset from within a container by giving `--volume storage:data/:/var/storage/data/:rw` to `neuro run` as a parameter when starting a new job.
 
-### How to Browse Data with File Browser
-
-[File Browser](https://github.com/filebrowser/filebrowser) is a web-based file management interface. You can use it to view and manage your storage on Neuro Platform. To start the job and open the tool in your default browser, run the following command:
-
-```
-neuro run \
-    --name filebrowser \
-    --preset cpu-small \
-    --http 80 \
-    --detach \
-    --browse \
-    --volume storage::/srv:rw \
-    filebrowser/filebrowser
-```
-
-File Browser requires logging in; the default credentials are `admin`/`admin`. For more complex user setup, please refer to [File Browser documentation](https://filebrowser.xyz).
+If your aim is to download or upload data from external system, be it AWS S3 bucket, or Azure Blob Storage, checkout our [extras](https://app.gitbook.com/s/EicNFI9vPOX1TTMYRKT9/#data-operations) package usage.
 
 ### How to Connect to a Running Job
 

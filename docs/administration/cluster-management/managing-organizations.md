@@ -1,10 +1,10 @@
 # Managing organizations
 
-Organizations provide an additional way to group users.&#x20;
+Organizations provide an additional way to group users.
 
 An organization represents a group of people with roles. In this way, it's similar to a cluster, but there are no computational resources behind an organization.
 
-Also, all organization users (including its manager/admin) will use a shared total quota that was set for this specific organization in the cluster.&#x20;
+Also, all organization users (including its manager/admin) will use a shared total quota that was set for this specific organization in the cluster.
 
 ### Creating organizations
 
@@ -20,7 +20,7 @@ After this, you can add users to it with the `apolo admin add-org-user` command:
 $ apolo admin add-org-user my-org alice user
 ```
 
-Next, an admin or manager of the cluster can add the new organization to the cluster via the  `apolo admin add-org-cluster` command, and then assign quotas within the organization:
+Next, an admin or manager of the cluster can add the new organization to the cluster via the `apolo admin add-org-cluster` command, and then assign quotas within the organization:
 
 ```
 $ apolo admin add-org-cluster my-cluster my-org
@@ -40,13 +40,13 @@ An organization manager or admin differs from a cluster manager or admin in that
 
 ### Switching organizations
 
-Since a user can be added to the same cluster on behalf of several organizations (as well as directly), it is possible to switch the current organization by using the `apolo config switch-org` command, similarly to how you would switch the current cluster. When an organization is selected, all jobs, files, secrets, disks, etc., will be created within this organization. \
-This means that the respective URIs will have the following structure:&#x20;
+Since a user can be added to the same cluster on behalf of several organizations (as well as directly), it is possible to switch the current organization by using the `apolo config switch-org` command, similarly to how you would switch the current cluster. When an organization is selected, all jobs, files, secrets, disks, etc., will be created within this organization.\
+This means that the respective URIs will have the following structure:
 
 ```
 schema://cluster/organization/username/some/path
 ```
 
 {% hint style="info" %}
-You can find more information about organization-related CLI commands in the [corresponding section of our CLI Reference](https://neu-ro.gitbook.io/neu-ro-cli-reference/commands/admin#add-org).
+You can find more information about organization-related CLI commands in the [corresponding section of our CLI Reference.](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/admin#add-org)
 {% endhint %}

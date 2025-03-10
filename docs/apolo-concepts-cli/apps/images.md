@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Images app provides a central location for viewing properties of container image assets used in deployments. For more information about the images App and how to use it in Apolo Console, visit the main [Images app page](../../documentation/english/core/apps/pre-installed/images.md).
+The Images app provides a central location for viewing properties of container image assets used in deployments. For more information about the images App and how to use it in Apolo Console, visit the main [Images app](../../apolo-console/apps/pre-installed/images.md) page.
 
 ## **Command Line Interface**
 
@@ -179,4 +179,4 @@ Additionally, you can transfer images between clusters using:
 apolo-extras image transfer image:myapp:v1.0 image:/other-cluster/myapp:v1.0
 ```
 
-For detailed information about image building options, including advanced Kaniko configurations and build customization, please refer to the [Apolo Extras CLI documentation](https://docs.apolo.us/index/apolo-extras/cli#apolo-extras-image).
+For detailed information about image building options, including advanced Kaniko configurations and build customization, please refer to the [Apolo Extras CLI](https://app.gitbook.com/s/EicNFI9vPOX1TTMYRKT9/) documentation.

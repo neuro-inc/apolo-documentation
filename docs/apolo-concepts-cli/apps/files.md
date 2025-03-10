@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo CLI. To learn more about the Files app and how you can use it in Apolo Console, visit the main [Files app](../../documentation/english/core/apps/pre-installed/files.md) page.
+The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo CLI. To learn more about the Files app and how you can use it in Apolo Console, visit the main [Files app](../../apolo-console/apps/pre-installed/files.md) page.
 
 ## **Command Line Interface (CLI)**
 
@@ -246,7 +246,7 @@ For complete details on volume configuration options and advanced usage, refer t
 
 The `apolo-extras` CLI provides powerful tools for managing data transfers between your storage systems. This extension to the main Apolo CLI enables seamless movement of data between external storage systems and your Apolo cluster, as well as transfers between different clusters.
 
-For complete details on Apolo Extras CLI refer to the [CLI reference](https://docs.apolo.us/index/apolo-extras/cli#apolo-extras-data).
+For complete details on Apolo Extras CLI refer to the [CLI reference](https://app.gitbook.com/s/EicNFI9vPOX1TTMYRKT9/cli).
 
 **Copying Data with apolo-extras data cp**
 

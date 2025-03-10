@@ -4,7 +4,7 @@
 
 There are two things you will need to do before you start working with Apolo:
 
-1. [Install the CLI client](../documentation/english/cli/installing.md).
+1. [Install the CLI client](../../apolo-concepts-cli/installing.md).
 2. [Understand the platform's main concepts](getting-started.md#understanding-the-main-concepts).
 
 After this, you're free to explore the platform and it's functionality. As a good starting point, we've included a section about [development on GPU with Jupyter Notebooks](getting-started.md#developing-on-gpu-with-jupyter-notebooks).

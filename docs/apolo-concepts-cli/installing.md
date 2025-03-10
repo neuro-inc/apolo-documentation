@@ -1,6 +1,6 @@
 # Installing CLI
 
-[Apolo Console](https://console.apolo.us/apps/shell/install) application doesn't require installation and can quickly get you familiar with Apolo, allowing you to work with the platform in a browser.
+[Apolo Web Shell](https://console.apolo.us/apps/shell/install) application doesn't require installation and can quickly get you familiar with Apolo, allowing you to work with the platform in a browser.
 
 Installing Apolo CLI locally can be more efficient for long-term use, as your source code and other local files will be stored directly on your machine. Additionally, using Apolo CLI provides you with more flexible and extensive functionality, allowing for greater control and customization of your development environment.
 

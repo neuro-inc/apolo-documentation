@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo Console. To learn more about how to manage the Files app with Apolo CLI, visit the [Apolo CLI Files app](../../../../../cli/apps/files.md) page.
+The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo Console. To learn more about how to manage the Files app with Apolo CLI, visit the [Apolo CLI Files](../../../apolo-concepts-cli/apps/files.md) app page.
 
 ### **Storage Organization**
 
@@ -12,7 +12,7 @@ Your organization receives a storage space within the cluster, structured in a h
 * Project Level: Individual project folders within your organization
 * Custom Folders: User-created folders for further organization
 
-![](../../../../../.gitbook/assets/console_screenshots/FilesAppStructure.png)
+![](../../../../.gitbook/assets/console_screenshots/FilesAppStructure.png)
 
 ### **Core Features**
 
@@ -30,7 +30,7 @@ _**Navigation and Search**_ The interface provides several navigation tools:
 * Grid/List view toggle: Allows you to switch between viewing modes
 * Folder Up: Navigate to the parent folder using the dedicated button
 
-_**File and Folder Management**_&#x20;
+_**File and Folder Management**_
 
 For each file and folder, you can:
 

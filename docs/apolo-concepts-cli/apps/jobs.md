@@ -6,11 +6,11 @@ description: Running jobs using the Apolo CLI
 
 ## Overview
 
-The **Jobs** App is a tool that allows users to schedule and execute containerized tasks and processes. It provides a user-friendly interface to manage these workloads, simplifying tasks like data processing, model training and inference, and other batch jobs. This app is designed to provide flexibility and control over how these jobs are run, while offering monitoring features for insights and debugging. For more information about the Jobs app, as well as detailed instruction of how to use it in Apolo Console, visit the main [Jobs app page](../../documentation/english/core/apps/pre-installed/jobs/).
+The **Jobs** App is a tool that allows users to schedule and execute containerized tasks and processes. It provides a user-friendly interface to manage these workloads, simplifying tasks like data processing, model training and inference, and other batch jobs. This app is designed to provide flexibility and control over how these jobs are run, while offering monitoring features for insights and debugging. For more information about the Jobs app, as well as detailed instruction of how to use it in Apolo Console, visit the main [Jobs app](../../apolo-console/apps/pre-installed/jobs/) page.
 
 ### **Running Jobs Using the CLI**
 
-The `apolo job run` command lets you execute containerized workloads with precise control over their configuration. Let's explore how to create and configure jobs effectively using the CLI (see [Apolo CLI reference](https://docs.apolo.us/index/apolo-cli/commands/job#run) for more information on running jobs).&#x20;
+The `apolo job run` command lets you execute containerized workloads with precise control over their configuration. Let's explore how to create and configure jobs effectively using the CLI (see [Apolo CLI reference](https://docs.apolo.us/index/apolo-cli/commands/job#run) for more information on running jobs).
 
 **Basic Job Execution** At its most basic, you only need to specify a Docker image to run a job:
 
