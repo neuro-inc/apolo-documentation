@@ -9,7 +9,7 @@ After account creating you have two options:
 * create your own organization;
 * send your user name for adding to the existed organization.
 
-![](../../../../.gitbook/assets/console_screenshots/choose_org.png)
+![](/docs/.gitbook/assets/console_screenshots/choose_org.png)
 
 By inviting other users into organizations, those users automatically obtain access to all clusters organization was added to.
 
@@ -17,7 +17,7 @@ When users run their apps within organization, they consume this organization cr
 
 Team members could also top-up organization balance in Apolo web app by clicking on the Credits menu.
 
-![](../../../../.gitbook/assets/console_screenshots/organizations_balance.png)
+![](/docs/.gitbook/assets/console_screenshots/organizations_balance.png)
 
 Refer to `apolo admin` for organizations administration and to `apolo config switch-org` to switch between organizations within your CLI config.
 
@@ -27,25 +27,25 @@ Most of Apolo CLI accept `--org` flag to perform various commands in correspondi
 
 As administrator you can set up your current organization or create one more lately.
 
-![](../../../../.gitbook/assets/console_screenshots/organizations_1.png)
+![](/docs/.gitbook/assets/console_screenshots/organizations_1.png)
 
 You can manage a user list and look through reports in organization settings.
 
-![](../../../../.gitbook/assets/console_screenshots/org_settings.png)
+![](/docs/.gitbook/assets/console_screenshots/org_settings.png)
 
 Users tab contains the next functionality:
 
 * inviting users to the organization;
 
-![](../../../../.gitbook/assets/console_screenshots/org_set_invite_user.png)
+![](/docs/.gitbook/assets/console_screenshots/org_set_invite_user.png)
 
 * setting up user role;
 
-![](../../../../.gitbook/assets/console_screenshots/org_set_edit_user.png)
+![](/docs/.gitbook/assets/console_screenshots/org_set_edit_user.png)
 
 * deleting user from organization.
 
-![](../../../../.gitbook/assets/console_screenshots/org_set_remove_user.png)
+![](/docs/.gitbook/assets/console_screenshots/org_set_remove_user.png)
 
 Reports tab contains grafana dashboards.
 

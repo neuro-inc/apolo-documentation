@@ -122,7 +122,7 @@ The current cluster is onprem-poc
 {% tab title="Apolo Console" %}
 To view all your clusters and switch the current one, click on the dropdown arrow next to the cluster name in the top right corner. A menu will appear with all available clusters. Select the desired one to switch.
 
-![](../../../../.gitbook/assets/console_screenshots/several_clusters.png)
+![](/docs/.gitbook/assets/console_screenshots/several_clusters.png)
 {% endtab %}
 {% endtabs %}
 
