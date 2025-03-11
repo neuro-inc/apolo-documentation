@@ -6,7 +6,7 @@ The Apolo Terminal app allows users to execute shell commands, manage files, and
 
 Navigate to the **Apolo Console** and click on the **Apps** section from the left-hand navigation menu. You will see a list of available apps, as shown in the screenshot below.
 
-![All apps view](../../../../../.gitbook/assets/console_screenshots/Terminal_app_1.png)
+![All apps view](/docs/.gitbook/assets/console_screenshots/Terminal_app_1.png)
 
 Locate the **Terminal** app. If it is not yet installed, proceed to the installation steps.
 
@@ -21,7 +21,7 @@ Locate the **Terminal** app. If it is not yet installed, proceed to the installa
 3.  Add _metadata_.\
     In the next step, under the **Metadata** tab, provide a name for your app instance.
 
-    ![Terminal configuration](../../../../../.gitbook/assets/console_screenshots/terminal_settings.png)
+    ![Terminal configuration](/docs/.gitbook/assets/console_screenshots/terminal_settings.png)
 4. Install the App.\
    Click on the **Install App** button to complete the installation process. The app will appear in the **Installed Apps** tab once successfully deployed.
 
@@ -32,11 +32,11 @@ To view and manage installed instances of the Terminal app:
 1. Go to the **Installed Apps** tab.
 2.  You will see a list of running **Terminal** app instances.
 
-    ![Installed apps](../../../../../.gitbook/assets/console_screenshots/terminal_installed.png)
+    ![Installed apps](/docs/.gitbook/assets/console_screenshots/terminal_installed.png)
 
 You can look its details by clicking on the button **Details** for each instance.
 
-![Terminal card](../../../../../.gitbook/assets/console_screenshots/terminal_card.png)
+![Terminal card](/docs/.gitbook/assets/console_screenshots/terminal_card.png)
 
 **Details page** contains the next information:
 
@@ -46,7 +46,7 @@ You can look its details by clicking on the button **Details** for each instance
 * Logs
 * Outputs values
 
-![Terminal instance details](../../../../../.gitbook/assets/console_screenshots/terminal_details.png)
+![Terminal instance details](/docs/.gitbook/assets/console_screenshots/terminal_details.png)
 
 ## Using the Terminal App
 
@@ -62,6 +62,6 @@ You can look its details by clicking on the button **Details** for each instance
     apolo run alpine:latest echo 'Hello, World!'
     ```
 
-    ![](../../../../../.gitbook/assets/console_screenshots/terminal_app.png)
+    ![](/docs/.gitbook/assets/console_screenshots/terminal_app.png)
 
-    ![Terminal interface](../../../../../.gitbook/assets/console_screenshots/terminal_app2.png)
+    ![Terminal interface](/docs/.gitbook/assets/console_screenshots/terminal_app2.png)

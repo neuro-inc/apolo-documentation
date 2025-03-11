@@ -12,7 +12,7 @@ Your organization receives a storage space within the cluster, structured in a h
 * Project Level: Individual project folders within your organization
 * Custom Folders: User-created folders for further organization
 
-![](../../../../.gitbook/assets/console_screenshots/FilesAppStructure.png)
+![](/docs/.gitbook/assets/console_screenshots/FilesAppStructure.png)
 
 ### **Core Features**
 

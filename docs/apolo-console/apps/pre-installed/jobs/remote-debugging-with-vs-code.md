@@ -103,16 +103,16 @@ This will allow you to access the job by the `5678` port.
 
 Open your code file in VS Code and navigate to **Run > Start Debugging** or press **F5**:
 
-![](<../../../../../../.gitbook/assets/image (89) (1).png>)
+![](</docs/.gitbook/assets/image (89) (1).png>)
 
 Select **Remote Attach**:
 
-![](<../../../../../../.gitbook/assets/image (88).png>)
+![](</docs/.gitbook/assets/image (88).png>)
 
 Enter **localhost** as the host name and the job's port number (in this case, it's **5687**):
 
-![](<../../../../../../.gitbook/assets/image (87) (1).png>)
+![](</docs/.gitbook/assets/image (87) (1).png>)
 
-![](<../../../../../../.gitbook/assets/image (91).png>)
+![](</docs/.gitbook/assets/image (91).png>)
 
 When this is done, you can set the breakpoint and start debugging.

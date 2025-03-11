@@ -52,7 +52,7 @@ Resource Presets:
 {% tab title="Apolo Console" %}
 To view information about your current cluster in the Apolo Console, look at the top right corner of the screen. You will see a section labeled "Cluster" with the name of your current cluster (e.g., "default"). Clicking on the dropdown arrow next to the cluster name will provide more details about the current cluster.
 
-![](../../../../.gitbook/assets/console_screenshots/cluster_inform.png)
+![](/docs/.gitbook/assets/console_screenshots/cluster_inform.png)
 {% endtab %}
 {% endtabs %}
 
