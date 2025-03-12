@@ -1,5 +1,5 @@
 ---
-description: 'Apolo Flow: MLOps Pipeline Engine'
+description: Apolo pipelines
 ---
 
 # Flows
@@ -40,7 +40,7 @@ Apolo Web console  includes a Flow section for monitoring and managing pipeline 
 
 For detailed documentation, refer to the dedicated Apolo Flow reference guide.
 
-### References
+## References
 
 * [Apolo Flow documentation](https://app.gitbook.com/o/-MMLX64i1AQdS3ehf2Kg/s/-MMLOF_FqiWBMcOdY8cj/)
 

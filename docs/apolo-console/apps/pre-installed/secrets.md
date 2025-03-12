@@ -1,4 +1,10 @@
+---
+description: Apolo secrets management
+---
+
 # Secrets
+
+## Overview
 
 The Secrets app in the Apolo Console allows users to securely store and manage sensitive data, such as API tokens, passwords, configuration values or files associated with their projects.
 

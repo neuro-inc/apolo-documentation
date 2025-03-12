@@ -1,6 +1,6 @@
 # Remote Debugging with VS Code
 
-### Introduction
+## Introduction
 
 In this tutorial, we will show how to set up remote debugging with VS Code on the platform using the flow template.
 
@@ -8,9 +8,9 @@ In this tutorial, we will show how to set up remote debugging with VS Code on th
 Remote debugging relies on a running SSH server in a job's 22 port. We ensure it for you if you use our base image (`ghcr.io/neuro-inc/base`).
 {% endhint %}
 
-### Initializing a new project
+## Initializing a new project
 
-Make sure you have CLI and [**cookiecutter**](https://github.com/cookiecutter/cookiecutter) installed, refer to [getting-started.md](../../../../../../apolo-console/first-steps/getting-started.md "mention") for instructions.
+Make sure you have CLI and [**cookiecutter**](https://github.com/cookiecutter/cookiecutter) installed, refer to [getting-started.md](../../../../../apolo-console/first-steps/getting-started.md "mention") for instructions.
 
 Then, initialize an empty flow:
 
@@ -28,7 +28,7 @@ code_directory [modules]:
 preserve Neuro Flow template hints [yes]:
 ```
 
-### Configuring the project
+## Configuring the project
 
 Add `debugpy` to your project's `requirements.txt` file (located in the project's root folder):
 
@@ -83,7 +83,7 @@ volumes:
 
 Here, you can specify your local code folder and the storage folder you want to upload this code to.
 
-### Running your code
+## Running your code
 
 In this example, we will be running a training job based on the code contained in the `train.py` file we just uploaded to the platform storage. To do this, run:
 
@@ -99,20 +99,20 @@ $ apolo job port-forward <job-id> 5678:5678
 
 This will allow you to access the job by the `5678` port.
 
-### Debugging
+## Debugging
 
 Open your code file in VS Code and navigate to **Run > Start Debugging** or press **F5**:
 
-![](</docs/.gitbook/assets/image (89) (1).png>)
+![](<../../../../.gitbook/assets/image (89) (1).png>)
 
 Select **Remote Attach**:
 
-![](</docs/.gitbook/assets/image (88).png>)
+![](<../../../../.gitbook/assets/image (88).png>)
 
 Enter **localhost** as the host name and the job's port number (in this case, it's **5687**):
 
-![](</docs/.gitbook/assets/image (87) (1).png>)
+![](<../../../../.gitbook/assets/image (87) (1).png>)
 
-![](</docs/.gitbook/assets/image (91).png>)
+![](<../../../../.gitbook/assets/image (91).png>)
 
 When this is done, you can set the breakpoint and start debugging.

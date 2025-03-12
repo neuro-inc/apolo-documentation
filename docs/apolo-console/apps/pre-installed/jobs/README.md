@@ -1,5 +1,5 @@
 ---
-description: Running Apolo Jobs using Apolo Console
+description: Apolo workloads
 ---
 
 # Jobs
