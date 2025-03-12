@@ -17,3 +17,10 @@ On the right side of the screen, selecting an image displays detailed informatio
 * _Copy Icons_. Allows the user to copy either the image path or tag to the clipboard for easy reference.
 
 To learn more about managing images with the Images app, visit the [Apolo CLI Images](../../../apolo-concepts-cli/apps/images.md#overview) app page.
+
+## References
+
+* [Apolo CLI images reference](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/image)
+* [Apolo Extras image build](https://app.gitbook.com/s/EicNFI9vPOX1TTMYRKT9/cli#apolo-extras-image)
+* [Apolo Flow image configuration syntax](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/workflow-syntax/batch-workflow-syntax/batch-contexts#images-context)
+

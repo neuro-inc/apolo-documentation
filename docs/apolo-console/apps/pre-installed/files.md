@@ -4,7 +4,7 @@
 
 The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo Console. To learn more about how to manage the Files app with Apolo CLI, visit the [Apolo CLI Files](../../../apolo-concepts-cli/apps/files.md) app page.
 
-### **Storage Organization**
+## **Storage Organization**
 
 Your organization receives a storage space within the cluster, structured in a hierarchical manner:
 
@@ -12,9 +12,9 @@ Your organization receives a storage space within the cluster, structured in a h
 * Project Level: Individual project folders within your organization
 * Custom Folders: User-created folders for further organization
 
-![](/docs/.gitbook/assets/console_screenshots/FilesAppStructure.png)
+![](../../../.gitbook/assets/console_screenshots/FilesAppStructure.png)
 
-### **Core Features**
+## **Core Features**
 
 _**Adding New Folders**_ You can create new folders to organize your files by clicking the "Add Folder" button. The system will prompt you with a dialog where you can specify the folder name. These folders help maintain a structured file hierarchy within your project space.
 
@@ -44,3 +44,10 @@ For each file and folder, you can:
   * Delete items
   * Copy/move items
   * View detailed properties
+
+## References
+
+* [Apolo CLI Files management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/storage)
+* [Apolo CLI Files mounting to jobs](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/job#usage-10)
+* [Apolo Flow configuration volumes definition](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/workflow-syntax/live-workflow-syntax#volumes)
+
