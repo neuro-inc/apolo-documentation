@@ -6,14 +6,14 @@ description: 'Apolo Flow: MLOps Pipeline Engine'
 
 **Apolo Flow** is a powerful pipeline engine designed for MLOps workflows on the Apolo platform. It enables seamless orchestration, automation, and execution of machine learning pipelines.
 
-### Use Cases
+## Use Cases
 
 * Automating ML workflows, from data ingestion to model deployment.
 * Running batch and live workflows for continuous training and inference.
 * Managing dependencies and execution order across pipeline steps.
 * Standardizing and versioning workflows for reproducibility and collaboration.
 
-### Example Use Case
+## Example Use Case
 
 Imagine a data science team working on a fraud detection model. They can use Apolo Flow to:
 
@@ -22,11 +22,21 @@ Imagine a data science team working on a fraud detection model. They can use Apo
 3. Train and validate multiple models in parallel.
 4. Deploy the best-performing model into production.
 
-### Models of Operation
+## Models of Operation
 
 * **CLI Usage**: Provides a command-line interface for managing pipelines, configuring workflows, and executing actions.
 * **Configuration Files**: Uses structured configuration files to define workflow syntax, actions, and dependencies.
-* **Workflow Syntax**: Supports batch and live workflows, allowing users to define execution logic and contexts.
+* **Workflow Syntax**: Supports batch (pipeline) and live (interactive) workflows, allowing users to define execution logic and contexts.
+
+## Web Console Capabilities
+
+Apolo Web console  includes a Flow section for monitoring and managing pipeline execution. Users can:
+
+* List workloads running as part of flows, including live jobs and bakes (batch execution).
+* Monitor and control the lifecycle of jobs, tasks, and entire pipelines.
+* Retrieve pipeline statuses, view pipeline DAG with highlighted statuses, step-by-step execution details, inspect logs.
+* Kill jobs, individual tasks, or full pipeline if necessary.
+* Access detailed outputs for each pipeline step, enabling debugging and performance optimization.
 
 For detailed documentation, refer to the dedicated Apolo Flow reference guide.
 
