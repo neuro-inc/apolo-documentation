@@ -16,7 +16,7 @@ The Disks section is accessible via the left-hand navigation menu in the Apolo C
 2. Fill out disk details:
    * _Storage:_ Specify the storage size in GB. This determines the disk's capacity.
    * _Name:_ Provide a unique name to identify the disk within the cluster.
-   * _Lifespan:_ Define the disk’s lifespan using a duration format (e.g., 1d for one day, 2h for two hours, etc.). Lifespan determines how long the disk is allowed to exist before it is automatically removed.
+   * _Lifespan:_ Define the disk’s lifespan using a duration format (e.g., 1d for one day, 2h for two hours, etc.). Lifespan determines how long the disk is allowed to exist without a use before it is automatically garbage-collected.
 3. Click "Create" button.
 
 ## Viewing Disk Details
@@ -27,7 +27,12 @@ The Disks section is accessible via the left-hand navigation menu in the Apolo C
    * _Status:_ Indicates whether the disk is ready for use or still being processed.
    * _Owner:_ Displays the author of the disk.
    * _Storage:_ Total storage capacity of the disk.
-   * _Lifespan:_ Defined time before the disk expires.
+   * _Lifespan:_ Defined time before the disk gets garbage-collected.
    * _Created:_ The date the disk was created.
 
 Additionally, the properties pop-up includes two buttons: one for sharing access to the selected disk and another for removing the disk.
+
+## References
+
+* [Apolo CLI: Disk management](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/disk)
+* [Apolo CLI: Disk usage](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/job#run)

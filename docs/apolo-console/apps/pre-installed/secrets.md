@@ -20,6 +20,13 @@ When you remove the secret, the currently running workloads will stay intact eve
 
 To learn more about secrets management via Apolo CLI visit a [dedicated documentation](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/secret) page.
 
-If you are interested in secrets usage with Apolo Jobs, we check [this](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/topics/topic-secrets) page.
+If you are interested in secrets usage with Apolo Jobs, please check [this](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/topics/topic-secrets) page.
 
-Usage of secrets in Flows is not different from CLI, simply refer your secret name in environment variable value or in volume mount configuration. For more details, check our [Flow documentation](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/workflow-syntax/live-workflow-syntax).&#x20;
+The use of secrets in Flows is the same as in the CLI. Simply reference your secret name in environment variable value or in volume mount configuration sections of tasks or volumes. For more details, check our [Flow documentation](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/workflow-syntax/live-workflow-syntax).&#x20;
+
+## References
+
+* [Apolo CLI: Secrets management](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/secret)
+* [Apolo CLI: Secrets usage](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/topics/topic-secrets)
+* [Apolo Flow: configuration file reference](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/workflow-syntax)
+
