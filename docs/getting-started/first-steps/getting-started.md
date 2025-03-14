@@ -19,8 +19,8 @@ Here are some examples.
 
 Run a job on CPU which prints “Hello, World!” and shuts down:
 
-```
-$ apolo run --preset cpu-small --name test ubuntu -- echo Hello, World!
+```bash
+apolo run --preset cpu-small --name test ubuntu -- echo Hello, World!
 ```
 
 Executing this command will result in an output like this:
@@ -45,13 +45,13 @@ Hello, World!
 Run a job on GPU in the default Apolo environment (`ghcr.io/neuro-inc/base`) that checks if CUDA is available in this environment:
 
 ```
-$ apolo run --preset gpu-small --name test  ghcr.io/neuro-inc/base -- python -c "import torch; print(torch.cuda.is_available());"
+apolo run --preset gpu-small --name test  ghcr.io/neuro-inc/base -- python -c "import torch; print(torch.cuda.is_available());"
 ```
 
 We used the `gpu-small` preset for this job. To see the full list of presets you can use, run the following command:
 
 ```
-$ apolo config show
+apolo config show
 ```
 
 ### Working with platform storage
@@ -59,19 +59,19 @@ $ apolo config show
 Create a new `demo` directory in the root directory of your platform storage:
 
 ```
-$ apolo mkdir -p storage:demo
+apolo mkdir -p storage:demo
 ```
 
 Run a job that mounts the `demo` directory from platform storage to the `/demo` directory in the job container and creates a file in it:
 
 ```
-$ apolo run --volume storage:demo:/demo:rw ubuntu -- bash -c "echo Hello >> /demo/hello.txt"
+apolo run --volume storage:demo:/demo:rw ubuntu -- bash -c "echo Hello >> /demo/hello.txt"
 ```
 
 Check that the file you have just created is actually on the storage:
 
 ```
-$ apolo ls storage:demo
+apolo ls storage:demo
 ```
 
 ## Developing on GPU with Jupyter Notebooks
@@ -83,13 +83,13 @@ Development in Jupyter Notebooks is a good example of how the Apolo Platform can
 First, you will need to install the **cookiecutter** package via **pip** or **pipx**:
 
 ```
-$ pipx install cookiecutter
+pipx install cookiecutter
 ```
 
 Now, to initialize a new Apolo flow using [cookiecutter](https://github.com/neuro-inc/cookiecutter-neuro-project/blob/master/cookiecutter.json) template, run:
 
 ```
-$ cookiecutter gh:neuro-inc/cookiecutter-neuro-project --checkout release
+cookiecutter gh:neuro-inc/cookiecutter-neuro-project --checkout release
 ```
 
 This command will prompt you to enter some info about your new flow:
@@ -109,7 +109,7 @@ Default values are indicated by square brackets **\[ ].** You can use them by pr
 To navigate to the flow directory, run:
 
 ```
-$ cd new-cookiecutter-project
+cd new-cookiecutter-project
 ```
 
 ### Flow structure
@@ -144,8 +144,8 @@ The template contains the `.neuro/live.yaml` configuration file for `apolo-flow`
 To set up the project environment, run:
 
 ```
-$ apolo-flow build train
-$ apolo-flow mkvolumes
+apolo-flow build train
+apolo-flow mkvolumes
 ```
 
 When these commands are executed, system packages from `apt.txt` and pip dependencies from `requirements.txt` are installed to the base environment. It supports CUDA by default and contains the most popular ML/AI frameworks such as Tensorflow and Pytorch.
@@ -153,19 +153,19 @@ When these commands are executed, system packages from `apt.txt` and pip depende
 For Jupyter Notebooks to run properly, the `train.py` script and the notebook itself should be available on the storage. Upload the `code` directory containing this file to the storage by using the following command:
 
 ```
-$ apolo-flow upload ALL
+apolo-flow upload ALL
 ```
 
 Now you need to choose a preset on which you want to run your Jupyter jobs. To view the list of presets available on the current cluster, run:
 
 ```
-$ apolo config show 
+apolo config show 
 ```
 
 To start a Jupyter Notebooks session run:
 
 ```
-$ apolo-flow run jupyter
+apolo-flow run jupyter
 ```
 
 This command will open Jupyter Notebooks interface in your default browser.
@@ -194,17 +194,17 @@ $ apolo-flow run jupyter
 Now, when you edit notebooks, they are updated on your platform storage. To download them locally (for example, to save them under a version control system), run:
 
 ```
-$ apolo-flow download notebooks
+apolo-flow download notebooks
 ```
 
 Don’t forget to terminate your job when you no longer need it (the files won’t disappear after that):
 
 ```
-$ apolo-flow kill jupyter
+apolo-flow kill jupyter
 ```
 
 To check how many credits you have left, run:
 
 ```
-$ apolo config show
+apolo config show
 ```

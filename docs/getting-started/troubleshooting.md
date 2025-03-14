@@ -2,7 +2,7 @@
 
 ## Lost/unknown job ID
 
-The first step in any investigation is knowing a job ID. If you started your job with `apolo run`, the job's ID was printed in the output.&#x20;
+The first step in any investigation is knowing a job ID. If you started your job with `apolo run`, the job's ID was printed in the output.
 
 However, if you can't find the initial terminal output, you can use one of these commands to find a specific job:
 
@@ -10,7 +10,7 @@ However, if you can't find the initial terminal output, you can use one of these
 {% tab title="apolo CLI" %}
 Note: `apolo ps` is a shortcut for `apolo job ls`
 
-`apolo ps` prints only running jobs. \
+`apolo ps` prints only running jobs.\
 `apolo ps -a` prints all jobs.\
 `apolo ps -s failed` prints all jobs with the Failed status.
 {% endtab %}
@@ -24,24 +24,24 @@ Run `apolo-flow ps` to get the list of all jobs defined in a flow.
 
 When you run `apolo-flow build IMAGE_NAME`, apolo-flow uploads the build context to the platform and creates a platform job that uses [Kaniko](https://github.com/GoogleContainerTools/kaniko) to build a docker image and push it to the platform registry.
 
-If building fails, you can check the job's status and logs to get more information.&#x20;
+If building fails, you can check the job's status and logs to get more information.
 
 #### Getting a job's status
 
-To check a job's status, run:&#x20;
+To check a job's status, run:
 
 ```
-$ apolo status <job-ID> 
+apolo status <job-ID> 
 ```
 
-The **Status transitions** section in the output can help you learn at which step the job failed.&#x20;
+The **Status transitions** section in the output can help you learn at which step the job failed.
 
 #### Getting builder logs
 
 To check builder logs, run:
 
 ```
-$ apolo logs <job-ID> 
+apolo logs <job-ID> 
 ```
 
 ## apolo run / apolo-flow run failed
@@ -70,7 +70,7 @@ There are a few steps to troubleshooting such issues.
 
 #### Checking for an open HTTP port
 
-The first point of interest is whether you have an open HTTP port for your job. To check this, you can:&#x20;
+The first point of interest is whether you have an open HTTP port for your job. To check this, you can:
 
 {% tabs %}
 {% tab title="apolo CLI" %}
@@ -88,7 +88,7 @@ Next, make sure that your web app listens on 0.0.0.0, not on 127.0.0.1 or `local
 
 #### Disabling HTTP authentication
 
-And finally, if you can access your job via browser, but `curl` and similar tools don’t work, most likely you didn’t disable HTTP authentication. The Apolo platform puts an HTTP authentication layer in front of your app by default for security reasons.&#x20;
+And finally, if you can access your job via browser, but `curl` and similar tools don’t work, most likely you didn’t disable HTTP authentication. The Apolo platform puts an HTTP authentication layer in front of your app by default for security reasons.
 
 You can disable this behavior manually when running jobs:
 
@@ -107,7 +107,7 @@ Use the `http_auth: False` option.
 Just like with Docker, you can get a shell in a running job to check its state. To do this, run:
 
 ```
-$ apolo exec JOB_ID -- /bin/sh
+apolo exec JOB_ID -- /bin/sh
 ```
 
 Note: In Docker you would typically add the `-it` parameters to the command, but they’re not necessary for `apolo exec`.
@@ -152,4 +152,3 @@ Each of these statuses have additional sub-statuses that can help you monitor th
 | UserRequested        | The job was terminated per user request                                   |
 
 ##
-

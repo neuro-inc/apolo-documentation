@@ -15,8 +15,8 @@ To simplify working with Apolo Platform and to help establish the best practices
 To use it, install the [**cookiecutter**](https://github.com/cookiecutter/cookiecutter) package and initialize **cookiecutter-neuro-project**:
 
 ```
-$ pipx install cookiecutter
-$ cookiecutter gh:neuro-inc/cookiecutter-neuro-project --checkout release
+pipx install cookiecutter
+cookiecutter gh:neuro-inc/cookiecutter-neuro-project --checkout release
 ```
 
 You will then need to provide some information about the new project:
@@ -70,19 +70,19 @@ Now we need to fill newly created flow with the content:
 * Change working directory:
 
 ```
-$ cd apolo-tutorial
+cd apolo-tutorial
 ```
 
 * Copy the [model source](https://github.com/pytorch/tutorials/blob/master/intermediate_source/char_rnn_classification_tutorial.py) to your `rnn` folder:
 
 ```
-$ curl https://raw.githubusercontent.com/pytorch/tutorials/master/intermediate_source/char_rnn_classification_tutorial.py -o rnn/char_rnn_classification_tutorial.py
+curl https://raw.githubusercontent.com/pytorch/tutorials/master/intermediate_source/char_rnn_classification_tutorial.py -o rnn/char_rnn_classification_tutorial.py
 ```
 
 * Download data from [here](https://download.pytorch.org/tutorial/data.zip), extract the ZIP’s content and put it in your `data` folder:
 
 ```
-$ curl https://download.pytorch.org/tutorial/data.zip -o data/data.zip && unzip data/data.zip && rm data/data.zip
+curl https://download.pytorch.org/tutorial/data.zip -o data/data.zip && unzip data/data.zip && rm data/data.zip
 ```
 
 ## Training and evaluating the model
@@ -92,7 +92,7 @@ When you start working with a flow on the Apolo platform, the basic flow looks a
 To set up the remote environment, run
 
 ```
-$ apolo-flow build train
+apolo-flow build train
 ```
 
 This command will run a lightweight job (via `apolo run`), upload the files containing your dependencies `apt.txt` and `requirements.txt` (via `apolo cp`), install the dependencies (using `apolo exec`), do other preparatory steps, and then create the base image from this job and push it to the platform (via `apolo save`, which works similarly to `docker commit`).
@@ -100,7 +100,7 @@ This command will run a lightweight job (via `apolo run`), upload the files cont
 To upload data and code to your storage, run
 
 ```
-$ apolo-flow upload ALL
+apolo-flow upload ALL
 ```
 
 To run training job, you need to specify the training script in `.neuro/live.yaml`, and then run `apolo-flow run train`:
@@ -125,7 +125,7 @@ To run training job, you need to specify the training script in `.neuro/live.yam
 Now, you can run
 
 ```
-$ apolo-flow run train
+apolo-flow run train
 ```
 
 and observe the output. You will see how some checks are made at the beginning of the script, and then the model is being trained and evaluated:

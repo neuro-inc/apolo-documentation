@@ -8,18 +8,18 @@ Oftentimes you don't start a project from scratch. Instead of that you use someo
 2. Install the `apolo-flow` package:
 
 ```bash
-$ pip install -U apolo-flow
+pip install -U apolo-flow
 ```
 
 ## Configuration
 
-As an example we'll use the GitHub [repo](https://github.com/songyouwei/ABSA-PyTorch) that contains PyTorch implementations for Aspect-Based Sentiment Analysis models (see [Attentional Encoder Network for Targeted Sentiment Classification](https://paperswithcode.com/paper/attentional-encoder-network-for-targeted) for more details).&#x20;
+As an example we'll use the GitHub [repo](https://github.com/songyouwei/ABSA-PyTorch) that contains PyTorch implementations for Aspect-Based Sentiment Analysis models (see [Attentional Encoder Network for Targeted Sentiment Classification](https://paperswithcode.com/paper/attentional-encoder-network-for-targeted) for more details).
 
 First, let's clone the repo and navigate to the created folder:
 
 ```bash
-$ git clone git@github.com:songyouwei/ABSA-PyTorch.git
-$ cd ABSA-PyTorch
+git clone git@github.com:songyouwei/ABSA-PyTorch.git
+cd ABSA-PyTorch
 ```
 
 Now, we need to create two more files in this folder:
@@ -80,20 +80,20 @@ Now it's time to run several commands that set up the project environment and ru
 * First, create volumes and upload project to platform storage:
 
 ```
-$ apolo-flow mkvolumes
-$ apolo-flow upload ALL
+apolo-flow mkvolumes
+apolo-flow upload ALL
 ```
 
 * Then, build an image:
 
 ```
-$ apolo-flow build pytorch
+apolo-flow build pytorch
 ```
 
 * Finally, run training:
 
 ```
-$ apolo-flow run train
+apolo-flow run train
 ```
 
-Please run `apolo-flow --help` to get more information about available commands.&#x20;
+Please run `apolo-flow --help` to get more information about available commands.
