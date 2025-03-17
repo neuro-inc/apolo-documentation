@@ -17,3 +17,8 @@
 * [DeepSeek-R1 model deployment](llms/deepseek-r1-model-deployment.md)
 * [Teaching Models To Reason - Training, Fine-Tuning, and Evaluating Models with LLaMA Factory on Apolo](llms/teaching-models-to-reason-training-fine-tuning-and-evaluating-models-with-llama-factory-on-apolo.md)
 * [Autonomous Research with AgentLaboratory: DeepSeek R1 vs. OpenAI o1](llms/autonomous-research-with-agentlaboratory-deepseek-r1-vs.-openai-o1.md)
+
+## Image and Video processing
+
+* [Synthetic Data Generation using Stable Diffusion](image-and-video-processing/synthetic-data-generation-using-stable-diffusion.md)
+* [HOWTO: Lora models with Stable Diffusion](image-and-video-processing/howto-lora-models-with-stable-diffusion.md)
