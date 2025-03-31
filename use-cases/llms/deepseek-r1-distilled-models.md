@@ -238,7 +238,7 @@ In this case, we describe another approach to "consume" the service provided by 
 
 To start web chat with your DeepSeek model, issue cli command:
 
-`apolo-flow run web`
+`apolo-flow run web --param server vllm`
 
 ```bash
 $ apolo-flow run web

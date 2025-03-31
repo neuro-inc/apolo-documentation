@@ -328,7 +328,7 @@ Now start `ray_head`, `ray_worker` and `web` jobs. Please give Ray a minute to s
 ```bash
 apolo-flow run ray_head # wait a munite after running head job, so it starts
 apolo-flow run ray_extra_worker # run extra workers if needed
-apolo-flow run ray_worker # it will connect to the ray_head
+apolo-flow run ray_worker # it will connect to the ray_head and start the model
 apolo-flow run web # this will attach to the worker node 
 ```
 
