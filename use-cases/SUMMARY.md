@@ -9,7 +9,9 @@
 
 ## Generic
 
-* [End-to-End ML Model Lifecycle on Apolo Platform](generic/end-to-end-ml-model-lifecycle-on-apolo-platform.md)
+* [ML Model Lifecycle on Apolo Platform](generic/ml-model-lifecycle-on-apolo-platform/README.md)
+  * [End-to-End ML Model Lifecycle using Apolo CLI](generic/ml-model-lifecycle-on-apolo-platform/end-to-end-ml-model-lifecycle-using-apolo-cli.md)
+  * [ML Model Lifecycle using Apolo Console](generic/ml-model-lifecycle-on-apolo-platform/ml-model-lifecycle-using-apolo-console.md)
 
 ## Large language models <a href="#llms" id="llms"></a>
 
