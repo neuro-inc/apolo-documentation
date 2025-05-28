@@ -24,3 +24,7 @@
 
 * [Synthetic Data Generation using Stable Diffusion](image-and-video-processing/synthetic-data-generation-using-stable-diffusion.md)
 * [HOWTO: Lora models with Stable Diffusion](image-and-video-processing/howto-lora-models-with-stable-diffusion.md)
+
+## Audio Processing
+
+* [Deploying Text-to-Speech and Speech-to-Text Models in Apolo](audio-processing/deploying-text-to-speech-and-speech-to-text-models-in-apolo.md)

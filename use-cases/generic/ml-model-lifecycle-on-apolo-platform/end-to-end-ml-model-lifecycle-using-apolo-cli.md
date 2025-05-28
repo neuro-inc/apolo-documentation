@@ -60,7 +60,7 @@ To find the correct preset names for your cluster:
 
 
 
-    <figure><img src="../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 3. Note the available preset names
 4. Modify the relevant fields in your `live.yml` file accordingly
 
@@ -110,7 +110,7 @@ The MLflow server provides:
 * Artifact storage for models and other outputs
 * A REST API for logging from your training jobs
 
-<figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption><p>MLFlow interface displaying a list of experiments</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption><p>MLFlow interface displaying a list of experiments</p></figcaption></figure>
 
 ### Step 5: Prepare Training Data
 
@@ -173,9 +173,9 @@ During training, you can:
 * Monitor progress in the MLflow UI
 * Access logs via `apolo-flow logs train`
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Average Loss metric decrease displayed in MLFlow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Average Loss metric decrease displayed in MLFlow</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (2).png" alt=""><figcaption><p>Model training artifacts such as the weights file and metadata files displayed on MLFlow</p></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Model training artifacts such as the weights file and metadata files displayed on MLFlow</p></figcaption></figure>
 
 ### Step 8: Deploy Model Serving API
 
@@ -211,7 +211,7 @@ To interact with your model, add `/docs` to the end of the URL. This will take y
 
 For example, you can submit a name like "Patrick" along with the number of predictions you want, and the model will return the most likely country origins for that name based on its training.
 
-<figure><img src="../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 ### Additional Workflows
 
