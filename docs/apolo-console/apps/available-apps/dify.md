@@ -16,7 +16,7 @@ You can deploy Dify using the Apolo, which facilitates Helm chart deployment and
 The installation process automates:
 
 1. Integration with existing PGVector app
-2. Dify configs to persist datasets objects at [Apolo Buckets](../pre-installed/buckets.md)
+2. Dify configs to persist datasets objects at [Apolo Buckets](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/apolo-console/apps/pre-installed/buckets.md)
 3. Web interface ingress configuration
 
 #### Parameter Descriptions

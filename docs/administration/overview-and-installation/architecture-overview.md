@@ -63,7 +63,7 @@ An API for sending email/Slack notifications for events such as job status trans
 
 An API for running a curated set of applications from within the Apolo Console.\\
 
-![](</docs/.gitbook/assets/neu.ro-architecture-overview (1) (1).png>)
+![](<../../.gitbook/assets/neu.ro-architecture-overview (1) (1).png>)
 
 **Apolo Console**
 
@@ -85,7 +85,7 @@ A collection of useful tools based on Apolo CLI and SDK, e.g., transfer of stora
 
 An up-to-date user documentation for the Apolo Console and CLIs with usage examples and other useful information.\\
 
-![](</docs/.gitbook/assets/neu.ro-architecture-overview-2 (1).png>)
+![](<../../.gitbook/assets/neu.ro-architecture-overview-2 (1).png>)
 
 ### Compute Cluster
 
@@ -127,4 +127,4 @@ An API for managing persistent block storage.
 
 A service for retrieving historical telemetry of compute workloads with respect to user permissions.\\
 
-![](<../../.gitbook/assets/neu.ro-architecture-overview-3 (1).png>)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/neu.ro-architecture-overview-3%20\(1\).png)

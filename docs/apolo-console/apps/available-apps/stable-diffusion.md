@@ -8,12 +8,12 @@ Stable Diffusion WebUI is an intuitive, browser-based interface designed for gen
 
 StableStudio is a web application built to enhance the Stable Diffusion experience. It provides minimalistic UI and batch inference capability.
 
-**Key Features**&#x20;
+**Key Features**
 
-* **API exposure:** Access Stable Diffusion models via RESTful APIs for seamless integration with other applications.&#x20;
-* **User-Friendly Interface:** Both platforms feature easy-to-navigate interfaces for AI image generation.&#x20;
-* **Customizability:** Fine-tune image outputs using adjustable parameters like prompt strength, resolution, and style preferences.&#x20;
-* **Multimodal Integration:** Generate images from text prompts, sketches, or existing images with advanced control over results.&#x20;
+* **API exposure:** Access Stable Diffusion models via RESTful APIs for seamless integration with other applications.
+* **User-Friendly Interface:** Both platforms feature easy-to-navigate interfaces for AI image generation.
+* **Customizability:** Fine-tune image outputs using adjustable parameters like prompt strength, resolution, and style preferences.
+* **Multimodal Integration:** Generate images from text prompts, sketches, or existing images with advanced control over results.
 * **Batch Processing:** Automate workflows for generating or editing multiple images simultaneously.
 
 ### Installation and deployment on Apolo
@@ -22,18 +22,18 @@ You can deploy Stable Diffusion WebUI using Apolo, which facilitates Helm chart 
 
 Apolo deploys HuggingFace models.
 
-**The Apolo installation process automates:**&#x20;
+**The Apolo installation process automates:**
 
-* **Dockerization of inference server:** Inference Server is wrapped into Docker container which is supported by Apolo.&#x20;
-* **Resource Allocation:** Define resource limits (CPU, memory, GPU) using Apolo presets.&#x20;
+* **Dockerization of inference server:** Inference Server is wrapped into Docker container which is supported by Apolo.
+* **Resource Allocation:** Define resource limits (CPU, memory, GPU) using Apolo presets.
 * **Persistent Storage:** Automatically provisions persistent storage for your Stable Diffusion data.
-* **Ingress Configuration:** Configure ingress for external access to Weaviate's APIs.&#x20;
+* **Ingress Configuration:** Configure ingress for external access to Weaviate's APIs.
 
 You can deploy Stable Diffusion WebUI in 2 ways:
 
 **Apolo Console (recommended way)**
 
-<figure><img src="../../../../../.gitbook/assets/image (258).png" alt=""><figcaption><p>Apolo console with SD</p></figcaption></figure>
+<figure><img src="https://github.com/neuro-inc/apolo-documentation/blob/master/.gitbook/assets/image%20(258).png" alt=""><figcaption><p>Apolo console with SD</p></figcaption></figure>
 
 **Apolo Cli**
 
@@ -66,19 +66,15 @@ apolo run --pass-config ghcr.io/neuro-inc/app-deployment -- install https://gith
 | `model.modelHFName`              | String  | Required. Name of the HuggingFace model (e.g. `stabilityai/stable-diffusion-2` ).                                                                   |
 | `model.modelFiles`               | String  | Optional. Comma Separated list of particular model files that you will use. For example only `*.safetensors` file, so we don't pull all repository. |
 
-
-
-
-
-### API usage&#x20;
+### API usage
 
 After you application is installed, you can utilize the WebUI or API endpoints exposed
 
-**Swagger API documentation:**&#x20;
+**Swagger API documentation:**
 
-https://\<APP\_HOST>>/docs&#x20;
+https://\<APP\_HOST>>/docs
 
-**txt2img API endpoint:** https://\<APP\_HOST>/sdapi/v1/txt2img&#x20;
+**txt2img API endpoint:** https://\<APP\_HOST>/sdapi/v1/txt2img
 
 **Request example:**
 
@@ -94,20 +90,19 @@ curl -X 'POST' \
 
 ### Integration with StableStudio
 
-When your stable diffusion application is exposed, and if you deployed with StableStudio \
+When your stable diffusion application is exposed, and if you deployed with StableStudio\
 You can utilize StableStudio WebUI
 
 Click settings on the right corner of your StableStudio WebUI
 
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-02-04 at 15.45.24.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://github.com/neuro-inc/apolo-documentation/blob/master/.gitbook/assets/Screenshot%202025-02-04%20at%2015.45.24.png" alt=""><figcaption></figcaption></figure>
 
 Paste external url for your stable diffusion webui HOST Url\
 The status should be "Ready without history plugin"
 
-Note: Url is persisted only on localStorage, so if you share StableStudio, it needs to be configured again\
+Note: Url is persisted only on localStorage, so if you share StableStudio, it needs to be configured again\\
 
-
-<figure><img src="../../../../../.gitbook/assets/Screenshot 2025-02-04 at 15.53.53.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="https://github.com/neuro-inc/apolo-documentation/blob/master/.gitbook/assets/Screenshot%202025-02-04%20at%2015.53.53.png" alt=""><figcaption></figcaption></figure>
 
 Now click Generate and enjoy StableStudio UI
 

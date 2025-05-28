@@ -47,6 +47,7 @@
     * [Weaviate](apolo-console/apps/available-apps/weaviate.md)
     * [Fooocus](apolo-console/apps/available-apps/fooocus.md)
     * [Stable Diffusion](apolo-console/apps/available-apps/stable-diffusion.md)
+    * [Hugging Face](apolo-console/apps/available-apps/hugging-face.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
@@ -55,6 +56,8 @@
   * [Files](apolo-concepts-cli/apps/files.md)
   * [Jobs](apolo-concepts-cli/apps/jobs.md)
   * [Images](apolo-concepts-cli/apps/images.md)
+  * [Available apps](apolo-concepts-cli/apps/available-apps/README.md)
+    * [Hugging Face](apolo-concepts-cli/apps/available-apps/hugging-face.md)
 
 ## Administration
 

@@ -12,7 +12,7 @@
 
 #### Installation and Deployment on Apolo
 
-You can deploy vLLM on the Apolo platform using the **`LLM Inference`** app. Apolo automates resource allocation, persistent storage, ingress, GPU detection, and environment variable injection, so you can focus on model configuration.
+You can deploy vLLM on the Apolo platform using the **`vLLM`** app. Apolo automates resource allocation, persistent storage, ingress, GPU detection, and environment variable injection, so you can focus on model configuration.
 
 **Highlights of the Apolo Installation Flow**:
 
@@ -21,72 +21,116 @@ You can deploy vLLM on the Apolo platform using the **`LLM Inference`** app. Apo
 3. **Ingress Setup**: Enable an ingress to expose vLLM’s HTTP endpoint for external access.
 4. **Integration with Hugging Face**: You can pass your Hugging Face token via an environment variable to pull private models.
 
+
+
 ***
+
+## Apolo Deployment
 
 #### Parameter Descriptions
 
 The following parameters can be set with Apolo’s CLI (`apolo run --pass-config ... install ... --set <key>=<value>`). Many are optional but can be used to customize your deployment:
 
-| **Parameter**                     | **Type**  | **Description**                                                                                                                                   |
-| --------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **app\_name**                     | String    | Required. Name for your vLLM application (Kubernetes release name, etc.). Must follow Kubernetes naming rules. Example: `llm-inference qwen-32b`. |
-| **preset\_name**                  | String    | Required. Apolo preset for resources. E.g. `gpu-xlarge`, `H100X1`, `mi210x2`. Sets CPU, memory, GPU count, and GPU provider.                      |
-| **model.modelHFName**             | String    | Required. Hugging Face model repo name. Example: `Qwen/QwQ-32B-preview`.                                                                          |
-| **model.modelRevision**           | String    | Optional. Specify the model revision/tag. Example: `main`.                                                                                        |
-| **env.HUGGING\_FACE\_HUB\_TOKEN** | String    | Optional. HF token for private model downloads. If left blank, only public models are accessible.                                                 |
-| **ingress.enabled**               | Boolean   | Optional (default: `false`). Enables external access to the vLLM HTTP endpoint with a Kubernetes Ingress. Example: `true`.                        |
-| **ingress.clusterName**           | String    | Optional. The cluster name used in the generated domain. Example: `novoserve`. Produces `<app_name>.apps.novoserve.org.neu.ro`.                   |
-| **serverExtraArgs**               | String\[] | Optional. Additional arguments passed to the `vllm serve` command (e.g. `--dtype=half`, `--max-model-len=131072`).                                |
+| **Resource Preset**             | Required. Apolo preset for resources. E.g. **`gpu-xlarge`**, `H100X1`, `mi210x2`. Sets CPU, memory, GPU count, and GPU provider.                                                            |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Hugging Face Model**          | Required. Provide a Model Name in specified field. And Higging Face token if model is gated. E.g.  **`sentence-transformers/all-mpnet-base-v2`**                                            |
+| **Enable HTTP Ingress**         | Exposes an application externally over HTTPS                                                                                                                                                |
+| **Hugging Face Tokenizer Name** | Name or path of the huggingface tokenizer to use. If unspecified, model name or path will be used.                                                                                          |
+| **Server Extra Args**           | Optional. Specify additional args for llm. See [https://docs.vllm.ai/en/v0.5.1/models/engine\_args.html](https://docs.vllm.ai/en/v0.5.1/models/engine_args.html)                            |
+| **Cache Config**                | Optional. Configure storage cache path, used to persist your model. Important for Autoscaling purposes. If not specified, PV will be created automatically and attached to the application. |
 
 Any additional chart values can also be provided through `--set` flags, but the above are the most common.
 
-#### Example Apolo CLI Command
+***
+
+### Web Console UI
+
+Step1 - Select the Preset you want to use (Currently only GPU-accelerated presets are supported)
+
+Step2 - Select Model from [HuggingFace](https://huggingface.co/) repositories
+
+<figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Part 1 - vLLM app deployment</p></figcaption></figure>
+
+If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please provide the HuggingFace token, as a string of Apolo Secret.
+
+Step 3 - Install and wait for the outputs, at the Outputs section of an app
+
+<figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+
+### Apolo cli
 
 Below is a streamlined example command that deploys **vLLM** using the [`app-llm-inference` ](https://github.com/neuro-inc/app-llm-inference)app that deploys to a Nvidia preset:
 
-```bash
-apolo run --pass-config ghcr.io/neuro-inc/app-deployment -- \
-  install https://github.com/neuro-inc/app-llm-inference \
-  llm-inference vllm-large charts/llm-inference-app \
-  --timeout=30m \
-  --set "preset_name=H100X2" \
-  --set "model.modelHFName=Qwen/QwQ-32B-preview" \
-  --set "model.modelRevision=main" \
-  --set "env.HUGGING_FACE_HUB_TOKEN=<YOUR_HF_TOKEN>" \
-  --set "ingress.enabled=true" \
-  --set "ingress.clusterName=<YOUR_CLUSTER_BAE>" \
-  --set "serverExtraArgs[0]=--dtype=half" \
-  --set "serverExtraArgs[1]=--max-model-len=131072" \
-  --set "serverExtraArgs[2]=--enforce-eager"
+```
+apolo app install -f llm.yaml --cluster <CLUSTER> --org <ORG> --project <PROJECT>
 ```
 
-Below is a streamlined example command that deploys **vLLM** using the [`app-llm-inference` ](https://github.com/neuro-inc/app-llm-inference)app that deploys to an AMD preset:
-
 ```bash
-apolo run --pass-config ghcr.io/neuro-inc/app-deployment -- \
-  install https://github.com/neuro-inc/app-llm-inference \
-  llm-inference vllm-large charts/llm-inference-app \
-  --timeout=30m \
-  --set "preset_name=mi210x2" \
-  --set "model.modelHFName=Qwen/QwQ-32B-preview" \
-  --set "model.modelRevision=main" \
-  --set "env.HUGGING_FACE_HUB_TOKEN=<YOUR_HF_TOKEN>" \
-  --set "ingress.enabled=true" \
-  --set "ingress.clusterName=<YOUR_CLUSTER_BAE>" \
-  --set "serverExtraArgs[0]=--dtype=half" \
-  --set "serverExtraArgs[1]=--max-model-len=131072" \
-  --set "serverExtraArgs[2]=--enforce-eager"
+# Example of llm.yaml
+
+template_name: "llm-inference"
+input:
+  preset:
+   name: "gpu-l4-x1"
+  hugging_face_model:
+    model_hf_name: "meta-llama/Llama-3.1-8B-Instruct"
+    hf_token: <INSERT_HF_TOKEN>
+  ingress_http:
+    http_auth: false
+    enabled: true
+
 ```
 
 **Explanation**:
 
-* **`preset_name=gpu-xlarge`** requests 2 GPUs (NVIDIA H100). Apolo automatically sets `CUDA_VISIBLE_DEVICES=0,1` and default parallelization flags unless overridden.
-* **`preset_name=mi210x2`** requests 2 GPUs (AMD MI210). Apolo automatically sets `HIP_VISIBLE_DEVICES=0,1` , `ROCR_VISIBLE_DEVICES=0,1`  and default parallelization flags unless overridden.
-* **`model.modelHFName=Qwen/QwQ-32B-preview`**: The Hugging Face model to load.
-* **`ingress.enabled=true`** & **`ingress.clusterName=<YOUR_CLUSTER_NAME>`**: Creates a public domain (e.g. `vllm-large.apps.<YOUR_CLUSTER_NAME>.org.neu.ro`) pointing to the vLLM deployment.
-* **`serverExtraArgs[...]`**: Additional flags (`--dtype=half`, `--max-model-len=131072`, etc.) are appended to the `vllm serve` command.
+* `preset.name=gpu-l4-x1` requests 1 GPUs (AMD MI210). Apolo automatically sets `HIP_VISIBLE_DEVICES=0,1` , `ROCR_VISIBLE_DEVICES=0,1`  and default parallelization flags unless overridden.
+* `model_hf_name: "meta-llama/Llama-3.1-8B-Instruct"`: The Hugging Face model to load.
+* `ingress_http`: Creates a public domain (e.g. `vllm-large.apps.<YOUR_CLUSTER_NAME>.org.neu.ro`) pointing to the vLLM deployment.
 
-#### References
+
+
+### Usage
+
+```python
+import requests
+
+API_URL = "<APP_HOST>/v1/chat/completions"
+
+headers = {
+    "Content-Type": "application/json",
+}
+
+data = {
+    "model": "meta-llama/Llama-3.1-8B-Instruct",  # Must match the model name loaded by vLLM
+    "messages": [
+        {
+            "role": "system",
+            "content": "You are a helpful assistant that gives concise and clear answers.",
+        },
+        {
+            "role": "user",
+            "content": (
+                "I'm preparing a presentation for non-technical stakeholders "
+                "about the benefits and limitations of using large language models in our customer support workflows. "
+                "Can you help me outline the key points I should include, with clear, jargon-free explanations and practical examples?"
+            ),
+        },
+    ]
+}
+
+
+if __name__ == '__main__':
+
+    response = requests.post(API_URL, headers=headers, json=data)
+    response.raise_for_status()
+
+    reply = response.text
+    status_code = response.status_code
+    print("Assistant:", reply)
+    print("Status Code:", status_code)
+```
+
+### References
 
 * [vLLM Official GitHub Repo](https://github.com/vllm-project/vllm)
 * [app-llm-inference Helm Chart Repository](https://github.com/neuro-inc/app-llm-inference)
