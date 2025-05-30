@@ -66,6 +66,7 @@
 * [Overview and Installation](administration/overview-and-installation/README.md)
   * [Architecture Overview](administration/overview-and-installation/architecture-overview.md)
   * [On-premise Installation Guide](administration/overview-and-installation/on-premise-installation-guide.md)
+* [Apolo Credits](administration/apolo-credits.md)
 * [Cluster Management](administration/cluster-management/README.md)
   * [Creating a Cluster](administration/cluster-management/creating-a-cluster.md)
   * [Managing Users and Quotas](administration/cluster-management/managing-users-and-quotas.md)
