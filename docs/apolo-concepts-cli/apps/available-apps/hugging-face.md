@@ -4,26 +4,31 @@ See more detailed description of the application at the dedicated Apolo Console'
 
 ## Managing application via Apolo CLI
 
-### Installation
-
-**Step 1** — load application installation template
+{% stepper %}
+{% step %}
+### Load application installation template
 
 ```
 apolo app-template get hugging-face-cache -o hf-cache.yaml
 ```
+{% endstep %}
 
-**Step 2** — fill in required parameters
+{% step %}
+### **Fill in required parameters**
 
 ```yaml
 template_name: hugging-face-cache
-template_version: latest
 input:
   cache_config:
     files_path:
       path: storage://<cluster>/<org>/<project>/your/sub/path
 ```
 
-**Step 3** — install the application
+You could also configure specific version of the application to be installed by adding `template_version: <version>` block to the config file. If it is not there, the `latest` version is assumed.
+{% endstep %}
+
+{% step %}
+### Install the application
 
 `apolo app install -f hf-cache.yaml`&#x20;
 
@@ -37,8 +42,14 @@ apolo app ls
   86c60e06-ac1f-442c-a20f-836a2533cf1a   apolo-apoloproject-hugging-face-cache-86c60e06                Hugging Face Cache                hugging-face-cache                HEAD      healthy      
 
 ```
+{% endstep %}
 
-**Step 4** — if you want to remove the application via CLI, use `apolo app remove <app-id>`.
+{% step %}
+### Removal
+
+If you want to remove the application via CLI, use `apolo app remove <app-id>`.
+{% endstep %}
+{% endstepper %}
 
 You can find more information for application management commands in the list of references below.
 
@@ -47,3 +58,4 @@ You can find more information for application management commands in the list of
 * [Apolo Hugging Face application](../../../apolo-console/apps/available-apps/hugging-face.md)
 * [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)
+

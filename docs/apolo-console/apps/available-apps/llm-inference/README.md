@@ -49,13 +49,13 @@ Step1 - Select the Preset you want to use (Currently only GPU-accelerated preset
 
 Step2 - Select Model from [HuggingFace](https://huggingface.co/) repositories
 
-<figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Part 1 - vLLM app deployment</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Part 1 - vLLM app deployment</p></figcaption></figure>
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please provide the HuggingFace token, as a string of Apolo Secret.
 
 Step 3 - Install and wait for the outputs, at the Outputs section of an app
 
-<figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Apolo cli
 

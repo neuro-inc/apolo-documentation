@@ -48,6 +48,7 @@
     * [Fooocus](apolo-console/apps/available-apps/fooocus.md)
     * [Stable Diffusion](apolo-console/apps/available-apps/stable-diffusion.md)
     * [Hugging Face](apolo-console/apps/available-apps/hugging-face.md)
+    * [Service Deployment](apolo-console/apps/available-apps/service-deployment.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
@@ -58,6 +59,7 @@
   * [Images](apolo-concepts-cli/apps/images.md)
   * [Available apps](apolo-concepts-cli/apps/available-apps/README.md)
     * [Hugging Face](apolo-concepts-cli/apps/available-apps/hugging-face.md)
+    * [Service Deployment](apolo-concepts-cli/apps/available-apps/service-deployment.md)
 
 ## Administration
 
