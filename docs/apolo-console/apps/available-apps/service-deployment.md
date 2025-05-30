@@ -150,11 +150,10 @@ In many cases, you'll need to access your applications from other applications o
 4. Intra-cluster endpoints are only accessible from within the workloads that belong to the same project.
 5. Intra-cluster endpoints are not "port-forwarded" to 443 port, instead, you should connect to the same port you specified in the configuration file.
 
-For our case, let's connect to the application from within simplistic job & query the **HTTP API** endpoint (the first one in the  :
+For our case, let's connect to the application from within the simplistic `curl` job & hit the **HTTP API** endpoint with a GET request:
 
-```
-$ apolo run curlimages/curl -- apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080 -vv
-√ Job ID: job-dcd55260-09a7-4f33-9e07-c0629ce4cc97
+<pre><code>$ apolo run curlimages/curl -- <a data-footnote-ref href="#user-content-fn-1">apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d</a>:<a data-footnote-ref href="#user-content-fn-2">8080</a> -v 
+√ Job ID: job-23832f68-e890-4412-b46b-f3679e8f9e41
 - Status: pending Creating
 - Status: pending Scheduling
 - Status: pending Completed
@@ -162,31 +161,28 @@ $ apolo run curlimages/curl -- apolo-default-service-deployment-39ba8a4d-custom-
 √ =========== Job is running in terminal mode ===========
 √ (If you don't see a command prompt, try pressing enter)
 √ (Use Ctrl-P Ctrl-Q key sequence to detach from the job)
-14:28:06.065040 [0-0] * Host apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080 was resolved.
-14:28:06.065107 [0-0] * IPv6: (none)
-14:28:06.065153 [0-0] * IPv4: 10.107.101.244
-14:28:06.065203 [0-0] * [SETUP] added
-14:28:06.065271 [0-0] *   Trying 10.107.101.244:8080...
-14:28:06.065509 [0-0] * [SETUP] Curl_conn_connect(block=0) -> 0, done=0
-14:28:06.065565 [0-0] * [SETUP] Curl_conn_connect(block=0) -> 0, done=1
-14:28:06.065615 [0-0] * Connected to apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d (10.107.101.244) port 8080
-14:28:06.065671 [0-0] * using HTTP/1.x
-14:28:06.065768 [0-0] > GET / HTTP/1.1
-14:28:06.065768 [0-0] > Host: apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080
-14:28:06.065768 [0-0] > User-Agent: curl/8.13.0
-14:28:06.065768 [0-0] > Accept: */*
-14:28:06.065768 [0-0] > 
-14:28:06.066032 [0-0] < HTTP/1.1 200 OK
-14:28:06.066087 [0-0] < X-App-Name: http-echo
-14:28:06.066133 [0-0] < X-App-Version: 1.0.0
-14:28:06.066174 [0-0] < Date: Fri, 30 May 2025 14:28:06 GMT
-14:28:06.066215 [0-0] < Content-Length: 14
-14:28:06.066265 [0-0] < Content-Type: text/plain; charset=utf-8
-14:28:06.066308 [0-0] < 
+* Host apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080 was resolved.
+* IPv6: (none)
+* IPv4: 10.107.101.244
+*   Trying 10.107.101.244:8080...
+* Connected to apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d (10.107.101.244) port 8080
+* using HTTP/1.x
+> GET / HTTP/1.1
+> Host: apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080
+> User-Agent: curl/8.13.0
+> Accept: */*
+> 
+* Request completely sent off
+&#x3C; HTTP/1.1 200 OK
+&#x3C; X-App-Name: http-echo
+&#x3C; X-App-Version: 1.0.0
+&#x3C; Date: Fri, 30 May 2025 14:31:05 GMT
+&#x3C; Content-Length: 14
+&#x3C; Content-Type: text/plain; charset=utf-8
+&#x3C; 
 "hello apolo"
-14:28:06.066358 [0-0] * Connection #0 to host apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d left intact
-
-```
+* Connection #0 to host apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d left intact
+</code></pre>
 
 ## Cleanup
 
@@ -198,3 +194,7 @@ When the application is not needed anymore, you could remove it by clicking the 
 * [Apolo CLI Application template commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo CLI Service deployment application management](../../../apolo-concepts-cli/apps/available-apps/service-deployment.md)
 * [Dockerhub hashicorp/http-echo image](https://hub.docker.com/r/hashicorp/http-echo)
+
+[^1]: HTTP API domain name
+
+[^2]: HTTP API port
