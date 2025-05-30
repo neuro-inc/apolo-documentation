@@ -41,7 +41,7 @@
     * [Jupyter Lab](apolo-console/apps/available-apps/jupyter-lab.md)
     * [VS Code](apolo-console/apps/available-apps/vs-code.md)
     * [PyCharm Community Edition](apolo-console/apps/available-apps/py-charm.md)
-    * [ML Flow](apolo-console/apps/available-apps/ml-flow.md)
+    * [MLflow](apolo-console/apps/available-apps/ml-flow.md)
     * [Apolo Deploy](apolo-console/apps/available-apps/apolo-deploy.md)
     * [Dify](apolo-console/apps/available-apps/dify.md)
     * [Weaviate](apolo-console/apps/available-apps/weaviate.md)

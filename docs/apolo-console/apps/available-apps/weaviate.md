@@ -1,51 +1,126 @@
 # Weaviate
 
-**Weaviate** is a robust, open-source vector database that allows you to store and query data based on its meaning. It supports various modules for text, image, and multimodal vectorization, enabling semantic search, advanced filtering, and question-answering. Weaviate offers flexible deployment options and integrates seamlessly with popular machine learning models and frameworks, providing **GraphQL**, **REST**, and **gRPC APIs** for easy integration with your applications.
+**Weaviate** is a robust, open-source vector database that allows you to store and query data based on its meaning. It supports various modules for text, image, and multimodal vectorization, enabling semantic search, advanced filtering, and question-answering. Weaviate offers flexible deployment options and integrates seamlessly with popular machine learning models and frameworks, providing **GraphQL**, and **REST** for easy integration with your applications.
 
-#### **Key Features**
+The Apolo **Weaviate App**  delivers a fully‑managed cluster with:
 
-* **Semantic Search**: Store and query data based on semantic meaning, going beyond keyword matching.
-* **Modular Architecture**: Extend Weaviate's functionality with various modules for different data types and tasks.
-* **High Performance**: Optimized for speed and scalability to handle large datasets and complex queries.
-* **Multiple APIs**: **GraphQL**, **REST**, and **gRPC APIs** provide flexible integration options for your applications.
-* **Horizontal Scalability**: Easily scale Weaviate to handle growing data and query loads.
+* REST, GraphQL & gRPC APIs
+* Persistent volume for data
+* Optional S3 backups
+* One‑click HTTPS ingress secured by basic‑auth
 
-#### **Installation and Deployment on Apolo**
+### Key Features
 
-You can deploy **Weaviate** using **Apolo**, which facilitates Helm chart deployment and integrates with other applications running on the platform. This simplifies deployment and management, allowing for easy customization and integration with your existing infrastructure.
+| Feature                | How the Apolo App Helps                                                                |
+| ---------------------- | -------------------------------------------------------------------------------------- |
+| **Semantic Search**    | Query with `nearVector`, `nearText`, hybrid BM25‑+‑vector, etc.                        |
+| **Multimodal Support** | Bring your own embeddings for text, images, audio or mix.                              |
+| **Modular Pipeline**   | Add vectorizers & rerankers outside the DB; Apolo bundles everything in one namespace. |
+| **Horizontal Scaling** | Change the _Resource Preset_ and restart—no manual sharding.                           |
+| **Secure Ingress**     | Auto‑issued TLS cert + platform basic‑auth.                                            |
+| **Automated Backups**  | Nightly snapshots to an Apolo Files bucket (toggleable).                               |
 
-The Apolo installation process automates:
+The Apolo Platform  ships a one‑click _Weaviate App_ that encapsulates Helm deployment, persistent storage, ingress and (optionally) automatic backups.
 
-1. **Resource Allocation**: Define resource limits (CPU, memory, GPU) using Apolo presets.
-2. **Persistent Storage**: Automatically provisions persistent storage for your Weaviate data.
-3. **Ingress Configuration**: Configure ingress for external access to Weaviate's APIs.
-4. **Cluster API Authentication**: Set up authentication for Weaviate's cluster API.
-5. **Backups**: Configure backups to an Apolo bucket.
+### Apolo Deployment
 
-#### **Parameter Descriptions**
+Two paths:
 
-The following parameters can be set when deploying Weaviate using the Apolo CLI:
+1. **Web Console UI** – guided wizard.
+2. **Apolo CLI** – YAML + `app install`; perfect for CI/CD.
 
-<table data-header-hidden><thead><tr><th width="252"></th><th width="105"></th><th></th></tr></thead><tbody><tr><td><strong>Parameter</strong></td><td><strong>Type</strong></td><td><strong>Description</strong></td></tr><tr><td><strong>app_name</strong></td><td>String</td><td>Required. The name of your Weaviate application (used to name Kubernetes resources). Must adhere to Kubernetes naming conventions. Example: <code>weaviate</code>.</td></tr><tr><td><strong>preset_name</strong></td><td>String</td><td>Required. The name of the Apolo preset to use for resource allocation (e.g., <code>cpu-small</code>, <code>gpu-medium</code>). Determines CPU, memory, and GPU resources. Example: <code>cpu-large</code>.</td></tr><tr><td><strong>persistence.size</strong></td><td>String</td><td>Optional (default: <code>32Gi</code>). The size of the persistent volume claim for Weaviate's data. Example: <code>64Gi</code>.</td></tr><tr><td><strong>ingress.enabled</strong></td><td>Boolean</td><td>Optional (default: <code>false</code>). Enables ingress for external access to Weaviate's HTTP and gRPC APIs. Example: <code>true</code>.</td></tr><tr><td><strong>ingress.clusterName</strong></td><td>String</td><td>Optional (default: <code>weaviate</code>). The cluster name for ingress (used in the generated hostname). Only relevant if ingress is enabled. Example: <code>cl1</code>.</td></tr><tr><td><strong>ingress.grpc.enabled</strong></td><td>Boolean</td><td>Optional (default: <code>false</code>). Enable ingress for external access to Weaviate gRPC APIs specifically. Example: <code>true</code>.</td></tr><tr><td><strong>clusterApi.username</strong></td><td>String</td><td>Optional. Username for Weaviate's cluster API. If not specified, it is automatically generated and stored as a secret. Example: <code>taddeus</code></td></tr><tr><td><strong>clusterApi.password</strong></td><td>String</td><td>Optional. Password for Weaviate's cluster API. If not specified, it is automatically generated and stored as a secret. Example: <code>31n81tSIc$7il4Js</code></td></tr><tr><td><strong>authentication.enabled</strong></td><td>Boolean</td><td>Optional (default: <code>false</code>). Enable or disable client authentication. If not set or false, API key authentication must be configured. Example: <code>true</code>.</td></tr><tr><td><strong>backups.enabled</strong></td><td>Boolean</td><td>Optional (default: <code>false</code>). Enable or disable data backups. If enabled, the bucket is created with the name <code>weaviate-backup</code> by default. Example: <code>true</code>.</td></tr></tbody></table>
 
-Embedding modules are not available out of the box; for now, embeddings must be generated externally with an embedding model of your choice and can be saved in Weaviate.
 
-#### **Example Apolo CLI Command**
+### Web Console UI
 
-```bash
-apolo run --pass-config ghcr.io/neuro-inc/app-deployment \
-  -- install https://github.com/neuro-inc/weaviate-helm weaviate weaviate weaviate \
-  --timeout=15m0s \
-  --set preset_name=cpu-large \
-  --set persistence.size=32Gi \
-  --set ingress.enabled=true \
-  --set ingress.clusterName=cl1 \
-  --set ingress.grpc.enabled=true \
-  --set clusterApi.username=taddeus \
-  --set clusterApi.password=31n81tSIc$7il4Js \
-  --set authentication.enabled=true \
-  --set backups.enabled=true
+#### 1 · Open the catalogue
+
+Navigate to **Apps ▸ All apps** and locate **Weaviate App**.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-21 at 22.16.43.png" alt=""><figcaption></figcaption></figure>
+
+#### 2 · Fill the wizard
+
+| Section                 | Field           | Example                                                | Notes             |
+| ----------------------- | --------------- | ------------------------------------------------------ | ----------------- |
+| **Resource Preset**     | `cpu-large`     | 4 vCPU / 8 GiB                                         | Adjust as needed. |
+| **Persistent Storage**  | `size = 32` GiB | PVC for data & WAL.                                    |                   |
+| **Enable Backups**      | `true`          | Creates `storage:weaviate-backups` bucket.             |                   |
+| **Enable HTTP Ingress** | `auth = true`   | Makes `https://weaviate-<id>.apps.<cluster>.apolo.us`. |                   |
+
+
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-22 at 20.44.58.png" alt=""><figcaption></figcaption></figure>
+
+Click **Install**. In _Details_ your **external endpoints** (REST & GraphQL), basic‑auth creds and namespace appear once status is **healthy**.
+
+### Apolo CLI
+
+Deploy the same config via YAML.
+
+```yaml
+# 1. weaviate.yaml
+
+template_name: "weaviate"
+template_version: "apolo"
+input:
+  preset:
+    name: "cpu-small"
+  persistence:
+    size: 64            # GiB PVC
+    enable_backups: true
+  ingress_http:
+    auth: false         # public (no basic‑auth)
+
+# 2. install it
+apolo app install -f weaviate.yaml \
+  --cluster <CLUSTER> --org <ORG> --project <PROJECT>
 ```
+
+**Explanation**
+
+* `preset.name` — picks CPU/RAM preset.
+* `persistence.size` — volume size; backups on by default.
+* `ingress_http.auth=false` — exposes endpoints openly; set `true` for private mode.
+
+***
+
+### Inputs / Outputs _(schema v1)_
+
+**Inputs**
+
+<table data-header-hidden><thead><tr><th width="333.26953125"></th><th width="136.85546875"></th><th></th></tr></thead><tbody><tr><td>JSON Path</td><td>Default</td><td>Description</td></tr><tr><td><code>preset.name</code></td><td>–</td><td>Resource preset per replica.</td></tr><tr><td><code>persistence.size</code></td><td><code>32</code></td><td>Volume size (GiB).</td></tr><tr><td><code>persistence.enable_backups</code></td><td><code>true</code></td><td>Nightly S3 snapshots.</td></tr><tr><td><code>ingress_http.auth</code></td><td><code>true</code></td><td>Require basic‑auth.</td></tr></tbody></table>
+
+**Outputs**
+
+| Key                               | Purpose                         |
+| --------------------------------- | ------------------------------- |
+| `external_graphql_endpoint.*`     | Public `/v1/graphql` endpoint.  |
+| `external_rest_endpoint.*`        | Public `/v1` REST endpoint.     |
+| `internal_graphql_endpoint.*`     | Private `/v1/graphql` endpoint. |
+| `internal_rest_endpoint.*`        | Private `/v1` REST endpoint.    |
+| `internal_grpc_endpoint.*`        | Private gRPC in‑cluster.        |
+| `auth.username` / `auth.password` | Basic‑auth creds (if enabled).  |
+
+***
+
+### Usage
+
+Quick connectivity test & schema bootstrap:
+
+```python
+import weaviate
+
+client = weaviate.Client(
+    url="https://apolo‑taddeus‑weaviate-0aad31aa.apps.apolo.us",
+    additional_headers={"Authorization": "Basic <base64‑admin‑password>"}
+)
+
+assert client.is_ready(), "Weaviate not ready"
+print("Connected!")
+```
+
+
 
 #### **Example Python Scripts**
 
@@ -61,7 +136,9 @@ import weaviate
 # Step 1: Connect to Weaviate
 client = weaviate.Client(
     url="<your-ingress-endpoint>",
-    auth_client_secret=weaviate.AuthApiKey(api_key="<your-cluster-api-password>")
+    additional_headers={
+        "Authorization": "Bearer <your-bearer-token>"
+    }
 )
 
 
@@ -232,7 +309,9 @@ if not openai.api_key:
 
 # Step 2: Connect to Weaviate using the v3 client
 weaviate_url = "<your-ingress-endpoint>"
-client = weaviate.Client(url=weaviate_url, auth_client_secret=weaviate.AuthApiKey(api_key="<your-cluster-api-password>"))
+client = weaviate.Client(url=weaviate_url, additional_headers={
+        "Authorization": "Bearer <your-bearer-token>"
+    })
 
 if client.is_ready():
     print("Connected to Weaviate!")

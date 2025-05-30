@@ -8,103 +8,134 @@ Stable Diffusion WebUI is an intuitive, browser-based interface designed for gen
 
 StableStudio is a web application built to enhance the Stable Diffusion experience. It provides minimalistic UI and batch inference capability.
 
-**Key Features**
+### Key Features
 
-* **API exposure:** Access Stable Diffusion models via RESTful APIs for seamless integration with other applications.
-* **User-Friendly Interface:** Both platforms feature easy-to-navigate interfaces for AI image generation.
-* **Customizability:** Fine-tune image outputs using adjustable parameters like prompt strength, resolution, and style preferences.
-* **Multimodal Integration:** Generate images from text prompts, sketches, or existing images with advanced control over results.
-* **Batch Processing:** Automate workflows for generating or editing multiple images simultaneously.
+| Feature                            | How the Apolo App Helps                                                        |
+| ---------------------------------- | ------------------------------------------------------------------------------ |
+| **Text‑to‑Image & Image‑to‑Image** | Prompt → image or edit existing images via Web UI or REST.                     |
+| **Multiple UIs**                   | Switch between AUTOMATIC1111 (power‑user) and StableStudio (lightweight).      |
+| **Custom Models**                  | Point to any Hugging Face model (`stabilityai/stable-diffusion‑xl`, `lora/…`). |
+| **GPU Presets**                    | Pick from `gpu-l4-x1`, `gpu-a100-x1`, etc.; Apolo sets env vars & drivers.     |
+| **Secrets Integration**            | Store HF tokens in Apolo Secrets instead of plain text.                        |
+| **Scalable Replicas**              | `replica_count` lets you handle bursty image queues.                           |
 
-### Installation and deployment on Apolo
 
-You can deploy Stable Diffusion WebUI using Apolo, which facilitates Helm chart deployment and integrates with other applications running on the platform. This simplifies deployment and management, allowing for easy customization and integration with your existing infrastructure.
 
-Apolo deploys HuggingFace models.
+### Apolo Deployment
 
-**The Apolo installation process automates:**
+Deploy via either the **Web Console UI** or **Apolo CLI**.
 
-* **Dockerization of inference server:** Inference Server is wrapped into Docker container which is supported by Apolo.
-* **Resource Allocation:** Define resource limits (CPU, memory, GPU) using Apolo presets.
-* **Persistent Storage:** Automatically provisions persistent storage for your Stable Diffusion data.
-* **Ingress Configuration:** Configure ingress for external access to Weaviate's APIs.
+### Web Console UI
 
-You can deploy Stable Diffusion WebUI in 2 ways:
+#### 1 · Open the catalogue
 
-**Apolo Console (recommended way)**
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-23 at 17.35.39.png" alt=""><figcaption></figcaption></figure>
 
-<figure><img src="https://github.com/neuro-inc/apolo-documentation/blob/master/.gitbook/assets/image%20(258).png" alt=""><figcaption><p>Apolo console with SD</p></figcaption></figure>
+\
+2 · Configure the wizard
 
-**Apolo Cli**
+| Section                 | Field                                           | Example                                             | Notes |
+| ----------------------- | ----------------------------------------------- | --------------------------------------------------- | ----- |
+| **Enable HTTP Ingress** | `auth = true`                                   | Adds basic‑auth to the public URL.                  |       |
+| **Resource Preset**     | `gpu-a100-x1`                                   | 1× NVIDIA A100 80 GB (or choose `gpu-l4-x1`, etc.). |       |
+| **Stable Diffusion**    | `replica_count = 1`                             | Increase for concurrent jobs.                       |       |
+| **Hugging Face Model**  | `stabilityai/stable-diffusion-2-1-unclip-small` | Any HF repo path.                                   |       |
+| **HF Token**            | Secret `HF_TOKEN`                               | Needed for private or gated models.                 |       |
+
+Click **Install**. Wait until _Status → healthy_; copy the **external\_api** host (REST) or open the Web UI at `https://sd-<id>.apps.<cluster>.apolo.us`.
+
+<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-23 at 17.35.09.png" alt=""><figcaption></figcaption></figure>
+
+
+
+### Apolo CLI
+
+Create a declarative YAML and push it with one command.
+
+```yaml
+# stable-diffusion.yaml
+
+template_name: "stable-diffusion"
+template_version: "v25.5.0"
+input:
+  preset:
+    name: "gpu-l4-x1"         # 1× L4 24 GB
+  ingress_http:
+    auth: false               # public playground
+  stable_diffusion:
+    replica_count: 2          # autoscale to 2 replicas
+    hugging_face_model:
+      model_hf_name: "stabilityai/stable-diffusion-2"
+      hf_token:               # reference an Apolo Secret
+        key: "HF_TOKEN"
+
+# deploy
+apolo app install -f stable-diffusion.yaml \
+  --cluster <CLUSTER> --org <ORG> --project <PROJECT>
+```
+
+**Explanation**
+
+* `preset.name=gpu-l4-x1` requests one NVIDIA L4; Apolo auto‑sets `CUDA_VISIBLE_DEVICES` & default batch flags.
+* `replica_count=2` launches two pods behind a load balancer for higher QPS.
+* `hugging_face_model.model_hf_name` points to SD‑XL‑Turbo for faster drafts.
+* `hf_token` pulls the secret string from the _HF\_TOKEN_ key in Apolo Secrets.
+
+### Inputs / Outputs _(schema v1)_
+
+**Inputs**
+
+| JSON Path                                           | Default | Description             |
+| --------------------------------------------------- | ------- | ----------------------- |
+| `preset.name`                                       | –       | GPU preset per replica. |
+| `ingress_http.auth`                                 | `true`  | Basic‑auth gate.        |
+| `stable_diffusion.replica_count`                    | `1`     | Number of pods.         |
+| `stable_diffusion.hugging_face_model.model_hf_name` | –       | HF model repo.          |
+| `stable_diffusion.hugging_face_model.hf_token`      | `null`  | Secret or string token. |
+
+**Outputs**
+
+| Key                      | Purpose                                  |
+| ------------------------ | ---------------------------------------- |
+| `external_api.*`         | Public REST endpoint (`/v1/txt2img`).    |
+| `internal_api.*`         | In‑cluster endpoint for other workloads. |
+| `hf_model.model_hf_name` | Echoes the loaded model.                 |
+
+### Usage
+
+#### 1 · REST API
+
+Once the app is **healthy** Apolo exposes auto‑generated **Swagger** docs at:
 
 ```
-apolo run --pass-config ghcr.io/neuro-inc/app-deployment -- install https://github.com/neuro-inc/app-stable-diffusion \
-  stable-diffusion stable-studio charts/app-stable-diffusion \
-  --timeout=900s \
-  --dependency-update \
-  --set "api.replicaCount=1" \  # optional, int
-  --set "api.ingress.enabled=true" \ # optional, str, default=true
-  --set "api.env.HUGGING_FACE_HUB_TOKEN=YOUR_TOKEN" \ # required, (Huggingface hub token https://huggingface.co/docs/hub/en/security-tokens)
-  --set "preset_name=YOUR_PRESET" \ # required, str, (It is recommended to use GPU-accelerated machines)
-  --set "stablestudio.enabled=true" \  # required, str (default=true)  (If you want to enable StableStudio UI playground)
-  --set "stablestudio.preset_name=cpu-large" \ # if stablestudio.enabled=true, then required
-  --set "model.modelHFName=stabilityai/stable-diffusion-2" \  # required, str (Huggingface model name, Example: stabilityai/stable-diffusion-2)
-  --set "model.modelFiles=768-v-ema.safetensors" \  # optional, str, (Huggingface model files, model weights, comma-separated Example: 768-v-ema.safetensors)
-
+https://<APP_HOST>/docs
 ```
 
-### Parameters descriptions
+**txt2img endpoint**
 
-| Parameter                        | Type    | Description                                                                                                                                         |
-| -------------------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api.replicaCount`               | Integer | Optional. Number of instances. Default is 1                                                                                                         |
-| `preset_name`                    | String  | Required. CPU/GPU/memory preset for the application (e.g., `a100x1`).                                                                               |
-| `api.env.HUGGING_FACE_HUB_TOKEN` | String  | Required. HuggingFace token so we can pull the model                                                                                                |
-| `api.ingress.enabled`            | String  | Required. If you want to expose ingress in your app.                                                                                                |
-| `stablestudio.enabled`           | String  | Required. If you want to expose StableStudio UI as part of your deployment                                                                          |
-| `stablestudio.preset_name`       | String  | Required. If you enabled StableStudio deployment                                                                                                    |
-| `model.modelHFName`              | String  | Required. Name of the HuggingFace model (e.g. `stabilityai/stable-diffusion-2` ).                                                                   |
-| `model.modelFiles`               | String  | Optional. Comma Separated list of particular model files that you will use. For example only `*.safetensors` file, so we don't pull all repository. |
-
-### API usage
-
-After you application is installed, you can utilize the WebUI or API endpoints exposed
-
-**Swagger API documentation:**
-
-https://\<APP\_HOST>>/docs
-
-**txt2img API endpoint:** https://\<APP\_HOST>/sdapi/v1/txt2img
-
-**Request example:**
-
-```
-curl -X 'POST' \
-  'https://<APP_HOST>/sdapi/v1/txt2img' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: application/json' \
+<pre><code><strong>curl -X POST \
+</strong>  -H "Authorization: Basic $(apolo config show-token)" \
+  -H "accept: application/json" \
+  -H "Content-Type: application/json" \
   -d '{
-  "prompt": "Some prompt"
-}'
-```
+        "prompt": "Some prompt"
+      }' \
+</code></pre>
 
-### Integration with StableStudio
+The response contains a base64‑encoded PNG under `images[0]`.
 
-When your stable diffusion application is exposed, and if you deployed with StableStudio\
-You can utilize StableStudio WebUI
+#### 2 · Web UIs
 
-Click settings on the right corner of your StableStudio WebUI
+* **AUTOMATIC1111 Web UI** – the default root path (`/`).
+* **StableStudio** – served at `/stablestudio` when enabled in the chart.
 
-<figure><img src="https://github.com/neuro-inc/apolo-documentation/blob/master/.gitbook/assets/Screenshot%202025-02-04%20at%2015.45.24.png" alt=""><figcaption></figcaption></figure>
+**Connecting StableStudio**
 
-Paste external url for your stable diffusion webui HOST Url\
-The status should be "Ready without history plugin"
-
-Note: Url is persisted only on localStorage, so if you share StableStudio, it needs to be configured again\\
-
-<figure><img src="https://github.com/neuro-inc/apolo-documentation/blob/master/.gitbook/assets/Screenshot%202025-02-04%20at%2015.53.53.png" alt=""><figcaption></figcaption></figure>
-
-Now click Generate and enjoy StableStudio UI
+1. Open StableStudio and click **Settings** (gear icon, top right).
+2. Paste the **external URL** of your Stable Diffusion deployment into **Host URL**.
+3. Status should show _Ready without history plugin_.
+4. Click **Generate** and enjoy!\
+   &#xNAN;_&#x4E;ote:_ The host URL is stored only in `localStorage`; each browser or private window needs to be configured again.
 
 ### References
 
