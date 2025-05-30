@@ -159,7 +159,6 @@ $ apolo run curlimages/curl -- apolo-default-service-deployment-39ba8a4d-custom-
 - Status: pending Scheduling
 - Status: pending Completed
 √ Status: succeeded
-√ Status: succeeded
 √ =========== Job is running in terminal mode ===========
 √ (If you don't see a command prompt, try pressing enter)
 √ (Use Ctrl-P Ctrl-Q key sequence to detach from the job)
