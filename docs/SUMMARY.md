@@ -49,6 +49,7 @@
     * [Stable Diffusion](apolo-console/apps/available-apps/stable-diffusion.md)
     * [Hugging Face](apolo-console/apps/available-apps/hugging-face.md)
     * [Service Deployment](apolo-console/apps/available-apps/service-deployment.md)
+    * [Spark Application](apolo-console/apps/available-apps/spark-application.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
