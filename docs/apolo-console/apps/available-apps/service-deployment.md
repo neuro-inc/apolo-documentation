@@ -122,7 +122,9 @@ To view these endpoint details, you could scroll down application details page.
 
 <figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption><p>Application outputs</p></figcaption></figure>
 
-In our example, the publicly available domain name is displayed that is protected by platform auth, and in-cluster domain name are displayed. In order to use public domain name, one should have access to the same organization, cluster and project. Let's verify it.
+### Access via public domain
+
+In our example, the publicly available domain name is displayed in the list of application outputs. It is also protected by platform auth, and in-cluster domain name are displayed. In order to use public domain name, one should have access to the same organization, cluster and project. Let's verify it.
 
 {% tabs %}
 {% tab title="Authorized access (the same user)" %}
@@ -137,6 +139,57 @@ In our example, the publicly available domain name is displayed that is protecte
 <figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption><p>User is redirected to login first</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
+
+### Intra-cluster access
+
+In many cases, you'll need to access your applications from other applications or from within the jobs. For this case, each application's public domain endpoint has a corresponding intra-cluster sibling with some differences though:
+
+1. Intra-cluster endpoints obviously are not accessible outside of the cluster or other clusters
+2. Intra-cluster endpoints are not protected by platform auth, neither they have TLS (at least, for now).
+3. Intra-cluster endpoints are not limited to HTTP-only traffic, you could also communicate in binary protocols on the TCP/UDP levels.
+4. Intra-cluster endpoints are only accessible from within the workloads that belong to the same project.
+5. Intra-cluster endpoints are not "port-forwarded" to 443 port, instead, you should connect to the same port you specified in the configuration file.
+
+For our case, let's connect to the application from within simplistic job & query the **HTTP API** endpoint (the first one in the  :
+
+```
+$ apolo run curlimages/curl -- apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080 -vv
+√ Job ID: job-dcd55260-09a7-4f33-9e07-c0629ce4cc97
+- Status: pending Creating
+- Status: pending Scheduling
+- Status: pending Completed
+√ Status: succeeded
+√ Status: succeeded
+√ =========== Job is running in terminal mode ===========
+√ (If you don't see a command prompt, try pressing enter)
+√ (Use Ctrl-P Ctrl-Q key sequence to detach from the job)
+14:28:06.065040 [0-0] * Host apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080 was resolved.
+14:28:06.065107 [0-0] * IPv6: (none)
+14:28:06.065153 [0-0] * IPv4: 10.107.101.244
+14:28:06.065203 [0-0] * [SETUP] added
+14:28:06.065271 [0-0] *   Trying 10.107.101.244:8080...
+14:28:06.065509 [0-0] * [SETUP] Curl_conn_connect(block=0) -> 0, done=0
+14:28:06.065565 [0-0] * [SETUP] Curl_conn_connect(block=0) -> 0, done=1
+14:28:06.065615 [0-0] * Connected to apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d (10.107.101.244) port 8080
+14:28:06.065671 [0-0] * using HTTP/1.x
+14:28:06.065768 [0-0] > GET / HTTP/1.1
+14:28:06.065768 [0-0] > Host: apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d:8080
+14:28:06.065768 [0-0] > User-Agent: curl/8.13.0
+14:28:06.065768 [0-0] > Accept: */*
+14:28:06.065768 [0-0] > 
+14:28:06.066032 [0-0] < HTTP/1.1 200 OK
+14:28:06.066087 [0-0] < X-App-Name: http-echo
+14:28:06.066133 [0-0] < X-App-Version: 1.0.0
+14:28:06.066174 [0-0] < Date: Fri, 30 May 2025 14:28:06 GMT
+14:28:06.066215 [0-0] < Content-Length: 14
+14:28:06.066265 [0-0] < Content-Type: text/plain; charset=utf-8
+14:28:06.066308 [0-0] < 
+"hello apolo"
+14:28:06.066358 [0-0] * Connection #0 to host apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d left intact
+
+```
+
+## Cleanup
 
 When the application is not needed anymore, you could remove it by clicking the "uninstall" button on the installed app details/status screen.
 
