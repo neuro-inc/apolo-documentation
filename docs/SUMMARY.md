@@ -39,7 +39,7 @@
     * [Text Embeddings Inference](apolo-console/apps/available-apps/text-embeddings-inference.md)
     * [Jupyter Notebook](apolo-console/apps/available-apps/jupyter-notebook.md)
     * [Jupyter Lab](apolo-console/apps/available-apps/jupyter-lab.md)
-    * [VS Code](apolo-console/apps/available-apps/vs-code.md)
+    * [VSCode](apolo-console/apps/available-apps/vs-code.md)
     * [PyCharm Community Edition](apolo-console/apps/available-apps/py-charm.md)
     * [MLflow](apolo-console/apps/available-apps/ml-flow.md)
     * [Apolo Deploy](apolo-console/apps/available-apps/apolo-deploy.md)
@@ -59,6 +59,7 @@
   * [Jobs](apolo-concepts-cli/apps/jobs.md)
   * [Images](apolo-concepts-cli/apps/images.md)
   * [Available apps](apolo-concepts-cli/apps/available-apps/README.md)
+    * [VSCode](apolo-concepts-cli/apps/available-apps/vs-code.md)
     * [Hugging Face](apolo-concepts-cli/apps/available-apps/hugging-face.md)
     * [Service Deployment](apolo-concepts-cli/apps/available-apps/service-deployment.md)
 
