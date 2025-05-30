@@ -193,7 +193,8 @@ When the application is not needed anymore, you could remove it by clicking the 
 * [Apolo CLI Application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)
 * [Apolo CLI Application template commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo CLI Service deployment application management](../../../apolo-concepts-cli/apps/available-apps/service-deployment.md)
-* [Dockerhub hashicorp/http-echo image](https://hub.docker.com/r/hashicorp/http-echo)
+* [Docker hub hashicorp/http-echo image](https://hub.docker.com/r/hashicorp/http-echo)
+* [Docker hub curlimages/curl image](https://hub.docker.com/r/curlimages/curl)
 
 [^1]: HTTP API domain name
 
