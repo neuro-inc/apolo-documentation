@@ -34,7 +34,7 @@ API URL for ScottData : [https://api.apolo.scottdata.ai/api/v1](https://api.apol
 If your machine doesn't have GUI, use the following command instead of apolo login:
 
 ```
-apolo config login-headless
+apolo config login-headless [API URL]
 ```
 {% endtab %}
 
