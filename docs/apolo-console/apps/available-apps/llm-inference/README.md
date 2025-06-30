@@ -57,32 +57,6 @@ Step 3 - Install and wait for the outputs, at the Outputs section of an app
 
 <figure><img src="../../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
-### Apolo cli
-
-Below is a streamlined example command that deploys **vLLM** using the [`app-llm-inference` ](https://github.com/neuro-inc/app-llm-inference)app that deploys to a Nvidia preset:
-
-```
-apolo app install -f llm.yaml --cluster <CLUSTER> --org <ORG> --project <PROJECT>
-```
-
-```bash
-# Example of llm.yaml
-
-template_name: "llm-inference"
-input:
-  preset:
-   name: "gpu-l4-x1"
-  hugging_face_model:
-    model_hf_name: "meta-llama/Llama-3.1-8B-Instruct"
-    hf_token: <INSERT_HF_TOKEN>
-  ingress_http:
-    http_auth: false
-    enabled: true
-
-```
-
-**Explanation**:
-
 * `preset.name=gpu-l4-x1` requests 1 GPUs (AMD MI210). Apolo automatically sets `HIP_VISIBLE_DEVICES=0,1` , `ROCR_VISIBLE_DEVICES=0,1`  and default parallelization flags unless overridden.
 * `model_hf_name: "meta-llama/Llama-3.1-8B-Instruct"`: The Hugging Face model to load.
 * `ingress_http`: Creates a public domain (e.g. `vllm-large.apps.<YOUR_CLUSTER_NAME>.org.neu.ro`) pointing to the vLLM deployment.
