@@ -31,7 +31,7 @@
       * [Remote Debugging with VS Code](apolo-console/apps/pre-installed/jobs/remote-debugging-with-vs-code.md)
     * [Flows](apolo-console/apps/pre-installed/flows.md)
   * [Available apps](apolo-console/apps/available-apps/README.md)
-    * [Terminal](apolo-console/apps/available-apps/terminal.md)
+    * [Shell](apolo-console/apps/available-apps/terminal.md)
     * [LLM Inference](apolo-console/apps/available-apps/llm-inference/README.md)
       * [vLLM Inference details](apolo-console/apps/available-apps/llm-inference/vllm-inference-details.md)
       * [Multi-GPU Benchmarks Report](apolo-console/apps/available-apps/llm-inference/multi-gpu-benchmarks-report.md)
@@ -48,7 +48,7 @@
     * [Stable Diffusion](apolo-console/apps/available-apps/stable-diffusion.md)
     * [Hugging Face](apolo-console/apps/available-apps/hugging-face.md)
     * [Service Deployment](apolo-console/apps/available-apps/service-deployment.md)
-    * [Spark Application](apolo-console/apps/available-apps/spark-application.md)
+    * [Apache Spark](apolo-console/apps/available-apps/apache-spark.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
@@ -61,6 +61,8 @@
     * [VSCode](apolo-concepts-cli/apps/available-apps/vs-code.md)
     * [Hugging Face](apolo-concepts-cli/apps/available-apps/hugging-face.md)
     * [Service Deployment](apolo-concepts-cli/apps/available-apps/service-deployment.md)
+    * [Shell](apolo-concepts-cli/apps/available-apps/shell.md)
+    * [PostgreSQL](apolo-concepts-cli/apps/available-apps/postgresql.md)
 
 ## Administration
 

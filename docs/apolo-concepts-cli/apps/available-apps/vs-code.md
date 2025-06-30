@@ -1,10 +1,10 @@
 # VSCode
 
-### Overview
+## Overview
 
 Visual Studio Code (VSCode) on Apolo is a full-featured, in-browser version of the popular IDE, Visual Studio Code. It is preinstalled with Python extensions and offers seamless MLflow integration, making it an ideal environment for developing, debugging, and managing machine learning projects. For more information about the VSCode app, as well as detailed instruction of how to use it in Apolo Console, visit the main [VSCode app](../../../apolo-console/apps/available-apps/vs-code.md) page.
 
-### Installing
+## Managing application via Apolo CLI
 
 VSCode can be installed on Apolo either via the CLI or the Web Console. Below are the detailed instructions for installing VSCode using Apolo CLI.
 
@@ -72,7 +72,9 @@ apolo app logs <app-id>
 apolo app uninstall <app-id>
 ```
 
-### References
+## References
 
 * [Installing VSCode using Apolo Console](../../../apolo-console/apps/available-apps/vs-code.md)
 * [Code Server project](https://github.com/coder/code-server)
+* [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
+* [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)
