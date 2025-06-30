@@ -43,28 +43,6 @@ Step3 - Install and wait for the outputs, at the Outputs section of an app
 
 <figure><img src="../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>Outputs section</p></figcaption></figure>
 
-### Apolo cli
-
-Below is a streamlined example command that deploys **Text Embeddings Inference** app that deploys to a Nvidia preset:
-
-```sh
-apolo app install -f tei.yaml
-```
-
-```yaml
-# Example of tei.yaml
-
-template_name: "text-embeddings-inference"
-input:
-  preset:
-   name: "gpu-l4-x1"
-  model:
-    model_hf_name: "sentence-transformers/all-mpnet-base-v2"
-  ingress_http:
-    http_auth: false
-    enabled: true
-```
-
 ## Usage
 
 ```python
