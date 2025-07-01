@@ -1,6 +1,6 @@
 # Service Deployment
 
-A detailed description of this application at the dedicated Apolo Console's [service-deployment.md](../../../apolo-console/apps/available-apps/service-deployment.md "mention") page.
+A detailed description of this application at the dedicated Apolo Console's [service-deployment.md](../../../../apolo-console/apps/installable-apps/available-apps/service-deployment.md "mention") page.
 
 ## Managing application via Apolo CLI
 
@@ -111,6 +111,6 @@ You can find more information for application management commands in the list of
 
 ## References
 
-* [Apolo Service Deployment application](../../../apolo-console/apps/available-apps/service-deployment.md)
+* [Apolo Service Deployment application](../../../../apolo-console/apps/installable-apps/available-apps/service-deployment.md)
 * [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)

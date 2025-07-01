@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Images app provides a central location for viewing properties of container image assets used in deployments. For more information about the images App and how to use it in Apolo Console, visit the main [Images app](../../apolo-console/apps/pre-installed/images.md) page.
+The Images app provides a central location for viewing properties of container image assets used in deployments. For more information about the images App and how to use it in Apolo Console, visit the main [Images app](../../../apolo-console/apps/pre-installed/images.md) page.
 
 ## **Command Line Interface**
 

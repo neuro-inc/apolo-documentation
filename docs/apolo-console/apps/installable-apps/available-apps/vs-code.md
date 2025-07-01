@@ -16,7 +16,7 @@ Visual Studio Code (VSCode) on Apolo is a full-featured, in-browser version of t
 
 ### Installing
 
-Below are the detailed instructions for installing VSCode using Apolo Console. For instructions on how to install it using Apolo CLI, visit [Apolo CLI VSCode page](../../../apolo-concepts-cli/apps/available-apps/vs-code.md).
+Below are the detailed instructions for installing VSCode using Apolo Console. For instructions on how to install it using Apolo CLI, visit [Apolo CLI VSCode page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/vs-code.md).
 
 #### Install via Apolo Web Console
 
@@ -35,8 +35,8 @@ Below are the detailed instructions for installing VSCode using Apolo Console. F
 
 After installing the VSCode application, you can access it directly from your browser. Use the external web app URL provided in the application outputs to open VSCode.
 
-<figure><img src="../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
 ### References
 
-* [Installing VSCode using Apolo CLI](../../../apolo-concepts-cli/apps/available-apps/vs-code.md)
+* [Installing VSCode using Apolo CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/vs-code.md)

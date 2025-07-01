@@ -49,13 +49,13 @@ Step1 - Select the Preset you want to use (Currently only GPU-accelerated preset
 
 Step2 - Select Model from [HuggingFace](https://huggingface.co/) repositories
 
-<figure><img src="../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Part 1 - vLLM app deployment</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Part 1 - vLLM app deployment</p></figcaption></figure>
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please provide the HuggingFace token, as a string of Apolo Secret.
 
 Step 3 - Install and wait for the outputs, at the Outputs section of an app
 
-<figure><img src="../../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (8) (1).png" alt=""><figcaption></figcaption></figure>
 
 * `preset.name=gpu-l4-x1` requests 1 GPUs (AMD MI210). Apolo automatically sets `HIP_VISIBLE_DEVICES=0,1` , `ROCR_VISIBLE_DEVICES=0,1`  and default parallelization flags unless overridden.
 * `model_hf_name: "meta-llama/Llama-3.1-8B-Instruct"`: The Hugging Face model to load.

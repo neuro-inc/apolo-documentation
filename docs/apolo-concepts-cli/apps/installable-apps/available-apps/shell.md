@@ -2,7 +2,7 @@
 
 ## Overview
 
-**Shell** provides a fully-featured, in-browser terminal integrated with the pre-installed and authorized Apolo CLI. For more information about the Shell app, as well as detailed instruction of how to use it in Apolo Console, visit the main [Shell application](../../../apolo-console/apps/available-apps/terminal.md) page.
+**Shell** provides a fully-featured, in-browser terminal integrated with the pre-installed and authorized Apolo CLI. For more information about the Shell app, as well as detailed instruction of how to use it in Apolo Console, visit the main [Shell application](../../../../apolo-console/apps/installable-apps/available-apps/terminal.md) page.
 
 ## Managing application via Apolo CLI
 
@@ -61,7 +61,7 @@ apolo app uninstall <app-id>
 
 ## References
 
-* [Apolo Shell application](../../../apolo-console/apps/available-apps/terminal.md)
+* [Apolo Shell application](../../../../apolo-console/apps/installable-apps/available-apps/terminal.md)
 * [Apolo web shell application repository](https://github.com/neuro-inc/web-shell)
 * [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)

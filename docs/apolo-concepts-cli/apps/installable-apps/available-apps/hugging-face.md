@@ -1,6 +1,6 @@
 # Hugging Face
 
-See more detailed description of the application at the dedicated Apolo Console's [hugging-face.md](../../../apolo-console/apps/available-apps/hugging-face.md "mention") page.
+See more detailed description of the application at the dedicated Apolo Console's [hugging-face.md](../../../../apolo-console/apps/installable-apps/available-apps/hugging-face.md "mention") page.
 
 ## Managing application via Apolo CLI
 
@@ -55,7 +55,7 @@ You can find more information for application management commands in the list of
 
 ## References
 
-* [Apolo Hugging Face application](../../../apolo-console/apps/available-apps/hugging-face.md)
+* [Apolo Hugging Face application](../../../../apolo-console/apps/installable-apps/available-apps/hugging-face.md)
 * [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)
 

@@ -2,7 +2,7 @@
 
 ## Overview
 
-PostgreSQL is a powerful, open-source relational database system known for its reliability, feature richness, and extensibility. A detailed description of this application at the dedicated Apolo Console's  [postgre-sql.md](../../../apolo-console/apps/available-apps/postgre-sql.md "mention") page.
+PostgreSQL is a powerful, open-source relational database system known for its reliability, feature richness, and extensibility. A detailed description of this application at the dedicated Apolo Console's  [postgre-sql.md](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql.md "mention") page.
 
 ## Managing application via Apolo CLI
 
@@ -72,6 +72,6 @@ You can find more information for application management commands in the list of
 
 ## References
 
-* [Apolo PostgreSQL application](../../../apolo-console/apps/available-apps/postgre-sql.md)
+* [Apolo PostgreSQL application](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql.md)
 * [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)

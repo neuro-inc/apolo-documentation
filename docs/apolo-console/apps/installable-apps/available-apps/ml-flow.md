@@ -31,7 +31,7 @@ There are two ways to deploy the app:
 
 #### 1 · Open the catalogue
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-22 at 15.37.11.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-22 at 15.37.11.png" alt=""><figcaption></figcaption></figure>
 
 #### 2 · Fill the wizard
 
@@ -45,7 +45,7 @@ There are two ways to deploy the app:
 \
 Click **Install**. Wait until _Status → healthy_ and copy the **External MLFlow URL**.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-22 at 20.35.13.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-22 at 20.35.13.png" alt=""><figcaption></figcaption></figure>
 
 ### Apolo CLI
 

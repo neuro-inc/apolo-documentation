@@ -18,7 +18,7 @@ The Hugging Face App provides the following functionalities:
 1. **Navigate to the Apolo Console**: Access the Apolo Console and go to the "Apps" section.
 2. **Select "Hugging Face Cache" App**: Choose the "Hugging Face Cache" application from the list of available apps.
 
-<figure><img src="../../../.gitbook/assets/image (26).png" alt=""><figcaption><p>Hugging Face Cache application</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (26).png" alt=""><figcaption><p>Hugging Face Cache application</p></figcaption></figure>
 
 3. **Configure storage**:
 
@@ -26,7 +26,7 @@ The Hugging Face App provides the following functionalities:
 
 4. **Set application name Variables.**
 
-<figure><img src="../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. **Click "install".**
 
@@ -43,4 +43,4 @@ The use of this app is mostly transparent for the user.
 * [Hugging Face Cache Management](https://huggingface.co/docs/datasets/en/cache)
 * [Hugging Face Hub Caching Guide](https://huggingface.co/docs/huggingface_hub/en/guides/manage-cache)
 * [Apolo LLM Inference Documentation](llm-inference/)
-* [Apolo Hugging Face management via CLI](../../../apolo-concepts-cli/apps/available-apps/hugging-face.md)
+* [Apolo Hugging Face management via CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/hugging-face.md)

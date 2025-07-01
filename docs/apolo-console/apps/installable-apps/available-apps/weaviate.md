@@ -37,7 +37,7 @@ Two paths:
 
 Navigate to **Apps ▸ All apps** and locate **Weaviate App**.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-21 at 22.16.43.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-21 at 22.16.43.png" alt=""><figcaption></figcaption></figure>
 
 #### 2 · Fill the wizard
 
@@ -50,7 +50,7 @@ Navigate to **Apps ▸ All apps** and locate **Weaviate App**.
 
 
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-22 at 20.44.58.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-22 at 20.44.58.png" alt=""><figcaption></figcaption></figure>
 
 Click **Install**. In _Details_ your **external endpoints** (REST & GraphQL), basic‑auth creds and namespace appear once status is **healthy**.
 

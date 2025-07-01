@@ -38,29 +38,29 @@ Below is a brief description of how to deploy the PostgreSQL application with ex
 
 {% tabs %}
 {% tab title="PostgreSQL parameters 1" %}
-<figure><img src="../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Configuring server instance preset, number of server instances, PostgreSQL version</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9) (1).png" alt=""><figcaption><p>Configuring server instance preset, number of server instances, PostgreSQL version</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="PostgreSQL parameters 2" %}
-<figure><img src="../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>Configure disk size for each instance, first user and it's access to databases</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (11) (1).png" alt=""><figcaption><p>Configure disk size for each instance, first user and it's access to databases</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="PostgreSQL parameters 3" %}
-<figure><img src="../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>Configure second user to have access only to <code>dbtwo</code> database</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (12) (1).png" alt=""><figcaption><p>Configure second user to have access only to <code>dbtwo</code> database</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="PostgreSQL parameters 4" %}
-<figure><img src="../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption><p>Configure PG Bouncer resource preset, enable backup configuration and configure app name.</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (13) (1).png" alt=""><figcaption><p>Configure PG Bouncer resource preset, enable backup configuration and configure app name.</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
 After setting up all input parameters, click "install" to start the installation. You will be redirected to an application details page, which displays application inputs, outputs and health status.
 
-<figure><img src="../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>Application details page</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>Application details page</p></figcaption></figure>
 
 Your PostgreSQL cluster is ready. The application outputs, including access credentials are displayed below at this screen too. You could utilize this outputs with other applications or other workloads.&#x20;
 
-<figure><img src="../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>PostgreSQL app outputs</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>PostgreSQL app outputs</p></figcaption></figure>
 
 You could remove this application just like all other apps by clicking the "Uninstall" button in the upper right corner of the application details page.
 
@@ -146,4 +146,4 @@ Quick recap of what was done:
 * [Crunchy Postgres Apolo Chart Repository](https://github.com/neuro-inc/app-crunchy-postgres)
 * [Crunchy Data Postgres Documentation](https://access.crunchydata.com/documentation/postgres-operator/latest/quickstart)
 * [Apolo Documentation](https://docs.apolo.us/apolo-cli/commands/shortcuts#usage-16) (for the usage of `apolo run` and resource presets)
-* [Apolo PostgreSQL application management via CLI](../../../apolo-concepts-cli/apps/available-apps/postgresql.md)
+* [Apolo PostgreSQL application management via CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/postgresql.md)

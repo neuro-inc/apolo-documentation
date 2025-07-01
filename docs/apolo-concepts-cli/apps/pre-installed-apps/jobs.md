@@ -6,7 +6,7 @@ description: Running jobs using the Apolo CLI
 
 ## Overview
 
-The **Jobs** App is a tool that allows users to schedule and execute containerized tasks and processes. It provides a user-friendly interface to manage these workloads, simplifying tasks like data processing, model training and inference, and other batch jobs. This app is designed to provide flexibility and control over how these jobs are run, while offering monitoring features for insights and debugging. For more information about the Jobs app, as well as detailed instruction of how to use it in Apolo Console, visit the main [Jobs app](../../apolo-console/apps/pre-installed/jobs/) page.
+The **Jobs** App is a tool that allows users to schedule and execute containerized tasks and processes. It provides a user-friendly interface to manage these workloads, simplifying tasks like data processing, model training and inference, and other batch jobs. This app is designed to provide flexibility and control over how these jobs are run, while offering monitoring features for insights and debugging. For more information about the Jobs app, as well as detailed instruction of how to use it in Apolo Console, visit the main [Jobs app](../../../apolo-console/apps/pre-installed/jobs/) page.
 
 ### **Running Jobs Using the CLI**
 

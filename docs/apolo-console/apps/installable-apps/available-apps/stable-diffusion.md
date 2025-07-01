@@ -29,7 +29,7 @@ Deploy via either the **Web Console UI** or **Apolo CLI**.
 
 #### 1 · Open the catalogue
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-23 at 17.35.39.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-23 at 17.35.39.png" alt=""><figcaption></figcaption></figure>
 
 \
 2 · Configure the wizard
@@ -44,7 +44,7 @@ Deploy via either the **Web Console UI** or **Apolo CLI**.
 
 Click **Install**. Wait until _Status → healthy_; copy the **external\_api** host (REST) or open the Web UI at `https://sd-<id>.apps.<cluster>.apolo.us`.
 
-<figure><img src="../../../.gitbook/assets/Screenshot 2025-05-23 at 17.35.09.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-23 at 17.35.09.png" alt=""><figcaption></figcaption></figure>
 
 
 

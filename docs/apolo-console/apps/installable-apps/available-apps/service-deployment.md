@@ -32,7 +32,7 @@ The easiest way to learn is by doing, so in this case we are going to deploy sim
 
 Access the Apolo web console and go to the "Apps" section. We presume you are already authorized in web console and a participant of organization and project.
 
-<figure><img src="../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Service deployment in list of apps</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Service deployment in list of apps</p></figcaption></figure>
 
 Now we configure application parameters
 {% endstep %}
@@ -72,31 +72,31 @@ Now we can review the configuration.
 
 {% tabs %}
 {% tab title="Resource preset & container image" %}
-<figure><img src="../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Resources and image</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (2).png" alt=""><figcaption><p>Resources and image</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Autoscaling" %}
-<figure><img src="../../../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>Autoscaling configuration</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (2).png" alt=""><figcaption><p>Autoscaling configuration</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Container" %}
-<figure><img src="../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption><p>Container configuration</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7) (2).png" alt=""><figcaption><p>Container configuration</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Networking" %}
-<figure><img src="../../../.gitbook/assets/image (8) (2).png" alt=""><figcaption><p>Networking 1</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (2).png" alt=""><figcaption><p>Networking 1</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Networking 2</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Networking 2</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Healthchecks" %}
-<figure><img src="../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Startup probes 1</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Startup probes 1</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Startup probes 2</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Startup probes 2</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Readiness probe 1</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Readiness probe 1</p></figcaption></figure>
 
-<figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Readiness probe 2</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Readiness probe 2</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 {% endstep %}
@@ -106,13 +106,13 @@ Now we can review the configuration.
 
 After clicking the "install" button, you will be redirected to the application details page and Apolo will take care of application installation.
 
-<figure><img src="../../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Start application installation</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (18).png" alt=""><figcaption><p>Start application installation</p></figcaption></figure>
 
 In a minute, you could hit "refresh" button or wait while the web console updates status of the application. It should switch into "healthy" state. Now you could use the application.
 {% endstep %}
 {% endstepper %}
 
-As for the approach of managing service deployment applications via CLI, see dedicated the instructions on a [documentation dedicated page](../../../apolo-concepts-cli/apps/available-apps/service-deployment.md).
+As for the approach of managing service deployment applications via CLI, see dedicated the instructions on a [documentation dedicated page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment.md).
 
 ## Usage
 
@@ -120,7 +120,7 @@ The application usage highly depend on what is deployed under the hood. By defau
 
 To view these endpoint details, you could scroll down application details page.
 
-<figure><img src="../../../.gitbook/assets/image (20).png" alt=""><figcaption><p>Application outputs</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (20).png" alt=""><figcaption><p>Application outputs</p></figcaption></figure>
 
 ### Access via public domain
 
@@ -128,15 +128,15 @@ In our example, the publicly available domain name is displayed in the list of a
 
 {% tabs %}
 {% tab title="Authorized access (the same user)" %}
-<figure><img src="../../../.gitbook/assets/image (25).png" alt=""><figcaption><p>HTTP Echo application response</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (25).png" alt=""><figcaption><p>HTTP Echo application response</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Unauthorized user" %}
-<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption><p>Explicit error stating the user do not have access</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (23).png" alt=""><figcaption><p>Explicit error stating the user do not have access</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Incognito mode" %}
-<figure><img src="../../../.gitbook/assets/image (24).png" alt=""><figcaption><p>User is redirected to login first</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (24).png" alt=""><figcaption><p>User is redirected to login first</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 
@@ -192,7 +192,7 @@ When the application is not needed anymore, you could remove it by clicking the 
 
 * [Apolo CLI Application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)
 * [Apolo CLI Application template commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
-* [Apolo CLI Service deployment application management](../../../apolo-concepts-cli/apps/available-apps/service-deployment.md)
+* [Apolo CLI Service deployment application management](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment.md)
 * [Docker hub hashicorp/http-echo image](https://hub.docker.com/r/hashicorp/http-echo)
 * [Docker hub curlimages/curl image](https://hub.docker.com/r/curlimages/curl)
 
