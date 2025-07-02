@@ -24,6 +24,10 @@ The Service Deployment app provides the following functionalities:
 
 ## Installing
 
+### Installing with Apolo Console
+
+Below are the detailed instructions for installing Service Deployment using Apolo Console. For instructions on how to install it using Apolo CLI, visit [Apolo CLI Service Deployment](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment.md).
+
 The easiest way to learn is by doing, so in this case we are going to deploy simplistic web server, a hashicorp/http-echo container that has the only job — respond to the request with the configured payload.
 
 {% stepper %}
