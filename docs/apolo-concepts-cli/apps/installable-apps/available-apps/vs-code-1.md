@@ -13,7 +13,7 @@ Jupyter can be installed on Apolo either via the CLI or the [Web Console](../../
 **Step 1** — Obtain the application configuration file template:
 
 ```bash
-apolo app-template get jupyter -o myjupyter.yaml
+apolo app-template get jupyter > myjupyter.yaml
 ```
 
 **Step 2** — Customize the application parameters. Below is an example configuration file:
@@ -43,11 +43,10 @@ input:
 
 Explanation of configuration parameters:
 
-1. **Jupyter Type**: Set to `lab` to deploy Jupyter Lab. Alternatively, set to `notebook` for Jupyter Notebook.
+1. **Resource Preset**: Set to `cpu-medium` to define the hardware resources allocated.
 2. **Override Default Storage Mount**: Enabled to allow custom storage configurations.
 3. **Extra Storage Mounts**: Enabled to attach additional storage volumes.
 4. **HTTP Authentication**: Enabled for secure access.
-5. **Resource Preset**: Set to `cpu-medium` to define the hardware resources allocated.
 
 **Step 3** — Deploy the application in your Apolo project:
 

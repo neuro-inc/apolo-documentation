@@ -8,7 +8,7 @@ PostgreSQL is a powerful, open-source relational database system known for its r
 
 **Step 1** — use CLI command to get application configuration file template:
 
-`apolo app-template get postgres -o mypostgres.yaml`&#x20;
+`apolo app-template get postgres > mypostgres.yaml`&#x20;
 
 **Step 2** —  fill in application parameters. Here is an example config file with some of those parameters:
 

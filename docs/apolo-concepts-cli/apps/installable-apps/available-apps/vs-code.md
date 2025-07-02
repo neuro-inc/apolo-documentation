@@ -13,7 +13,7 @@ VSCode can be installed on Apolo either via the CLI or the Web Console. Below ar
 **Step 1** — Use the CLI command to get the application configuration file template:
 
 ```bash
-apolo app-template get vscode -o myvscode.yaml
+apolo app-template get vscode > myvscode.yaml
 ```
 
 **Step 2** — Fill in the application parameters. Here is an example config file with some of those parameters:

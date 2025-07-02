@@ -70,6 +70,7 @@
       * [Shell](apolo-concepts-cli/apps/installable-apps/available-apps/shell.md)
       * [PostgreSQL](apolo-concepts-cli/apps/installable-apps/available-apps/postgresql.md)
       * [Service Deployment](apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment-1.md)
+      * [Fooocus](apolo-concepts-cli/apps/installable-apps/available-apps/fooocus.md)
 
 ## Administration
 

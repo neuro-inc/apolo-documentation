@@ -9,7 +9,7 @@ See more detailed description of the application at the dedicated Apolo Console'
 ### Load application installation template
 
 ```
-apolo app-template get hugging-face-cache -o hf-cache.yaml
+apolo app-template get hugging-face-cache > hf-cache.yaml
 ```
 {% endstep %}
 

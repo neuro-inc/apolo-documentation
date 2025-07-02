@@ -35,21 +35,41 @@ Fooocus is a free, offline, open-source image generator designed for high-qualit
 * **Batch Image Generation**
   * Easily generate multiple images by specifying the desired quantity.
 
-### Installation and Deployment
+### Installation
 
-You can deploy Fooocus using Apolo Flow, which facilitates application chart deployment and integrates with other applications running on Apolo.
+#### Install via Apolo Web Console
 
-The installation process automates:
+For a detailed explanation on how you can manage installable applications, please refer to [Managing Apps](../managing-apps.md). To install Fooocus via Apolo Web Console, follow these steps:
 
-1. Application deployment in cluster
-2. Fooocus configs to persist outputs in Apolo Files
-3. Web interface ingress configuration
+**Step 1** — Navigate to the Apps page, find Jupyter from the list and click the corresponding "Install" button. This will redirect you to the installation page
+
+**Step 2** — Configure the application by filling the required fields and click install.
+
+**Step 3** — Click "Install" to initiate deployment. You will be redirected to the application details page where you can monitor the installation progress and view application outputs. For instructions on how to access the application, please refer to the [Usage](fooocus.md#usage) section.
 
 #### Parameter Descriptions
 
-| Parameter     | Type   | Description                                                          |
-| ------------- | ------ | -------------------------------------------------------------------- |
-| `preset_name` | String | Required. CPU/GPU/memory preset for theapplication (e.g., `a100x1`). |
+The following installation options are available:
+
+* **Resource Preset**: Choose from the dropdown menu - this is the only required field that you must set
+* **Networking Settings**
+  * **HTTP Authentication** - is enabled by default so you application is only accessible to users authenticated in Apolo and with permissions in the current project
+* **Metadata**: Enter the application display name.
+
+To install Fooocus via Apolo CLI, refer to [Apolo CLI Fooocus app page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/fooocus.md).
+
+### Usage
+
+After installation, you can utilize Fooocus for image generation workflows and you can access it directly from your browser.&#x20;
+
+To view and manage installed instances of the Jupyter app:
+
+1. Go to the **Installed Apps** tab.
+2. You will see a list of all running apps, including the **Fooocus** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
+
+Once in the Details" page, scroll down to the Outputs sections. To launch the applications, find the **HTTP API** output with with the public domain address, copy and open it in a dedicated browser window.&#x20;
+
+<figure><img src="../../../../.gitbook/assets/image (35).png" alt=""><figcaption></figcaption></figure>
 
 
 

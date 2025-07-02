@@ -13,7 +13,7 @@ Shell can be installed on Apolo either via the CLI or the Web Console. Below are
 **Step 1** — Use the CLI command to get the application configuration file template:
 
 ```bash
-apolo app-template get shell -o shell.yaml
+apolo app-template get shell > shell.yaml
 ```
 
 **Step 2** — Fill in the application parameters. Here is an example config file with some of those parameters:

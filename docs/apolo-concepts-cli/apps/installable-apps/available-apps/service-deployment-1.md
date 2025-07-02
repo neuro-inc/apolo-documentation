@@ -8,7 +8,7 @@ By utilizing the Service Deployment app, users can streamline their deployment p
 
 ## Installing
 
-### Installing with Apolo CLI
+### Installing via Apolo CLI
 
 As for the approach of managing Service Deployment applications via Apolo Console, see dedicated the instructions on a [documentation dedicated page](../../../../apolo-console/apps/installable-apps/available-apps/service-deployment.md).
 
@@ -17,7 +17,7 @@ As for the approach of managing Service Deployment applications via Apolo Consol
 **Step 1** — Obtain the application configuration file template:
 
 ```bash
-apolo app-template get service-deployment -o myservice.yaml
+apolo app-template get service-deployment > myservice.yaml
 ```
 
 **Step 2** — Customize the application parameters. With Service Deployment, you can deploy long running scalable applications using container images and configure attributes like exposed ports, volume mounts, Apolo authentication and health checks.\

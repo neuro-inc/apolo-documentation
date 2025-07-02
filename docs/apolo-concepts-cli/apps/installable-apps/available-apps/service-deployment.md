@@ -11,7 +11,7 @@ The prerequisite for this tutorial is that you read the description of the appli
 ### Load application installation template
 
 ```
-apolo app-template get service-deployment -o service-deployment.yaml
+apolo app-template get service-deployment > service-deployment.yaml
 ```
 {% endstep %}
 
