@@ -34,7 +34,7 @@
     * [Managing Apps](apolo-console/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-console/apps/installable-apps/available-apps/README.md)
       * [Shell](apolo-console/apps/installable-apps/available-apps/terminal.md)
-      * [LLM Inference](apolo-console/apps/installable-apps/available-apps/llm-inference/README.md)
+      * [vLLM](apolo-console/apps/installable-apps/available-apps/llm-inference/README.md)
         * [vLLM Inference details](apolo-console/apps/installable-apps/available-apps/llm-inference/vllm-inference-details.md)
         * [Multi-GPU Benchmarks Report](apolo-console/apps/installable-apps/available-apps/llm-inference/multi-gpu-benchmarks-report.md)
       * [PostgreSQL](apolo-console/apps/installable-apps/available-apps/postgre-sql.md)
@@ -51,6 +51,7 @@
       * [Hugging Face](apolo-console/apps/installable-apps/available-apps/hugging-face.md)
       * [Service Deployment](apolo-console/apps/installable-apps/available-apps/service-deployment.md)
       * [Apache Spark](apolo-console/apps/installable-apps/available-apps/apache-spark.md)
+      * [PrivateGPT](apolo-console/apps/installable-apps/available-apps/privategpt.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
@@ -71,6 +72,7 @@
       * [PostgreSQL](apolo-concepts-cli/apps/installable-apps/available-apps/postgresql.md)
       * [Service Deployment](apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment-1.md)
       * [Fooocus](apolo-concepts-cli/apps/installable-apps/available-apps/fooocus.md)
+      * [PrivateGPT](apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md)
 
 ## Administration
 
