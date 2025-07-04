@@ -33,6 +33,7 @@
   * [Installable Apps](apolo-console/apps/installable-apps/README.md)
     * [Managing Apps](apolo-console/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-console/apps/installable-apps/available-apps/README.md)
+      * [Superset](apolo-console/apps/installable-apps/available-apps/superset.md)
       * [Shell](apolo-console/apps/installable-apps/available-apps/terminal.md)
       * [vLLM](apolo-console/apps/installable-apps/available-apps/llm-inference/README.md)
         * [vLLM Inference details](apolo-console/apps/installable-apps/available-apps/llm-inference/vllm-inference-details.md)

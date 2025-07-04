@@ -19,6 +19,7 @@
 | [Service Deployment](service-deployment.md)                                               | Deploy, auto-scale, securely expose to outer world any containerized application.                                                                                                                                                                  |
 | [Spark Application](apache-spark.md)                                                      | Unified analytics engine for large-scale data processing that provides high-level APIs in Java, Scala, Python, and R.                                                                                                                              |
 | [PrivateGPT](privategpt.md)                                                               | Spin-up secure version of context-aware ChatGPT without a fear of data leak.                                                                                                                                                                       |
+| [Apache Superset](superset.md)                                                            | Superset is fast, lightweight, intuitive, and loaded with options that make it easy for users of all skill sets to explore and visualize their data, from simple line charts to highly detailed geospatial charts.                                 |
 
 
 
