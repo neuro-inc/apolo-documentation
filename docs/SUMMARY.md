@@ -74,6 +74,7 @@
       * [Fooocus](apolo-concepts-cli/apps/installable-apps/available-apps/fooocus.md)
       * [PrivateGPT](apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md)
       * [Apache Spark](apolo-concepts-cli/apps/installable-apps/available-apps/apache-spark.md)
+      * [MLflow](apolo-concepts-cli/apps/installable-apps/available-apps/ml-flow.md)
 
 ## Administration
 
