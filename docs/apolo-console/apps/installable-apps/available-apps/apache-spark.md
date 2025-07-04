@@ -1,4 +1,4 @@
-# Spark Application
+# Apache Spark
 
 ### Overview
 
@@ -24,115 +24,55 @@ Spark on Apolo comes with integrated support for dynamic scaling, dependency man
 
 ### Installing
 
-As with other applications on Apolo, you can deploy Spark applications via web console, or using Apolo CLI.
+As with other applications on Apolo, you can deploy Spark applications via web console, or using [Apolo CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/apache-spark.md).
 
 #### Install via Apolo web console
 
-Below is a brief description of how to deploy the Spark application with exactly the same configuration via Apolo web console.
+Below is a brief description of how to deploy the Spark application with exactly the same configuration via Apolo web console. To find more details about how to manage your installable applications, refer to [Managing Apps](../managing-apps.md).
 
 **Step 1** — find Spark Application in list of apps, and click "install" button.
 
-**Step 2** — fill in the same parameters for this application
+**Step 2** — fill in the parameters for this application, they are divided in a few sections, as described below:
 
-_Application Configuration_
+_**Application Configuration**_
 
-* Select **Python** as the application type
-* Specify the main application file path: `storage:my-spark-job/main.py`
-* Add arguments: `--input-path`, `storage:datasets/input.csv`, `--output-path`, `storage:results/`
+* Application Type - this can be Python, Java, Scala or R
+* Specify the main application file path - this should point to a file containing the main application logic stored in Apolo Files. For example: `storage:my-spark-job/main.py`
+* Optionally add arguments. Example: `--input-path`, `storage:datasets/input.csv`, `--output-path`, `storage:results/`
 
-_Dependencies_
+_**Dependencies**_
 
-* Add PyPI packages: `pandas==2.0.3`, `numpy>=1.24.0`&#x20;
-* Add Maven packages: `org.apache.spark:spark-sql_2.12:3.5.3`
+* Optionally add PyPI packages, for example: `pandas==2.0.3`, `numpy>=1.24.0` - Apolo takes care of installing these dependencies for your
+* Optionally add Maven packages, for example: `org.apache.spark:spark-sql_2.12:3.5.3`
 
-_Mounted Volumes_
+_**Mounted Volumes**_
+
+You can mount extra volumes into your application so that it is able to load data from or save results to Apolo Files. Examples:
 
 * Input volume: `storage:datasets/` → `/data/input` (read-only)
 * Output volume: `storage:results/` → `/data/output` (read-write)
 
-_Auto Scaling Configuration_
+_**Auto Scaling Configuration**_
 
 * Initial Executors: 2
 * Min Executors: 1
 * Max Executors: 10
 * Shuffle Tracking Timeout: 60
 
-_Driver Configuration_
+_**Driver Configuration**_
 
-* Select `cpu-medium` preset
+* Preset - select the preset type used by the driver node. Example: `cpu-medium`
 
-_Executor Configuration_
+_**Executor Configuration**_
 
 * Instances: 3
-* Select `cpu-large` preset
+* Preset `cpu-large` - select the preset type used by the executor node. Example: `cpu-medium`
 
 After setting up all input parameters, click "install" to start the installation. You will be redirected to an application details page, which displays application inputs, outputs and health status.
 
 Your Spark application is ready. The application outputs, including job status and results location are displayed on this screen. You could utilize these outputs with other applications or other workloads.
 
 You could remove this application just like all other apps by clicking the "Uninstall" button in the upper right corner of the application details page.
-
-#### Install via Apolo CLI
-
-**Step 1** — use CLI command to get application configuration file template:
-
-```ini
-apolo app-template get spark -o myspark.yaml 
-```
-
-**Step 2** — fill in application parameters. Here is an example config file with some of those parameters:
-
-```yaml
-# Example of myspark.yaml
-
-template_name: spark
-template_version: v1.0.0
-display_name: myspark
-input:
-  spark_application_config:
-    type: Python
-    main_application_file:
-      path: storage:my-spark-job/main.py
-    arguments:
-      - "--input-path"
-      - "storage:datasets/input.csv"
-      - "--output-path"
-      - "storage:results/"
-    dependencies:
-      pypi_packages:
-        - "pandas==2.0.3"
-        - "numpy>=1.24.0"
-      packages:
-        - "org.apache.spark:spark-sql_2.12:3.5.3"
-    volumes:
-      - storage_uri:
-          path: storage:datasets/
-        mount_path:
-          path: /data/input
-        mode:
-          mode: r
-      - storage_uri:
-          path: storage:results/
-        mount_path:
-          path: /data/output
-        mode:
-          mode: rw
-  spark_auto_scaling_config:
-    initial_executors: 2
-    min_executors: 1
-    max_executors: 10
-    shuffle_tracking_timeout: 60
-  driver_config:
-    preset:
-      name: cpu-medium
-  executor_config:
-    instances: 3
-    preset:
-      name: cpu-large
-  image:
-    repository: spark
-    tag: 3.5.3
-```
 
 ### Usage
 

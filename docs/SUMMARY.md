@@ -73,6 +73,7 @@
       * [Service Deployment](apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment-1.md)
       * [Fooocus](apolo-concepts-cli/apps/installable-apps/available-apps/fooocus.md)
       * [PrivateGPT](apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md)
+      * [Apache Spark](apolo-concepts-cli/apps/installable-apps/available-apps/apache-spark.md)
 
 ## Administration
 
