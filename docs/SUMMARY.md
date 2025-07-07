@@ -66,6 +66,7 @@
     * [Managing Apps](apolo-concepts-cli/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-concepts-cli/apps/installable-apps/available-apps/README.md)
       * [VSCode](apolo-concepts-cli/apps/installable-apps/available-apps/vs-code.md)
+      * [Weaviate](apolo-concepts-cli/apps/installable-apps/available-apps/weaviate.md)
       * [Jupyter](apolo-concepts-cli/apps/installable-apps/available-apps/vs-code-1.md)
       * [Hugging Face](apolo-concepts-cli/apps/installable-apps/available-apps/hugging-face.md)
       * [Service Deployment](apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment.md)

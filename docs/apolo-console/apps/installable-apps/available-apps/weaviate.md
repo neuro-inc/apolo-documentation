@@ -9,7 +9,7 @@ The Apolo **Weaviate App**  delivers a fully‑managed cluster with:
 * Optional S3 backups
 * One‑click HTTPS ingress secured by basic‑auth
 
-### Key Features
+## Key Features
 
 | Feature                | How the Apolo App Helps                                                                |
 | ---------------------- | -------------------------------------------------------------------------------------- |
@@ -22,16 +22,11 @@ The Apolo **Weaviate App**  delivers a fully‑managed cluster with:
 
 The Apolo Platform  ships a one‑click _Weaviate App_ that encapsulates Helm deployment, persistent storage, ingress and (optionally) automatic backups.
 
-### Apolo Deployment
+## Installing
 
-Two paths:
+Below are the detailed instructions for installing Service Deployment using Apolo Console. For instructions on how to install it using Apolo CLI, visit [Apolo CLI Service Deployment](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment.md).
 
-1. **Web Console UI** – guided wizard.
-2. **Apolo CLI** – YAML + `app install`; perfect for CI/CD.
-
-
-
-### Web Console UI
+### Installing via Apolo Console
 
 #### 1 · Open the catalogue
 
