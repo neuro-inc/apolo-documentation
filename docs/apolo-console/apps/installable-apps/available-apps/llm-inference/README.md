@@ -1,4 +1,4 @@
-# LLM Inference
+# vLLM
 
 [vLLM](https://github.com/vllm-project/vllm) is a high-performance and memory-efficient inference engine for large language models. It uses a novel GPU KV cache management strategy to serve transformer-based models at scale, supporting multiple GPUs (including NVIDIA and AMD) with ease. vLLM enables fast decoding and efficient memory utilization, making it suitable for production-level deployments of large LLMs.
 
@@ -110,4 +110,5 @@ if __name__ == '__main__':
 * [app-llm-inference Helm Chart Repository](https://github.com/neuro-inc/app-llm-inference)
 * [Apolo Documentation](https://docs.apolo.us/apolo-cli/commands/shortcuts#usage-16) (for the usage of `apolo run` and resource presets)
 * [Hugging Face Model Hub](https://huggingface.co/) (for discovering or hosting models)
+* [LLM inference install via CLI](../../../../../apolo-concepts-cli/apps/installable-apps/available-apps/llm-inference.md)
 

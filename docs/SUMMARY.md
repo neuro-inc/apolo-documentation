@@ -77,6 +77,9 @@
       * [PrivateGPT](apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md)
       * [Apache Spark](apolo-concepts-cli/apps/installable-apps/available-apps/apache-spark.md)
       * [MLflow](apolo-concepts-cli/apps/installable-apps/available-apps/ml-flow.md)
+      * [Superset](apolo-concepts-cli/apps/installable-apps/available-apps/superset.md)
+      * [LLM Inference](apolo-concepts-cli/apps/installable-apps/available-apps/llm-inference.md)
+      * [Text Embeddings Inference](apolo-concepts-cli/apps/installable-apps/available-apps/text-embeddings-inference.md)
 
 ## Administration
 

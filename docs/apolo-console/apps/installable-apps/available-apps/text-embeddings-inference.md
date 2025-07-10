@@ -92,3 +92,5 @@ if __name__ == '__main__':
 
 * [https://github.com/huggingface/text-embeddings-inference](https://github.com/huggingface/text-embeddings-inference)
 * [https://huggingface.co/](https://huggingface.co/)
+* [Text Embedding Inference CLI installation](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/text-embeddings-inference.md)
+* [Managing Apps](../managing-apps.md)
