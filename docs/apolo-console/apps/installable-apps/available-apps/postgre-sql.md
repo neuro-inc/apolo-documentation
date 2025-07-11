@@ -146,4 +146,5 @@ Quick recap of what was done:
 * [Crunchy Postgres Apolo Chart Repository](https://github.com/neuro-inc/app-crunchy-postgres)
 * [Crunchy Data Postgres Documentation](https://access.crunchydata.com/documentation/postgres-operator/latest/quickstart)
 * [Apolo Documentation](https://docs.apolo.us/apolo-cli/commands/shortcuts#usage-16) (for the usage of `apolo run` and resource presets)
+* [Apolo Buckets application](../../pre-installed/buckets.md)
 * [Apolo PostgreSQL application management via CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/postgresql.md)

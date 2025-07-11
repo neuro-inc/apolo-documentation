@@ -7,7 +7,7 @@ It allows users to run Apolo command-line tools and clients instantly—without 
 
 Navigate to the **Apolo Console** and click on the **Apps** section from the left-hand navigation menu. You will see a list of available apps, as shown in the screenshot below.
 
-<figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Application gallery</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Application gallery</p></figcaption></figure>
 
 Locate the **Shell** app. If it is not yet installed, proceed to the installation steps.
 
@@ -44,7 +44,7 @@ To view and manage installed instances of the Terminal app:
 
 <figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Shell application details (1)</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Shell application details (2)</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>Shell application details (2)</p></figcaption></figure>
 
 ## Using the Terminal App
 
@@ -52,7 +52,7 @@ To view and manage installed instances of the Terminal app:
 
     Open **HTTP API** with the public domain address in a dedicated browser window. You could identify it by the public domain name. Simply copy-paste it in new browser window. Alternatively, hit "open web UI" button. This will open a web-based shell environment in new browser tab.
 
-<figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption><p>Shell application domain address</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Shell application domain address</p></figcaption></figure>
 
 2. Run Commands.\
    Use the terminal to execute shell commands. A welcome message provides helpful examples of commands you can run, such as managing Apolo CLI workflows and running jobs.
@@ -62,7 +62,7 @@ To view and manage installed instances of the Terminal app:
 <pre class="language-bash"><code class="lang-bash"><strong>apolo config show
 </strong></code></pre>
 
-<figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Shell application: <code>apolo config show</code> example</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Shell application: <code>apolo config show</code> example</p></figcaption></figure>
 
 ## References
 

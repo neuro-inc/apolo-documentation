@@ -35,13 +35,13 @@ Step2 - Select Model from [HuggingFace](https://huggingface.co/) repositories
 
 <figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Part 1 Text Embeddings Inference installation process</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>Part 2 Text Embeddings Inference installation process</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>Part 2 Text Embeddings Inference installation process</p></figcaption></figure>
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please provide the HuggingFace token, as a string of Apolo Secret.
 
 Step3 - Install and wait for the outputs, at the Outputs section of an app
 
-<figure><img src="../../../../.gitbook/assets/image (6) (1).png" alt=""><figcaption><p>Outputs section</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Outputs section</p></figcaption></figure>
 
 ## Usage
 
@@ -90,7 +90,8 @@ if __name__ == '__main__':
 
 ### References
 
-* [https://github.com/huggingface/text-embeddings-inference](https://github.com/huggingface/text-embeddings-inference)
-* [https://huggingface.co/](https://huggingface.co/)
-* [Text Embedding Inference CLI installation](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/text-embeddings-inference.md)
+* [Hugging Face Text Embeddings Inference GitHub repo](https://github.com/huggingface/text-embeddings-inference)
+* [Hugging Face platform](https://huggingface.co/)
+* [Apolo Hugging Face application management](hugging-face.md)
 * [Managing Apps](../managing-apps.md)
+* [Text Embedding Inference CLI installation](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/text-embeddings-inference.md)

@@ -58,4 +58,6 @@ You can find more information for application management commands in the list of
 * [Apolo Hugging Face application](../../../../apolo-console/apps/installable-apps/available-apps/hugging-face.md)
 * [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)
-
+* [Hugging Face Hub Caching Guide](https://huggingface.co/docs/huggingface_hub/en/guides/manage-cache)
+* [Apolo LLM Inference application](../../../../apolo-console/apps/installable-apps/available-apps/llm-inference/)
+* [Apolo Text Embeddings application](../../../../apolo-console/apps/installable-apps/available-apps/text-embeddings-inference.md)

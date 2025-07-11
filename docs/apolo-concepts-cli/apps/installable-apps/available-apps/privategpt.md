@@ -6,11 +6,7 @@
 
 ## Installing
 
-### Installing with Apolo CLI
-
-As for the approach of managing Service Deployment applications via Apolo Console, see dedicated the instructions on a [documentation dedicated page](../../../../apolo-console/apps/installable-apps/available-apps/privategpt.md).
-
-## Usage
+Here we provide brief description of the application installation using Apolo CLI. See [managing-apps.md](../managing-apps.md "mention") page for generic flow of application installation via CLI. In this example, we will integrate with previously deployed PostgreSQL, vLLM and Text Embedding Inference applications.&#x20;
 
 **Step 1** — Obtain the application configuration file template:
 
@@ -18,14 +14,8 @@ As for the approach of managing Service Deployment applications via Apolo Consol
 apolo app-template get private-gpt -o myservice.yaml
 ```
 
-**Step 2** — Customize the application parameters. With PrivateGPT, you can deploy RAG application within several clicks relying on previously deployed PostgreSQL for data storage, Apolo storage for binary files store, vLLM for LLM inference and Text Embeddings or vLLM for embeddings creation.
-
-In this example, we will integrate with previously deployed applications. The easiest way is to build the configuration from Apolo web console and then save it to the application configuration file. You can do it with this button (after specifying all the parameters):
-
-<figure><img src="../../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Extract PrivateGPT app configuration file</p></figcaption></figure>
-
-\
-Below is an example configuration file that deploys a PrivateGPT app
+**Step 2** — Customize the application parameters. With PrivateGPT, you can deploy RAG application within several clicks relying on previously deployed PostgreSQL for data storage, Apolo storage for binary files store, vLLM for LLM inference and Text Embeddings or vLLM for embeddings creation.\
+Below is an example configuration file that deploys a PrivateGPT app.
 
 ```yaml
 # Example of private-gpt-v25.5.1-config.yaml

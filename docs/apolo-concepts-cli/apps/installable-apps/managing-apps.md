@@ -48,6 +48,10 @@ The most robust way to install applications via the CLI is by using a YAML confi
       networking:
         http_auth: true
     ```
+
+    Alternatively, one can build the configuration using Apolo web console and then save it to the application configuration file. You can do it with this button (after specifying all needed parameters):
+
+    <figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Extract PrivateGPT app configuration file</p></figcaption></figure>
 2.  **Run the install command**, pointing to your YAML file using the `--file` flag:
 
     ```bash

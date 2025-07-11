@@ -42,5 +42,6 @@ The use of this app is mostly transparent for the user.
 
 * [Hugging Face Cache Management](https://huggingface.co/docs/datasets/en/cache)
 * [Hugging Face Hub Caching Guide](https://huggingface.co/docs/huggingface_hub/en/guides/manage-cache)
-* [Apolo LLM Inference Documentation](llm-inference/)
+* [Apolo LLM Inference application](llm-inference/)
+* [Apolo Text Embeddings application](text-embeddings-inference.md)
 * [Apolo Hugging Face management via CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/hugging-face.md)

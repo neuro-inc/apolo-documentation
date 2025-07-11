@@ -20,7 +20,7 @@ Jupyter Apolo is an application designed to facilitate interactive computing and
 
 **Step 1** — Navigate to the Apps page, find Jupyter from the list and click the corresponding "Install" button. This will redirect you to the installation page
 
-<figure><img src="../../../.gitbook/assets/image (28).png" alt=""><figcaption><p>Screenshot of Apps page that displays a block with Jupyter app</p></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (28) (1).png" alt=""><figcaption><p>Screenshot of Apps page that displays a block with Jupyter app</p></figcaption></figure>
 
 **Step 2** — Configure the application by filling the required fields and click install.
 

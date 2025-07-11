@@ -11,7 +11,7 @@ The "All Apps" page is your central hub for discovering applications available o
 3.  Scroll through the list to see all available options.\
 
 
-    <figure><img src="../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Application list page</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (1) (3).png" alt=""><figcaption><p>Application list page</p></figcaption></figure>
 4. Each application card has an **Explore** button. To learn more about an application before installing it, click **Explore**.
 5. This will take you to the application's detail page, where you can find:
    * A detailed description of the app.
@@ -20,7 +20,7 @@ The "All Apps" page is your central hub for discovering applications available o
    *   A list of **Related** applications.\
 
 
-       <figure><img src="../../../.gitbook/assets/image (2).png" alt=""><figcaption><p>MLFlow application explore page</p></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>MLFlow application explore page</p></figcaption></figure>
 
 ## **Installing Apps**
 
@@ -35,7 +35,7 @@ You can install an application directly from the catalog or from its exploration
    *   **Metadata**: Assign a unique name to your application instance.\
 
 
-       <figure><img src="../../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Installation page for Jupyter app</p></figcaption></figure>
+       <figure><img src="../../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p>Installation page for Jupyter app</p></figcaption></figure>
 5. After configuring all the necessary parameters, click the final **Install** button at the bottom of the page to deploy the application. You will be redirected to that app instance's [Details](managing-apps.md#app-instance-details) page.
 
 ## **Managing Installed Apps**

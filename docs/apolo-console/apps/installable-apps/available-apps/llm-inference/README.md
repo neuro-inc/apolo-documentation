@@ -49,7 +49,7 @@ Step1 - Select the Preset you want to use (Currently only GPU-accelerated preset
 
 Step2 - Select Model from [HuggingFace](https://huggingface.co/) repositories
 
-<figure><img src="../../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Part 1 - vLLM app deployment</p></figcaption></figure>
+<figure><img src="../../../../../.gitbook/assets/image (7) (1) (1).png" alt=""><figcaption><p>Part 1 - vLLM app deployment</p></figcaption></figure>
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please provide the HuggingFace token, as a string of Apolo Secret.
 
@@ -107,8 +107,9 @@ if __name__ == '__main__':
 ### References
 
 * [vLLM Official GitHub Repo](https://github.com/vllm-project/vllm)
-* [app-llm-inference Helm Chart Repository](https://github.com/neuro-inc/app-llm-inference)
+* [vLLM application Helm Chart Repository](https://github.com/neuro-inc/app-llm-inference)
 * [Apolo Documentation](https://docs.apolo.us/apolo-cli/commands/shortcuts#usage-16) (for the usage of `apolo run` and resource presets)
 * [Hugging Face Model Hub](https://huggingface.co/) (for discovering or hosting models)
-* [LLM inference install via CLI](../../../../../apolo-concepts-cli/apps/installable-apps/available-apps/llm-inference.md)
+* [Apolo Hugging Face application management](../hugging-face.md)
+* [vLLM inference install via CLI](../../../../../apolo-concepts-cli/apps/installable-apps/available-apps/llm-inference.md)
 
