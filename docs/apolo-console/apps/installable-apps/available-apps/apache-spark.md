@@ -77,3 +77,10 @@ You could remove this application just like all other apps by clicking the "Unin
 ### Usage
 
 After installing your Spark application, it will automatically begin execution based on your configuration. The application runs as a managed service within the Apolo cluster, handling resource allocation, scaling, and job lifecycle management.
+
+## References
+
+* [Apolo applications management](../managing-apps.md)
+* [Apache Spark application repository](https://github.com/neuro-inc/app-spark-job)
+* [Apache pySpark documentation](https://spark.apache.org/docs/latest/api/python/index.html)
+* [Apache Spark application management via CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/apache-spark.md)

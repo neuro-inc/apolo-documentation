@@ -97,3 +97,10 @@ If you want to see logs of the application, use:
 ```bash
 apolo app logs <app-id>
 ```
+
+## References
+
+* [Apolo applications management via CLI](../managing-apps.md)
+* [Apache Spark application repository](https://github.com/neuro-inc/app-spark-job)
+* [Apache pySpark documentation](https://spark.apache.org/docs/latest/api/python/index.html)
+* [Apache Spark application management via web console](../../../../apolo-console/apps/installable-apps/available-apps/apache-spark.md)
