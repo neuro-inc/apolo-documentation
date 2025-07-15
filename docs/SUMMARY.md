@@ -73,6 +73,7 @@
       * [Dify](apolo-concepts-cli/apps/installable-apps/available-apps/dify.md)
       * [Weaviate](apolo-concepts-cli/apps/installable-apps/available-apps/weaviate.md)
       * [Fooocus](apolo-concepts-cli/apps/installable-apps/available-apps/fooocus.md)
+      * [Stable Diffusion](apolo-concepts-cli/apps/installable-apps/available-apps/stable-diffusion.md)
       * [Hugging Face](apolo-concepts-cli/apps/installable-apps/available-apps/hugging-face.md)
       * [Service Deployment](apolo-concepts-cli/apps/installable-apps/available-apps/service-deployment.md)
       * [Apache Spark](apolo-concepts-cli/apps/installable-apps/available-apps/apache-spark.md)

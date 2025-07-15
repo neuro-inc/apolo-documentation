@@ -2,18 +2,15 @@
 
 Stable Diffusion is a state-of-the-art deep learning model designed for generating high-quality images from textual descriptions. It utilizes a **latent diffusion process**, a type of generative model that iteratively refines noise to produce detailed and realistic images. This model is highly efficient, scalable, and capable of running on consumer-grade hardware, making it widely used for applications in art generation, content creation, and research. Developed with open accessibility in mind, Stable Diffusion empowers developers and creators to explore generative AI while maintaining adaptability for various use cases.
 
-Apolo utilizes [Stable Diffusion Web UI by AUTOMATIC1111](https://github.com/AUTOMATIC1111/stable-diffusion-webui) and [StableStudio UI ](https://github.com/Stability-AI/StableStudio)to make inference/have a UI playground.
+Apolo uses [SD.Next](https://github.com/neuro-inc/sdnext)[ ](https://github.com/Stability-AI/StableStudio)as the WebUI for the Stable Diffusion application.
 
-Stable Diffusion WebUI is an intuitive, browser-based interface designed for generating and managing AI-generated images using Stable Diffusion. It offers customizable workflows, advanced image settings, and integrations for various Stable Diffusion models, enabling users to create and edit images with ease.
+SD.Next is a browser-based interface designed for generating and managing AI-generated images using Stable Diffusion and other models. It offers several customization options, advanced image settings, and integrations for various Stable Diffusion models, enabling users to create and edit images with ease. It also provides an [API](https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/API) for generating images which can be integrated into other applications.
 
-StableStudio is a web application built to enhance the Stable Diffusion experience. It provides minimalistic UI and batch inference capability.
-
-### Key Features
+## Key Features
 
 | Feature                            | How the Apolo App Helps                                                        |
 | ---------------------------------- | ------------------------------------------------------------------------------ |
 | **Text‑to‑Image & Image‑to‑Image** | Prompt → image or edit existing images via Web UI or REST.                     |
-| **Multiple UIs**                   | Switch between AUTOMATIC1111 (power‑user) and StableStudio (lightweight).      |
 | **Custom Models**                  | Point to any Hugging Face model (`stabilityai/stable-diffusion‑xl`, `lora/…`). |
 | **GPU Presets**                    | Pick from `gpu-l4-x1`, `gpu-a100-x1`, etc.; Apolo sets env vars & drivers.     |
 | **Secrets Integration**            | Store HF tokens in Apolo Secrets instead of plain text.                        |
@@ -21,11 +18,11 @@ StableStudio is a web application built to enhance the Stable Diffusion experien
 
 
 
-### Apolo Deployment
+## Installing
 
-Deploy via either the **Web Console UI** or **Apolo CLI**.
+Stable Diffusion can be installed on Apolo either via the [CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/stable-diffusion.md) or the Apolo Console. Below are the detailed instructions for installing Stable Diffusion using Apolo Console.
 
-### Web Console UI
+### Installing via Apolo Console
 
 #### 1 · Open the catalogue
 
@@ -46,62 +43,16 @@ Click **Install**. Wait until _Status → healthy_; copy the **external\_api** h
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2025-05-23 at 17.35.09.png" alt=""><figcaption></figcaption></figure>
 
-
-
-### Apolo CLI
-
-Create a declarative YAML and push it with one command.
-
-```yaml
-# stable-diffusion.yaml
-
-template_name: "stable-diffusion"
-template_version: "v25.5.0"
-input:
-  preset:
-    name: "gpu-l4-x1"         # 1× L4 24 GB
-  ingress_http:
-    auth: false               # public playground
-  stable_diffusion:
-    replica_count: 2          # autoscale to 2 replicas
-    hugging_face_model:
-      model_hf_name: "stabilityai/stable-diffusion-2"
-      hf_token:               # reference an Apolo Secret
-        key: "HF_TOKEN"
-
-# deploy
-apolo app install -f stable-diffusion.yaml \
-  --cluster <CLUSTER> --org <ORG> --project <PROJECT>
-```
-
-**Explanation**
-
-* `preset.name=gpu-l4-x1` requests one NVIDIA L4; Apolo auto‑sets `CUDA_VISIBLE_DEVICES` & default batch flags.
-* `replica_count=2` launches two pods behind a load balancer for higher QPS.
-* `hugging_face_model.model_hf_name` points to SD‑XL‑Turbo for faster drafts.
-* `hf_token` pulls the secret string from the _HF\_TOKEN_ key in Apolo Secrets.
-
-### Inputs / Outputs _(schema v1)_
-
-**Inputs**
-
-| JSON Path                                           | Default | Description             |
-| --------------------------------------------------- | ------- | ----------------------- |
-| `preset.name`                                       | –       | GPU preset per replica. |
-| `ingress_http.auth`                                 | `true`  | Basic‑auth gate.        |
-| `stable_diffusion.replica_count`                    | `1`     | Number of pods.         |
-| `stable_diffusion.hugging_face_model.model_hf_name` | –       | HF model repo.          |
-| `stable_diffusion.hugging_face_model.hf_token`      | `null`  | Secret or string token. |
-
-**Outputs**
-
-| Key                      | Purpose                                  |
-| ------------------------ | ---------------------------------------- |
-| `external_api.*`         | Public REST endpoint (`/v1/txt2img`).    |
-| `internal_api.*`         | In‑cluster endpoint for other workloads. |
-| `hf_model.model_hf_name` | Echoes the loaded model.                 |
-
 ### Usage
+
+After installation, you can utilize Stable Diffusion for image generation workflows and you can access it directly from your browser or using its Rest API&#x20;
+
+To view and manage installed instances of the Stable Diffusion app:
+
+1. Go to the **Installed Apps** tab.
+2. You will see a list of all running apps, including the **Stable Diffusion** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
+
+Once in the Details" page, scroll down to the Outputs sections. To launch the applications, find the **HTTP API** output with with the public domain address, copy and open it in a dedicated browser window.&#x20;
 
 #### 1 · REST API
 
@@ -126,19 +77,12 @@ The response contains a base64‑encoded PNG under `images[0]`.
 
 #### 2 · Web UIs
 
-* **AUTOMATIC1111 Web UI** – the default root path (`/`).
-* **StableStudio** – served at `/stablestudio` when enabled in the chart.
+* **SD.Next WebUI** – the default root path (`/`).
 
-**Connecting StableStudio**
 
-1. Open StableStudio and click **Settings** (gear icon, top right).
-2. Paste the **external URL** of your Stable Diffusion deployment into **Host URL**.
-3. Status should show _Ready without history plugin_.
-4. Click **Generate** and enjoy!\
-   &#xNAN;_&#x4E;ote:_ The host URL is stored only in `localStorage`; each browser or private window needs to be configured again.
 
 ### References
 
 * [StableDiffusion repository](https://github.com/Stability-AI/StableDiffusion)
-* [Stable diffusion webui Automatic repository](https://github.com/AUTOMATIC1111/stable-diffusion-webui)
-* [StableStudio repository](https://github.com/Stability-AI/StableStudio)
+* [SD.Next WebUI repository](https://github.com/neuro-inc/sdnext)
+* [Apolo's StableDiffusion Helm Chart repository](https://github.com/neuro-inc/app-stable-diffusion)
