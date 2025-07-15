@@ -61,7 +61,29 @@ Step 3 - Install and wait for the outputs, at the Outputs section of an app
 * `model_hf_name: "meta-llama/Llama-3.1-8B-Instruct"`: The Hugging Face model to load.
 * `ingress_http`: Creates a public domain (e.g. `vllm-large.apps.<YOUR_CLUSTER_NAME>.org.neu.ro`) pointing to the vLLM deployment.
 
+### Autoscaling
 
+You can configure an autoscaling for your vLLM deployment using Autoscaling Tab.
+
+vLLM supports autoscaling based on incoming HTTP request rate using [KEDA's HTTP Addon](https://github.com/kedacore/http-add-on). This enables dynamic scaling of your model deployment based on actual traffic load.
+
+Below are the key parameters you can configure for request rate-based autoscaling:
+
+{% tabs %}
+{% tab title="vLLM autoscaling parameters 1" %}
+<figure><img src="../../../../../.gitbook/assets/image (65).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+
+{% tab title="vLLM autoscaling parameters 2" %}
+<figure><img src="../../../../../.gitbook/assets/image (64).png" alt=""><figcaption></figcaption></figure>
+{% endtab %}
+{% endtabs %}
+
+| Parameter        | Description                                                                                                                                                |
+| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Granularity**  | Time interval (in seconds) used to calculate the request rate. A shorter interval reacts more quickly to traffic spikes, but may be more volatile.         |
+| **Target Value** | Target number of requests per second per replica. KEDA will attempt to maintain this target by scaling up or down.                                         |
+| **Window Size**  | Total time window (in seconds) used for request rate calculation. Larger windows smooth out short-term spikes, but can introduce lag in scaling decisions. |
 
 ### Usage
 
