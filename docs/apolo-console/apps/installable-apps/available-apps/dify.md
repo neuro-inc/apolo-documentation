@@ -216,14 +216,14 @@ After adding vLLM and Text embedding providers to Dify, the system will be ready
 
     Click "Run app" button to open a dedicated chat window and now you can ask some questions about the provided context.
 
-    <figure><img src="../../../../.gitbook/assets/image.png" alt="" width="563"><figcaption><p>Using Dify RAG application</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (2).png" alt="" width="563"><figcaption><p>Using Dify RAG application</p></figcaption></figure>
 
 
 5.  **Monitoring applications**
 
     Application usage logs, metrics and much more can be found on the corresponding sections within the application studio.
 
-    <figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption><p>Dify application usage overview</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (1) (4).png" alt=""><figcaption><p>Dify application usage overview</p></figcaption></figure>
 
 As for the API usage, each particular application created within the Dify platform comes with embedded API documentation, that can be viewed by navigating to "Access API reference" from Dify apps publishing options.
 

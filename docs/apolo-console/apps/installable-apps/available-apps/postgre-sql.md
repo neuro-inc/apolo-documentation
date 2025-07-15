@@ -54,6 +54,9 @@ Below is a brief description of how to deploy the PostgreSQL application with ex
 {% endtab %}
 {% endtabs %}
 
+Please note: you should add a database user, and database name that will be created. \
+**postgres** username is reserved and will be created automatically.
+
 After setting up all input parameters, click "install" to start the installation. You will be redirected to an application details page, which displays application inputs, outputs and health status.
 
 <figure><img src="../../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>Application details page</p></figcaption></figure>
@@ -61,6 +64,12 @@ After setting up all input parameters, click "install" to start the installation
 Your PostgreSQL cluster is ready. The application outputs, including access credentials are displayed below at this screen too. You could utilize this outputs with other applications or other workloads.&#x20;
 
 <figure><img src="../../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>PostgreSQL app outputs</p></figcaption></figure>
+
+As well, you will see Postgres admin credentials to connect to the cluster using admin credentials.\
+**Postgres** username is reserved and will be returned in the outputs.\
+
+
+<figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
 
 You could remove this application just like all other apps by clicking the "Uninstall" button in the upper right corner of the application details page.
 
