@@ -96,3 +96,8 @@
   * [Managing organizations](administration/cluster-management/managing-organizations.md)
   * [Creating Node Pools](administration/cluster-management/creating-node-pools.md)
   * [Managing Presets](administration/cluster-management/managing-presets.md)
+* [Managed Kubernetes](administration/managed-kubernetes/README.md)
+  * [Architecture & Features](administration/managed-kubernetes/architecture-and-features.md)
+  * [Managed Kubernetes Cluster Services](administration/managed-kubernetes/managed-kubernetes-cluster-services.md)
+  * [Deployment Process](administration/managed-kubernetes/deployment-process.md)
+  * [Ongoing Support](administration/managed-kubernetes/ongoing-support.md)
