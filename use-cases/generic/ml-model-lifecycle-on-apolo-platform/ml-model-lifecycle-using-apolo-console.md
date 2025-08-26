@@ -1,3 +1,7 @@
+---
+hidden: true
+---
+
 # ML Model Lifecycle using Apolo Console
 
 This comprehensive guide will walk you through creating a complete machine learning workflow using Apolo's platform. You'll learn how to:
@@ -35,7 +39,7 @@ This comprehensive guide will walk you through creating a complete machine learn
 
     <figure><img src="../../.gitbook/assets/image (53).png" alt=""><figcaption></figcaption></figure>
 
-Find more about launching Jupyter in Apolo by going to our [Jupyter Notebook page](https://app.gitbook.com/s/UD8kiAsnN8MKP7nzsJRQ/apolo-console/apps/available-apps/jupyter-notebook).&#x20;
+Find more about launching Jupyter in Apolo by going to our [Jupyter Notebook page](https://app.gitbook.com/s/UD8kiAsnN8MKP7nzsJRQ/apolo-console/apps/installable-apps/available-apps/jupyter-notebook).&#x20;
 
 ### 3. Setting Up MLflow for Experiment Tracking
 
