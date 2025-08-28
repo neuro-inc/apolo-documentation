@@ -1,4 +1,4 @@
-# End-to-End ML Model Lifecycle using Apolo CLI
+# ML Model Lifecycle on Apolo Platform
 
 This guide demonstrates how to manage a complete machine learning workflow on the Apolo platform, from environment setup to model deployment. We'll walk through the entire ML lifecycle using **Apolo Flow**, a powerful declarative workflow system ([full documentation here](https://docs.apolo.us/index/apolo-flow-reference)). While this guide uses the command-line interface (CLI), these operations can also be performed through the Apolo Console GUI for those who prefer a graphical experience using our built-in Apps such as Jupyter, MLFlow and Apolo Jobs.
 
@@ -60,7 +60,7 @@ To find the correct preset names for your cluster:
 
 
 
-    <figure><img src="../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure>
 3. Note the available preset names
 4. Modify the relevant fields in your `live.yml` file accordingly
 
@@ -110,7 +110,7 @@ The MLflow server provides:
 * Artifact storage for models and other outputs
 * A REST API for logging from your training jobs
 
-<figure><img src="../../.gitbook/assets/image (7).png" alt=""><figcaption><p>MLFlow interface displaying a list of experiments</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (7).png" alt=""><figcaption><p>MLFlow interface displaying a list of experiments</p></figcaption></figure>
 
 ### Step 5: Prepare Training Data
 
@@ -173,9 +173,9 @@ During training, you can:
 * Monitor progress in the MLflow UI
 * Access logs via `apolo-flow logs train`
 
-<figure><img src="../../.gitbook/assets/image (4).png" alt=""><figcaption><p>Average Loss metric decrease displayed in MLFlow</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (4).png" alt=""><figcaption><p>Average Loss metric decrease displayed in MLFlow</p></figcaption></figure>
 
-<figure><img src="../../.gitbook/assets/image (3).png" alt=""><figcaption><p>Model training artifacts such as the weights file and metadata files displayed on MLFlow</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (3).png" alt=""><figcaption><p>Model training artifacts such as the weights file and metadata files displayed on MLFlow</p></figcaption></figure>
 
 ### Step 8: Deploy Model Serving API
 
@@ -211,7 +211,7 @@ To interact with your model, add `/docs` to the end of the URL. This will take y
 
 For example, you can submit a name like "Patrick" along with the number of predictions you want, and the model will return the most likely country origins for that name based on its training.
 
-<figure><img src="../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure>
 
 ### Additional Workflows
 

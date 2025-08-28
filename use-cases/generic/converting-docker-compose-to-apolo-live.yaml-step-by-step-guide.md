@@ -1,4 +1,4 @@
-# Converting docker-compose to Apolo live.yaml - step by step guide.
+# Converting docker-compose to Apolo live.yaml - step by step guide
 
 ## Overview <a href="#j8bc1l6kdrt6" id="j8bc1l6kdrt6"></a>
 
@@ -10,7 +10,7 @@ This document’s aim is to guide the user on how to approach conversion of thei
 
 * A workflow is a configurable automated process made up of one or more job, task, or action calls. You must create a YAML file to define your workflow configuration.
 * Workflow kinds - there are two kinds of workflows: live and batch. We will discuss live workflow in this document.
-* Live workflows - ([../workflow-syntax/live-workflow-syntax#live-workflow](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/workflow-syntax/live-workflow-syntax)) workflows are controlled from the developer's machine. They contain a set of job definitions that spawn jobs in the Apolo cloud.
+* Live workflows - ( [Live workflow syntax](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/workflow-syntax/live-workflow-syntax "mention") ) workflows are controlled from the developer's machine. They contain a set of job definitions that spawn jobs in the Apolo cloud.
 
 #### Here's an example of a typical Apolo flow job: <a href="#id-9m4j1fvzlxcs" id="id-9m4j1fvzlxcs"></a>
 
@@ -468,19 +468,11 @@ By following these commands, you can reliably bring up your PrivateGPT environme
 
 ## Resources:
 
-Docker compose example in Apolo Github:
+[Docker compose example in Apolo Github](https://github.com/neuro-inc/private-gpt/blob/apolo/docker-compose.yaml)
 
-[https://github.com/neuro-inc/private-gpt/blob/apolo/docker-compose.yaml](https://github.com/neuro-inc/private-gpt/blob/apolo/docker-compose.yaml)
+[Apolo flow example in the Apolo Github](https://github.com/neuro-inc/private-gpt/blob/apolo/.apolo/live.yaml)
 
-Apolo flow example in the Apolo Github:
+[Docker-compose manual](https://docs.docker.com/compose/)
 
-[https://github.com/neuro-inc/private-gpt/blob/apolo/.apolo/live.yaml](https://github.com/neuro-inc/private-gpt/blob/apolo/.apolo/live.yaml)
-
-Docker-compose man page:
-
-[https://docs.docker.com/compose/](https://docs.docker.com/compose/)
-
-Apolo flow documentation:
-
-[https://docs.apolo.us/index/apolo-flow-reference/](https://docs.apolo.us/index/apolo-flow-reference/)
+[Apolo flow documentation](https://app.gitbook.com/s/-MMLOF_FqiWBMcOdY8cj/)
 
