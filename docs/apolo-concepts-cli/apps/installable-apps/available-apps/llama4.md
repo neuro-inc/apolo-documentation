@@ -1,25 +1,28 @@
-# LLM Inference
+# LLaMA4
 
 ### Overview <a href="#overview" id="overview"></a>
 
-[vLLM](https://github.com/vllm-project/vllm) is a high-performance and memory-efficient inference engine for large language models. It uses a novel GPU KV cache management strategy to serve transformer-based models at scale, supporting multiple GPUs (including NVIDIA and AMD) with ease. vLLM enables fast decoding and efficient memory utilization, making it suitable for production-level deployments of large LLMs.
+**LLaMA4** is a high-performance and scalable family of large language models developed by Meta AI. It is optimized for inference efficiency and supports both instruction-tuned and base variants, making it suitable for a wide range of production-level NLP tasks and deployments.
+
+**LLaMA 4 is part of the vLLM application and is designed for instant deployment, minimizing configuration effort.**\
+If you need to customize the deployment, please use the configurable application variant. Examples of tunable parameters include `server-extra-args`, Ingress authentication, and more.
 
 ### Managing application via Apolo CLI <a href="#managing-application-via-apolo-cli" id="managing-application-via-apolo-cli"></a>
 
-Shell can be installed on Apolo either via the CLI or the Web Console. Below are the detailed instructions for installing using Apolo CLI.
+LLaMA4 can be installed on Apolo either via the CLI or the Web Console. Below are the detailed instructions for installing using Apolo CLI.
 
 **Install via Apolo CLI**
 
 **Step 1** — Use the CLI command to get the application configuration file template:
 
 ```
-apolo app-template get llm-inference > llm.yaml
+apolo app-template get llama4-inference > llama4.yaml
 ```
 
 **Step 2** — Customize the application parameters. Below is an example configuration file:
 
 ```yaml
-# Application template configuration for: llm-inference
+# Application template configuration for: llama4-inference
 # Fill in the values below to configure your application.
 # To use values from another app, use the following format:
 # my_param:
@@ -27,37 +30,31 @@ apolo app-template get llm-inference > llm.yaml
 #   instance_id: "<app-instance-id>"
 #   path: "<path-from-get-values-response>"
 
-template_name: llm-inference
-template_version: v25.7.0
+template_name: llama4-inference
+template_version: v25.7.1
 input:
-  # Select the resource preset used per service replica.
-  preset:
-    # The name of the preset.
-    name: <>
-  # Enable access to your application over the internet using HTTPS.
-  ingress_http:
-    # Enable or disable HTTP ingress.
-    enabled: true
-  # Hugging Face Model Configuration.
-  hugging_face_model:
-    # The name of the Hugging Face model.
-    model_hf_name: <>
-    # The Hugging Face API token.
-    hf_token: <>
+  # Apolo Secret Configuration.
+  hf_token:
+    key: ''
+  # Enable or disable autoscaling for the LLM.
+  autoscaling_enabled: false
+  size: <ONE_OF_THE_AVAILABLE  >
+  llm_class: llama4
+
 
 
 ```
 
 Explanation of configuration parameters:
 
-1. **Resource Preset**: Choose a compute preset to define the hardware resources allocated. Example: `H100x1`
-2. **HTTP Authentication**: Enabled for secure access.
-3. **HuggingFace Model:** Set HuggingFace model that you want to deploy.
+1. **HuggingFace token:** Set HuggingFace model that you want to deploy.
+2. **Autoscaling:** enable if needed true/false
+3. **Size:** One of the available model sizes
 
 **Step 3** — Deploy the application in your Apolo project:
 
 ```
-apolo app install -f llm.yaml
+apolo app install -f llama4.yaml
 ```
 
 Monitor the application status using:
@@ -78,14 +75,14 @@ If you want to see logs of the application, use:
 apolo app logs <app-id>
 ```
 
-For instructions on how to access the application, please refer to the [Usage](llm-inference.md#usage) section.
+For instructions on how to access the application, please refer to the [Usage](llama4.md#usage) section.
 
 ### Usage
 
-After installation, you can utilize vLLM for different kind of workflows:
+After installation, you can utilize **LLaMA4** for different kind of workflows:
 
 1. Go to the **Installed Apps** tab.
-2. You will see a list of all running apps, including the **vLLM** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
+2. You will see a list of all running apps, including the **LLaMA4** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
 
 Once in the Details" page, scroll down to the Outputs sections. To launch the applications, find the **HTTP API** output with with the public domain address, copy and open it and paste to the script.
 
@@ -99,7 +96,7 @@ headers = {
 }
 
 data = {
-    "model": "meta-llama/Llama-3.1-8B-Instruct",  # Must match the model name loaded by vLLM
+    "model": "meta-llama/Llama-4-Scout-17B-16E",  # Must match the model name loaded by vLLM
     "messages": [
         {
             "role": "system",
@@ -134,5 +131,7 @@ if __name__ == '__main__':
 * [app-llm-inference Helm Chart Repository](https://github.com/neuro-inc/app-llm-inference)
 * [Apolo Documentation](https://docs.apolo.us/apolo-cli/commands/shortcuts#usage-16) (for the usage of `apolo run` and resource presets)
 * [Hugging Face Model Hub](https://huggingface.co/) (for discovering or hosting models)
-* [LLM inference install via UI](../../../../apolo-console/apps/installable-apps/available-apps/llm-inference/)
 * [Managing Apps](../managing-apps.md)
+* [Apolo Hugging Face application management](../../../../apolo-console/apps/installable-apps/available-apps/hugging-face.md)
+* [LLaMA4 install via Apolo](../../../../apolo-console/apps/installable-apps/available-apps/llama4.md)
+* [Llama4 collection HuggingFace](https://huggingface.co/collections/meta-llama/llama-4-67f0c30d9fe03840bc9d0164)

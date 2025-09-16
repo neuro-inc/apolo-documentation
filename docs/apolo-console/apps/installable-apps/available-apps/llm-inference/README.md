@@ -29,11 +29,9 @@ You can deploy vLLM on the Apolo platform using the **`vLLM`** app. Apolo automa
 
 #### Parameter Descriptions
 
-The following parameters can be set with Apolo’s CLI (`apolo run --pass-config ... install ... --set <key>=<value>`). Many are optional but can be used to customize your deployment:
-
 | **Resource Preset**             | Required. Apolo preset for resources. E.g. **`gpu-xlarge`**, `H100X1`, `mi210x2`. Sets CPU, memory, GPU count, and GPU provider.                                                            |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Hugging Face Model**          | Required. Provide a Model Name in specified field. And Higging Face token if model is gated. E.g.  **`sentence-transformers/all-mpnet-base-v2`**                                            |
+| **Hugging Face Model**          | Required. Provide a Model Name in specified field. And Hugging Face token if model is gated. E.g.  **`sentence-transformers/all-mpnet-base-v2`**                                            |
 | **Enable HTTP Ingress**         | Exposes an application externally over HTTPS                                                                                                                                                |
 | **Hugging Face Tokenizer Name** | Name or path of the huggingface tokenizer to use. If unspecified, model name or path will be used.                                                                                          |
 | **Server Extra Args**           | Optional. Specify additional args for llm. See [https://docs.vllm.ai/en/v0.5.1/models/engine\_args.html](https://docs.vllm.ai/en/v0.5.1/models/engine_args.html)                            |
@@ -133,5 +131,5 @@ if __name__ == '__main__':
 * [Apolo Documentation](https://docs.apolo.us/apolo-cli/commands/shortcuts#usage-16) (for the usage of `apolo run` and resource presets)
 * [Hugging Face Model Hub](https://huggingface.co/) (for discovering or hosting models)
 * [Apolo Hugging Face application management](../hugging-face.md)
-* [vLLM inference install via CLI](../../../../../apolo-concepts-cli/apps/installable-apps/available-apps/llm-inference.md)
+* [vLLM inference install via CLI](../../../../../apolo-concepts-cli/apps/installable-apps/available-apps/vllm-inference.md)
 

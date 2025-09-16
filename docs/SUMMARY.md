@@ -33,6 +33,9 @@
   * [Installable Apps](apolo-console/apps/installable-apps/README.md)
     * [Managing Apps](apolo-console/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-console/apps/installable-apps/available-apps/README.md)
+      * [LLaMA4](apolo-console/apps/installable-apps/available-apps/llama4.md)
+      * [DeepSeekR1](apolo-console/apps/installable-apps/available-apps/deepseekr1.md)
+      * [Mistral](apolo-console/apps/installable-apps/available-apps/mistral.md)
       * [OpenWebUI](apolo-console/apps/installable-apps/available-apps/openwebui.md)
       * [Shell](apolo-console/apps/installable-apps/available-apps/terminal.md)
       * [vLLM](apolo-console/apps/installable-apps/available-apps/llm-inference/README.md)
@@ -81,7 +84,10 @@
       * [Apache Spark](apolo-concepts-cli/apps/installable-apps/available-apps/apache-spark.md)
       * [PrivateGPT](apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md)
       * [Superset](apolo-concepts-cli/apps/installable-apps/available-apps/superset.md)
-      * [LLM Inference](apolo-concepts-cli/apps/installable-apps/available-apps/llm-inference.md)
+      * [vLLM Inference](apolo-concepts-cli/apps/installable-apps/available-apps/vllm-inference.md)
+      * [LLaMA4](apolo-concepts-cli/apps/installable-apps/available-apps/llama4.md)
+      * [DeepSeekR1](apolo-concepts-cli/apps/installable-apps/available-apps/deepseekr1.md)
+      * [Mistral](apolo-concepts-cli/apps/installable-apps/available-apps/mistral.md)
       * [Text Embeddings Inference](apolo-concepts-cli/apps/installable-apps/available-apps/text-embeddings-inference.md)
 
 ## Administration
