@@ -216,7 +216,7 @@ After adding vLLM and Text embedding providers to Dify, the system will be ready
 
     Click "Run app" button to open a dedicated chat window and now you can ask some questions about the provided context.
 
-    <figure><img src="../../../../.gitbook/assets/image (2).png" alt="" width="563"><figcaption><p>Using Dify RAG application</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (2) (4).png" alt="" width="563"><figcaption><p>Using Dify RAG application</p></figcaption></figure>
 
 
 5.  **Monitoring applications**

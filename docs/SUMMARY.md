@@ -35,6 +35,7 @@
     * [Available apps](apolo-console/apps/installable-apps/available-apps/README.md)
       * [LLaMA4](apolo-console/apps/installable-apps/available-apps/llama4.md)
       * [DeepSeekR1](apolo-console/apps/installable-apps/available-apps/deepseekr1.md)
+      * [GPT OSS](apolo-console/apps/installable-apps/available-apps/gpt-oss.md)
       * [Mistral](apolo-console/apps/installable-apps/available-apps/mistral.md)
       * [OpenWebUI](apolo-console/apps/installable-apps/available-apps/openwebui.md)
       * [Shell](apolo-console/apps/installable-apps/available-apps/terminal.md)
@@ -87,6 +88,7 @@
       * [vLLM Inference](apolo-concepts-cli/apps/installable-apps/available-apps/vllm-inference.md)
       * [LLaMA4](apolo-concepts-cli/apps/installable-apps/available-apps/llama4.md)
       * [DeepSeekR1](apolo-concepts-cli/apps/installable-apps/available-apps/deepseekr1.md)
+      * [GPT OSS](apolo-concepts-cli/apps/installable-apps/available-apps/gpt-oss.md)
       * [Mistral](apolo-concepts-cli/apps/installable-apps/available-apps/mistral.md)
       * [Text Embeddings Inference](apolo-concepts-cli/apps/installable-apps/available-apps/text-embeddings-inference.md)
 

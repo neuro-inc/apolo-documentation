@@ -26,7 +26,7 @@ The Hugging Face App provides the following functionalities:
 
 4. **Set application name Variables.**
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 4. **Click "install".**
 
