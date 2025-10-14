@@ -227,7 +227,7 @@ Here is the resulting json file.
 
 #### 3.1 Importing a Custom App Template
 
-You can import a custom app template into Launchpad. This allows you to define configurations and metadata for an application that can be installed later via Launchpad. Notice how
+You can import a custom app template into Launchpad. This allows you to define configurations and metadata for an application that can be installed later via Launchpad.&#x20;
 
 1.  **Prepare Template Data:** Define the template details in a JSON payload:\
     \
@@ -264,7 +264,25 @@ You can import a custom app template into Launchpad. This allows you to define c
       }
     }
     ```
-2.  **Import the Template (via API):**
+2.  **Get Launchpad Access Token:** Use the Launchpad API to get an access token for the `admin` user. You can use the helper script provided in the Launchpad README:
+
+    ```bash
+    LAUNCHPAD_URL="https://[YOUR_LAUNCHPAD_URL]"
+    LAUNCHPAD_USERNAME="admin"
+    LAUNCHPAD_PASSWORD="[YOUR_PASSWORD]"
+    SCOPE="openid profile email offline_access"
+
+    TOKEN_RESPONSE=$(curl -s -X POST "${LAUNCHPAD_URL}/auth/token" \
+    -H "Content-Type: application/json" \
+    -d '{"username":"'${LAUNCHPAD_USERNAME}'","password":"'${LAUNCHPAD_PASSWORD}'","scope":"'${SCOPE}'"}')
+
+    ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token')
+    REFRESH_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.refresh_token')
+
+    # Run the curl command to get the ACCESS_TOKEN
+    echo $ACCESS_TOKEN
+    ```
+3.  **Import the Template (via API):**
 
     * Use the Launchpad API `apps/templates/import` endpoint with your template data:
 
@@ -274,7 +292,7 @@ You can import a custom app template into Launchpad. This allows you to define c
     -H "Content-Type: application/json" \
     -d '[YOUR_TEMPLATE_JSON]'
     ```
-3. **Deploy from Launchpad:**
+4. **Deploy from Launchpad:**
    *   The new app template will now be visible in the Launchpad interface, ready for users to install and run their own instance.\
        \
 
@@ -296,25 +314,6 @@ In this example, we will import an already running `Service Deployment` app into
      * **Install** the application.
 2. **Access App ID:** Once installed, go to the Service Deployment app details and copy its **ID**.
 3.  **Import App into Launchpad (via API):**
-
-    * **Get Launchpad Access Token:** Use the Launchpad API to get an access token for the `admin` user. You can use the helper script provided in the Launchpad README:
-
-    ```bash
-    LAUNCHPAD_URL="https://[YOUR_LAUNCHPAD_URL]"
-    LAUNCHPAD_USERNAME="admin"
-    LAUNCHPAD_PASSWORD="[YOUR_PASSWORD]"
-    SCOPE="openid profile email offline_access"
-
-    TOKEN_RESPONSE=$(curl -s -X POST "${LAUNCHPAD_URL}/auth/token" \
-    -H "Content-Type: application/json" \
-    -d '{"username":"'${LAUNCHPAD_USERNAME}'","password":"'${LAUNCHPAD_PASSWORD}'","scope":"'${SCOPE}'"}'")
-
-    ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token')
-    REFRESH_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.refresh_token')
-
-    # Run the curl command to get the ACCESS_TOKEN
-    echo $ACCESS_TOKEN
-    ```
 
     * **Import the Application:** Use the Launchpad API `apps/import` endpoint, replacing placeholders with your app's details and the previously obtained `ACCESS_TOKEN`.
 
