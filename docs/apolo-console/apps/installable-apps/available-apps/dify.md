@@ -146,13 +146,13 @@ Here we describe how to integrate Text Embedding Inference application into the 
 
 Assuming, you have Text Embedding app installed that have following outputs:
 
-<figure><img src="../../../../.gitbook/assets/image (4).png" alt="" width="563"><figcaption><p>Text Embeddings application outputs</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (3).png" alt="" width="563"><figcaption><p>Text Embeddings application outputs</p></figcaption></figure>
 
 
 
 As with vLLM integration, open Dify settings window -> Model provider and find OpenAI-API-compatible. Click "add model", select embedding model type and provide the inputs in the same guide&#x20;
 
-<figure><img src="../../../../.gitbook/assets/image (5).png" alt="" width="375"><figcaption><p>Embeddings model configuration in Dify</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (3).png" alt="" width="375"><figcaption><p>Embeddings model configuration in Dify</p></figcaption></figure>
 
 Now you can click "save" and the model configuration will be saved.
 {% endtab %}

@@ -33,6 +33,7 @@
   * [Installable Apps](apolo-console/apps/installable-apps/README.md)
     * [Managing Apps](apolo-console/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-console/apps/installable-apps/available-apps/README.md)
+      * [Launchpad](apolo-console/apps/installable-apps/available-apps/launchpad.md)
       * [LLaMA4](apolo-console/apps/installable-apps/available-apps/llama4.md)
       * [DeepSeekR1](apolo-console/apps/installable-apps/available-apps/deepseekr1.md)
       * [GPT OSS](apolo-console/apps/installable-apps/available-apps/gpt-oss.md)

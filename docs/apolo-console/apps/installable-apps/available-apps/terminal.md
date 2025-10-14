@@ -32,7 +32,7 @@ To view and manage installed instances of the Terminal app:
 1. Go to the **Installed Apps** tab.
 2. You will see a list of running **Shell** app instances. To open the detailed information & uninstall the app, click the **Details** button.
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption><p>Installed Shell app</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Installed Shell app</p></figcaption></figure>
 
 **Details page** contains the next information:
 

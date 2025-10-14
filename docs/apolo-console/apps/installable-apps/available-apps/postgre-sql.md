@@ -69,7 +69,7 @@ As well, you will see Postgres admin credentials to connect to the cluster using
 **Postgres** username is reserved and will be returned in the outputs.\
 
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 You could remove this application just like all other apps by clicking the "Uninstall" button in the upper right corner of the application details page.
 
