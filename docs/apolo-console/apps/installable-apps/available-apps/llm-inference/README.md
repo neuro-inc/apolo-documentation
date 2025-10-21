@@ -36,6 +36,7 @@ You can deploy vLLM on the Apolo platform using the **`vLLM`** app. Apolo automa
 | **Hugging Face Tokenizer Name** | Name or path of the huggingface tokenizer to use. If unspecified, model name or path will be used.                                                                                          |
 | **Server Extra Args**           | Optional. Specify additional args for llm. See [https://docs.vllm.ai/en/v0.5.1/models/engine\_args.html](https://docs.vllm.ai/en/v0.5.1/models/engine_args.html)                            |
 | **Cache Config**                | Optional. Configure storage cache path, used to persist your model. Important for Autoscaling purposes. If not specified, PV will be created automatically and attached to the application. |
+| **Docker Image Config**         | Optional. Configure vllm docker image and tag, If not specified the default one will be chosen.                                                                                             |
 
 Any additional chart values can also be provided through `--set` flags, but the above are the most common.
 
