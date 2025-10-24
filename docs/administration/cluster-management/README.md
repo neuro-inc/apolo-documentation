@@ -18,7 +18,6 @@ This group contains the following topics:
 [managing-presets.md](managing-presets.md)
 {% endcontent-ref %}
 
-{% content-ref url="reports.md" %}
-[reports.md](reports.md)
+{% content-ref url="https://github.com/neuro-inc/apolo-documentation/blob/master/docs/administration/cluster-management/reports.md" %}
+[https://github.com/neuro-inc/apolo-documentation/blob/master/docs/administration/cluster-management/reports.md](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/administration/cluster-management/reports.md)
 {% endcontent-ref %}
-

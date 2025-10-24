@@ -15,7 +15,7 @@ The **Jobs** App is a tool that allows users to schedule and execute containeriz
 
 ## Running jobs
 
-The Apolo platform offers multiple interfaces to manage jobs: the Web UI, the Command Line Interface (CLI), and a Python SDK. This guide will explaining the process of creating jobs via the Web UI. To learn more about running jobs using Apolo CLI, visit the Apolo CLI [Jobs app page](../../../../../cli/apps/jobs.md).
+The Apolo platform offers multiple interfaces to manage jobs: the Web UI, the Command Line Interface (CLI), and a Python SDK. This guide will explaining the process of creating jobs via the Web UI. To learn more about running jobs using Apolo CLI, visit the Apolo CLI [Jobs app page](https://github.com/neuro-inc/apolo-documentation/blob/master/cli/apps/jobs.md).
 
 ### Using the Web UI
 
@@ -26,17 +26,17 @@ The Apolo platform offers multiple interfaces to manage jobs: the Web UI, the Co
     * From the main page, go to the left-hand menu.
     * Click on the "Jobs" option in the left hand menu. This will open the Jobs dashboard.
 
-    ![](../../../../.gitbook/assets/jobs-1.png)
+    ![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/jobs-1.png)
 2.  **Initiate Job Creation:**
 
     * In the Jobs dashboard, click the "Create New Job" button. This will bring you to the "Create New Job" form.
 
-    ![](../../../../.gitbook/assets/jobs-2-cropped.png)
+    ![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/jobs-2-cropped.png)
 3.  **Configure Job Details**
 
     * The job creation form has seven steps: Image, Resources, Integrations, Networking, Metadata, Scheduling and Advanced
 
-    ![](../../../../.gitbook/assets/jobs-3.png)
+    ![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/jobs-3.png)
 
     * **Image:**
       * **Image Name:** Enter a name for your job's image, for instance, "python/latest".
@@ -67,7 +67,7 @@ The Apolo platform offers multiple interfaces to manage jobs: the Web UI, the Co
 
     * After submitting, you'll be redirected to the job's detail page.
 
-    ![](../../../../.gitbook/assets/jobs-4.png)
+    ![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/jobs-4.png)
 
     * The job starts in Pending state.
     * The status will change during its execution from Pending, to Running and finally to Succeeded or Failed.
@@ -78,11 +78,11 @@ The Apolo platform offers multiple interfaces to manage jobs: the Web UI, the Co
       Note: You can view Status transition in the Observability tab to check the state of the Job at specific times.\
       Note: You can also Save Image, Refresh, and Rerun the Job in this screen.
 
-    ![](../../../../.gitbook/assets/jobs-5.png)
+    ![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/jobs-5.png)
 7. **Review Jobs**
    * Go back to the Jobs dashboard. Here you can view a list of Jobs, and filter it by status.
 
-To learn more about debugging and monitoring jobs once they are started, visit the [Apolo CLI Jobs app page](../../../../cli/apps/jobs.md#debugging-jobs).
+To learn more about debugging and monitoring jobs once they are started, visit the [Apolo CLI Jobs app page](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/cli/apps/jobs.md#debugging-jobs).
 
 ## Reference
 

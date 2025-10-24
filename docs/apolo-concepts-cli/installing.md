@@ -26,13 +26,15 @@ Apolo CLI requires Python 3 installed (recommended: 3.8; required: 3.7.9 or newe
 
 ```
 pip install -U apolo-cli apolo-extras apolo-flow
-apolo login
+apolo login [API URL]
 ```
+
+API URL for ScottData : [https://api.apolo.scottdata.ai/api/v1](https://api.apolo.scottdata.ai/api/v1)
 
 If your machine doesn't have GUI, use the following command instead of apolo login:
 
 ```
-apolo config login-headless
+apolo config login-headless [API URL]
 ```
 {% endtab %}
 
@@ -60,8 +62,10 @@ conda install -c conda-forge make
 conda install -c conda-forge git    
 pip install -U apolo-cli apolo-extras apolo-flow
 pip install -U certifi
-apolo login
+apolo login [API URL]
 ```
+
+API URL for ScottData : [https://api.apolo.scottdata.ai/api/v1](https://api.apolo.scottdata.ai/api/v1)
 
 To make sure that all commands you can find in our documentation work properly, don't forget to run `bash` every time you open Conda Prompt.
 {% endtab %}

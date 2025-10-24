@@ -6,7 +6,7 @@ description: Apolo NFS storage
 
 ## Overview
 
-The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo Console. To learn more about how to manage the Files app with Apolo CLI, visit the [Apolo CLI Files](../../../apolo-concepts-cli/apps/files.md) app page.
+The Files application is a comprehensive file management system designed to help you organize and manage your network storage within the cluster. This documentation will guide you through its features and functionality using Apolo Console. To learn more about how to manage the Files app with Apolo CLI, visit the [Apolo CLI Files](../../../apolo-concepts-cli/apps/pre-installed-apps/files.md) app page.
 
 ## **Storage Organization**
 

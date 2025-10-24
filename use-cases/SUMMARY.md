@@ -9,9 +9,9 @@
 
 ## Generic
 
-* [ML Model Lifecycle on Apolo Platform](generic/ml-model-lifecycle-on-apolo-platform/README.md)
-  * [End-to-End ML Model Lifecycle using Apolo CLI](generic/ml-model-lifecycle-on-apolo-platform/end-to-end-ml-model-lifecycle-using-apolo-cli.md)
-  * [ML Model Lifecycle using Apolo Console](generic/ml-model-lifecycle-on-apolo-platform/ml-model-lifecycle-using-apolo-console.md)
+* [ML Model Lifecycle on Apolo Platform](generic/ml-model-lifecycle-on-apolo-platform.md)
+* [ML Model Lifecycle using Apolo Console](generic/ml-model-lifecycle-using-apolo-console.md)
+* [Converting docker-compose to Apolo live.yaml - step by step guide](generic/converting-docker-compose-to-apolo-live.yaml-step-by-step-guide.md)
 
 ## Large language models <a href="#llms" id="llms"></a>
 
@@ -24,3 +24,7 @@
 
 * [Synthetic Data Generation using Stable Diffusion](image-and-video-processing/synthetic-data-generation-using-stable-diffusion.md)
 * [HOWTO: Lora models with Stable Diffusion](image-and-video-processing/howto-lora-models-with-stable-diffusion.md)
+
+## Audio Processing
+
+* [Deploying Text-to-Speech and Speech-to-Text Models in Apolo](audio-processing/deploying-text-to-speech-and-speech-to-text-models-in-apolo.md)

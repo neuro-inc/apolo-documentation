@@ -31,7 +31,7 @@ apolo-flow run stablediffusion
 
 Go to Models -> HuggingFace
 
-<figure><img src="../.gitbook/assets/image (29).png" alt=""><figcaption><p>HuggingFace model download interface</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (30).png" alt=""><figcaption><p>HuggingFace model download interface</p></figcaption></figure>
 
 Generate the first image:
 
@@ -39,13 +39,13 @@ Generate the first image:
 
 Ghibli style futuristic stormtrooper with glossy white armor and a sleek helmet, standing heroically on a lush alien planet, vibrant flowers blooming around, soft sunlight illuminating the scene, a gentle breeze rustling the leaves
 
-<figure><img src="../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption></figcaption></figure>
 
 ### Lora model
 
 Let's find a trained model on Civit.ai, we need to filter model by our Stable Diffusion version.
 
-<figure><img src="../.gitbook/assets/image (25).png" alt=""><figcaption><p>Civit.AI search models interface</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (26).png" alt=""><figcaption><p>Civit.AI search models interface</p></figcaption></figure>
 
 Alternative can be HuggingFace search. (tags: Lora, Stable Diffusion, 3.5)
 
@@ -63,7 +63,7 @@ Click on your Networks -> Lora tab, hit refresh, and click on your Lora model, t
 
 For example we generated ghibli-style stormtrooper.
 
-<figure><img src="../.gitbook/assets/image (32).png" alt=""><figcaption><p>Ghibli style stormtrooper</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption><p>Ghibli style stormtrooper</p></figcaption></figure>
 
 ### References:
 

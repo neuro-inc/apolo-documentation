@@ -8,15 +8,15 @@ Explore the guide below for setup instructions and configuration details.
 
 The **GitHub repository** serves as the primary source of truth for all updates, configurations, and detailed documentation regarding this Docker image.
 
-[https://github.com/neuro-inc/neuro-base-environment](https://github.com/neuro-inc/neuro-base-environment)
+[https://github.com/neuro-inc/apolo-base-image](https://github.com/neuro-inc/apolo-base-image)
 
 ### Releases
 
-Releases can be found in [Releases github tab](https://github.com/neuro-inc/neuro-base-environment/releases)
+Releases can be found in [Releases github tab](https://github.com/neuro-inc/apolo-base-image/releases)
 
 Each release includes four Docker images, each configured with a specific set of dependencies.
 
-Dependencies version can be found in the specific release page. [Example](https://github.com/neuro-inc/neuro-base-environment/releases/tag/v24.12.0)
+Dependencies version can be found in the specific release page. [Example](https://github.com/neuro-inc/apolo-base-image/releases/tag/v24.12.0)
 
 ## Usage
 
