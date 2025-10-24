@@ -1,0 +1,50 @@
+name: Update Docs (Scottdc)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  load-docs-scottdc:
+    name: Load documentation into Scottdc LightRAG
+    runs-on: ubuntu-latest
+    env:
+      LIGHTRAG_API_KEY: ${{ secrets.LIGHTRAG_API_KEY_SCOTTDC }}
+      LIGHTRAG_ENDPOINT: https://api.apolo.scottdata.ai/apis/lightrag
+      DOCS_BASE_URL: https://docs.apolo.us/index/
+      DOCS_PATH: ${{ github.workspace }}/docs
+
+    steps:
+      - name: Check out apolo-documentation
+        uses: actions/checkout@v4
+
+      - name: Verify LightRAG API key secret is present
+        run: |
+          if [ -z "$LIGHTRAG_API_KEY" ]; then
+            echo "LIGHTRAG_API_KEY_SCOTTDC secret is not configured."
+            exit 1
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Upgrade pip
+        run: python -m pip install --upgrade pip
+
+      - name: Clone LightRAG repository
+        run: git clone --depth 1 https://github.com/neuro-inc/LightRAG.git ../LightRAG
+
+      - name: Install LightRAG dependencies
+        working-directory: ../LightRAG
+        run: pip install -r requirements.txt
+
+      - name: Load documentation into LightRAG (Scottdc)
+        working-directory: ../LightRAG
+        env:
+          LIGHTRAG_API_KEY: ${{ env.LIGHTRAG_API_KEY }}
+        run: |
+          python load_docs.py "$DOCS_PATH" \
+            --endpoint "$LIGHTRAG_ENDPOINT" \
+            --base-url "$DOCS_BASE_URL" \
+            --mode urls
