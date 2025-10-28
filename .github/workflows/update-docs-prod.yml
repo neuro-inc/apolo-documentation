@@ -1,50 +1,28 @@
-name: Update Docs (Prod)
+name: Trigger Copilot Index (Prod)
 
 on:
   workflow_dispatch:
 
 jobs:
-  load-docs-prod:
-    name: Load documentation into Prod LightRAG
+  invoke-copilot-index-prod:
+    name: Call Copilot index endpoint (Prod)
     runs-on: ubuntu-latest
     env:
-      LIGHTRAG_API_KEY: ${{ secrets.LIGHTRAG_API_KEY_PROD }}
-      LIGHTRAG_ENDPOINT: https://api.apolo.us/apis/lightrag
-      DOCS_BASE_URL: https://docs.apolo.us/index/
-      DOCS_PATH: ${{ github.workspace }}/docs
+      APOLO_AUTH_TOKEN: ${{ secrets.APOLO_AUTH_TOKEN_PROD }}
+      COPILOT_INDEX_ENDPOINT: https://api.apolo.us/apis/copilot/index
 
     steps:
-      - name: Check out apolo-documentation
-        uses: actions/checkout@v4
-
-      - name: Verify LightRAG API key secret is present
+      - name: Verify Apolo auth token secret is present
         run: |
-          if [ -z "$LIGHTRAG_API_KEY" ]; then
-            echo "LIGHTRAG_API_KEY_PROD secret is not configured."
+          if [ -z "$APOLO_AUTH_TOKEN" ]; then
+            echo "APOLO_AUTH_TOKEN_PROD secret is not configured."
             exit 1
           fi
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-
-      - name: Upgrade pip
-        run: python -m pip install --upgrade pip
-
-      - name: Clone LightRAG repository
-        run: git clone --depth 1 https://github.com/neuro-inc/LightRAG.git ../LightRAG
-
-      - name: Install LightRAG dependencies
-        working-directory: ../LightRAG
-        run: pip install -r requirements.txt
-
-      - name: Load documentation into LightRAG (Prod)
-        working-directory: ../LightRAG
-        env:
-          LIGHTRAG_API_KEY: ${{ env.LIGHTRAG_API_KEY }}
+      - name: Trigger documentation reindex via Copilot
         run: |
-          python load_docs.py "$DOCS_PATH" \
-            --endpoint "$LIGHTRAG_ENDPOINT" \
-            --base-url "$DOCS_BASE_URL" \
-            --mode urls
+          curl --fail-with-body --show-error --silent \
+            -X POST "$COPILOT_INDEX_ENDPOINT" \
+            -H "Authorization: Bearer $APOLO_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"pull_latest": true, "run_test_query": false}'
