@@ -25,4 +25,12 @@ jobs:
             -X POST "$COPILOT_INDEX_ENDPOINT" \
             -H "Authorization: Bearer $APOLO_AUTH_TOKEN" \
             -H "Content-Type: application/json" \
-            -d '{"pull_latest": true, "run_test_query": false}'
+            -d '{"pull_latest": true, "run_test_query": false, "cleanup_before_index": true}'
+
+      - name: Trigger use-case documentation append via Copilot
+        run: |
+          curl --fail-with-body --show-error --silent \
+            -X POST "$COPILOT_INDEX_ENDPOINT" \
+            -H "Authorization: Bearer $APOLO_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"pull_latest": false, "run_test_query": false, "cleanup_before_index": false, "docs_relative_path": "use-cases", "base_url": "https://docs.apolo.us/index/examples-use-cases"}'
