@@ -10,7 +10,7 @@ Remote debugging relies on a running SSH server in a job's 22 port. We ensure it
 
 ## Initializing a new project
 
-Make sure you have CLI and [**cookiecutter**](https://github.com/cookiecutter/cookiecutter) installed, refer to [getting-started.md](../../../../../apolo-console/first-steps/getting-started.md "mention") for instructions.
+Make sure you have CLI and [**cookiecutter**](https://github.com/cookiecutter/cookiecutter) installed, refer to [https://github.com/neuro-inc/apolo-documentation/blob/master/apolo-console/first-steps/getting-started.md](https://github.com/neuro-inc/apolo-documentation/blob/master/apolo-console/first-steps/getting-started.md "mention") for instructions.
 
 Then, initialize an empty flow:
 

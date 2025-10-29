@@ -24,19 +24,19 @@ The example show HOWTO run [Stable Diffusion 3](https://huggingface.co/stability
 
 [Log in](https://console.apolo.us/auth) to your Apolo account
 
-<figure><img src="../.gitbook/assets/image (33).png" alt=""><figcaption><p>Login screen</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (34).png" alt=""><figcaption><p>Login screen</p></figcaption></figure>
 
 Find Stable Diffusion in your Apps tab
 
-<figure><img src="../.gitbook/assets/image (35).png" alt=""><figcaption><p>Apps tab</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (36).png" alt=""><figcaption><p>Apps tab</p></figcaption></figure>
 
 Deploy Stable Diffusion version, if you want to minimize the size, specify only weights
 
-<figure><img src="../.gitbook/assets/image (9).png" alt=""><figcaption><p>Stable Diffusion installation Tab</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (10).png" alt=""><figcaption><p>Stable Diffusion installation Tab</p></figcaption></figure>
 
 Now, check your App url at the details -> Outputs
 
-<figure><img src="../.gitbook/assets/image (23).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (24).png" alt=""><figcaption></figcaption></figure>
 
 #### Use-case:&#x20;
 
@@ -60,9 +60,9 @@ colors, textures, shading, and any 3D elements. furniture, patterns, or decorati
 
 Generated example:
 
-<figure><img src="../.gitbook/assets/image (16).png" alt=""><figcaption><p>Generated Floorplan</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>Generated Floorplan</p></figcaption></figure>
 
-<figure><img src="../.gitbook/assets/image (17).png" alt=""><figcaption><p>Some of the generated images.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/image (18).png" alt=""><figcaption><p>Some of the generated images.</p></figcaption></figure>
 
 We can tune the prompt further, so it does not make blurry lines, and fits our needs for the detection/segmentation model.
 

@@ -14,7 +14,6 @@ This group contains the following topics:
 [running-your-code.md](running-your-code.md)
 {% endcontent-ref %}
 
-{% content-ref url="collaborative-development.md" %}
-[collaborative-development.md](collaborative-development.md)
+{% content-ref url="https://github.com/neuro-inc/apolo-documentation/blob/master/docs/getting-started/first-steps/collaborative-development.md" %}
+[https://github.com/neuro-inc/apolo-documentation/blob/master/docs/getting-started/first-steps/collaborative-development.md](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/getting-started/first-steps/collaborative-development.md)
 {% endcontent-ref %}
-

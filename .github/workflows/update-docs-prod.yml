@@ -1,0 +1,36 @@
+name: Trigger Copilot Index (Prod)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  invoke-copilot-index-prod:
+    name: Call Copilot index endpoint (Prod)
+    runs-on: ubuntu-latest
+    env:
+      APOLO_AUTH_TOKEN: ${{ secrets.APOLO_AUTH_TOKEN_PROD }}
+      COPILOT_INDEX_ENDPOINT: https://api.apolo.us/apis/copilot/index
+
+    steps:
+      - name: Verify Apolo auth token secret is present
+        run: |
+          if [ -z "$APOLO_AUTH_TOKEN" ]; then
+            echo "APOLO_AUTH_TOKEN_PROD secret is not configured."
+            exit 1
+          fi
+
+      - name: Trigger documentation reindex via Copilot
+        run: |
+          curl --fail-with-body --show-error --silent \
+            -X POST "$COPILOT_INDEX_ENDPOINT" \
+            -H "Authorization: Bearer $APOLO_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"pull_latest": true, "run_test_query": false, "cleanup_before_index": true}'
+
+      - name: Trigger use-case documentation append via Copilot
+        run: |
+          curl --fail-with-body --show-error --silent \
+            -X POST "$COPILOT_INDEX_ENDPOINT" \
+            -H "Authorization: Bearer $APOLO_AUTH_TOKEN" \
+            -H "Content-Type: application/json" \
+            -d '{"pull_latest": false, "run_test_query": false, "cleanup_before_index": false, "docs_relative_path": "use-cases", "base_url": "https://docs.apolo.us/index/examples-use-cases"}'

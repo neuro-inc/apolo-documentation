@@ -48,37 +48,37 @@ You can delete resource presets by using the `apolo admin remove-resource-preset
 
 You can view your current cluster's resource presets in the **Information** and **Cluster management** tabs:
 
-![](../../.gitbook/assets/image%20\(116\).png)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/image%20\(116\).png)
 
 **Adding presets**
 
 To add a new preset, click the **Add** icon in the Cluster management tab:
 
-![](../../.gitbook/assets/image%20\(121\).png)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/image%20\(121\).png)
 
 After that, enter the desired preset parameters and click the **Save** icon:
 
-![](../../.gitbook/assets/image%20\(122\).png)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/image%20\(122\).png)
 
 **Modifying presets**
 
 To modify an existing preset, click the **Edit** icon next to it:
 
-![](../../.gitbook/assets/image%20\(118\).png)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/image%20\(118\).png)
 
 After that, enter the new parameters and click the **Save** icon:
 
-![](../../.gitbook/assets/image%20\(117\).png)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/image%20\(117\).png)
 
 **Deleting presets**
 
 To delete a preset, click the **Delete** icon next to it:
 
-![](../../.gitbook/assets/image%20\(119\).png)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/image%20\(119\).png)
 
 After that, click the **Save** icon to confirm your action:
 
-![](../../.gitbook/assets/image%20\(120\).png)
+![](https://github.com/neuro-inc/apolo-documentation/blob/master/docs/.gitbook/assets/image%20\(120\).png)
 {% endtab %}
 {% endtabs %}
 

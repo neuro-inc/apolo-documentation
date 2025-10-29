@@ -20,7 +20,7 @@ On the right side of the screen, selecting an image displays detailed informatio
 * _Size_. Total size of the image.
 * _Copy Icons_. Allows the user to copy either the image path or tag to the clipboard for easy reference.
 
-To learn more about managing images with the Images app, visit the [Apolo CLI Images](../../../apolo-concepts-cli/apps/images.md#overview) app page.
+To learn more about managing images with the Images app, visit the [Apolo CLI Images](../../../apolo-concepts-cli/apps/pre-installed-apps/images.md#overview) app page.
 
 ## References
 
