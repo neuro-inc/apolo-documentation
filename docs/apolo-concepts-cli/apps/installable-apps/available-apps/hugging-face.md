@@ -6,7 +6,7 @@ See more detailed description of the application at the dedicated Apolo Console'
 
 {% stepper %}
 {% step %}
-### Load application installation template
+#### Load application installation template
 
 ```
 apolo app-template get hugging-face-cache > hf-cache.yaml
@@ -14,7 +14,7 @@ apolo app-template get hugging-face-cache > hf-cache.yaml
 {% endstep %}
 
 {% step %}
-### **Fill in required parameters**
+#### **Fill in required parameters**
 
 ```yaml
 template_name: hugging-face-cache
@@ -28,9 +28,9 @@ You could also configure specific version of the application to be installed by 
 {% endstep %}
 
 {% step %}
-### Install the application
+#### Install the application
 
-`apolo app install -f hf-cache.yaml`&#x20;
+`apolo app install -f hf-cache.yaml`
 
 The application status could be also displayed via CLI:
 
@@ -45,7 +45,7 @@ apolo app ls
 {% endstep %}
 
 {% step %}
-### Removal
+#### Removal
 
 If you want to remove the application via CLI, use `apolo app remove <app-id>`.
 {% endstep %}

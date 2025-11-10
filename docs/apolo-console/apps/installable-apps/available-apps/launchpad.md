@@ -73,18 +73,14 @@ Once Launchpad is installed, you can access the installed app on the **Installed
 
 1. Click **Open** on the Launchpad app card.
 2. Select **App URL**.
-3.  The Launchpad interface loads, requiring a login.\
-
-
-    <figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
-
-
-4.  Launchpad comes with a default admin user that can manage what apps are available through Launchpad UI. You can find this admin user's credentials by scrolling down the Launchpad instance details page in Apolo and copying the **Password** field in **Launchpad Default Admin User**\
-
+3.  The Launchpad interface loads, requiring a login.\\
 
     <figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+4.  Launchpad comes with a default admin user that can manage what apps are available through Launchpad UI. You can find this admin user's credentials by scrolling down the Launchpad instance details page in Apolo and copying the **Password** field in **Launchpad Default Admin User**\\
+
+    <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 5.  Use these credentials to login to Launchpad. You should see a list of available apps - only OpenWebUI for now\
-    &#x20;
+
 
     <figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
 
@@ -134,8 +130,7 @@ This process generates a YAML configuration file based on the app's standard ins
    * Select the installed `Launchpad` instance and click **Apply**.
 4.  **Download Configuration:** Scroll to the bottom of the installation page. Click the **Export App Configuration** download icon (a down arrow pointing into a cloud or similar icon, typically next to the "Install" button) to download the `.yaml` configuration file.\
     \
-    The following yaml file is an example Downloaded from the VSCode App installation page.\
-
+    The following yaml file is an example Downloaded from the VSCode App installation page.\\
 
     ```yaml
     display_name: ""
@@ -181,7 +176,7 @@ If you don't have `yq`, you can use Python's built-in YAML and JSON libraries:
     python -c "import yaml, json, sys; d=yaml.safe_load(sys.stdin.read()); print(json.dumps(d))" < [FILE_NAME].yaml
     ```
 
-**Method B: Using `yq`**&#x20;
+**Method B: Using `yq`**
 
 If you have `yq` [installed](https://github.com/mikefarah/yq), this is the simplest method:
 
@@ -227,11 +222,11 @@ Here is the resulting json file.
 
 #### 3.1 Importing a Custom App Template
 
-You can import a custom app template into Launchpad. This allows you to define configurations and metadata for an application that can be installed later via Launchpad.&#x20;
+You can import a custom app template into Launchpad. This allows you to define configurations and metadata for an application that can be installed later via Launchpad.
 
 1.  **Prepare Template Data:** Define the template details in a JSON payload:\
     \
-    Notice the new fields `is_internal` , `is_shared` and the renaming of `inputs` to  `default_inputs`
+    Notice the new fields `is_internal` , `is_shared` and the renaming of `inputs` to `default_inputs`
 
     ```json
     {
@@ -294,8 +289,7 @@ You can import a custom app template into Launchpad. This allows you to define c
     ```
 4. **Deploy from Launchpad:**
    *   The new app template will now be visible in the Launchpad interface, ready for users to install and run their own instance.\
-       \
-
+       \\
 
        <figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
 

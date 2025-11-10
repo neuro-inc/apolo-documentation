@@ -20,7 +20,7 @@ downloads dataset to your current directory locally.
 
 You can access your dataset from within a container by giving `--volume storage:data/:/var/storage/data/:rw` to `neuro run` as a parameter when starting a new job.
 
-If your aim is to download or upload data from external system, be it AWS S3 bucket, or Azure Blob Storage, checkout our [extras](https://app.gitbook.com/s/EicNFI9vPOX1TTMYRKT9/#data-operations) package usage.
+If your aim is to download or upload data from external system, be it AWS S3 bucket, or Azure Blob Storage, checkout our [extras](broken-reference) package usage.
 
 ### How to Connect to a Running Job
 

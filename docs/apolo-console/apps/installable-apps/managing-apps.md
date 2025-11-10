@@ -8,17 +8,15 @@ The "All Apps" page is your central hub for discovering applications available o
 
 1. Navigate to the **Apps** section from the main menu on the left.
 2. You will see the **All Apps** page, which displays a catalog of available applications like Jupyter, Stable Diffusion, MLFlow Core, and more.
-3.  Scroll through the list to see all available options.\
+3.  Scroll through the list to see all available options.\\
 
-
-    <figure><img src="../../../.gitbook/assets/image (1) (3).png" alt=""><figcaption><p>Application list page</p></figcaption></figure>
+    <figure><img src="../../../.gitbook/assets/image (28) (2).png" alt=""><figcaption><p>Application list page</p></figcaption></figure>
 4. Each application card has an **Explore** button. To learn more about an application before installing it, click **Explore**.
 5. This will take you to the application's detail page, where you can find:
    * A detailed description of the app.
    * Version information.
    * Links to official **Documentation** and **References**.
-   *   A list of **Related** applications.\
-
+   *   A list of **Related** applications.\\
 
        <figure><img src="../../../.gitbook/assets/image (2) (3).png" alt=""><figcaption><p>MLFlow application explore page</p></figcaption></figure>
 
@@ -32,8 +30,7 @@ You can install an application directly from the catalog or from its exploration
 4. Fill in the required fields. Common parameters include:
    * **Resource Preset**: Choose the CPU, memory, and GPU resources for your application. Clicking this field opens a modal where you can select from a list of predefined presets.
    * **Storage and Networking**: Configure storage mounts and networking settings like HTTP authentication if needed.
-   *   **Metadata**: Assign a unique name to your application instance.\
-
+   *   **Metadata**: Assign a unique name to your application instance.\\
 
        <figure><img src="../../../.gitbook/assets/image (3) (3).png" alt=""><figcaption><p>Installation page for Jupyter app</p></figcaption></figure>
 5. After configuring all the necessary parameters, click the final **Install** button at the bottom of the page to deploy the application. You will be redirected to that app instance's [Details](managing-apps.md#app-instance-details) page.

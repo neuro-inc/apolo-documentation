@@ -29,7 +29,7 @@ Jupyter Apolo is an application designed to facilitate interactive computing and
 The following installation options are available:
 
 * **Resource Preset**: Choose from the dropdown menu - this is the only required field that you must set
-* **Jupyter App Configuration**:&#x20;
+* **Jupyter App Configuration**:
   * **Container Image** - you can customize the container image used by the application or just use the default one provided by Apolo which comes with the most used Data Science and ML libraries
   * **Override Default Storage Mount** - optionally choose another directory to mount into the application container as the root of your application
   * **Extra Storage Mounts** - optionally mount extra volumes into the application container
@@ -42,7 +42,7 @@ The following installation options are available:
 
 ### Usage
 
-After installation, you can utilize Jupyter for various data science tasks and you can access it directly from your browser.&#x20;
+After installation, you can utilize Jupyter for various data science tasks and you can access it directly from your browser.
 
 To view and manage installed instances of the Jupyter app:
 
@@ -57,7 +57,7 @@ Once in the Details page, click the **Open App** button at the top of the page t
 
 You can now access Jupyter to run experiments, train models and collaborate with colleagues.
 
-<figure><img src="../../../.gitbook/assets/image (33).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../.gitbook/assets/image (32) (1).png" alt=""><figcaption></figcaption></figure>
 
 #### Example Workflow
 

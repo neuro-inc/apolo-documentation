@@ -66,18 +66,16 @@ For instructions on how to access the application, please refer to the [Usage](f
 
 ### Usage
 
-After installation, you can utilize Fooocus for image generation workflows and you can access it directly from your browser.&#x20;
+After installation, you can utilize Fooocus for image generation workflows and you can access it directly from your browser.
 
 To view and manage installed instances of the Fooocus app:
 
 1. Go to the **Installed Apps** tab.
 2. You will see a list of all running apps, including the **Fooocus** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
 
-Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.&#x20;
+Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.
 
-<figure><img src="../../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
-
-
+<figure><img src="../../../../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### References
 

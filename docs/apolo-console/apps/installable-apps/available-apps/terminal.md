@@ -37,7 +37,7 @@ To view and manage installed instances of the Terminal app:
 **Details page** contains the next information:
 
 * Application metadata, such as ownership information, date of installation, ID, etc.
-* Application status and it's transitions&#x20;
+* Application status and it's transitions
 * Application inputs / settings
 * Logs (at the dedicated tab)
 * Outputs values
@@ -62,7 +62,7 @@ To view and manage installed instances of the Terminal app:
 <pre class="language-bash"><code class="lang-bash"><strong>apolo config show
 </strong></code></pre>
 
-<figure><img src="../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Shell application: <code>apolo config show</code> example</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Shell application: <code>apolo config show</code> example</p></figcaption></figure>
 
 ## References
 

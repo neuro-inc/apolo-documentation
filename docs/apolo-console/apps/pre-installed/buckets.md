@@ -14,7 +14,7 @@ This application is accessible from the left-side navigation menu in the Apolo C
 
 ## Bucket credentials
 
-For each bucket you can create its own provider-specific credentials with the specific role _Read-Only_ or _Read & Write_. For AWS or MinIO providers those will be secret key ID and access key values, for GCP it will be a JSON key file, etc.&#x20;
+For each bucket you can create its own provider-specific credentials with the specific role _Read-Only_ or _Read & Write_. For AWS or MinIO providers those will be secret key ID and access key values, for GCP it will be a JSON key file, etc.
 
 The web console interface provides the ability to create several credentials with different roles and to review details for previously created.
 
@@ -27,4 +27,4 @@ For data migration you could also refer Apolo Extras package usage. For extreme 
 ## References
 
 * [Apolo CLI Buckets reference](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/blob)
-* [Apolo Extras data operations](https://app.gitbook.com/s/EicNFI9vPOX1TTMYRKT9/#data-operations)
+* [Apolo Extras data operations](broken-reference)

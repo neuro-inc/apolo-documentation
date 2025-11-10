@@ -26,7 +26,7 @@ You can deploy **GPT OSS** on the Apolo platform using the **OpenAI GPT OSS** ap
 2. **Preset Auto-Configuration**: Preset will be chosen by default, according to HuggingFace model minimal vRAM requirements.
 3. **Ingress Setup**: By default will be enabled without authentication.
 4. **Autoscaling**: Apolo provides built-in support for horizontal pod autoscaling of GPT OSS deployments based on incoming request load. Parameters for autoscaling (min replicas - 1, max replicas - 5, 100 requests per second to start scaling)
-5.  **Cache**: The caching of your model is enabled by default, the storage path is&#x20;
+5.  **Cache**: The caching of your model is enabled by default, the storage path is
 
     ```
     storage://{cluster_name}/{org_name}/{project_name}/llm_bundles
@@ -34,23 +34,21 @@ You can deploy **GPT OSS** on the Apolo platform using the **OpenAI GPT OSS** ap
 
 ***
 
-
-
 ## Apolo Deployment
 
-| **Hugging Face Token** | **Required**. Provide a Hugging Face token if model is gated.  |
-| ---------------------- | -------------------------------------------------------------- |
-| **Model**              | **Required**. Select model size from the dropdown.             |
+| **Hugging Face Token** | **Required**. Provide a Hugging Face token if model is gated. |
+| ---------------------- | ------------------------------------------------------------- |
+| **Model**              | **Required**. Select model size from the dropdown.            |
 
 ***
 
 ### Web Console UI
 
-Step1 - Select  [HuggingFace](https://huggingface.co/) token
+Step1 - Select [HuggingFace](https://huggingface.co/) token
 
 Step2 - Choose the size of your model
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please make sure that your HuggingFace token has an access to it.
 

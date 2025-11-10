@@ -21,13 +21,13 @@ More detailed description can be found in [Github Repo](https://github.com/huggi
 
 ## Apolo deployment
 
-| Field                   | Description                                                                                                                                      |
-| ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Resource Preset**     | Required. Apolo preset for resources. E.g. **`gpu-xlarge`**, `H100X1`, `mi210x2`. Sets CPU, memory, GPU count, and GPU provider.                 |
-| **Hugging Face Model**  | Required. Provide a Model Name in specified field. And Higging Face token if model is gated. E.g.  **`sentence-transformers/all-mpnet-base-v2`** |
-| **Enable HTTP Ingress** | Exposes an application externally over HTTPS                                                                                                     |
+| Field                   | Description                                                                                                                                     |
+| ----------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Resource Preset**     | Required. Apolo preset for resources. E.g. **`gpu-xlarge`**, `H100X1`, `mi210x2`. Sets CPU, memory, GPU count, and GPU provider.                |
+| **Hugging Face Model**  | Required. Provide a Model Name in specified field. And Higging Face token if model is gated. E.g. **`sentence-transformers/all-mpnet-base-v2`** |
+| **Enable HTTP Ingress** | Exposes an application externally over HTTPS                                                                                                    |
 
-### Web  Console UI
+### Web Console UI
 
 Step1 - Select the Preset you want to use (Currently only GPU-accelerated presets are supported)
 
@@ -41,7 +41,7 @@ If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please pro
 
 Step3 - Install and wait for the application to be deployed. Once installed, you can find the API endpoint URL in the Outputs section of the app details page.
 
-<figure><img src="../../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Application details</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>Application details</p></figcaption></figure>
 
 ## Usage
 
@@ -85,8 +85,6 @@ if __name__ == '__main__':
         print(f"Embedding: {embedding}")
         print()
 ```
-
-
 
 ### References
 

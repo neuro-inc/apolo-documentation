@@ -26,23 +26,23 @@ This design allows users to upload documents, build production-grade ingestion p
 
 In this guide, we presume you've already deployed [vLLM Inference](llm-inference/), [Text embeddings](text-embeddings-inference.md) and [PostgreSQL](postgre-sql.md) applications, since we are going to show the integration process with those apps. The overview of application installation process via web console could be found [here](../managing-apps.md).
 
-Below are the detailed instructions for installing Dify application using Apolo Console. For instructions on how to install it using Apolo CLI, visit the [dedicated page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/dify.md).&#x20;
+Below are the detailed instructions for installing Dify application using Apolo Console. For instructions on how to install it using Apolo CLI, visit the [dedicated page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/dify.md).
 
 {% stepper %}
 {% step %}
-### Select "Dify" application at Apolo web console
+#### Select "Dify" application at Apolo web console
 
 Access the Apolo web console and go to the "Apps" section. We presume you are already authorized in web console and a participant of organization and project.
 {% endstep %}
 
 {% step %}
-### Configure application
+#### Configure application
 
-**HTTP Ingress, authentication and authorization**: allows you to enable or disable public domain creation for application and Apolo-powered HTTP authorization for the application API and web UI public domain.&#x20;
+**HTTP Ingress, authentication and authorization**: allows you to enable or disable public domain creation for application and Apolo-powered HTTP authorization for the application API and web UI public domain.
 
 We enable ingress, but disable authentication and authorization since Dify has it's own AAA mechanisms.
 
-_**Dify API**_&#x20;
+_**Dify API**_
 
 This component under the hood coordinates communication among other application components and serves user's requests. It does not perform heavy compute by itself.
 
@@ -50,7 +50,7 @@ This component under the hood coordinates communication among other application 
 
 We select a single replica here.
 
-**Resource preset:** Here you select an appropriate preset that specifies CPU, memory. Since API does not do any compute, the preset with 1 vCPU and  2 GiB of RAM should be sufficient to serve our needs.&#x20;
+**Resource preset:** Here you select an appropriate preset that specifies CPU, memory. Since API does not do any compute, the preset with 1 vCPU and 2 GiB of RAM should be sufficient to serve our needs.
 
 For our use-case we use `cpu-medium` with exactly those numbers.
 
@@ -62,7 +62,7 @@ This component under the hood runs async data analysis tasks, processes datasets
 
 We select a single replica here.
 
-**Resource preset:** Here you select an appropriate preset that specifies CPU, memory. This application under the hood communicates with external services such as vLLM and text embeddings API to process datasets. It also does not perform heavy compute by itself, so the preset with 1 vCPU and  2 GiB of RAM should be sufficient to serve your needs.
+**Resource preset:** Here you select an appropriate preset that specifies CPU, memory. This application under the hood communicates with external services such as vLLM and text embeddings API to process datasets. It also does not perform heavy compute by itself, so the preset with 1 vCPU and 2 GiB of RAM should be sufficient to serve your needs.
 
 For our use-case we use `cpu-medium` with exactly those numbers.
 
@@ -78,7 +78,7 @@ _**Dify Redis**_
 
 This is stand-alone cache service used while processing datasets and while serving some user requests. Currently, it's embedded into the Dify app, while in future it will be extracted to the dedicated application. Select similar to API resource preset here.
 
-_**PostgreSQL integration**_&#x20;
+_**PostgreSQL integration**_
 
 Dify uses PostgreSQL to store documents, their embeddings and metadata for later retrieval in chat. It also serves as a metrics storage and users metadata storage for Dify platform. In the opened window select PostgreSQL credentials from previously installed in Apolo PostgreSQL application.
 
@@ -95,6 +95,7 @@ You can also configure access to the PostgreSQL instance managed by you, among r
 When all of the required parameters are provided, click "install" to start the installation process. You will be redirected to the application details page, where app status, inputs and outputs are displayed. Wait till the status is _healty_.
 
 Once the app is installed:
+
 1. Click the **Open App** button at the top of the app details page to launch the Dify web UI in a new browser tab.
 2. Find the init password in the Outputs section (scroll down on the app details page) - you'll need this to create the first root user.
 
@@ -114,7 +115,7 @@ Once the app is installed:
 {% endstep %}
 
 {% step %}
-### Integrating vLLM and Text embedding
+#### Integrating vLLM and Text embedding
 
 {% tabs %}
 {% tab title="About" %}
@@ -138,7 +139,7 @@ Now enter the information from vLLM application outputs:
 
 <figure><img src="../../../../.gitbook/assets/Screenshot 2025-07-08 at 17.50.14.png" alt="" width="375"><figcaption><p>Dify vLLM integration</p></figcaption></figure>
 
-_Note: If you are using inter-cluster endpoint for vLLM communication, do not forget to specify scheme, port and base path, e.g. `http://<hostname>:8000/v1`_&#x20;
+_Note: If you are using inter-cluster endpoint for vLLM communication, do not forget to specify scheme, port and base path, e.g. `http://<hostname>:8000/v1`_
 
 Click _save._ Now having this model added to the system, you can select it to be the default reasoning model.
 {% endtab %}
@@ -150,9 +151,7 @@ Assuming, you have Text Embedding app installed that have following outputs:
 
 <figure><img src="../../../../.gitbook/assets/image (4) (3).png" alt="" width="563"><figcaption><p>Text Embeddings application outputs</p></figcaption></figure>
 
-
-
-As with vLLM integration, open Dify settings window -> Model provider and find OpenAI-API-compatible. Click "add model", select embedding model type and provide the inputs in the same guide&#x20;
+As with vLLM integration, open Dify settings window -> Model provider and find OpenAI-API-compatible. Click "add model", select embedding model type and provide the inputs in the same guide
 
 <figure><img src="../../../../.gitbook/assets/image (5) (3).png" alt="" width="375"><figcaption><p>Embeddings model configuration in Dify</p></figcaption></figure>
 
@@ -160,7 +159,7 @@ Now you can click "save" and the model configuration will be saved.
 {% endtab %}
 
 {% tab title="Default models" %}
-Now, select previously added models as system defaults for reasoning and embedding.&#x20;
+Now, select previously added models as system defaults for reasoning and embedding.
 
 <figure><img src="../../../../.gitbook/assets/image (6).png" alt="" width="563"><figcaption><p>Configuring system default models</p></figcaption></figure>
 
@@ -178,7 +177,7 @@ After adding vLLM and Text embedding providers to Dify, the system will be ready
 
 1.  **Creating the app**
 
-    In the Dify studio (landing page of Dify platform), click "Create from template" and select _Knowledge Retreival + Chatbot_ template.&#x20;
+    In the Dify studio (landing page of Dify platform), click "Create from template" and select _Knowledge Retreival + Chatbot_ template.
 
     Name your app and hit "Create". This will create a basic flow for your application:
 
@@ -194,33 +193,23 @@ After adding vLLM and Text embedding providers to Dify, the system will be ready
 
     When done, you will see the processed dataset item and the approximate number of words in it:
 
-
-
     <figure><img src="../../../../.gitbook/assets/Screenshot 2025-07-08 at 20.17.16.png" alt=""><figcaption><p>Dify processed knowledge</p></figcaption></figure>
 3.  **Setup LLM**
 
     In the LLM block, select the model from previously configured vLLM integration, while for the context, select the output of knowledge retrieval. Do not forget to select the previously prepared knowledge in the knowledge block. You can also parameterize the LLM prompt and bunch of other features.
 
-    The setup should look like this now:&#x20;
-
-
+    The setup should look like this now:
 
     <figure><img src="../../../../.gitbook/assets/Screenshot 2025-07-08 at 20.19.55.png" alt=""><figcaption><p>Dify LLM setup</p></figcaption></figure>
 4.  **Publishing and testing**
 
     At this step, your first RAG application is ready to be consumed by the end users. Click "publish" button. There you can find API description for this particular app that you can use to embed into your product, as well as directly share the application link.
 
-
-
     <figure><img src="../../../../.gitbook/assets/Screenshot 2025-07-08 at 20.25.20.png" alt="" width="375"><figcaption><p>Dify application publishing options</p></figcaption></figure>
-
-
 
     Click "Run app" button to open a dedicated chat window and now you can ask some questions about the provided context.
 
     <figure><img src="../../../../.gitbook/assets/image (2) (4).png" alt="" width="563"><figcaption><p>Using Dify RAG application</p></figcaption></figure>
-
-
 5.  **Monitoring applications**
 
     Application usage logs, metrics and much more can be found on the corresponding sections within the application studio.

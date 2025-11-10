@@ -31,7 +31,7 @@ This design allows users to upload documents or build ingestion pipelines, and t
 
 In this guide, we presume you've already deployed [vLLM Inference](llm-inference/), [Text embeddings](text-embeddings-inference.md) and [PostgreSQL](postgre-sql.md) applications, since we are going to show the integration process with those apps. The overview of application installation process via web console could be found [here](../managing-apps.md).
 
-Below are the detailed instructions for installing PrivateGPT using Apolo Console. For instructions on how to install it using Apolo CLI, visit the [dedicated page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md).&#x20;
+Below are the detailed instructions for installing PrivateGPT using Apolo Console. For instructions on how to install it using Apolo CLI, visit the [dedicated page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md).
 
 {% stepper %}
 {% step %}
@@ -41,9 +41,9 @@ Access the Apolo web console and go to the "Apps" section. We presume you are al
 {% endstep %}
 
 {% step %}
-### Configure application
+#### Configure application
 
-**Resource Preset:** Here you select an appropriate preset that specifies CPU, memory. This application under the hood serves static files and coordinates communication among other application. It does not perform compute by itself, so the preset with 1 vCPU and  2 GiB of RAM should be sufficient to serve your needs.
+**Resource Preset:** Here you select an appropriate preset that specifies CPU, memory. This application under the hood serves static files and coordinates communication among other application. It does not perform compute by itself, so the preset with 1 vCPU and 2 GiB of RAM should be sufficient to serve your needs.
 
 For our use-case we use `cpu-medium` with exactly those numbers.
 
@@ -55,7 +55,7 @@ When integrating with PostgreSQL app, make sure you are not using `postgres` use
 
 You can also configure access to the PostgreSQL instance managed by you, among requirements: user should be able to connect, create tables in own or public schema for the specified database. PGVector add-on should also be pre-installed in the database.
 
-**Embeddings API integration** is required for PrivateGPT to process user documents and queries. Under the hood PrivateGPT does not serve embedding model itself. Instead, it relies on access to generic OpenAI API-compatible Embeddings endpoint to process the document and return embedding values. Here we also rely on provided by Apolo integration with Text Embeddings application deployed beforehand.&#x20;
+**Embeddings API integration** is required for PrivateGPT to process user documents and queries. Under the hood PrivateGPT does not serve embedding model itself. Instead, it relies on access to generic OpenAI API-compatible Embeddings endpoint to process the document and return embedding values. Here we also rely on provided by Apolo integration with Text Embeddings application deployed beforehand.
 
 **LLM Chat API integration** is required for PrivateGPT to serve user queries. PrivateGPT does not serve LLM itself too. Instead, it relies on usage of OpenAI-compatible Chat endpoint. Here we also rely on provided by Apolo integration with vLLM application deployed beforehand, therefore, select the corresponding integration for those fields.
 
@@ -67,7 +67,7 @@ When integrating apps with HTTP web services, such as vLLM or Text Embeddings, m
 
 **LLM Temperature** is a well-known LLM inference control. It controls "creativity" of the model. The higher value, the more creative responses it generates. Since this is a RAG application, we do not hallucinations here, therefore, set it somewhat around 0.1.
 
-**Embeddings Dimensions** controls the number of features used to represent data (like words, images, or user preferences) in a machine learning model. A higher dimension generally allows for more nuanced representation, but also increases computational cost and potential for overfitting.&#x20;
+**Embeddings Dimensions** controls the number of features used to represent data (like words, images, or user preferences) in a machine learning model. A higher dimension generally allows for more nuanced representation, but also increases computational cost and potential for overfitting.
 
 {% hint style="info" %}
 Number of embeddings dimensions is defined by the embeddings model and you can not change it.
@@ -77,7 +77,7 @@ If you are using Hugging Face-provided model, you can find number embed dimensio
 
 **LLM Max new tokens** defines the model answer maximal length.
 
-**LLM Context window** defines how much data PrivateGPT can fit into the model within single query. This limited by LLM model itself (you can find this number in model description cart) and by underlying hardware (resource preset you use, VRAM in particular).&#x20;
+**LLM Context window** defines how much data PrivateGPT can fit into the model within single query. This limited by LLM model itself (you can find this number in model description cart) and by underlying hardware (resource preset you use, VRAM in particular).
 
 **LLM Tokenizer** defines which text tokenizer PrivateGPT should use while communicating with vLLM. We advise setting it equal to the model name in Hugging Face, but you can also leave it empty.
 
@@ -85,7 +85,7 @@ The last piece is the application name. We advice giving meaningful names for th
 {% endstep %}
 
 {% step %}
-### Review configuration
+#### Review configuration
 
 Now we can review the configuration.
 
@@ -105,13 +105,13 @@ Now we can review the configuration.
 {% endtab %}
 
 {% tab title="PrivateGPT internals" %}
-<figure><img src="../../../../.gitbook/assets/image (48).png" alt=""><figcaption><p>PrivateGPT configuration</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (47) (1).png" alt=""><figcaption><p>PrivateGPT configuration</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 {% endstep %}
 
 {% step %}
-### Triggering installation
+#### Triggering installation
 
 After clicking the "install" button, you will be redirected to the application details page and Apolo will take care of application installation.
 
@@ -134,7 +134,7 @@ Web UI is available in the root domain of the application. To identify this addr
 
 ### Access via public domain
 
-After the app is installed, click the **Open App** button at the top of the app details page to access the web UI directly in your browser.&#x20;
+After the app is installed, click the **Open App** button at the top of the app details page to access the web UI directly in your browser.
 
 Let's now focus on web UI usage of the application. Upload file(s) from your local machine to the PrivateGPT using "Upload files" button on the web UI. Private GPT will start processing the document. You will see the corresponding notification when the processing is done and you may start asking questions.
 

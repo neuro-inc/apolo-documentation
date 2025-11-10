@@ -23,6 +23,4 @@
 | [DeepSeekR1](deepseekr1.md)                                                               | DeepSeek R1 is an open-source language model by DeepSeek AI, designed for efficient, high-quality text generation and reasoning tasks. It supports instruction tuning and runs on GPUs with as little as 16GB memory.                              |
 | [LLaMA4](llama4.md)                                                                       | LLaMA 4 is a family of open-weight language models by Meta AI, optimized for performance and scalability.                                                                                                                                          |
 | [Mistral](mistral.md)                                                                     | Mistral is a suite of open-weight language models developed by Mistral AI, known for fast inference and strong performance.                                                                                                                        |
-
-
-
+| [n8n](n8n.md)                                                                             | n8n is a powerful workflow automation platform designed to simplify complex data integration tasks.                                                                                                                                                |

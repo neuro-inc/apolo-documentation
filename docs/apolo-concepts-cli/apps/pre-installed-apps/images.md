@@ -179,4 +179,4 @@ Additionally, you can transfer images between clusters using:
 apolo-extras image transfer image:myapp:v1.0 image:/other-cluster/myapp:v1.0
 ```
 
-For detailed information about image building options, including advanced Kaniko configurations and build customization, please refer to the [Apolo Extras CLI](https://app.gitbook.com/s/EicNFI9vPOX1TTMYRKT9/) documentation.
+For detailed information about image building options, including advanced Kaniko configurations and build customization, please refer to the [Apolo Extras CLI](https://app.gitbook.com/o/-MMLX64i1AQdS3ehf2Kg/s/EicNFI9vPOX1TTMYRKT9/) documentation.

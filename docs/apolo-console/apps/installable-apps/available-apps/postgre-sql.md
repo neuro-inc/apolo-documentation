@@ -54,22 +54,21 @@ Below is a brief description of how to deploy the PostgreSQL application with ex
 {% endtab %}
 {% endtabs %}
 
-Please note: you should add a database user, and database name that will be created. \
+Please note: you should add a database user, and database name that will be created.\
 **postgres** username is reserved and will be created automatically.
 
 After setting up all input parameters, click "install" to start the installation. You will be redirected to an application details page, which displays application inputs, outputs and health status.
 
 <figure><img src="../../../../.gitbook/assets/image (15) (1).png" alt=""><figcaption><p>Application details page</p></figcaption></figure>
 
-Your PostgreSQL cluster is ready. The application outputs, including access credentials are displayed below at this screen too. You could utilize this outputs with other applications or other workloads.&#x20;
+Your PostgreSQL cluster is ready. The application outputs, including access credentials are displayed below at this screen too. You could utilize this outputs with other applications or other workloads.
 
 <figure><img src="../../../../.gitbook/assets/image (17) (1).png" alt=""><figcaption><p>PostgreSQL app outputs</p></figcaption></figure>
 
 As well, you will see Postgres admin credentials to connect to the cluster using admin credentials.\
-**Postgres** username is reserved and will be returned in the outputs.\
+**Postgres** username is reserved and will be returned in the outputs.\\
 
-
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (2).png" alt=""><figcaption></figcaption></figure>
 
 You could remove this application just like all other apps by clicking the "Uninstall" button in the upper right corner of the application details page.
 
@@ -83,7 +82,7 @@ Currently, it is possible to connect to the database only from within the cluste
 
 While application interconnection in most of the cases is handled by the platform, you should know how to reach out database from your jobs.
 
-In this small example, we'll use PostgreSQL container image as a client and connect to the database deployed previously.&#x20;
+In this small example, we'll use PostgreSQL container image as a client and connect to the database deployed previously.
 
 Step 1 — start a client job via CLI
 

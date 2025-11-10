@@ -42,19 +42,19 @@ Now we configure application parameters
 {% endstep %}
 
 {% step %}
-### Configure application
+#### Configure application
 
-**Resource Preset:** Here you select an appropriate preset that specifies CPU, memory and GPU resources for your workload.&#x20;
+**Resource Preset:** Here you select an appropriate preset that specifies CPU, memory and GPU resources for your workload.
 
 For our use-case some tiny preset should work well, e.g., `cpu-mini`.
 
-**Container Image**: Specify the container image repository and tag. Optionally, you could attach image pull secrets from dockerhub or other container image registry app.&#x20;
+**Container Image**: Specify the container image repository and tag. Optionally, you could attach image pull secrets from dockerhub or other container image registry app.
 
 For our example, we set container image repository to `hashicorp/http-echo`, tag to `1.0.0` and leave registry secrets integration blank. We do not need custom registry integration int this case.
 
-**Autoscaling:** Enable and configure HPA settings, including minimum and maximum replicas, and target CPU and memory utilization percentages.&#x20;
+**Autoscaling:** Enable and configure HPA settings, including minimum and maximum replicas, and target CPU and memory utilization percentages.
 
-Here even though the API load will be tiny, we still enable it with 1 min and 3 max replicas and set autoscaling triggers at 70% for both CPU and memory consumption.&#x20;
+Here even though the API load will be tiny, we still enable it with 1 min and 3 max replicas and set autoscaling triggers at 70% for both CPU and memory consumption.
 
 **Container**: allows one to adjust container parameters. For instance, set any necessary arguments for the container command or the command itself. One can also add environment variables, either with plain text values, or mounted as platform secrets. Here you can also configure Apolo Files mounts to be accessible from within the deployed container.
 
@@ -62,7 +62,7 @@ In our case, we add two arguments for the server, `-text="hello apolo"` and `-li
 
 **Networking**: Configure which ports should be exposed, ingress settings, and port mappings.
 
-In our example, we protect HTTP ingress with platform auth services and expose a single port `8080` matching the previous configuration and expose it with a prefix path type with path `/`.&#x20;
+In our example, we protect HTTP ingress with platform auth services and expose a single port `8080` matching the previous configuration and expose it with a prefix path type with path `/`.
 
 **Healthcheks:** help you to monitor liveness of the service and restart it if needed. This configuration is quite flexible, allowing one to monitor HTTP, gRPC endpoints, TCP socket or just simple bash command (exec). For HTTP and gRPC the response should be of 2xx status code, TCP connection should be opened and exec should exit with status code 0.
 
@@ -70,7 +70,7 @@ Enable "Health check probes" and set startup & readiness probes to perform`HTTP`
 {% endstep %}
 
 {% step %}
-### Review configuration
+#### Review configuration
 
 Now we can review the configuration.
 
@@ -100,13 +100,13 @@ Now we can review the configuration.
 
 <figure><img src="../../../../.gitbook/assets/image (13).png" alt=""><figcaption><p>Readiness probe 1</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Readiness probe 2</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (16) (2).png" alt=""><figcaption><p>Readiness probe 2</p></figcaption></figure>
 {% endtab %}
 {% endtabs %}
 {% endstep %}
 
 {% step %}
-### Triggering installation
+#### Triggering installation
 
 After clicking the "install" button, you will be redirected to the application details page and Apolo will take care of application installation.
 
@@ -136,7 +136,7 @@ In our example, the publicly available domain name is displayed in the list of a
 {% endtab %}
 
 {% tab title="Unauthorized user" %}
-<figure><img src="../../../../.gitbook/assets/image (23).png" alt=""><figcaption><p>Explicit error stating the user do not have access</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (22) (1).png" alt=""><figcaption><p>Explicit error stating the user do not have access</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Incognito mode" %}

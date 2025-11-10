@@ -8,7 +8,7 @@ The prerequisite for this tutorial is that you read the description of the appli
 
 {% stepper %}
 {% step %}
-### Load application installation template
+#### Load application installation template
 
 ```
 apolo app-template get service-deployment > service-deployment.yaml
@@ -16,11 +16,11 @@ apolo app-template get service-deployment > service-deployment.yaml
 {% endstep %}
 
 {% step %}
-### **Fill in required parameters**
+#### **Fill in required parameters**
 
 We configure the application identically to the configuration discussed in the web console installation case.
 
-In a nutshell, we deploy `hashicorp/http-echo:1.0.0` with auto scaling, exposting port 8080 and protecting it with authentication. We also enabled startup & readiness healthcheck probes.&#x20;
+In a nutshell, we deploy `hashicorp/http-echo:1.0.0` with auto scaling, exposting port 8080 and protecting it with authentication. We also enabled startup & readiness healthcheck probes.
 
 ```yaml
 template_name: service-deployment
@@ -81,7 +81,7 @@ You could also configure specific version of the application to be installed by 
 {% endstep %}
 
 {% step %}
-### Install the application
+#### Install the application
 
 ```
 $ apolo app install -f service-deployment.yaml 
@@ -101,7 +101,7 @@ $ apolo app ls
 {% endstep %}
 
 {% step %}
-### Removal
+#### Removal
 
 If you want to remove the application via CLI, use `apolo app remove <app-id>`.
 {% endstep %}
