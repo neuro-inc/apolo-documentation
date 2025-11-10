@@ -54,7 +54,7 @@ Step2 - Choose the size of your model
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please make sure that your HuggingFace token has an access to it.
 
-Step 3 - Install and wait for the outputs, at the Outputs section of an app
+Step 3 - Install and wait for the application to be deployed. Once installed, you can find the API endpoint URL in the Outputs section of the app details page.
 
 <figure><img src="../../../../.gitbook/assets/image (73).png" alt=""><figcaption></figcaption></figure>
 

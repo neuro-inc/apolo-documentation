@@ -56,12 +56,22 @@ The application's details page provides comprehensive information about the runn
 
 ## **Accessing Installed Apps**
 
-If your installed application has a web interface (like Jupyter, Stable Diffusion, or a deployed model), you can access it directly through its public URL.
+After installing an application, you can access it depending on its type:
+
+### Apps with Web Interfaces
+
+For applications with web interfaces (like Jupyter, Stable Diffusion, Fooocus, OpenWebUI, VS Code, etc.):
+
+1. Navigate to the **Installed Apps** page and click **Details** on the desired application.
+2. Click the **Open App** button at the top of the app details page to launch the application in a new browser tab.
+
+### API-Only Apps
+
+For API-only applications (like LLM inference models, embeddings services):
 
 1. Navigate to the **Installed Apps** page and click **Details** on the desired application.
 2. On the "Details" tab, scroll down to the **Output** section.
-3. Look for an **HTTP API** entry that contains a public-facing URL (e.g., one ending in `apps.your-org.com`).
-4. Copy the **Hostname** URL provided.
-5. Paste this URL into a new browser tab. This will open the application's user interface.
+3. Look for an **HTTP API** entry that contains the API endpoint URL.
+4. Copy the **Hostname** URL to use in your API calls.
 
 ...

@@ -56,7 +56,7 @@ To view and manage installed instances of the OpenWebUI app:
 
 <figure><img src="../../../../.gitbook/assets/image (67).png" alt=""><figcaption></figcaption></figure>
 
-Once in the "Details" page, scroll down to the **Outputs** sections. To launch the application, find the **HTTP API** output with the public domain address, copy and open it in a dedicated browser window.
+Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.
 
 <figure><img src="../../../../.gitbook/assets/image (66).png" alt=""><figcaption></figcaption></figure>
 

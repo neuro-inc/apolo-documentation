@@ -51,7 +51,7 @@ To view and manage installed instances of the Jupyter app:
 
 <figure><img src="../../../.gitbook/assets/image (30).png" alt=""><figcaption></figcaption></figure>
 
-Once in the Details" page, scroll down to the Outputs sections. To launch the applications, find the **HTTP API** output with with the public domain address, copy and open it in a dedicated browser window.&#x20;
+Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.
 
 <figure><img src="../../../.gitbook/assets/image (31).png" alt=""><figcaption></figcaption></figure>
 

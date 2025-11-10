@@ -92,13 +92,15 @@ You can also configure access to the PostgreSQL instance managed by you, among r
 {% step %}
 **Installation**
 
-When all of the required parameters are provided, click "install" to start the installation process. You will be redirected to the application details page, where app status, inputs and outputs are displayed. Wait till the status is _healty_ and outputs appear.&#x20;
+When all of the required parameters are provided, click "install" to start the installation process. You will be redirected to the application details page, where app status, inputs and outputs are displayed. Wait till the status is _healty_.
 
-Afterwards, use external web app URL do access the Dify platform web UI and init password to create the first, root user within the platform.
+Once the app is installed:
+1. Click the **Open App** button at the top of the app details page to launch the Dify web UI in a new browser tab.
+2. Find the init password in the Outputs section (scroll down on the app details page) - you'll need this to create the first root user.
 
 {% tabs %}
-{% tab title="Dify outputs" %}
-<figure><img src="../../../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Dify web UI domain &#x26; init password</p></figcaption></figure>
+{% tab title="Dify init password" %}
+<figure><img src="../../../../.gitbook/assets/image (55).png" alt=""><figcaption><p>Dify init password in Outputs section</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Dify self-signup" %}

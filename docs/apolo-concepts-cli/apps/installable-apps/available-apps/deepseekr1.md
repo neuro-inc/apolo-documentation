@@ -85,7 +85,7 @@ After installation, you can utilize **DeepSeek** for different kind of workflows
 1. Go to the **Installed Apps** tab.
 2. You will see a list of all running apps, including the **DeepSeek** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
 
-Once in the Details" page, scroll down to the Outputs sections. To launch the applications, find the **HTTP API** output with with the public domain address, copy and open it and paste to the script.
+Once in the Details page, find the API endpoint URL in the Outputs section. Use this URL in your API calls as shown in the script below.
 
 ```python
 import requests

@@ -73,7 +73,7 @@ To view and manage installed instances of the Fooocus app:
 1. Go to the **Installed Apps** tab.
 2. You will see a list of all running apps, including the **Fooocus** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
 
-Once in the Details" page, scroll down to the Outputs sections. To launch the applications, find the **HTTP API** output with with the public domain address, copy and open it in a dedicated browser window.&#x20;
+Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.&#x20;
 
 <figure><img src="../../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 
