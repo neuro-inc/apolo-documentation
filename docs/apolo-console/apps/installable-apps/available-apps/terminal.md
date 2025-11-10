@@ -50,7 +50,7 @@ To view and manage installed instances of the Terminal app:
 
 1.  Launch the **Terminal**.
 
-    Open **HTTP API** with the public domain address in a dedicated browser window. You could identify it by the public domain name. Simply copy-paste it in new browser window. Alternatively, hit "open web UI" button. This will open a web-based shell environment in new browser tab.
+    Click the **Open App** button at the top of the app details page to launch the web-based shell environment in a new browser tab.
 
 <figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Shell application domain address</p></figcaption></figure>
 

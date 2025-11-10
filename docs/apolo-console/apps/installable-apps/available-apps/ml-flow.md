@@ -51,6 +51,16 @@ To find more information about how to manage your installable apps using Apolo C
 
 ### Usage
 
+After installation, you can access MLflow in two ways:
+
+#### Accessing the Web UI
+
+1. Go to the **Installed Apps** tab.
+2. Find your MLflow app and click the **Details** button.
+3. Click the **Open App** button at the top of the app details page to launch the MLflow web interface in a new browser tab.
+
+#### Using the MLflow API
+
 Use the CLI to set the `MLFLOW_TRACKING_TOKEN` with the token from your session (only if you enabled platform auth)
 
 ```bash
