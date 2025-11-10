@@ -39,9 +39,9 @@ Step2 - Select Model from [HuggingFace](https://huggingface.co/) repositories
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please provide the HuggingFace token, as a string of Apolo Secret.
 
-Step3 - Install and wait for the outputs, at the Outputs section of an app
+Step3 - Install and wait for the application to be deployed. Once installed, you can find the API endpoint URL in the Outputs section of the app details page.
 
-<figure><img src="../../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Outputs section</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (1) (1).png" alt=""><figcaption><p>Application details</p></figcaption></figure>
 
 ## Usage
 

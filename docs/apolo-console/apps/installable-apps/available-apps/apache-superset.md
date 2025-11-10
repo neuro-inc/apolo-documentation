@@ -50,12 +50,12 @@ Step4 - Admin user configuration
 
 ### Usage
 
-After installation, you can utilize Superset for image generation workflows and you can access it directly from your browser.To view and manage installed instances of the Superset app:
+After installation, you can utilize Superset for data visualization workflows and you can access it directly from your browser. To view and manage installed instances of the Superset app:
 
 1. Go to the **Installed Apps** tab.
 2. You will see a list of all running apps, including the **Superset** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
 
-Once in the Details" page, scroll down to the Outputs sections. To launch the applications, find the **HTTP API** output with with the public domain address, copy and open it in a dedicated browser window.
+Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.
 
 Connect the data sources, build charts, and dashboards.
 

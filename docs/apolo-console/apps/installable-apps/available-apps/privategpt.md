@@ -134,11 +134,7 @@ Web UI is available in the root domain of the application. To identify this addr
 
 ### Access via public domain
 
-Within outputs section, you will see HTTP API section with the domain URL:
-
-<figure><img src="../../../../.gitbook/assets/image (39).png" alt=""><figcaption><p>PrivateGPT outputs</p></figcaption></figure>
-
-Open this link in your browser and you will see the web UI.&#x20;
+After the app is installed, click the **Open App** button at the top of the app details page to access the web UI directly in your browser.&#x20;
 
 Let's now focus on web UI usage of the application. Upload file(s) from your local machine to the PrivateGPT using "Upload files" button on the web UI. Private GPT will start processing the document. You will see the corresponding notification when the processing is done and you may start asking questions.
 

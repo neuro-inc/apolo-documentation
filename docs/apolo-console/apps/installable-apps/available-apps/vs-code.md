@@ -33,7 +33,7 @@ Below are the detailed instructions for installing VSCode using Apolo Console. F
 
 ### Usage
 
-After installing the VSCode application, you can access it directly from your browser. Use the external web app URL provided in the application outputs to open VSCode.
+After installing the VSCode application, you can access it directly from your browser. Click the **Open App** button at the top of the app details page to launch VSCode.
 
 <figure><img src="../../../../.gitbook/assets/image (27).png" alt=""><figcaption></figcaption></figure>
 
