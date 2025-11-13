@@ -8,6 +8,7 @@
   * [Training Your First Model](getting-started/first-steps/training-your-first-model.md)
   * [Running Your Code](getting-started/first-steps/running-your-code.md)
 * [Apolo Base Docker image](getting-started/apolo-base-docker-image.md)
+* [Apolo Jobs vs Apps](getting-started/apolo-jobs-vs-apps.md)
 * [FAQ](getting-started/faq.md)
 * [Troubleshooting](getting-started/troubleshooting.md)
 * [References](getting-started/references.md)
