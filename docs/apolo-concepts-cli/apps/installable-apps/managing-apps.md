@@ -2,7 +2,7 @@
 
 The Apolo CLI provides a powerful and efficient way to manage your applications directly from the terminal. You can explore, install, monitor, and uninstall applications using a set of simple commands.
 
-## **Exploring Available Apps**
+## **Explore available apps**
 
 Before installing an application, you can explore the full catalog of available app templates.
 
@@ -23,48 +23,56 @@ This command will fetch and display a table of all templates you can install, in
   ...
 ```
 
-## **Installing an App from a Template File**
+## **Install application**
 
 The most robust way to install applications via the CLI is by using a YAML configuration file. This allows you to define all installation parameters declaratively.
 
-1.  **Create a YAML file** (e.g., `vscode.yaml`) defining your application's configuration. This includes the template name, resource presets, storage mounts, and other specific inputs.
+### **Create a YAML configuration file**
 
-    **Example `vscode.yaml`:**
+The configuration file includes your application's template name, version, metadata and input parameters such as resource presets, storage mounts, and other app-specific inputs. There are several ways to create config file:
 
-    ```yaml
-    # Example of myvscode.yaml
-    template_name: vscode
-    template_version: latest
-    display_name: myvscode
-    input:
-      preset:
-        name: cpu-medium
-      vscode_specific:
-        extra_storage_mounts:
-          mounts:
-            - storage_uri: storage:my-extra-storage
-              mount_path: /mnt/extra
-              mode: rw
-      networking:
-        http_auth: true
-    ```
+1. Craft one by yourself using app documentation and inputs reference
+2. Get example using CLI command `apolo app-template get <application-name>`
 
-    Alternatively, one can build the configuration using Apolo web console and then save it to the application configuration file. You can do it with this button (after specifying all needed parameters):
+**Example `vscode.yaml`:**
 
-    <figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Extract PrivateGPT app configuration file</p></figcaption></figure>
-2.  **Run the install command**, pointing to your YAML file using the `--file` flag:
+```yaml
+# Example of myvscode.yaml
+template_name: vscode
+template_version: latest
+display_name: myvscode
+input:
+  preset:
+    name: cpu-medium
+  vscode_specific:
+    extra_storage_mounts:
+      mounts:
+        - storage_uri: storage:my-extra-storage
+          mount_path: /mnt/extra
+          mode: rw
+  networking:
+    http_auth: true
+```
 
-    ```bash
-    apolo app install --file vscode.yaml
-    ```
+3. Build the configuration using Apolo web console and then save it to the application configuration file. You can do it with this button (after specifying all needed parameters):
 
-    Upon execution, the CLI will confirm the installation:
+<figure><img src="../../../.gitbook/assets/image (38).png" alt=""><figcaption><p>Extract PrivateGPT app configuration file</p></figcaption></figure>
 
-    ```
-    App installed from vscode.yaml
-    ```
+### **Run the install command**
 
-## **Managing Installed Apps**
+Use Apolo CLI point it to your YAML file using the `--file` flag and trigger installation
+
+```bash
+apolo app install --file vscode.yaml
+```
+
+Upon execution, the CLI will confirm the installation:
+
+```
+App installed from vscode.yaml
+```
+
+## **Manage installed apps**
 
 Once an app is installed, you can list, monitor, and manage it. To see all applications currently installed in your project, run:
 
@@ -82,7 +90,7 @@ This command displays a list of your app instances, their unique ID, and their c
   ...
 ```
 
-### **Viewing App Logs**
+### **View app logs**
 
 To view the logs for a running application, use the `logs` command with the application's `ID` (which you can get from `apolo app ls`).
 
@@ -96,7 +104,17 @@ apolo app logs 5a5fa379-4635-4418-959f-457b44280c21
 
 The CLI will stream the application's logs directly to your terminal.
 
-### **Uninstalling an App**
+### Configure app
+
+In order to reconfigure the application providing new inputs, update the previously mentioned configuration file and trigger update pointing Apolo CLI to the application instance you are re-configuring:
+
+```bash
+apolo app config 5a5fa379-4635-4418-959f-457b44280c21 --file vscode.yaml
+```
+
+For more detailed description of application updates, refer to the web [console application management](../../../apolo-console/apps/installable-apps/managing-apps.md) pages.
+
+### **Uninstall an app**
 
 To remove an application instance, use the `uninstall` command with the application's `ID`.
 
@@ -104,7 +122,7 @@ To remove an application instance, use the `uninstall` command with the applicat
 apolo app uninstall 5a5fa379-4635-4418-959f-457b44280c21
 ```
 
-## **Accessing an Installed App**
+## **Use installed app**
 
 For applications with a web interface (like VS Code, Jupyter, or a deployed model), you need to retrieve their public URL.
 
@@ -122,3 +140,10 @@ For applications with a web interface (like VS Code, Jupyter, or a deployed mode
       5a5fa379...c21                         RestAPI   internal_web_app_url    {"host": "apolo-demo-user-vscode-5a5fa379-custom...", "port": 8080, ...}
     ```
 3. Copy the `host` URL from the `external_web_app_url` value and open it in your browser to access the application's interface.
+
+## References
+
+* [Apps vs Jobs](../../../getting-started/apolo-jobs-vs-apps.md)
+* [Available apps](../../../apolo-console/apps/installable-apps/available-apps/)
+* [Managing apps](../../../apolo-console/apps/installable-apps/managing-apps.md)
+* [Managing apps (Apolo console)](../../../apolo-console/apps/installable-apps/managing-apps.md)
