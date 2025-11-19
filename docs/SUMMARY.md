@@ -74,6 +74,7 @@
     * [Managing Apps](apolo-concepts-cli/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-concepts-cli/apps/installable-apps/available-apps/README.md)
       * [n8n](apolo-concepts-cli/apps/installable-apps/available-apps/n8n.md)
+      * [Launchpad](apolo-concepts-cli/apps/installable-apps/available-apps/launchpad.md)
       * [OpenWebUI](apolo-concepts-cli/apps/installable-apps/available-apps/openwebui.md)
       * [Shell](apolo-concepts-cli/apps/installable-apps/available-apps/shell.md)
       * [PostgreSQL](apolo-concepts-cli/apps/installable-apps/available-apps/postgresql.md)

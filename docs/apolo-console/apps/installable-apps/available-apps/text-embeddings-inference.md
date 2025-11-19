@@ -33,15 +33,15 @@ Step1 - Select the Preset you want to use (Currently only GPU-accelerated preset
 
 Step2 - Select Model from [HuggingFace](https://huggingface.co/) repositories
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Part 1 Text Embeddings Inference installation process</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1) (1).png" alt=""><figcaption><p>Part 1 Text Embeddings Inference installation process</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>Part 2 Text Embeddings Inference installation process</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1) (1).png" alt=""><figcaption><p>Part 2 Text Embeddings Inference installation process</p></figcaption></figure>
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please provide the HuggingFace token, as a string of Apolo Secret.
 
 Step3 - Install and wait for the application to be deployed. Once installed, you can find the API endpoint URL in the Outputs section of the app details page.
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1).png" alt=""><figcaption><p>Application details</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1) (1) (1).png" alt=""><figcaption><p>Application details</p></figcaption></figure>
 
 ## Usage
 

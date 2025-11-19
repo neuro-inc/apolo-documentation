@@ -36,7 +36,7 @@ The easiest way to learn is by doing, so in this case we are going to deploy sim
 
 Access the Apolo web console and go to the "Apps" section. We presume you are already authorized in web console and a participant of organization and project.
 
-<figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption><p>Service deployment in list of apps</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (2).png" alt=""><figcaption><p>Service deployment in list of apps</p></figcaption></figure>
 
 Now we configure application parameters
 {% endstep %}
@@ -88,13 +88,13 @@ Now we can review the configuration.
 {% endtab %}
 
 {% tab title="Networking" %}
-<figure><img src="../../../../.gitbook/assets/image (8) (2).png" alt=""><figcaption><p>Networking 1</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (8) (2) (1).png" alt=""><figcaption><p>Networking 1</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (9).png" alt=""><figcaption><p>Networking 2</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (9) (2).png" alt=""><figcaption><p>Networking 2</p></figcaption></figure>
 {% endtab %}
 
 {% tab title="Healthchecks" %}
-<figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption><p>Startup probes 1</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (10) (2).png" alt=""><figcaption><p>Startup probes 1</p></figcaption></figure>
 
 <figure><img src="../../../../.gitbook/assets/image (15).png" alt=""><figcaption><p>Startup probes 2</p></figcaption></figure>
 

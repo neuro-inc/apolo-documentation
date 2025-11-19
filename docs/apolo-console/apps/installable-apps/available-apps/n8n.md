@@ -25,7 +25,7 @@ n8n can be installed on Apolo either via the [CLI](../../../../apolo-concepts-cl
 
 **Step 2** — Configure the application by filling the required fields and click install.
 
-<figure><img src="../../../../.gitbook/assets/image.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (12).png" alt=""><figcaption></figcaption></figure>
 
 The following installation options are available:
 

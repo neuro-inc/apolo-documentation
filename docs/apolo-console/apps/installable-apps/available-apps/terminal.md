@@ -7,7 +7,7 @@ It allows users to run Apolo command-line tools and clients instantly—without 
 
 Navigate to the **Apolo Console** and click on the **Apps** section from the left-hand navigation menu. You will see a list of available apps, as shown in the screenshot below.
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption><p>Application gallery</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>Application gallery</p></figcaption></figure>
 
 Locate the **Shell** app. If it is not yet installed, proceed to the installation steps.
 
@@ -32,7 +32,7 @@ To view and manage installed instances of the Terminal app:
 1. Go to the **Installed Apps** tab.
 2. You will see a list of running **Shell** app instances. To open the detailed information & uninstall the app, click the **Details** button.
 
-<figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption><p>Installed Shell app</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (2) (1) (1) (1).png" alt=""><figcaption><p>Installed Shell app</p></figcaption></figure>
 
 **Details page** contains the next information:
 
@@ -42,9 +42,9 @@ To view and manage installed instances of the Terminal app:
 * Logs (at the dedicated tab)
 * Outputs values
 
-<figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption><p>Shell application details (1)</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption><p>Shell application details (1)</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption><p>Shell application details (2)</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (4) (1) (1) (1).png" alt=""><figcaption><p>Shell application details (2)</p></figcaption></figure>
 
 ## Using the Terminal App
 
@@ -52,7 +52,7 @@ To view and manage installed instances of the Terminal app:
 
     Click the **Open App** button at the top of the app details page to launch the web-based shell environment in a new browser tab.
 
-<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption><p>Shell application domain address</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1) (1).png" alt=""><figcaption><p>Shell application domain address</p></figcaption></figure>
 
 2. Run Commands.\
    Use the terminal to execute shell commands. A welcome message provides helpful examples of commands you can run, such as managing Apolo CLI workflows and running jobs.

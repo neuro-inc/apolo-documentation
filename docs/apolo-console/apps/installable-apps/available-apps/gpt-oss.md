@@ -48,13 +48,13 @@ Step1 - Select [HuggingFace](https://huggingface.co/) token
 
 Step2 - Choose the size of your model
 
-<figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 If Model is [gated](https://huggingface.co/docs/hub/en/models-gated), please make sure that your HuggingFace token has an access to it.
 
 Step 3 - Install and wait for the application to be deployed. Once installed, you can find the API endpoint URL in the Outputs section of the app details page.
 
-<figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Autoscaling
 

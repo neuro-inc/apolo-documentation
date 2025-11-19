@@ -161,7 +161,7 @@ Now you can click "save" and the model configuration will be saved.
 {% tab title="Default models" %}
 Now, select previously added models as system defaults for reasoning and embedding.
 
-<figure><img src="../../../../.gitbook/assets/image (6).png" alt="" width="563"><figcaption><p>Configuring system default models</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (6) (3).png" alt="" width="563"><figcaption><p>Configuring system default models</p></figcaption></figure>
 
 Hit _save_ button.
 {% endtab %}
@@ -187,7 +187,7 @@ After adding vLLM and Text embedding providers to Dify, the system will be ready
 
     Select knowledge retrieval block (1), click on "+" sign on the Knowledge context menu (2) and navigate to the Knowledge creation page (3).
 
-    <figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption><p>Creating a knowledge</p></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (7) (1).png" alt=""><figcaption><p>Creating a knowledge</p></figcaption></figure>
 
     The Knowledge in the Dify platform is a collection of correlated data. More information could be fond in [Dify documentation](https://docs.dify.ai/en/guides/knowledge-base/readme). We will not explain the knowledge creation in details, instead we create a Knowledge based on Kubernetes book, by uploading the book via web UI, selecting the default embedding model to process the data. This processing might take some time.
 

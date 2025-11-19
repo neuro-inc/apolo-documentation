@@ -1,5 +1,7 @@
 # Launchpad
 
+## **Overview**
+
 **Launchpad** is an application gateway for the Apolo MLOps platform that enables Apolo users to securely expose platform applications to end-users through customizable authentication powered by Keycloak integration.
 
 With Launchpad, you can share access to applications deployed on Apolo—including pre-built apps like OpenWebUI (a user-friendly interface for interacting with LLMs)—without requiring end-users to have full Apolo accounts. Additionally, Launchpad allows you to deploy custom applications using Apolo's Service Deployment feature and expose them to your users with personalized branding, including custom names, descriptions, and logos.
@@ -17,11 +19,11 @@ With Launchpad, you can share access to applications deployed on Apolo—includi
 
 ***
 
-### 1. Installing Launchpad
+## Installing Launchpad
 
 Launchpad can be installed from the Apolo Console interface or using the Apolo CLI.
 
-#### 1.1 Installation via Apolo Console
+### Installation via Apolo Console
 
 1. **Navigate to the Apps page** in the Apolo Console.
 2. **Find the Launchpad App** and click **Install**.
@@ -51,7 +53,7 @@ If you select the **OpenWebUI**, you need to configure the following dependencie
 
 Be aware that when choosing the OpenWebUI Quick Start App option, Apolo will also install vLLM, Text Embeddings and Postgresql apps, which will consume credits as well.
 
-#### 1.2 Installation via Apolo CLI (If using OpenWebUI Quick Start App)
+### Installation via Apolo CLI
 
 Currently, due to a known bug in the UI, if you choose the OpenWebUI Quick Start App, it's recommended to export the configuration and install it using the Apolo CLI:
 
@@ -63,28 +65,30 @@ Currently, due to a known bug in the UI, if you choose the OpenWebUI Quick Start
 apolo app install --file launchpad-custom-app-installation-config.yaml
 ```
 
+Refer to [Launchpad CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/launchpad.md) page to learn more about installing and managing Launchpad using the CLI.
+
 ***
 
-### 2. Managing Launchpad and Keycloak Users
+## Managing Launchpad and Keycloak Users
 
 Once Launchpad is installed, you can access the installed app on the **Installed Apps** page. Click **Open** to access various Launchpad URLs.
 
-#### 2.1 Accessing the Launchpad Interface
+### Accessing the Launchpad Interface
 
 1. Click **Open** on the Launchpad app card.
 2. Select **App URL**.
 3.  The Launchpad interface loads, requiring a login.\\
 
-    <figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
 4.  Launchpad comes with a default admin user that can manage what apps are available through Launchpad UI. You can find this admin user's credentials by scrolling down the Launchpad instance details page in Apolo and copying the **Password** field in **Launchpad Default Admin User**\\
 
-    <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 5.  Use these credentials to login to Launchpad. You should see a list of available apps - only OpenWebUI for now\
 
 
-    <figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
 
-#### 2.2 Managing Users via Keycloak
+### Managing Users via Keycloak
 
 Launchpad uses Keycloak for authentication and user management.
 
@@ -110,15 +114,102 @@ Launchpad uses Keycloak for authentication and user management.
 
 ***
 
-### 3. Deploying and Sharing Applications
+## Importing Apps
 
-Launchpad allows you to share applications with external users, even those without an Apolo account, by managing authentication through Keycloak.
+### Importing Apps using the Admin Panel
 
-#### 3.1 Obtaining and Preparing App Templates for Launchpad
+Launchpad comes with a Admin Panel that allows you to manage app templates and running app instances directly through the Launchpad Admin Panel.
+
+{% embed url="https://drive.google.com/file/d/1uxVy_Ry7wX3HShMURBE6mC3WjKmr6Dy6/view?t=8" %}
+Video Demo
+{% endembed %}
+
+To Access the Admin Pane&#x6C;**:** Log into Launchpad using the default admin credentials (available in app outputs) and click **Admin Panel** (top right).
+
+<div align="left"><figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
+
+\
+This is what the Admin Panel looks like when there are no templates or instances imported.\
+
+
+<div align="left"><figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
+
+#### **Import a New Template:**
+
+* Obtain an App Template by following [this guide](launchpad.md#obtaining-and-preparing-app-templates-for-launchpad).
+*   Click **Import Template**.\
+
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure></div>
+* Click **Upload File** and select the `.yaml` configuration file you prepared in the previous step.
+* The fields will automatically populate with information from the Apolo Apps API. You can manually edit the:
+  * **Display Name**
+  * **Logo URL** (as demonstrated in the video)
+  * **Short/Long Description**
+  * **Tags**
+  * **Input (JSON):** Modify default configuration values.
+* Check or uncheck **Shared** based on whether you want a single instance for all users (Shared) or a new instance provisioned for each user (Not Shared).
+*   Click **Import Template**. The new template will appear under **App Templates**.\
+
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure></div>
+*   After importing, the app will be visible in the main Launchpad interface, ready for users to click **Open** and launch their instance.\
+
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>
+
+
+*   After installing the app by clicking "Open", the new app instance will also appear in the list of App Instances on the Admin Page\
+
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure></div>
+
+Using the App Templates list, you can:
+
+* **View:** Displays all metadata and configuration associated with the template.
+* **Edit:** Allows modification of the display name, logo, descriptions, tags, and sharing settings.
+* **Delete:** Removes the template. **Warning:** Deleting a template will uninstall all associated running instances.
+
+#### **Importing a Running App Instance**
+
+You can also import apps that are already running in Apolo into Launchpad.
+
+* Install a Service Deployment app by following [this guide](launchpad.md#deploying-a-service-deployment-app-that-uses-launchpad-authentication).
+* Click **Import App Instance**.
+*   The panel will load all running apps in your current Apolo project.\
+
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure></div>
+* Select the desired running app instance (e.g., a Service Deployment).
+* Configure the display details (Name, Logo URL, Description).
+  * You can customize the app's name, description, logo and etc. For the purposes of this tutorial, we will rename this app to My Custom App
+*   Click **Import App**. The running app instance will now be visible in the main Launchpad interface under its new name and accessible to authenticated Keycloak users.\
+
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure></div>
+
+Using the App Instances list you can:
+
+* **Open:** Directly navigates to the running application URL.
+* **Delete:** Uninstalls the specific app instance from Apolo.
+
+### Importing Apps using Admin API
+
+Refer to [Launchpad CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/launchpad.md#importing-apps-using-admin-api) page to learn more about installing and managing Launchpad using the CLI.
+
+***
+
+## Summary
+
+The Launchpad app transforms the Apolo MLOps platform into a user-friendly deployment environment, simplifying application access and user authentication for internal and external users via Keycloak integration. By enabling the import of custom app templates and existing app instances, Launchpad offers a versatile solution for showcasing and managing applications within your ecosystem.
+
+## Quick Guides
+
+#### Obtaining and Preparing App Templates for Launchpad
 
 Before importing a custom application template into Launchpad using the API, you must first obtain the application's configuration file from the Apolo Console and convert it to the required JSON format.
 
-#### Downloading the App Configuration File
+**Downloading the App Configuration File**
 
 This process generates a YAML configuration file based on the app's standard installation page, pre-filled with the Launchpad authentication settings.
 
@@ -130,7 +221,8 @@ This process generates a YAML configuration file based on the app's standard ins
    * Select the installed `Launchpad` instance and click **Apply**.
 4.  **Download Configuration:** Scroll to the bottom of the installation page. Click the **Export App Configuration** download icon (a down arrow pointing into a cloud or similar icon, typically next to the "Install" button) to download the `.yaml` configuration file.\
     \
-    The following yaml file is an example Downloaded from the VSCode App installation page.\\
+    The following yaml file is an example Downloaded from the VSCode App installation page.\
+
 
     ```yaml
     display_name: ""
@@ -153,10 +245,11 @@ This process generates a YAML configuration file based on the app's standard ins
                     }, 
                     type: custom_auth
                 }
-
     ```
 
-#### Converting the YAML Configuration to JSON
+**Converting the YAML Configuration to JSON**
+
+If you are using Launchpad API to import templates, follow the instructions below to convert the exported `yaml` file into `json`
 
 The Launchpad API requires the app configuration payload to be in JSON format. Use a command-line tool like `yq` or a combination of `cat` and `python` to perform this conversion.
 
@@ -176,7 +269,7 @@ If you don't have `yq`, you can use Python's built-in YAML and JSON libraries:
     python -c "import yaml, json, sys; d=yaml.safe_load(sys.stdin.read()); print(json.dumps(d))" < [FILE_NAME].yaml
     ```
 
-**Method B: Using `yq`**
+**Method B: Using `yq`**&#x20;
 
 If you have `yq` [installed](https://github.com/mikefarah/yq), this is the simplest method:
 
@@ -220,124 +313,23 @@ Here is the resulting json file.
 
 ```
 
-#### 3.1 Importing a Custom App Template
+#### Deploying a Service Deployment App that uses Launchpad authentication
 
-You can import a custom app template into Launchpad. This allows you to define configurations and metadata for an application that can be installed later via Launchpad.
+After installing Launchpad, you will be able to deploy Apps that require Launchpad authentication. This small guide will walk you through how you can deploy your custom application using the Service Deployment App.
 
-1.  **Prepare Template Data:** Define the template details in a JSON payload:\
-    \
-    Notice the new fields `is_internal` , `is_shared` and the renaming of `inputs` to `default_inputs`
+* Navigate to Apolo Console's **Home Page**, find the Service Deployment app and click **Install**
+* Choose a **Resource Preset** (e.g., `cpu-small`).
+* **Container Image:** Provide a container image (e.g., `nginx`).
+* **Network Configuration:**
+  * Enable **HTTP Ingress**.
+  * Change **Authentication** to **Custom Authentication**.
+  * In **Authentication Middleware**, click **Choose App** and select **Launchpad** with the path&#x20;
+  * **Install** the application.
+* Import this App Instance into Launchpad so that it enables authentication
+  * Follow this guide for Admin Panel usage
+  * Follow this guide for API usage
 
-    ```json
-    {
-      "template_name": "vscodes",
-      "template_version": "v25.10.1",
-      "name": "vscode-dev",
-      "verbose_name": "VS Code Development Environment",
-      "description_short": "Cloud-based VS Code IDE",
-      "is_internal": false,
-      "is_shared": false,
-      "default_inputs": {
-        "preset": {
-          "name": "cpu-medium"
-        },
-        "vscode_specific": {
-          "override_code_storage_mount": null
-        },
-        "networking": {
-          "ingress_http": {
-            "auth": {
-              "type": "custom_auth",
-              "middleware": {
-                "type": "app-instance-ref",
-                "instance_id": "<launchpad-app-instance-id>",
-                "path": "$.auth_middleware"
-              }
-            }
-          }
-        }
-      }
-    }
-    ```
-2.  **Get Launchpad Access Token:** Use the Launchpad API to get an access token for the `admin` user. You can use the helper script provided in the Launchpad README:
-
-    ```bash
-    LAUNCHPAD_URL="https://[YOUR_LAUNCHPAD_URL]"
-    LAUNCHPAD_USERNAME="admin"
-    LAUNCHPAD_PASSWORD="[YOUR_PASSWORD]"
-    SCOPE="openid profile email offline_access"
-
-    TOKEN_RESPONSE=$(curl -s -X POST "${LAUNCHPAD_URL}/auth/token" \
-    -H "Content-Type: application/json" \
-    -d '{"username":"'${LAUNCHPAD_USERNAME}'","password":"'${LAUNCHPAD_PASSWORD}'","scope":"'${SCOPE}'"}')
-
-    ACCESS_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.access_token')
-    REFRESH_TOKEN=$(echo "$TOKEN_RESPONSE" | jq -r '.refresh_token')
-
-    # Run the curl command to get the ACCESS_TOKEN
-    echo $ACCESS_TOKEN
-    ```
-3.  **Import the Template (via API):**
-
-    * Use the Launchpad API `apps/templates/import` endpoint with your template data:
-
-    ```bash
-    curl -X POST "${LAUNCHPAD_URL}/api/v1/apps/templates/import" \
-    -H "Authorization: Bearer $ACCESS_TOKEN" \
-    -H "Content-Type: application/json" \
-    -d '[YOUR_TEMPLATE_JSON]'
-    ```
-4. **Deploy from Launchpad:**
-   *   The new app template will now be visible in the Launchpad interface, ready for users to install and run their own instance.\
-       \\
-
-       <figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure>
-
-#### 3.2 Sharing a Deployed Application (Custom Deployment Example)
-
-In this example, we will import an already running `Service Deployment` app into Launchpad and assign Launchpad authentication.
-
-1. **Deploy the App:** Install the **Service Deployment** app in Apolo.
-   * Choose a **Resource Preset** (e.g., `cpu-small`).
-   * **Container Image:** Provide a container image (e.g., `nginx`).
-   * **Storage Mounts:** Optionally mount a storage path (e.g., mounting `storage:///default/apolo/demo/demos` to `/usr/share/nginx/html`).
-   * **Network Configuration:**
-     * Enable **HTTP Ingress**.
-     * Change **Authentication** to **Custom Authentication**.
-     * In **Authentication Middleware**, click **Choose App** and select **Launchpad** with the path `$.auth_middleware`.
-     * **Install** the application.
-2. **Access App ID:** Once installed, go to the Service Deployment app details and copy its **ID**.
-3.  **Import App into Launchpad (via API):**
-
-    * **Import the Application:** Use the Launchpad API `apps/import` endpoint, replacing placeholders with your app's details and the previously obtained `ACCESS_TOKEN`.
-
-    ```bash
-    curl -X POST "${LAUNCHPAD_URL}/api/v1/apps/import" \
-    -H "Authorization: Bearer $ACCESS_TOKEN" \
-    -H "Content-Type: application/json" \
-    -d '{
-      "app_id": "86441713-dbd1-4d94-ac4c-1b61edc3e2e7",
-      "name": "custom-app",
-      "verbose_name": "Custom App",
-      "description_short": "An externally installed app",
-      "is_internal": false
-    }'
-    ```
-
-    * _Note:_ `is_internal: false` ensures the app is visible to end-users.
-4. **Verify and Access in Launchpad:**
-   * Go back to the **Launchpad App URL** in your browser.
-   * The new **Custom App** card should now be displayed, available for external users to access through Keycloak login.\
-     \
-     ![](<../../../../.gitbook/assets/image (4).png>)
-
-***
-
-### Summary
-
-The Launchpad app transforms the Apolo MLOps platform into a user-friendly deployment environment, simplifying application access and user authentication for internal and external users via Keycloak integration. By enabling the import of custom app templates and existing app instances, Launchpad offers a versatile solution for showcasing and managing applications within your ecosystem.
-
-### References
+## References
 
 * [Keycloak documentation](https://www.keycloak.org/documentation)
 * [OpenWebUI app documentation](openwebui.md)
