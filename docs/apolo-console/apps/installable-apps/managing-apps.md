@@ -61,7 +61,11 @@ The application's details page provides comprehensive information about the runn
 
 After installing the app, you can update it's inputs and display name as needed. For it, navigate to application details page and click **Configure** button. Here you will be displayed current input values used to run the application.
 
+<div data-full-width="false"><figure><img src="../../../.gitbook/assets/image (17).png" alt=""><figcaption><p>Application configure button</p></figcaption></figure></div>
+
 Some of the input values cannot be reconfigured like PostgreSQL server version due to compatibility and not to break the application instance. You might not be able to edit those inputs. If you are forced to change such parameter, you will need to reinstall the application.
+
+<figure><img src="../../../.gitbook/assets/image (23).png" alt=""><figcaption><p>Application configure: non-configurable parameters</p></figcaption></figure>
 
 Always check application inputs description before re-configuring the application, since we can not forecast update impact for all cases (consider changing server version that uses ORM without running the migration).
 
