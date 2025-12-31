@@ -46,8 +46,7 @@ To learn more about importing apps using the Admin Panel, please refer to the ma
 
 Use the Launchpad API to get an access token for the `admin` user.&#x20;
 
-1.  Get `LAUNCHPAD_URL` and `LAUNCHPAD_PASSWORD` by going to your Launchpad instance's details page in Apolo and copying the needed values from the Outputs\
-
+1.  Get `LAUNCHPAD_URL` and `LAUNCHPAD_PASSWORD` by going to your Launchpad instance's details page in Apolo and copying the needed values from the Outputs<br>
 
     <div><figure><img src="../../../../.gitbook/assets/image (9).png" alt=""><figcaption></figcaption></figure> <figure><img src="../../../../.gitbook/assets/image (10).png" alt=""><figcaption></figcaption></figure></div>
 
@@ -73,8 +72,7 @@ You can import a custom app template into Launchpad. This allows you to define c
 
 1. Obtain a template `json` file by following [this guide](launchpad.md#obtaining-and-preparing-app-templates-for-launchpad). You can edit all the values, except for `template_name` and `template_version`.
 2.  You can optionally add the extra fields `is_shared` and `is_internal` , like the example bellow.\
-    &#xNAN;_&#x4E;ote:_ `is_internal: false` ensures the app is visible to end-users.\
-
+    &#xNAN;_&#x4E;ote:_ `is_internal: false` ensures the app is visible to end-users.<br>
 
     ```json
     {
@@ -119,10 +117,9 @@ You can import a custom app template into Launchpad. This allows you to define c
     ```
 4. **Deploy from Launchpad:**
    *   The new app template will now be visible in the Launchpad interface, ready for users to install and run their own instance.\
-       \
+       <br>
 
-
-       <figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure>
+       <figure><img src="../../../../.gitbook/assets/image (3) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 **Importing a Running Application**
 
@@ -151,10 +148,9 @@ In this example, we will import an already running `Service Deployment` app into
 4. **Verify and Access in Launchpad:**
    * Go back to the **Launchpad App URL** in your browser.
    *   The new **Custom App** card should now be displayed, available for external users to access through Keycloak login.\
-       \
+       <br>
 
-
-       <div align="left"><figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure></div>
+       <div align="left"><figure><img src="../../../../.gitbook/assets/image (4) (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 ***
 

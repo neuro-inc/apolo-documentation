@@ -79,14 +79,13 @@ Once Launchpad is installed, you can access the installed app on the **Installed
 2. Select **App URL**.
 3.  The Launchpad interface loads, requiring a login.\\
 
-    <figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
 4.  Launchpad comes with a default admin user that can manage what apps are available through Launchpad UI. You can find this admin user's credentials by scrolling down the Launchpad instance details page in Apolo and copying the **Password** field in **Launchpad Default Admin User**\\
 
-    <figure><img src="../../../../.gitbook/assets/image (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
-5.  Use these credentials to login to Launchpad. You should see a list of available apps - only OpenWebUI for now\
+    <figure><img src="../../../../.gitbook/assets/image (1) (1) (1) (1).png" alt=""><figcaption></figcaption></figure>
+5.  Use these credentials to login to Launchpad. You should see a list of available apps - only OpenWebUI for now<br>
 
-
-    <figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure>
+    <figure><img src="../../../../.gitbook/assets/image (2) (1) (1).png" alt=""><figcaption></figcaption></figure>
 
 ### Managing Users via Keycloak
 
@@ -101,6 +100,10 @@ Launchpad uses Keycloak for authentication and user management.
    * Scroll down to **KeycloakConfig** to find the **Keycloak Admin Password** (used for the Keycloak administrative interface).
 3. **Log into Keycloak:**
    * Use the Keycloak Admin Password and the username `admin` to sign in to the Keycloak Administration page.
+   * Click **Manage Realms**\
+     <img src="../../../../.gitbook/assets/image (3).png" alt="" data-size="original">\
+     Click **Launchpad**. This will ensure that any settings you change are applied to the correct realm used by Launchpad.\
+     ![](<../../../../.gitbook/assets/image (4).png>)
 4. **Manage Users and Groups:**
    * **Add User:** Navigate to **Users** and click **Add user** to create new users.
    * **Manage Roles and Groups:** Navigate to **Groups** to create groups and assign roles/permissions to users.
@@ -111,6 +114,50 @@ Launchpad uses Keycloak for authentication and user management.
      * Go to **Settings > Authentication**.
      * Toggle **Enable New Sign Ups** to `On`.
      * **Save** settings.
+
+### Adding an External Identity Provider (OIDC/Social Login)
+
+Launchpad allows you to integrate external Identity Providers (IdP), such as Google or Microsoft, so users can sign in using their existing accounts instead of manually created Keycloak credentials.
+
+#### **Access the Launchpad Realm in Keycloak**
+
+1. Log into the **Keycloak Administration** console.
+2. In the top-left dropdown (or via the **Manage Realms** menu), ensure you have selected the **Launchpad** realm.
+   * _Note: Do not perform these configurations in the "Master" realm._
+
+#### **Add the Provider**
+
+1. Navigate to **Identity Providers** in the left-hand sidebar.
+2. Select your desired provider from the list (e.g., **Google**).
+3. **Enter Credentials:** You will need the **Client ID** and **Client Secret** obtained from your provider's developer console (e.g., Google Cloud Console).
+4. **Configuration Settings:**
+   * **Request refresh token:** Toggle this to `On` to ensure users stay logged in.
+   * **Trust Email:** Under the _Advanced settings_ at the bottom, it is recommended to toggle **Trust Email** to `On` if you want Keycloak to verify users based on their provider email.
+5. Click **Add**.
+
+#### **Configure Redirect URIs**
+
+To avoid a `redirect_uri_mismatch` error, you must whitelist the Keycloak callback URL in your Identity Provider's settings.
+
+1. In the Keycloak **Identity Provider settings** for the provider you just added, find and copy the **Redirect URI**. It usually looks like this: `https://<launchpad-url>/auth/realms/launchpad/broker/google/endpoint`
+2. Go to your **Provider’s Developer Console** (e.g., Google Cloud Console -> APIs & Services -> Credentials).
+3. Under **Authorized redirect URIs**, paste the URI you copied from Keycloak.
+4. (Optional) Under **Authorized JavaScript origins**, add the base URL of your Launchpad Keycloak instance: `https://<launchpad-url>`
+5. **Save** the changes in the provider’s console.
+
+#### **Verify the Integration**
+
+1. Open your **Launchpad App URL**.
+2. Click **Log In**.
+3. You should now see an option to **Sign in with \[Provider Name]** (e.g., Google) below the standard login fields.\
+   ![](<../../../../.gitbook/assets/image (33).png>)
+4. Click the button and complete the OAuth flow to verify that you are successfully redirected back to the Launchpad interface.
+
+***
+
+#### Integration Tip:
+
+If you are using **OpenWebUI** with an external IdP, ensure that **Enable New Sign Ups** is toggled to `On` in the OpenWebUI Admin Panel (Settings > Authentication) so that users logging in via the IdP for the first time can have their accounts automatically created.
 
 ***
 
@@ -126,21 +173,19 @@ Video Demo
 
 To Access the Admin Pane&#x6C;**:** Log into Launchpad using the default admin credentials (available in app outputs) and click **Admin Panel** (top right).
 
-<div align="left"><figure><img src="../../../../.gitbook/assets/image (1).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/image (1) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 \
-This is what the Admin Panel looks like when there are no templates or instances imported.\
+This is what the Admin Panel looks like when there are no templates or instances imported.<br>
 
-
-<div align="left"><figure><img src="../../../../.gitbook/assets/image (2).png" alt=""><figcaption></figcaption></figure></div>
+<div align="left"><figure><img src="../../../../.gitbook/assets/image (2) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 #### **Import a New Template:**
 
 * Obtain an App Template by following [this guide](launchpad.md#obtaining-and-preparing-app-templates-for-launchpad).
-*   Click **Import Template**.\
+*   Click **Import Template**.<br>
 
-
-    <div align="left"><figure><img src="../../../../.gitbook/assets/image (3).png" alt=""><figcaption></figcaption></figure></div>
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (3) (1).png" alt=""><figcaption></figcaption></figure></div>
 * Click **Upload File** and select the `.yaml` configuration file you prepared in the previous step.
 * The fields will automatically populate with information from the Apolo Apps API. You can manually edit the:
   * **Display Name**
@@ -149,18 +194,15 @@ This is what the Admin Panel looks like when there are no templates or instances
   * **Tags**
   * **Input (JSON):** Modify default configuration values.
 * Check or uncheck **Shared** based on whether you want a single instance for all users (Shared) or a new instance provisioned for each user (Not Shared).
-*   Click **Import Template**. The new template will appear under **App Templates**.\
+*   Click **Import Template**. The new template will appear under **App Templates**.<br>
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (4) (1).png" alt=""><figcaption></figcaption></figure></div>
+*   After importing, the app will be visible in the main Launchpad interface, ready for users to click **Open** and launch their instance.<br>
+
+    <div align="left"><figure><img src="../../../../.gitbook/assets/image (5) (1).png" alt=""><figcaption></figcaption></figure></div>
 
 
-    <div align="left"><figure><img src="../../../../.gitbook/assets/image (4).png" alt=""><figcaption></figcaption></figure></div>
-*   After importing, the app will be visible in the main Launchpad interface, ready for users to click **Open** and launch their instance.\
-
-
-    <div align="left"><figure><img src="../../../../.gitbook/assets/image (5).png" alt=""><figcaption></figcaption></figure></div>
-
-
-*   After installing the app by clicking "Open", the new app instance will also appear in the list of App Instances on the Admin Page\
-
+*   After installing the app by clicking "Open", the new app instance will also appear in the list of App Instances on the Admin Page<br>
 
     <div align="left"><figure><img src="../../../../.gitbook/assets/image (6).png" alt=""><figcaption></figcaption></figure></div>
 
@@ -176,15 +218,13 @@ You can also import apps that are already running in Apolo into Launchpad.
 
 * Install a Service Deployment app by following [this guide](launchpad.md#deploying-a-service-deployment-app-that-uses-launchpad-authentication).
 * Click **Import App Instance**.
-*   The panel will load all running apps in your current Apolo project.\
-
+*   The panel will load all running apps in your current Apolo project.<br>
 
     <div align="left"><figure><img src="../../../../.gitbook/assets/image (7).png" alt=""><figcaption></figcaption></figure></div>
 * Select the desired running app instance (e.g., a Service Deployment).
 * Configure the display details (Name, Logo URL, Description).
   * You can customize the app's name, description, logo and etc. For the purposes of this tutorial, we will rename this app to My Custom App
-*   Click **Import App**. The running app instance will now be visible in the main Launchpad interface under its new name and accessible to authenticated Keycloak users.\
-
+*   Click **Import App**. The running app instance will now be visible in the main Launchpad interface under its new name and accessible to authenticated Keycloak users.<br>
 
     <div align="left"><figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure></div>
 
@@ -221,8 +261,7 @@ This process generates a YAML configuration file based on the app's standard ins
    * Select the installed `Launchpad` instance and click **Apply**.
 4.  **Download Configuration:** Scroll to the bottom of the installation page. Click the **Export App Configuration** download icon (a down arrow pointing into a cloud or similar icon, typically next to the "Install" button) to download the `.yaml` configuration file.\
     \
-    The following yaml file is an example Downloaded from the VSCode App installation page.\
-
+    The following yaml file is an example Downloaded from the VSCode App installation page.<br>
 
     ```yaml
     display_name: ""
