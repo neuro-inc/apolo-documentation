@@ -161,6 +161,68 @@ If you are using **OpenWebUI** with an external IdP, ensure that **Enable New Si
 
 ***
 
+### Accessing App Endpoints via API (Bearer Token)
+
+Launchpad allows you to interact with your deployed applications programmatically. By leveraging the integrated Keycloak instance, you can generate a Bearer Token to securely access your application's API endpoints (such as a vLLM inference server) without using the browser interface.
+
+#### Enable Direct Access Grants in Keycloak
+
+To fetch tokens using user credentials via the API, you must first enable the correct capability in the Keycloak configuration:
+
+1. Log into the **Keycloak Administration** console.
+2. Ensure you have selected the **Launchpad** realm.
+3. Navigate to **Clients** in the left-hand sidebar and select the **frontend** client.
+4. Scroll down to the **Capability config** section.
+5. Ensure the **Direct access grants** toggle is set to **On**.
+6. Click **Save**.
+
+#### Obtaining an Access Token
+
+You can obtain an access token by sending a POST request to the Launchpad authentication endpoint.
+
+> **Use the Admin API URL:** When performing API authentication, you must use the **Admin API URL** provided in the Apolo Console, not the standard **App URL**. You can distinguish the API URL by the `-api` suffix in the subdomain (e.g., `https://launchpad-xxx-api.apps...`).
+
+**Example using `curl` and `jq`:**
+
+```bash
+# Set your Launchpad Admin API URL (the one with the -api suffix)
+export LAUNCHPAD_API_URL="https://launchpad-<id>-api.apps.dev.apolo.us"
+export LAUNCHPAD_USER="admin"
+export LAUNCHPAD_PASSWORD="<your-admin-password>"
+
+# Fetch the token from the /auth/token endpoint
+TOKEN_RESPONSE=$(curl -s -X POST "$LAUNCHPAD_API_URL/auth/token" \
+  -H "Content-Type: application/json" \
+  -d "{
+    \"username\": \"$LAUNCHPAD_USER\",
+    \"password\": \"$LAUNCHPAD_PASSWORD\",
+    \"scope\": \"openid profile email offline_access\"
+  }")
+
+# Extract the access token
+ACCESS_TOKEN=$(echo $TOKEN_RESPONSE | jq -r '.access_token')
+
+echo "Access Token: $ACCESS_TOKEN"
+```
+
+#### Authenticating API Requests
+
+Once you have the `ACCESS_TOKEN`, you can include it in the `Authorization` header of your requests to any application managed by Launchpad. Use the specific **App URL** of the service you are trying to reach (e.g., your vLLM or custom service).
+
+**Example: Accessing vLLM Models Endpoint**
+
+Follow the instructions in [#importing-apps-using-the-admin-panel](launchpad.md#importing-apps-using-the-admin-panel "mention")to import a running vLLM instance to run this example.
+
+```bash
+curl -X GET "https://<your-vllm-app-url>/v1/models" \
+  -H "accept: application/json" \
+  -H "Authorization: Bearer $ACCESS_TOKEN"
+```
+
+> If you attempt to access these endpoints without the `Authorization` header or with an invalid token, Launchpad will deny the request, ensuring your services remain secure.
+
+***
+
 ## Importing Apps
 
 ### Importing Apps using the Admin Panel
