@@ -36,7 +36,7 @@ The following installation options are available:
 
 * **Resource Preset:** Choose from the dropdown menu, usually a small with 1 or 2 vCPUs should be enough - this is the only required field that you must set.
 * **OpenWebUI App Configuration:**
-  * **Postgres User Credentials:** Select the credentials for the PostgreSQL database that will be used for both the chat history and the vector embeddings. Refer to [Potstgres app](postgre-sql.md) documentation for instructions on how to install it.
+  * **Postgres User Credentials:** Select the credentials for the PostgreSQL database that will be used for both the chat history and the vector embeddings. Refer to [Potstgres app](postgre-sql/) documentation for instructions on how to install it.
   * **OpenAI Compatible Embeddings API:** Choose the API for text embeddings. Refer to [Text Embeddings app](text-embeddings-inference.md) documentation for instructions on how to install it.
   * **OpenAI Compatible Chat API:** Select the chat API to be used. Refer to [vLLM app](llm-inference/) documentation for instructions on how to install it.
 * **Networking Settings**

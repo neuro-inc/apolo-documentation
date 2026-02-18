@@ -72,4 +72,4 @@ You can now start creating, executing, and monitoring your workflow automations 
 * [n8n documentation](https://docs.n8n.io/)
 * [Installing n8n using Apolo CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/n8n.md)
 * [Managing Apps](../managing-apps.md)
-* [PostgreSQL App Documentation](postgre-sql.md)
+* [PostgreSQL App Documentation](postgre-sql/)

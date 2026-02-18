@@ -29,7 +29,7 @@ This design allows users to upload documents or build ingestion pipelines, and t
 
 ### Installing with Apolo Console
 
-In this guide, we presume you've already deployed [vLLM Inference](llm-inference/), [Text embeddings](text-embeddings-inference.md) and [PostgreSQL](postgre-sql.md) applications, since we are going to show the integration process with those apps. The overview of application installation process via web console could be found [here](../managing-apps.md).
+In this guide, we presume you've already deployed [vLLM Inference](llm-inference/), [Text embeddings](text-embeddings-inference.md) and [PostgreSQL](postgre-sql/) applications, since we are going to show the integration process with those apps. The overview of application installation process via web console could be found [here](../managing-apps.md).
 
 Below are the detailed instructions for installing PrivateGPT using Apolo Console. For instructions on how to install it using Apolo CLI, visit the [dedicated page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md).
 
@@ -173,6 +173,6 @@ When the application is not needed anymore, you could remove it by clicking the 
 * [Apolo CLI Application template commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [PrivateGPT application management via CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/privategpt.md)
 * [PrivateGPT application source code](https://github.com/neuro-inc/private-gpt)
-* [PostgreSQL application management](postgre-sql.md)
+* [PostgreSQL application management](postgre-sql/)
 * [Text Embeddings application management](text-embeddings-inference.md)
 * [vLLM application management](llm-inference/)

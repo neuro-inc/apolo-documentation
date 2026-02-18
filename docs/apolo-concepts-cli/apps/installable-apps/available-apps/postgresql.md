@@ -2,15 +2,15 @@
 
 ## Overview
 
-PostgreSQL is a powerful, open-source relational database system known for its reliability, feature richness, and extensibility. A detailed description of this application at the dedicated Apolo Console's  [postgre-sql.md](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql.md "mention") page.
+PostgreSQL is a powerful, open-source relational database system known for its reliability, feature richness, and extensibility. A detailed description of this application at the dedicated Apolo Console's [postgre-sql](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql/ "mention") page.
 
 ## Managing application via Apolo CLI
 
 **Step 1** — use CLI command to get application configuration file template:
 
-`apolo app-template get postgres > mypostgres.yaml`&#x20;
+`apolo app-template get postgres > mypostgres.yaml`
 
-**Step 2** —  fill in application parameters. Here is an example config file with some of those parameters:
+**Step 2** — fill in application parameters. Here is an example config file with some of those parameters:
 
 ```yaml
 # Example of mypostgres.yaml
@@ -52,7 +52,7 @@ Debrief of configuration parameters:
 
 **Step 3** — now you can install this application into your Apolo project:
 
-`apolo app install -f mypostgres.yaml`&#x20;
+`apolo app install -f mypostgres.yaml`
 
 You could see the application status transitions via CLI:
 
@@ -72,6 +72,6 @@ You can find more information for application management commands in the list of
 
 ## References
 
-* [Apolo PostgreSQL application](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql.md)
+* [Apolo PostgreSQL application](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql/)
 * [Apolo application template management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)

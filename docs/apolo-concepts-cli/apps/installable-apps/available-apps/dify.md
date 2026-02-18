@@ -14,7 +14,7 @@ Here we provide brief description of the application installation using Apolo CL
 apolo app-template get dify -o dify.yaml
 ```
 
-Another way is to&#x20;
+Another way is to
 
 **Step 2** — Customize the application parameters. Dify requires PostgreSQL for data storage, Apolo Blobs for binary objects store (created implicitly) to begin with. vLLM for and Text Embeddings are also needed but not obligatory to run the application installation.
 
@@ -96,8 +96,8 @@ When the application is not needed anymore, you could remove it by clicking the 
 * [Apolo web console Dify application management](../../../../apolo-console/apps/installable-apps/available-apps/dify.md)
 * [Dify helm chart documentation](https://github.com/neuro-inc/dify-helm)
 * [Dify platform documentation](https://docs.dify.ai/)
-* [Dify knowledge concept documentation](https://docs.dify.ai/en/guides/knowledge-base/readme)&#x20;
-* [PostgreSQL application management](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql.md)
+* [Dify knowledge concept documentation](https://docs.dify.ai/en/guides/knowledge-base/readme)
+* [PostgreSQL application management](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql/)
 * [Apolo Buckets application](../../../../apolo-console/apps/pre-installed/buckets.md)
 * [Text Embeddings application management](../../../../apolo-console/apps/installable-apps/available-apps/text-embeddings-inference.md)
 * [vLLM application management](../../../../apolo-console/apps/installable-apps/available-apps/llm-inference/)

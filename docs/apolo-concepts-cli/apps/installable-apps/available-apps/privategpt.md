@@ -6,7 +6,7 @@
 
 ## Installing
 
-Here we provide brief description of the application installation using Apolo CLI. See [managing-apps.md](../managing-apps.md "mention") page for generic flow of application installation via CLI. In this example, we will integrate with previously deployed PostgreSQL, vLLM and Text Embedding Inference applications.&#x20;
+Here we provide brief description of the application installation using Apolo CLI. See [managing-apps.md](../managing-apps.md "mention") page for generic flow of application installation via CLI. In this example, we will integrate with previously deployed PostgreSQL, vLLM and Text Embedding Inference applications.
 
 **Step 1** — Obtain the application configuration file template:
 
@@ -84,6 +84,6 @@ When the application is not needed anymore, you could remove it by clicking the 
 * [Apolo CLI Application template commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app-template)
 * [Apolo web console PrivateGPT application management](../../../../apolo-console/apps/installable-apps/available-apps/privategpt.md)
 * [PrivateGPT application source code](https://github.com/neuro-inc/private-gpt)
-* [PostgreSQL application management](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql.md)
+* [PostgreSQL application management](../../../../apolo-console/apps/installable-apps/available-apps/postgre-sql/)
 * [Text Embeddings application management](../../../../apolo-console/apps/installable-apps/available-apps/text-embeddings-inference.md)
 * [vLLM application management](../../../../apolo-console/apps/installable-apps/available-apps/llm-inference/)

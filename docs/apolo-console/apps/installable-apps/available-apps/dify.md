@@ -24,7 +24,7 @@ This design allows users to upload documents, build production-grade ingestion p
 
 ## Installing
 
-In this guide, we presume you've already deployed [vLLM Inference](llm-inference/), [Text embeddings](text-embeddings-inference.md) and [PostgreSQL](postgre-sql.md) applications, since we are going to show the integration process with those apps. The overview of application installation process via web console could be found [here](../managing-apps.md).
+In this guide, we presume you've already deployed [vLLM Inference](llm-inference/), [Text embeddings](text-embeddings-inference.md) and [PostgreSQL](postgre-sql/) applications, since we are going to show the integration process with those apps. The overview of application installation process via web console could be found [here](../managing-apps.md).
 
 Below are the detailed instructions for installing Dify application using Apolo Console. For instructions on how to install it using Apolo CLI, visit the [dedicated page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/dify.md).
 
@@ -226,7 +226,7 @@ As for the API usage, each particular application created within the Dify platfo
 * [Dify helm chart documentation](https://github.com/neuro-inc/dify-helm)
 * [Dify platform documentation](https://docs.dify.ai/)
 * [Dify knowledge concept documentation](https://docs.dify.ai/en/guides/knowledge-base/readme)
-* [PostgreSQL application management](postgre-sql.md)
+* [PostgreSQL application management](postgre-sql/)
 * [Apolo Buckets application](../../pre-installed/buckets.md)
 * [Text Embeddings application management](text-embeddings-inference.md)
 * [vLLM application management](llm-inference/)
