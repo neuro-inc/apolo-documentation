@@ -305,18 +305,65 @@ This is it, you manual backup data will be stored in the corresponding backup bu
 
 ## Identifying backups
 
+Overall goal here is to configure and run dedicated pgbackrest tool within a job. The configuration approach highly depends on what backup object store you use. In Apolo you have multiple [object store options](../../../pre-installed/buckets.md) and here are highlights for most common of them. Consult pgbackrest [documentation](https://pgbackrest.org/configuration.html#section-repository) if if you cannot find needed example here.
+
+Configuring **pgbackrest**:
+
+{% tabs %}
+{% tab title="AWS/Minio bucket" %}
 1. Create dedicated credentials for backup bucket via `apolo blob mkcredentials <bucket>`
-2. Store credentials as secret. For example, for GCS bucket, `base64 -d` data from `key_data` and put it into the `GCS_KEY_DATA` secret like `echo <key_data_from_mkcredentials> | base64 -d > key_data && apolo secret add GCS_KEY_DATA @key_data`
-3. Run simple job with credentials attached `apolo run -v secret:GCS_KEY_DATA:/tmp/creds ubuntu -- bash`
-4. Within job: install **pgbackrest** tool
+2. Store access key id  and secret access key and to access the bucket as secrets:
+   1. `apolo secret add KEY_ID <key-id-from-mkcredentials>`
+   2. `apolo secret add SECRET_KEY <key-id-from-mkcredentials>`&#x20;
+3. Run job mounting those secrets as pgbackrest's repo1 config params:
+
+```
+apolo run \
+    -e PGBACKREST_REPO1_S3_KEY=secret:KEY_ID \
+    -e PGBACKREST_REPO1_S3_KEY_SECRET=secret:SECRET_KEY \
+    ubuntu -- bash
+```
+{% endtab %}
+
+{% tab title="GCS bucket" %}
+1. Create dedicated credentials for backup bucket via `apolo blob mkcredentials <bucket>`
+2. Store credentials as secret: `base64 -d` data from `key_data` and put it into the `REPO_ACCESS_DATA` secret:
+
+`echo <key_data_from_mkcredentials> | base64 -d > key_data && apolo secret add REPO_ACCESS_DATA @key_data`&#x20;
+
+3. Attach this secret key file `apolo run -v secret:GCS_KEY_DATA:/tmp/creds ubuntu -- bash`&#x20;
+{% endtab %}
+{% endtabs %}
+
+3. Run a job with credentials attached from instructions above
+4. Within job: install **pgbackrest** tool, also install ca-certificates
 
 ```
 apt-get update -qq
-DEBIAN_FRONTEND=noninteractive apt-get -y install pgbackrest
+DEBIAN_FRONTEND=noninteractive apt-get -y install pgbackrest ca-certificates
 ```
 
 5. Configure pgbackrest tool:
 
+{% tabs %}
+{% tab title="AWS/Minio" %}
+```bash
+mkdir /etc/pgbackrest
+cat > /etc/pgbackrest/pgbackrest.conf << 'EOF'
+[global]
+repo1-type=s3
+repo1-path=/pgbackrest/platform--org--proj--17a7adb4a97c5d671ab4ec4e/pg-2c5aa2d6a7a74d639d66fa9ea2d40173/repo1
+repo1-s3-endpoint=https://blob.imdc.org.apolo.us
+repo1-s3-region=minio
+repo1-s3-uri-style=path
+repo1-s3-bucket=neuro-pl-fdcffc56db-tubesupply-development-neef8a2d36536d
+EOF
+```
+
+Note: S3 Endpoint, region and bucket name are displayed in the output of `mkcredentials` command.
+{% endtab %}
+
+{% tab title="GCP" %}
 ```bash
 mkdir /etc/pgbackrest
 cat > /etc/pgbackrest/pgbackrest.conf << 'EOF'
@@ -329,6 +376,8 @@ repo1-gcs-key=/tmp/creds
 pg1-path=/pgdata
 EOF
 ```
+{% endtab %}
+{% endtabs %}
 
 Note: ensure repo1-path is correct by confirming via `apolo blob ls blob:<bucketURI>/...` . It should contain `archive/` and `backup/` subpaths. Bucket name is the name in source system, reported to you during bucket creation or via `apolo blob statbucket` command.
 
