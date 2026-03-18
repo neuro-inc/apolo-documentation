@@ -313,8 +313,8 @@ Configuring **pgbackrest**:
 {% tab title="AWS/Minio bucket" %}
 1. Create dedicated credentials for backup bucket via `apolo blob mkcredentials <bucket>`
 2. Store access key id  and secret access key and to access the bucket as secrets:
-   1. `apolo secret add KEY_ID <key-id-from-mkcredentials>`
-   2. `apolo secret add SECRET_KEY <key-id-from-mkcredentials>`&#x20;
+   1. `apolo secret add KEY_ID <access_key_id from mkcredentials>`
+   2. `apolo secret add SECRET_KEY <secret_access_key from mkcredentials>`&#x20;
 3. Run job mounting those secrets as pgbackrest's repo1 config params:
 
 ```
