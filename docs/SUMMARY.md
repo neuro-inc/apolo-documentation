@@ -62,6 +62,7 @@
       * [Apache Spark](apolo-console/apps/installable-apps/available-apps/apache-spark.md)
       * [PrivateGPT](apolo-console/apps/installable-apps/available-apps/privategpt.md)
       * [Apache Superset](apolo-console/apps/installable-apps/available-apps/apache-superset.md)
+      * [Valkey](apolo-console/apps/installable-apps/available-apps/valkey.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
