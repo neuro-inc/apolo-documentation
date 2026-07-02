@@ -15,6 +15,52 @@ Valkey is suitable for a broad range of use cases, including:
 
 It is primarily designed for ephemeral or low-latency data access rather than long-term persistent storage.
 
+## Architecture
+
+Vakley architecture defines the deployment topology of your Valkey instance. It determines how data is stored, replicated, and served across nodes, directly impacting availability, performance, and operational complexity.
+
+### Supported Modes
+
+#### **1. Standalone**
+
+A single-node Valkey deployment.
+
+**Characteristics:**
+
+* One instance handles all reads and writes
+* No replication or redundancy
+* Simplest configuration and lowest resource usage
+
+**Best for:**
+
+* Development and testing
+* Ephemeral caching
+* Non-critical workloads
+
+#### **2. Replication**
+
+A multi-node deployment with one primary node and one or more replicas.
+
+**Characteristics:**
+
+* Primary node handles writes
+* Replicas asynchronously replicate data from the primary
+* Replicas can serve read requests (depending on configuration)
+
+**Best for:**
+
+* Production environments
+* High-read workloads
+* Systems requiring resilience
+
+#### Replication Details
+
+* **Replication type:** Asynchronous (replicas may lag slightly behind primary)
+* **Failover:**
+  * Manual by default
+  * Automatic failover requires additional components (e.g., Sentinel)
+* **Read scaling:** Applications can be configured to read from replicas
+
 ***
 
 ## Accessing the Valkey App
@@ -45,23 +91,32 @@ Depending on your use case, choose one of the following:
 * **Ephemeral storage** – for cache-only workloads
 * **Persistent storage** – for data that should survive restarts
 
-#### 3. Networking Settings
+#### 3. Configure Architecture
+
+Set the `ValkeyArchitecture` parameter to define the deployment topology:
+
+* **standalone** – a single-node deployment with no replication. Suitable for development, testing, and non-critical workloads.
+* **replication** – a primary-replica deployment that provides redundancy, improved availability, and read scaling. Recommended for production use cases.
+
+When using **replication**, you can configure the number of replicas to balance read performance and resource usage.
+
+#### 4. Networking Settings
 
 * Expose the Valkey port (default: `6379`)
 * Configure internal access for other services within the cluster
 * Optionally enable external access (not recommended unless secured)
 
-#### 4. Security Configuration
+#### 5. Security Configuration
 
 * Enable authentication if external access is configured
 * Use Apolo Secrets for credentials management
 * Restrict access via internal networking whenever possible
 
-#### 5. Metadata
+#### 6. Metadata
 
 Provide a name for your Valkey instance. If omitted, a system-generated name will be assigned.
 
-#### 6. Install the App
+#### 7. Install the App
 
 Click **Install** to deploy the application.
 
@@ -160,5 +215,6 @@ To remove the Valkey instance:
 * [Valkey Documentation](https://valkey.io/docs/?utm_source=chatgpt.com)
 * [Valkey GLIDE (official client libraries overview)](https://glide.valkey.io/overview/?utm_source=chatgpt.com)
 * [Valkey GLIDE Python API](https://glide.valkey.io/languages/python/api/?utm_source=chatgpt.com)
-
-<br>
+* [Avaliable apps](./)
+* [N8N](n8n.md) application integration
+* [Dify](dify.md) application integration
