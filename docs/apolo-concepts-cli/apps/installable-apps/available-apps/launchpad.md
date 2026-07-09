@@ -76,7 +76,7 @@ You can import a custom app template into Launchpad. This allows you to define c
 
     ```json
     {
-      "template_name": "vscodes",
+      "template_name": "vscode",
       "template_version": "v25.10.3",
       "name": "vscode-dev",
       "verbose_name": "VS Code Development Environment",
@@ -160,6 +160,7 @@ The Launchpad app transforms the Apolo MLOps platform into a user-friendly deplo
 
 ## References
 
+* [Detailed Launchpad description](../../../../apolo-console/apps/installable-apps/available-apps/launchpad.md)
 * [Keycloak documentation](https://www.keycloak.org/documentation)
 * [OpenWebUI app documentation](../../../../apolo-console/apps/installable-apps/available-apps/openwebui.md)
 * [Managing Apps](../../)

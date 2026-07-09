@@ -286,9 +286,11 @@ You can also import apps that are already running in Apolo into Launchpad.
 * Select the desired running app instance (e.g., a Service Deployment).
 * Configure the display details (Name, Logo URL, Description).
   * You can customize the app's name, description, logo and etc. For the purposes of this tutorial, we will rename this app to My Custom App
-*   Click **Import App**. The running app instance will now be visible in the main Launchpad interface under its new name and accessible to authenticated Keycloak users.<br>
+* Click **Import App**.
+  * The running app instance will now be visible in the main Launchpad interface under its new name and accessible to authenticated Keycloak users.
+  *   Starting from the `v26.7.1` Laucnhpad, the application ingress authentication will be automatically reconfigured to use this launchpad. Meaning, after the app is imported, the users targeting the app will be forced to authorize via this launchpad. If the app was previously imported in other Launchpad instance, this import process will delete it from old Launchpad if it of version `v26.7.1` or later, otherwise — user must do the cleanup manually.<br>
 
-    <div align="left"><figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure></div>
+      <div align="left"><figure><img src="../../../../.gitbook/assets/image (8).png" alt=""><figcaption></figcaption></figure></div>
 
 Using the App Instances list you can:
 
@@ -298,6 +300,14 @@ Using the App Instances list you can:
 ### Importing Apps using Admin API
 
 Refer to [Launchpad CLI](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/launchpad.md#importing-apps-using-admin-api) page to learn more about installing and managing Launchpad using the CLI.
+
+## Misc features
+
+#### Logout
+
+The application developers can redirect their users from the apps under Launchpad to the `/logout` path in Launchpad web UI. It will cleanup a browser session for both accessing the launchpad landing page and underlying applications.
+
+Example logout URL: `https://launchpad-123abc123abc.apps.my-cluster.org.apolo.us/logout`
 
 ***
 
