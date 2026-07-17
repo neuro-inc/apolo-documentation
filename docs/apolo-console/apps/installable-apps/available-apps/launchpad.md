@@ -311,6 +311,697 @@ Example logout URL: `https://launchpad-123abc123abc.apps.my-cluster.org.apolo.us
 
 ***
 
+## Customizing Launchpad appearance
+
+Launchpad can load a custom CSS stylesheet at runtime. Use it to adapt the Launchpad interface to your organization without rebuilding the application. For example, you can change colors, fonts, borders, spacing, alignment, app card layout, dialogs, forms, tables, and the admin panel.
+
+The custom stylesheet is applied on top of the built-in Launchpad styles. It affects the Launchpad interface only; it does not change the appearance of applications opened from Launchpad.
+
+Use the standard branding settings for the Launchpad title, logo, favicon, and background. Use the custom stylesheet when you need more detailed control over components, layout, typography, or interactive states.
+
+> Only use a stylesheet that you control and trust. A stylesheet can change the entire interface and can request additional fonts, images, and other external resources.
+
+#### Add a custom stylesheet
+
+**Create and host the CSS file**
+
+Create a plain `.css` file. Start with a visible test rule so that you can confirm that the file is loaded:
+
+```css
+#launchpad-header {
+  border-bottom: 4px solid #7c3aed;
+}
+```
+
+Host the file at a URL that is accessible from your users' browsers, for example:
+
+```
+https://assets.example.com/launchpad/brand.css
+```
+
+The URL does not have to end in `.css`; the returned content type determines whether the browser treats the response as a stylesheet.
+
+The URL must meet the following requirements:
+
+* It is publicly reachable without cookies or authentication.
+* It uses HTTPS when Launchpad uses HTTPS.
+* It returns `200 OK` and a CSS content type such as `text/css`.
+* Any fonts or images referenced by the file are also browser-accessible.
+* Cross-origin font responses include the required CORS headers.
+* If a Content Security Policy is configured, the stylesheet origin is allowed by `style-src`, and referenced assets are allowed by directives such as `font-src` and `img-src`.
+
+> **Use HTTPS directly:** Do not configure an `http://` URL that redirects to HTTPS. Browsers can block the HTTP request as mixed content before following the redirect.
+
+**Configure Launchpad**
+
+1. In the **Apolo Console**, open **Installed Apps**.
+2. Select your **Launchpad** instance and open its configuration for editing.
+3. In the branding settings, set the custom stylesheet URL to the absolute URL of your CSS file. This value is stored as `branding.css_url`.
+4. Apply the configuration and wait until the Launchpad instance is healthy.
+5. Open the **Launchpad App URL** and perform a full browser refresh.
+
+The configuration is exposed by the Launchpad Admin API as `branding.css_url`:
+
+```json
+{
+  "branding": {
+    "css_url": "https://assets.example.com/launchpad/brand.css"
+  }
+}
+```
+
+An empty or missing `css_url` disables custom CSS.
+
+To verify the configured value, request `/config` from the **Launchpad Admin API URL** (the URL with the `-api` suffix):
+
+```bash
+curl -s "https://<launchpad-admin-api-url>/config" | jq '.branding.css_url'
+```
+
+#### Verify that the stylesheet is loaded
+
+1. Open the Launchpad interface.
+2. Open the browser developer tools.
+3. On the **Network** tab, filter requests by `CSS` and reload the page.
+4. Confirm that the configured stylesheet returns `200` and has the `text/css` content type.
+5. On the **Elements** tab, find the following element:
+
+```html
+<link id="launchpad-custom-stylesheet" rel="stylesheet" href="..." />
+```
+
+Launchpad loads this stylesheet after its built-in styles. In most cases, a custom rule that uses a documented `launchpad-*` selector overrides the default rule without `!important`.
+
+***
+
+#### Select the element you want to customize
+
+Launchpad exposes stable CSS hooks for customization:
+
+* IDs such as `#launchpad-header` identify unique page landmarks.
+* Classes beginning with `.launchpad-` identify components and their parts.
+* Attributes such as `[data-action]`, `[data-section]`, and `[data-state]` identify a component's purpose or state.
+
+Use these hooks instead of Tailwind utility classes, element positions, or generated IDs. Utility classes and third-party component classes are internal implementation details and can change between releases.
+
+For example, the following selector targets every app card:
+
+```css
+.launchpad-app-card {
+  border: 1px solid #d8dee9;
+}
+```
+
+The following selector targets only one app. Replace `my-app` with the value of the card's `data-app-name` attribute:
+
+```css
+.launchpad-app-card[data-app-name='my-app'] {
+  border-color: #7c3aed;
+}
+```
+
+The following selector targets only the **Open** action inside app cards:
+
+```css
+.launchpad-app-card [data-action='open'] {
+  background: #7c3aed;
+}
+```
+
+Use the browser's element inspector to see the hooks available on a specific element.
+
+#### CSS selector reference
+
+**Page layout and background**
+
+| Area                   | Selector                       | What it targets                                              |
+| ---------------------- | ------------------------------ | ------------------------------------------------------------ |
+| HTML document          | `#launchpad-root`              | The root `<html>` element                                    |
+| Page body              | `#launchpad-body`              | The complete Launchpad page                                  |
+| Layout                 | `.launchpad-layout`            | The standard Launchpad layout                                |
+| Scrollable wrapper     | `.launchpad-layout-wrapper`    | The wrapper around page content                              |
+| Main content           | `#launchpad-main`              | The main page region                                         |
+| Content width          | `.launchpad-container`         | Shared centered content containers                           |
+| Image background state | `.launchpad-background--image` | Root elements when a branding background image is configured |
+| Custom stylesheet link | `#launchpad-custom-stylesheet` | The injected external stylesheet link                        |
+
+Launchpad also exposes the following background custom properties:
+
+| Custom property                   | Purpose                            |
+| --------------------------------- | ---------------------------------- |
+| `--launchpad-background`          | Global background color            |
+| `--launchpad-background-image`    | Global background image            |
+| `--launchpad-background-size`     | Background sizing, such as `cover` |
+| `--launchpad-background-position` | Background alignment               |
+| `--launchpad-background-repeat`   | Background repeat behavior         |
+
+The configured branding values are stored in these properties. To replace the rendered background from custom CSS, set the final background properties on the root and body elements:
+
+```css
+#launchpad-root,
+#launchpad-body {
+  background: #f8fafc;
+  background-image: none;
+}
+```
+
+**Header and user menu**
+
+| Area              | Selector                                   | What it targets                      |
+| ----------------- | ------------------------------------------ | ------------------------------------ |
+| Header            | `#launchpad-header` or `.launchpad-header` | The complete page header             |
+| Header content    | `.launchpad-header__container`             | Header width, spacing, and alignment |
+| Branding          | `.launchpad-header__brand`                 | Logo and title group                 |
+| Logo wrapper      | `.launchpad-header__logo-wrapper`          | Logo container                       |
+| Logo              | `.launchpad-header__logo`                  | Custom or default logo               |
+| Default logo      | `.launchpad-header__logo--default`         | Default Launchpad logo only          |
+| Title             | `.launchpad-header__title`                 | Configured Launchpad title           |
+| User menu trigger | `.launchpad-user-panel`                    | User avatar/menu button              |
+| Avatar            | `.launchpad-user-panel__avatar`            | Avatar circle                        |
+| Initials          | `.launchpad-user-panel__initials`          | User initials inside the avatar      |
+| Menu              | `.launchpad-user-panel__popover`           | Open user menu                       |
+| User name         | `.launchpad-user-panel__name`              | User display name                    |
+| User email        | `.launchpad-user-panel__email`             | User email address                   |
+| Admin link        | `.launchpad-user-panel__admin-link`        | **Admin Panel** action               |
+| Logout action     | `.launchpad-user-panel__logout`            | **Log out** action                   |
+
+Use `[data-logo='custom']` or `[data-logo='default']` on the branding element when the rule must depend on which logo is displayed.
+
+**Authentication page**
+
+| Area                | Selector                             | What it targets                  |
+| ------------------- | ------------------------------------ | -------------------------------- |
+| Authentication page | `#launchpad-auth-page`               | The complete login page          |
+| Login content       | `.launchpad-auth-page__content`      | Login content width and position |
+| Login card          | `.launchpad-auth-page__card`         | Login card surface               |
+| Login title         | `.launchpad-auth-page__title`        | Welcome/title text               |
+| Login actions       | `.launchpad-auth-page__actions`      | Login button group               |
+| Main login button   | `.launchpad-auth-page__login-button` | Main **Log in** button           |
+
+**App catalog and app cards**
+
+| Area            | Selector                                    | What it targets                          |
+| --------------- | ------------------------------------------- | ---------------------------------------- |
+| App catalog     | `#launchpad-apps-page`                      | The complete app catalog                 |
+| App grid        | `.launchpad-app-grid`                       | Grid columns, gaps, and alignment        |
+| App card        | `.launchpad-app-card`                       | Every app card, including list states    |
+| Loading card    | `.launchpad-app-card--loading`              | App loading skeletons                    |
+| Card header     | `.launchpad-app-card__header`               | Logo and heading region                  |
+| Logo wrapper    | `.launchpad-app-card__logo-wrapper`         | App logo surface                         |
+| Logo            | `.launchpad-app-card__logo`                 | App logo image                           |
+| Logo fallback   | `.launchpad-app-card__logo-fallback`        | Default logo when no image is configured |
+| Card title      | `.launchpad-app-card__title`                | App display name                         |
+| Description     | `.launchpad-app-card__description`          | Short app description                    |
+| Tags            | `.launchpad-app-card__tags`                 | Complete tag list                        |
+| Tag             | `.launchpad-app-card__tag`                  | Individual visible tag                   |
+| Extra tag count | `.launchpad-app-card__tag-overflow`         | The `+N` tag badge                       |
+| Actions         | `.launchpad-app-card__actions`              | **Explore** and **Open** action group    |
+| Explore action  | `.launchpad-app-card__explore`              | **Explore** button                       |
+| Open action     | `.launchpad-app-card__open`                 | **Open** link                            |
+| Loading state   | `.launchpad-app-card[data-state='loading']` | Loading cards                            |
+| Error state     | `.launchpad-app-grid__error`                | App catalog error message                |
+| Retry action    | `.launchpad-app-grid__retry`                | Error retry button                       |
+| Empty state     | `.launchpad-app-grid__empty`                | Empty app catalog                        |
+
+Each real app card exposes `[data-app-name]`. This is the safest way to style a specific app independently from the rest of the catalog.
+
+The computed branding color of app cards is available as `--launchpad-app-card-background` for derived rules. Its configured value is set inline. To replace the card surface, set `background` or `background-color` on `.launchpad-app-card`, as shown in the examples below.
+
+**App details dialog and startup page**
+
+| Area              | Selector                                  | What it targets                   |
+| ----------------- | ----------------------------------------- | --------------------------------- |
+| App details       | `.launchpad-app-modal`                    | Complete app details content      |
+| Hero region       | `.launchpad-app-modal__hero`              | Logo, title, and primary action   |
+| App logo          | `.launchpad-app-modal__logo`              | Logo image in app details         |
+| Title             | `.launchpad-app-modal__title`             | App title                         |
+| Short description | `.launchpad-app-modal__short-description` | App summary                       |
+| Long description  | `.launchpad-app-modal__long-description`  | Detailed description              |
+| Actions           | `.launchpad-app-modal__actions`           | App details actions               |
+| Open action       | `.launchpad-app-modal__open`              | **Open** action                   |
+| Content section   | `.launchpad-app-modal__section`           | Documentation or references group |
+| Section title     | `.launchpad-app-modal__section-title`     | Group heading                     |
+| Section link      | `.launchpad-app-modal__link`              | Documentation/reference link      |
+| Link label        | `.launchpad-app-link__label`              | Visible link text                 |
+| Startup page      | `#launchpad-app-loading-page`             | Page shown while an app starts    |
+| Startup content   | `.launchpad-app-loading-page__content`    | Centered startup content          |
+| Startup logo      | `.launchpad-app-loading-page__logo`       | Startup page logo                 |
+| Startup brand     | `.launchpad-app-loading-page__brand`      | Launchpad brand text              |
+| Startup message   | `.launchpad-app-loading-page__message`    | Startup status text               |
+| Animated dots     | `.launchpad-app-loading-page__dots`       | Startup loading animation         |
+
+The app details element and startup page also expose `[data-app-name]`. App details sections use `[data-section='documentation']` and `[data-section='references']`.
+
+**Buttons, links, badges, and visual elements**
+
+| Area           | Selector                     | Useful attributes or parts                             |
+| -------------- | ---------------------------- | ------------------------------------------------------ |
+| Button         | `.launchpad-button`          | `[data-variant]`, `[data-status]`, `[data-with-icon]`  |
+| Button icon    | `.launchpad-button__icon`    | Icon inside a button                                   |
+| Button spinner | `.launchpad-button__spinner` | Loading spinner inside a button                        |
+| Link           | `.launchpad-link`            | `[data-variant]`, `[data-disabled]`, `[data-external]` |
+| Link icon      | `.launchpad-link__icon`      | Icon inside a link                                     |
+| Badge          | `.launchpad-badge`           | `[data-variant]`                                       |
+| Image          | `.launchpad-image`           | Shared images                                          |
+| Icon           | `.launchpad-icon`            | Shared icons                                           |
+| Spinner        | `.launchpad-spinner`         | `[data-color]` and `.launchpad-spinner__dot`           |
+| Logo           | `.launchpad-logo`            | `[data-variant='full']` or `[data-variant='icon']`     |
+
+Button statuses are `idle`, `loading`, and `disabled`. Common button variants include `primary`, `secondary`, `ghost`, `ghost-primary`, `ghost-error`, `error`, `error-outline`, and `primary-outline`.
+
+**Forms**
+
+| Area               | Selector                         | What it targets                 |
+| ------------------ | -------------------------------- | ------------------------------- |
+| Field wrapper      | `.launchpad-field`               | Complete form field             |
+| Input field        | `.launchpad-field--input`        | Input wrapper                   |
+| Text input         | `.launchpad-input`               | `<input>` control               |
+| Textarea           | `.launchpad-textarea`            | `<textarea>` control            |
+| Select             | `.launchpad-select`              | Native or custom select control |
+| Field control      | `.launchpad-field__control`      | Any text/select control         |
+| Label              | `.launchpad-field__label`        | Field label                     |
+| Note               | `.launchpad-field__note`         | Supporting text                 |
+| Error              | `.launchpad-field__error`        | Validation message              |
+| Checkbox           | `.launchpad-checkbox`            | Checkbox control and label      |
+| Checkbox indicator | `.launchpad-checkbox__indicator` | Visible checkbox square         |
+| Radio              | `.launchpad-radio`               | Radio control and label         |
+| Radio indicator    | `.launchpad-radio__indicator`    | Visible radio circle            |
+| Select dropdown    | `.launchpad-select__dropdown`    | Open custom-select menu         |
+| Select item        | `.launchpad-select__item`        | Custom-select option            |
+
+Most fields expose `[data-field='<field-name>']` on the wrapper and `[data-invalid='true']` when validation fails. Labels can expose `[data-required='true']` and `[data-disabled='true']`.
+
+**Dialogs, popovers, tooltips, and notifications**
+
+| Area            | Selector                      | What it targets              |
+| --------------- | ----------------------------- | ---------------------------- |
+| Dialog overlay  | `.launchpad-modal__overlay`   | Page overlay behind a dialog |
+| Dialog position | `.launchpad-modal__dialog`    | Positioned dialog wrapper    |
+| Dialog surface  | `.launchpad-modal__content`   | Visible dialog card          |
+| Dialog header   | `.launchpad-modal__header`    | Dialog header                |
+| Dialog title    | `.launchpad-modal__title`     | Dialog title                 |
+| Dialog body     | `.launchpad-modal__body`      | Dialog content               |
+| Dialog footer   | `.launchpad-modal__footer`    | Dialog actions               |
+| Close action    | `.launchpad-modal__close`     | Dialog close button          |
+| Popover trigger | `.launchpad-popover__trigger` | Element that opens a popover |
+| Popover surface | `.launchpad-popover__content` | Open popover                 |
+| Popover arrow   | `.launchpad-popover__arrow`   | Popover arrow                |
+| Tooltip surface | `.launchpad-tooltip__content` | Open tooltip                 |
+| Tooltip arrow   | `.launchpad-tooltip__arrow`   | Tooltip arrow                |
+| Toast region    | `.launchpad-toast-container`  | Notification container       |
+| Toast           | `.launchpad-toast`            | Individual notification      |
+| Toast content   | `.launchpad-toast__content`   | Notification message         |
+
+Dialogs, popovers, tooltips, and custom-select menus are rendered in portals under the document body. Target them directly instead of nesting their selector under the component that opened them. Their open/closed state is available through `[data-state]`.
+
+**Tables**
+
+| Area        | Selector                   | What it targets       |
+| ----------- | -------------------------- | --------------------- |
+| Table       | `.launchpad-table`         | Complete shared table |
+| Header      | `.launchpad-table__header` | Header group          |
+| Body        | `.launchpad-table__body`   | Body group            |
+| Row         | `.launchpad-table__row`    | Logical row           |
+| Header cell | `.launchpad-table__head`   | Column heading        |
+| Body cell   | `.launchpad-table__cell`   | Data cell             |
+
+Table rows use `display: contents`, so backgrounds and borders must be applied to their cells instead of the row wrapper.
+
+**Admin panel**
+
+| Area          | Selector                              | What it targets                    |
+| ------------- | ------------------------------------- | ---------------------------------- |
+| Admin page    | `#launchpad-admin-page`               | Complete admin panel               |
+| Admin title   | `#launchpad-admin-title`              | **Admin Panel** heading            |
+| Header        | `.launchpad-admin-header`             | Admin title and refresh action     |
+| Templates     | `#launchpad-admin-templates-section`  | App Templates section              |
+| Instances     | `#launchpad-admin-instances-section`  | App Instances section              |
+| Section       | `.launchpad-admin-section`            | Any major admin section            |
+| Section title | `.launchpad-admin-section-title`      | Major section heading              |
+| Form          | `.launchpad-admin-form`               | Any admin form                     |
+| Form field    | `.launchpad-admin-form-field`         | A field group in an admin form     |
+| Form actions  | `.launchpad-admin-form-actions`       | Form action row                    |
+| Admin dialog  | `.launchpad-admin-modal`              | Any admin dialog                   |
+| Table         | `.launchpad-admin-table`              | Any admin table                    |
+| Table row     | `.launchpad-admin-table-row`          | Any admin record row               |
+| Table cell    | `.launchpad-admin-table-cell`         | Any admin table cell               |
+| Record action | `.launchpad-admin-record-action`      | View, edit, open, or delete action |
+| File upload   | `.launchpad-admin-file-upload`        | Template upload control            |
+| Confirmation  | `.launchpad-admin-confirmation-modal` | Delete confirmation dialog         |
+| Loading       | `.launchpad-admin-loading-state`      | Admin loading state                |
+| Error         | `.launchpad-admin-error-state`        | Admin error state                  |
+
+Use semantic attributes to target one admin element without depending on its position:
+
+| Attribute            | Example values                                             | Purpose                         |
+| -------------------- | ---------------------------------------------------------- | ------------------------------- |
+| `[data-section]`     | `templates`, `instances`, `file-upload`, `confirmation`    | Select a page or dialog section |
+| `[data-action]`      | `open-import-template`, `edit-template`, `delete-instance` | Select a specific action        |
+| `[data-field-slot]`  | `logo`, `display-name`, `tags`, `internal`, `shared`       | Select a logical form field     |
+| `[data-column]`      | `name`, `template`, `state`, `flags`, `actions`            | Select a table column           |
+| `[data-record-type]` | `template`, `instance`, `unimported-instance`              | Select a record type            |
+| `[data-record-id]`   | Dynamic record ID                                          | Select one record               |
+| `[data-record-name]` | Dynamic record name                                        | Select one named record         |
+| `[data-row-variant]` | `primary`, `alternate`                                     | Select alternating rows         |
+| `[data-flag]`        | `internal`, `shared`                                       | Select an app/template flag     |
+| `[data-state]`       | `loading`, `error`, `empty`, `open`, `closed`              | Select UI state                 |
+
+***
+
+#### Customization examples
+
+The following examples can be copied independently or combined into one stylesheet.
+
+**Change the global font, text color, and background**
+
+```css
+@font-face {
+  font-family: 'My Brand Sans';
+  src: url('https://assets.example.com/fonts/my-brand-sans.woff2')
+    format('woff2');
+  font-display: swap;
+}
+
+#launchpad-root,
+#launchpad-body {
+  background: #f6f7fb;
+  background-image: none;
+  color: #172033;
+  font-family: 'My Brand Sans', Arial, sans-serif;
+}
+```
+
+Some headings and controls have their own built-in colors. Target their public hooks when they must inherit the global color:
+
+```css
+.launchpad-header__title,
+.launchpad-app-card__title,
+.launchpad-app-modal__title,
+.launchpad-admin-title,
+.launchpad-admin-section-title {
+  color: #172033;
+}
+```
+
+**Restyle the header and logo**
+
+```css
+#launchpad-header {
+  background: #111827;
+  border-bottom: 1px solid #334155;
+}
+
+.launchpad-header__container {
+  min-height: 72px;
+  padding-top: 16px;
+  padding-bottom: 16px;
+}
+
+.launchpad-header__logo {
+  width: auto;
+  height: 48px;
+}
+
+.launchpad-header__title {
+  color: #ffffff;
+  font-size: 20px;
+}
+
+.launchpad-user-panel__avatar {
+  background: #7c3aed;
+}
+```
+
+**Restyle the login page**
+
+```css
+#launchpad-auth-page {
+  background: linear-gradient(135deg, #0f172a, #312e81);
+}
+
+.launchpad-auth-page__card {
+  padding: 48px;
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 24px;
+  box-shadow: 0 24px 64px rgba(15, 23, 42, 0.3);
+}
+
+.launchpad-auth-page__login-button {
+  min-width: 220px;
+  background: #7c3aed;
+  border-radius: 999px;
+}
+```
+
+**Change the app grid and cards**
+
+```css
+.launchpad-app-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.launchpad-app-card {
+  background: #ffffff;
+  border: 1px solid #d8dee9;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.launchpad-app-card:hover {
+  border-color: #7c3aed;
+  box-shadow: 0 12px 32px rgba(124, 58, 237, 0.14);
+}
+
+.launchpad-app-card__title {
+  color: #172033;
+  font-size: 18px;
+}
+
+.launchpad-app-card__tag {
+  color: #5b21b6;
+  background: #ede9fe;
+}
+
+@media (max-width: 1200px) {
+  .launchpad-app-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .launchpad-app-grid {
+    grid-template-columns: 1fr;
+  }
+}
+```
+
+**Restyle one app only**
+
+Inspect the card to find its `data-app-name`, then use it in the selector:
+
+```css
+.launchpad-app-card[data-app-name='open-webui'] {
+  background: #eef2ff;
+  border-color: #6366f1;
+}
+
+.launchpad-app-card[data-app-name='open-webui'] .launchpad-app-card__open {
+  background: #4f46e5;
+}
+```
+
+**Restyle buttons and their states**
+
+```css
+.launchpad-button[data-variant='primary'],
+.launchpad-link[data-variant='primary'] {
+  color: #ffffff;
+  background: #7c3aed;
+  border-radius: 8px;
+}
+
+.launchpad-button[data-variant='primary']:hover,
+.launchpad-link[data-variant='primary']:hover {
+  background: #6d28d9;
+}
+
+.launchpad-button[data-status='disabled'] {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.launchpad-button[data-status='loading'] {
+  box-shadow: none;
+}
+```
+
+**Restyle app details and dialogs**
+
+```css
+.launchpad-modal__overlay {
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(4px);
+}
+
+.launchpad-modal__content,
+.launchpad-app-modal {
+  background: #ffffff;
+  border: 1px solid #d8dee9;
+  border-radius: 12px;
+}
+
+.launchpad-app-modal__section[data-section='references'] {
+  padding-top: 24px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.launchpad-app-modal__link {
+  color: #6d28d9;
+}
+```
+
+**Restyle form fields and validation**
+
+```css
+.launchpad-field__control {
+  color: #172033;
+  background: #ffffff;
+  border-color: #cbd5e1;
+  border-radius: 8px;
+}
+
+.launchpad-field__control:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+
+.launchpad-field[data-invalid='true'] .launchpad-field__control {
+  border-color: #dc2626;
+}
+
+.launchpad-field[data-field='logo'] .launchpad-field__label {
+  color: #5b21b6;
+}
+```
+
+**Restyle the admin panel and tables**
+
+```css
+#launchpad-admin-page {
+  color: #172033;
+}
+
+.launchpad-admin-section[data-section='templates'],
+.launchpad-admin-section[data-section='instances'] {
+  padding: 24px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+}
+
+.launchpad-admin-table-header-cell {
+  color: #ffffff;
+  background: #312e81;
+}
+
+/* Rows use display: contents, so apply the background to their cells. */
+.launchpad-admin-table-row[data-row-variant='alternate']
+  > .launchpad-table__cell {
+  background: #f8fafc;
+}
+
+.launchpad-admin-table-cell[data-column='actions'] {
+  min-width: 180px;
+}
+
+.launchpad-admin-record-action[data-action='delete-template'],
+.launchpad-admin-record-action[data-action='delete-instance'] {
+  color: #b91c1c;
+}
+
+.launchpad-admin-form-field[data-field-slot='logo'] {
+  padding: 16px;
+  background: #f8fafc;
+  border-radius: 8px;
+}
+```
+
+**Restyle popovers, tooltips, and notifications**
+
+```css
+.launchpad-popover__content,
+.launchpad-tooltip__content {
+  color: #ffffff;
+  background: #172033;
+  border: 1px solid #334155;
+}
+
+.launchpad-popover__arrow,
+.launchpad-tooltip__arrow {
+  fill: #172033;
+}
+
+.launchpad-toast {
+  color: #ffffff;
+  background: #312e81;
+  border-radius: 8px;
+}
+```
+
+***
+
+#### Troubleshooting
+
+**The stylesheet does not appear in the Network tab**
+
+* Confirm that `branding.css_url` is present in the Admin API `/config` response.
+* Confirm that the URL is absolute and starts with `https://` on an HTTPS Launchpad deployment.
+* Apply the Launchpad reconfiguration and wait until the instance becomes healthy.
+* Open a new browser tab or perform a full refresh instead of relying on client-side navigation.
+
+**The request is blocked or returns an error**
+
+* Open the stylesheet URL directly in the browser.
+* Confirm that it returns `200 OK` and `Content-Type: text/css`.
+* Check the browser console for mixed-content or Content Security Policy errors.
+* If the CSS imports fonts, confirm that the font server allows cross-origin requests.
+
+**The file loads, but a rule has no visible effect**
+
+* Inspect the target element and confirm that the selector matches it.
+* Use a `launchpad-*` class, ID, or semantic `data-*` attribute from this reference.
+* Check the browser's **Styles** panel to see whether a more specific rule wins.
+*   Add page or component context instead of immediately using `!important`:
+
+    ```css
+    #launchpad-admin-page .launchpad-button[data-variant='primary'] {
+      background: #7c3aed;
+    }
+    ```
+* For table row backgrounds, apply the rule to cells because table rows use `display: contents`.
+
+**Changes appear only after clearing the cache**
+
+Browsers and CDNs can cache CSS. Prefer versioned filenames or update a query parameter whenever the file changes:
+
+```
+https://assets.example.com/launchpad/brand.css?v=2
+```
+
+Update the custom stylesheet URL during Launchpad reconfiguration, then perform a full refresh.
+
+#### Compatibility recommendations
+
+* Treat documented `launchpad-*` selectors and semantic `data-*` attributes as the customization contract.
+* Do not depend on Tailwind utility classes, DOM child positions, generated React IDs, or third-party library classes.
+* Keep selectors scoped to the smallest relevant Launchpad component.
+* Test the stylesheet on desktop and mobile widths.
+* Test login, app catalog, app details, app startup, and admin workflows after major CSS changes.
+* Keep text contrast, focus indicators, and disabled states accessible.
+* Pin or version your stylesheet so that changes can be rolled back quickly.
+
 ## Summary
 
 The Launchpad app transforms the Apolo MLOps platform into a user-friendly deployment environment, simplifying application access and user authentication for internal and external users via Keycloak integration. By enabling the import of custom app templates and existing app instances, Launchpad offers a versatile solution for showcasing and managing applications within your ecosystem.
