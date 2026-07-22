@@ -41,7 +41,7 @@ Fooocus is a free, offline, open-source image generator designed for high-qualit
 
 For a detailed explanation on how you can manage installable applications, please refer to [Managing Apps](../managing-apps.md). To install Fooocus via Apolo Web Console, follow these steps:
 
-**Step 1** — Navigate to the Apps page, find Jupyter from the list and click the corresponding "Install" button. This will redirect you to the installation page
+**Step 1** — Navigate to the Apps page, find Fooocus from the list and click the corresponding "Install" button. This will redirect you to the installation page
 
 **Step 2** — Configure the application by filling the required fields and click install.
 
@@ -51,9 +51,9 @@ For a detailed explanation on how you can manage installable applications, pleas
 
 The following installation options are available:
 
-* **Resource Preset**: Choose from the dropdown menu - this is the only required field that you must set
+* **Resource Preset**: Choose from the dropdown menu - this is the only required field that you must set. The application requires Nvidia GPU accelerator-powered preset to be used.
 * **Networking Settings**
-  * **HTTP Authentication** - is enabled by default so you application is only accessible to users authenticated in Apolo and with permissions in the current project
+  * **HTTP Authentication** - is enabled by default so you application is only accessible to users authenticated in Apolo and with permissions in the current project.
 * **Metadata**: Enter the application display name.
 
 To install Fooocus via Apolo CLI, refer to [Apolo CLI Fooocus app page](../../../../apolo-concepts-cli/apps/installable-apps/available-apps/fooocus.md).
@@ -69,9 +69,10 @@ To view and manage installed instances of the Fooocus app:
 
 Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.
 
-<figure><img src="../../../../.gitbook/assets/image (34) (1).png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/image (34).png" alt=""><figcaption></figcaption></figure>
 
 ### References
 
+* [Managing Apps](../../../../apolo-concepts-cli/apps/)
 * [Fooocus documentation](https://github.com/neuro-inc/Fooocus)
 * [Fooocus installation with Apolo Flow documentation](https://github.com/neuro-inc/Fooocus/blob/apolo/APOLO.md)
