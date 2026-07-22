@@ -8,15 +8,13 @@ SD.Next is a browser-based interface designed for generating and managing AI-gen
 
 ## Key Features
 
-| Feature                            | How the Apolo App Helps                                                        |
-| ---------------------------------- | ------------------------------------------------------------------------------ |
-| **Text‑to‑Image & Image‑to‑Image** | Prompt → image or edit existing images via Web UI or REST.                     |
-| **Custom Models**                  | Point to any Hugging Face model (`stabilityai/stable-diffusion‑xl`, `lora/…`). |
-| **GPU Presets**                    | Pick from `gpu-l4-x1`, `gpu-a100-x1`, etc.; Apolo sets env vars & drivers.     |
-| **Secrets Integration**            | Store HF tokens in Apolo Secrets instead of plain text.                        |
-| **Scalable Replicas**              | `replica_count` lets you handle bursty image queues.                           |
-
-
+| Feature                            | How the Apolo App Helps                                                                                   |
+| ---------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| **Text‑to‑Image & Image‑to‑Image** | Prompt → image or edit existing images via Web UI or REST.                                                |
+| **Custom Models**                  | Point to any Stable Diffusion Hugging Face model.                                                         |
+| **GPU Presets**                    | <p>Pick from available Nvidia GPU-enabled resource presets.</p><p>Apolo sets env vars &#x26; drivers.</p> |
+| **Secrets Integration**            | Store HF tokens in Apolo Secrets instead of plain text.                                                   |
+| **Scalable Replicas**              | `replica_count` lets you handle bursty image queues.                                                      |
 
 ## Installing
 
@@ -31,13 +29,13 @@ Stable Diffusion can be installed on Apolo either via the [CLI](../../../../apol
 \
 2 · Configure the wizard
 
-| Section                 | Field                                           | Example                                             | Notes |
-| ----------------------- | ----------------------------------------------- | --------------------------------------------------- | ----- |
-| **Enable HTTP Ingress** | `auth = true`                                   | Adds basic‑auth to the public URL.                  |       |
-| **Resource Preset**     | `gpu-a100-x1`                                   | 1× NVIDIA A100 80 GB (or choose `gpu-l4-x1`, etc.). |       |
-| **Stable Diffusion**    | `replica_count = 1`                             | Increase for concurrent jobs.                       |       |
-| **Hugging Face Model**  | `stabilityai/stable-diffusion-2-1-unclip-small` | Any HF repo path.                                   |       |
-| **HF Token**            | Secret `HF_TOKEN`                               | Needed for private or gated models.                 |       |
+| Section                 | Example                                   | Notes                                               |
+| ----------------------- | ----------------------------------------- | --------------------------------------------------- |
+| **Enable HTTP Ingress** | `auth = true`                             | Adds basic‑auth to the public URL.                  |
+| **Resource Preset**     | `gpu-a100-x1`                             | 1× NVIDIA A100 80 GB (or choose `gpu-l4-x1`, etc.). |
+| **Stable Diffusion**    | `replica_count = 1`                       | Increase for concurrent jobs.                       |
+| **Hugging Face Model**  | `NousResearch/Hermes-3-Llama-3.1-8B-GGUF` | Any HF repo path.                                   |
+| **HF Token**            | Secret `HF_TOKEN`                         | Needed for private or gated models.                 |
 
 Click **Install**. Wait until _Status → healthy_; copy the **external\_api** host (REST) or open the Web UI at `https://sd-<id>.apps.<cluster>.apolo.us`.
 
@@ -45,14 +43,14 @@ Click **Install**. Wait until _Status → healthy_; copy the **external\_api** h
 
 ### Usage
 
-After installation, you can utilize Stable Diffusion for image generation workflows and you can access it directly from your browser or using its Rest API&#x20;
+After installation, you can utilize Stable Diffusion for image generation workflows and you can access it directly from your browser or using its Rest API
 
 To view and manage installed instances of the Stable Diffusion app:
 
 1. Go to the **Installed Apps** tab.
 2. You will see a list of all running apps, including the **Stable Diffusion** app you just installed. To open the detailed information & uninstall the app, click the **Details** button.
 
-Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.&#x20;
+Once in the Details page, click the **Open App** button at the top of the page to launch the application in a dedicated browser window.
 
 #### 1 · REST API
 
@@ -79,10 +77,9 @@ The response contains a base64‑encoded PNG under `images[0]`.
 
 * **SD.Next WebUI** – the default root path (`/`).
 
-
-
 ### References
 
+* [Managing Apps](../../../../apolo-concepts-cli/apps/)
 * [StableDiffusion repository](https://github.com/Stability-AI/StableDiffusion)
 * [SD.Next WebUI repository](https://github.com/neuro-inc/sdnext)
 * [Apolo's StableDiffusion Helm Chart repository](https://github.com/neuro-inc/app-stable-diffusion)
