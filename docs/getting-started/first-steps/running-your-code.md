@@ -18,25 +18,26 @@ As an example we'll use the GitHub [repo](https://github.com/songyouwei/ABSA-PyT
 First, let's clone the repo and navigate to the created folder:
 
 ```bash
-git clone git@github.com:songyouwei/ABSA-PyTorch.git
+git clone https://github.com/songyouwei/ABSA-PyTorch.git
 cd ABSA-PyTorch
 ```
 
 Now, we need to create two more files in this folder:
 
-* `Dockerfile` contains a very basic Docker image configuration. We need this file to build a custom Docker image which is based on `pytorch/pytorch` public images and contains this repo requirements (which are gracefully listed by the repo maintainer in `requirements.txt`):
+* `Dockerfile` contains a very basic Docker image configuration. We need this file to build a custom Docker image which is based on `pytorch/pytorch` public images and contains this repo requirements (which are gracefully listed by the repo maintainer in `requirements.txt`). Since the repo was published, the Python ecosystem has moved on, so two adjustments are needed on top of the raw requirements: the deprecated `sklearn` PyPI package must be replaced with `scikit-learn` (installing `sklearn` now fails on purpose), and `protobuf` must be pinned below 4.0 (newer versions are incompatible with the `transformers` version this repo needs). Also note that we intentionally do not pass `-U` to pip: with it, the `torch>=0.4.0` requirement would replace the PyTorch already shipped in the base image with a several-gigabytes-larger fresh build.
 
 {% code title="Dockerfile" %}
 ```bash
 FROM pytorch/pytorch:1.4-cuda10.1-cudnn7-runtime
 COPY . /cfg
-RUN pip install --progress-bar=off -U --no-cache-dir -r /cfg/requirements.txt
+RUN sed -i 's/^sklearn$/scikit-learn/' /cfg/requirements.txt && \
+    pip install --progress-bar=off --no-cache-dir -r /cfg/requirements.txt "protobuf<3.21"
 ```
 {% endcode %}
 
-* `.neuro/live.yml` contains minimal configuration allowing us to run this repo's scripts right on the platform through handy short commands:
+* `.apolo/live.yml` contains minimal configuration allowing us to run this repo's scripts right on the platform through handy short commands:
 
-{% code title=".neuro/live.yml" %}
+{% code title=".apolo/live.yml" %}
 ```yaml
 kind: live
 title: Sentiment Analysis Training
@@ -44,20 +45,21 @@ id: absa
 
 volumes:
   project:
-    remote: storage:${{ flow.id }}
+    remote: storage:${{ flow.flow_id }}
     mount: /project
     local: .
 
 images:
   pytorch:
-    ref: image:${{ flow.id }}:v1.0
+    ref: image:${{ flow.flow_id }}:v1.0
     dockerfile: ${{ flow.workspace }}/Dockerfile
     context: ${{ flow.workspace }}
+    build_preset: cpu-large
 
 jobs:
   train:
     image: ${{ images.pytorch.ref }}
-    preset: gpu-small
+    preset: cpu-large
     name: absa-pytorch-train
     volumes:
       - ${{ volumes.project.ref_rw }}
@@ -66,6 +68,12 @@ jobs:
         python train.py --model_name bert_spc --dataset restaurant
 ```
 {% endcode %}
+
+{% hint style="info" %}
+Resource presets are cluster-specific — list the ones available on your cluster with `apolo config show` and adjust the `preset` and `build_preset` values accordingly. The `build_preset` attribute matters here: the default build preset may not have enough memory for kaniko to snapshot the image layers with PyTorch dependencies.
+
+Note on GPU presets: the `pytorch/pytorch:1.4-cuda10.1-cudnn7-runtime` image this 2020-era repo needs only supports pre-Ampere GPUs (CUDA 10.1 has no support for compute capability 8.0+), so on clusters with A100/L4/H100 GPUs this example is best run on a CPU preset. For GPU training with modern cards, start from a recent `pytorch/pytorch` image instead.
+{% endhint %}
 
 Here is a brief explanation of this config:
 
@@ -89,6 +97,10 @@ apolo-flow upload ALL
 ```
 apolo-flow build pytorch
 ```
+
+{% hint style="info" %}
+If you change the `Dockerfile` and need to rebuild, pass `-F` / `--force-overwrite` (`apolo-flow build -F pytorch`) — by default `apolo-flow` refuses to overwrite an image tag that already exists in the registry.
+{% endhint %}
 
 * Finally, run training:
 
