@@ -58,6 +58,7 @@
       * [Fooocus](apolo-console/apps/installable-apps/available-apps/fooocus.md)
       * [Stable Diffusion](apolo-console/apps/installable-apps/available-apps/stable-diffusion.md)
       * [Hugging Face](apolo-console/apps/installable-apps/available-apps/hugging-face.md)
+      * [GitHub](apolo-console/apps/installable-apps/available-apps/github.md)
       * [Service Deployment](apolo-console/apps/installable-apps/available-apps/service-deployment.md)
       * [Apache Spark](apolo-console/apps/installable-apps/available-apps/apache-spark.md)
       * [PrivateGPT](apolo-console/apps/installable-apps/available-apps/privategpt.md)
