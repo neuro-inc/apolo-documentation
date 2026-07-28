@@ -97,3 +97,10 @@ See [Service Deployment](service-deployment.md#pulling-images-from-private-regis
 
 * The PAT secret is resolved in the consuming application's cluster, organization and project — install the GitHub app and its consumers in the same project.
 * Registry credentials are rendered into the deployment at install time; after rotating the token in the Apolo secret, redeploy the consuming applications to pick up the new value.
+
+## References
+
+* [Apolo CLI Application management commands](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/commands/app)
+* [Service Deployment application](service-deployment.md)
+* [Managing your personal access tokens (GitHub)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens)
+* [Working with the Container registry (GitHub)](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry)
