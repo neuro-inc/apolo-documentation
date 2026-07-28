@@ -24,7 +24,7 @@ apolo secret add github-pat <your-token>
 
 1. Access the Apolo Console, go to the **Apps** section and select the **GitHub** application.
 
-<figure><img src="../../../../.gitbook/assets/github-app-catalog.jpg" alt=""><figcaption><p>GitHub application in the apps catalog</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/github-app-catalog.png" alt=""><figcaption><p>GitHub application in the apps catalog</p></figcaption></figure>
 2. Configure the two credential groups:
 
 * **GitHub Auth**
@@ -35,9 +35,9 @@ apolo secret add github-pat <your-token>
   * **Registry Host** — leave the default `ghcr.io` for github.com; for GitHub Enterprise Server use `containers.HOSTNAME`.
   * **Username** and **GitHub Personal Access Token** — same as above.
 
-<figure><img src="../../../../.gitbook/assets/github-app-install-auth.jpg" alt=""><figcaption><p>GitHub Auth configuration</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/github-app-install-auth.png" alt=""><figcaption><p>GitHub Auth configuration</p></figcaption></figure>
 
-<figure><img src="../../../../.gitbook/assets/github-app-install-registry.jpg" alt=""><figcaption><p>Personal access token and registry host</p></figcaption></figure>
+<figure><img src="../../../../.gitbook/assets/github-app-install-registry.png" alt=""><figcaption><p>Personal access token and registry host</p></figcaption></figure>
 
 3. Set the application display name and install. The app becomes **healthy** right away — there is nothing to deploy.
 
