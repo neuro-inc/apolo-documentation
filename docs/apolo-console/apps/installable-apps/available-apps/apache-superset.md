@@ -38,11 +38,15 @@ Step2 - Select the Preset you want to use for Superset worker
 
 <figure><img src="../../../../.gitbook/assets/image (51).png" alt=""><figcaption><p>Superset Worker Configuration</p></figcaption></figure>
 
-Step3 - Choose if you want to connect your Superset app to an existing Postgres database, and connect it with url, or you want to deploy with Superset Postgres (will be created automatically)
+Step3 - Select the Preset you want to use for the Redis instance
+
+<figure><img src="../../../../.gitbook/assets/superset-redis-preset.png" alt=""><figcaption><p>Superset Redis Configuration</p></figcaption></figure>
+
+Step4 - Choose if you want to connect your Superset app to an existing Postgres database, and connect it with url, or you want to deploy with Superset Postgres (will be created automatically)
 
 <figure><img src="../../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 
-Step4 - Admin user configuration
+Step5 - Admin user configuration
 
 <figure><img src="../../../../.gitbook/assets/image (53).png" alt=""><figcaption><p>Admin configuration</p></figcaption></figure>
 
