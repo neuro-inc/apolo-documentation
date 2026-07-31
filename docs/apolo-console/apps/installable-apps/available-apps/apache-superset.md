@@ -13,14 +13,14 @@
 
 #### Installation and Deployment on Apolo
 
-You can deploy Apache Superset on the Apolo platform using the **`Apache Superset`** app. Apolo automates resource allocation, persistent storage, ingress, and environment variable injection, so you can focus on model configuration.
+You can deploy Apache Superset on the Apolo platform using the **`Apache Superset`** app. Apolo automates resource allocation, persistent storage, ingress, and environment variable injection, so you can focus on your data and dashboards.
 
 **Highlights of the Apolo Installation Flow**:
 
-1. **Resource Allocation**: Choose an Apolo preset (e.g. `gpu-xlarge`, `mi210x2`) that specifies CPU, memory, and GPU resources.
-2. **Ingress Setup**: Enable an ingress to expose vLLM’s HTTP endpoint for external access.
-3. **Integration with Postgres**: You can bring Postgresql instance, for example deployed on Apolo.
-4. **Configuration for an admin user**: Configure a Web access.
+1. **Resource Allocation**: Choose Apolo presets (e.g. `cpu-medium`, `cpu-small`) for the Web UI, worker, and Redis. Superset is a CPU workload.
+2. **Ingress Setup**: Enable an ingress to expose Superset’s HTTP endpoint for external access.
+3. **Integration with Postgres**: Bring your own Postgres instance, or let Apolo deploy a dedicated one within the app by selecting a preset.
+4. **Configuration for an admin user**: Configure the admin credentials for Web access.
 
 ***
 
