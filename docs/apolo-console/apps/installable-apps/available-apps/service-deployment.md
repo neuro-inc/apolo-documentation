@@ -48,7 +48,7 @@ Now we configure application parameters
 
 For our use-case some tiny preset should work well, e.g., `cpu-mini`.
 
-**Container Image**: Specify the container image repository and tag. Optionally, you could attach image pull secrets from dockerhub or other container image registry app.
+**Container Image**: Specify the container image repository and tag. Optionally, attach an **Image Pull Secret** to pull from a private registry — either a Docker config from the DockerHub app, or a GitHub Container Registry auth from the [GitHub](github.md) app (see [Pulling images from private registries](service-deployment.md#pulling-images-from-private-registries)).
 
 For our example, we set container image repository to `hashicorp/http-echo`, tag to `1.0.0` and leave registry secrets integration blank. We do not need custom registry integration int this case.
 
@@ -187,6 +187,32 @@ For our case, let's connect to the application from within the simplistic `curl`
 "hello apolo"
 * Connection #0 to host apolo-default-service-deployment-39ba8a4d-custom-deployment.apolo-default-service-deployment-39ba8a4d left intact
 </code></pre>
+
+## Pulling images from private registries
+
+The **Image Pull Secret** input of the container image accepts an integration from a registry application:
+
+* **DockerHub app** — provides a ready docker config for images hosted on DockerHub.
+* **GitHub app** — provides GitHub Container Registry credentials (username + personal access token) for images hosted on `ghcr.io` or a GitHub Enterprise Server registry. See the [GitHub application](github.md) page for setup.
+
+In the Console, pick the integration in the **Image Pull Secret** field of the Container Image section. With the CLI, reference the registry app instance in the install file:
+
+```yaml
+template_name: service-deployment
+template_version: <version>
+input:
+  preset:
+    name: cpu-small
+  image:
+    repository: ghcr.io/<owner>/<private-repo>
+    tag: latest
+    imagepullsecret:
+      type: "app-instance-ref"
+      instance_id: "<github-app-instance-id>"
+      path: "$.image_registry_auth"
+```
+
+At install time the platform resolves the referenced credentials, renders a registry docker config and attaches it to the deployment as an image pull secret. Images hosted in the Apolo registry (`image:` repositories) do not need any of this — access is provisioned automatically.
 
 ## Cleanup
 
