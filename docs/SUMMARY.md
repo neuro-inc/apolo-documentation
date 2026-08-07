@@ -73,6 +73,8 @@
     * [Files](apolo-concepts-cli/apps/pre-installed-apps/files.md)
     * [Jobs](apolo-concepts-cli/apps/pre-installed-apps/jobs.md)
     * [Images](apolo-concepts-cli/apps/pre-installed-apps/images.md)
+    * [Service Accounts](apolo-concepts-cli/apps/pre-installed-apps/service-accounts/README.md)
+      * [Sharing access with external clients](apolo-concepts-cli/apps/pre-installed-apps/service-accounts/sharing-access-with-external-clients.md)
   * [Installable Apps](apolo-concepts-cli/apps/installable-apps/README.md)
     * [Managing Apps](apolo-concepts-cli/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-concepts-cli/apps/installable-apps/available-apps/README.md)
