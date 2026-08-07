@@ -31,6 +31,8 @@
       * [Remote Debugging with PyCharm Professional](apolo-console/apps/pre-installed/jobs/remote-debugging-with-pycharm-professional.md)
       * [Remote Debugging with VS Code](apolo-console/apps/pre-installed/jobs/remote-debugging-with-vs-code.md)
     * [Flows](apolo-console/apps/pre-installed/flows.md)
+    * [Service Accounts](apolo-console/apps/pre-installed/service-accounts/README.md)
+      * [Sharing access with external clients](apolo-console/apps/pre-installed/service-accounts/sharing-access-with-external-clients.md)
   * [Installable Apps](apolo-console/apps/installable-apps/README.md)
     * [Managing Apps](apolo-console/apps/installable-apps/managing-apps.md)
     * [Available apps](apolo-console/apps/installable-apps/available-apps/README.md)

@@ -9,3 +9,4 @@
 | [Secrets](secrets.md) | A secure secret store integrated with other apps, ensuring safe management and usage of credentials and keys.                                |
 | [Jobs](jobs/)         | A tool enabling the execution of containerized workloads, seamlessly integrated with other apps and cluster resources.                       |
 | [Flows](flows.md)     | A workflow engine designed to execute jobs organized in Directed Acyclic Graphs (DAGs) with integrated data caching for enhanced efficiency. |
+| [Service Accounts](service-accounts/) | Non-human identities used to give automation, integrations and external clients scoped access to your resources. Managed via the Apolo CLI and API. |
