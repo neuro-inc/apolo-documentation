@@ -94,9 +94,11 @@ A newly created service account can see nothing of yours. Access is granted to i
 apolo acl grant image:my-image alice/service-accounts/my-client read
 ```
 
-Permission levels are `read`, `write` and `manage`, and they are inclusive — `write` implies `read`, `manage` implies both. Grants can be listed with `apolo acl ls --shared` and withdrawn with `apolo acl revoke`.
+Permission levels are `read`, `write` and `manage`, and they are inclusive — `write` implies `read`, `manage` implies both. Grants can be listed with `apolo acl ls --shared` and withdrawn with `apolo acl revoke`. Removing the account removes its grants along with it.
 
 Because the service account is a role principal, everything in the [sharing topic](https://app.gitbook.com/s/-MOkWy7dB5MDbkSII8iF/topics/topic-sharing) applies to it, including grouping several resources behind a custom role.
+
+[Sharing access with external clients](sharing-access-with-external-clients.md) works through this end to end, including the URI forms to use and how a client consumes the access.
 
 ## References
 

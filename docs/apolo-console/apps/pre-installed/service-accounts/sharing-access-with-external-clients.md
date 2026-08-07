@@ -33,14 +33,20 @@ Grants go to the backing role. Within your current cluster, organization and pro
 apolo acl grant image:my-image alice/service-accounts/acme-corp read
 ```
 
-To grant something outside of the current context, spell the URI out in full:
+For a resource in another project of the same cluster and organization, use the single-slash form, whose first segment is the **project**:
 
 ```bash
-apolo acl grant image://default/apolo/apoloproject/my-image alice/service-accounts/acme-corp read
+apolo acl grant image:/other-project/my-image alice/service-accounts/acme-corp read
+```
+
+To cross clusters or organizations, spell the URI out in full:
+
+```bash
+apolo acl grant image://other-cluster/other-org/other-project/my-image alice/service-accounts/acme-corp read
 ```
 
 {% hint style="warning" %}
-`image:/<project>/<name>` is not the same as `image://<cluster>/<org>/<project>/<name>`. The single-slash form resolves `<project>` against your current cluster and organization, so passing an organization name there silently addresses the wrong resource and the grant fails with `Not enough permissions`. When in doubt, use the full URI.
+In the single-slash form the first segment is the project, not the organization — your current organization is always prepended for you. Writing `image:/<org>/<project>/<name>` therefore resolves to `image://<cluster>/<org>/<org>/<project>/<name>`, which addresses nothing, and the grant fails with the misleading `Not enough permissions (Forbidden)` rather than a not-found error. When in doubt, check what a URI resolves to with `apolo acl ls --full-uri`.
 {% endhint %}
 
 The same works for the other resource types:
@@ -72,6 +78,14 @@ apolo acl ls --shared
   image:my-image                    read    alice/service-accounts/acme-corp
 ```
 
+{% hint style="info" %}
+`apolo acl ls --shared` reports the principal you granted to. When access is inherited through a custom role, the service account will not appear here — the role will. To see everything one account can actually reach, ask about it directly:
+
+```bash
+apolo acl ls -u alice/service-accounts/acme-corp
+```
+{% endhint %}
+
 ## 3. Hand over the token
 
 Deliver the token through a secret manager or another secure channel. Tell the client which of the two forms you are giving them — they are not interchangeable:
@@ -85,14 +99,14 @@ Deliver the token through a secret manager or another secure channel. Tell the c
 
 ### With the Apolo CLI
 
-The client installs the [Apolo CLI](../../../../apolo-concepts-cli/installing.md) and logs in with the auth token:
+The client installs the [Apolo CLI](../../../../apolo-concepts-cli/installing.md) and logs in with the auth token. The API URL is the one you see in your own `apolo config show` output — pass it to the client along with the token:
 
 ```bash
-apolo config login-with-token <auth-token> https://api.<cluster-domain>/api/v1
+apolo config login-with-token <auth-token> https://api.apolo.example.com/api/v1
 ```
 
 ```
-Logged into https://api.<cluster-domain>/api/v1 as alice/service-accounts/acme-corp,
+Logged into https://api.apolo.example.com/api/v1 as alice/service-accounts/acme-corp,
 current cluster is default, org is apolo project is apoloproject
 ```
 
@@ -113,45 +127,44 @@ The auth token is a bearer token for the platform API, so any HTTP client works:
 
 ```bash
 curl -H "Authorization: Bearer <auth-token>" \
-  https://api.<cluster-domain>/api/v1/jobs
+  https://api.apolo.example.com/api/v1/jobs
 ```
 
-The same endpoint without the header answers `401 Unauthorized`, which makes it a convenient way for the client to confirm the token was delivered intact.
+This is a good way for the client to confirm the token arrived intact: with a valid token the call returns `200 OK`, and a truncated or expired one returns `401 Unauthorized`. Pick an endpoint that is actually authenticated for this check — some paths answer `200` regardless of the header and prove nothing.
 
 ## 5. Client side: using the image registry
+
+First, look up the registry host and give it to the client. It comes from the cluster configuration and is **not** derived from the API URL, so it has to be read rather than guessed — `apolo config show` prints it as `Docker Registry URL`.
 
 ### With the Apolo CLI
 
 ```bash
-apolo config docker
 apolo image pull image:my-image:v1.0
 ```
 
-`apolo config docker` registers the `docker-credential-apolo` helper in the client's Docker configuration, so `docker` picks up the platform credentials automatically.
+That is the whole step: the CLI authenticates the pull itself, so no `docker login` and no `apolo config docker` are needed. Run `apolo config docker` only if the client also wants to use the plain `docker` command against the registry — it registers the `docker-credential-apolo` helper in their Docker configuration so `docker` picks up the platform credentials automatically.
 
 ### With plain Docker
 
 A client that has Docker but not the Apolo CLI authenticates with the literal username `token` and the auth token as the password:
 
 ```bash
-echo "<auth-token>" | docker login registry.api.<cluster-domain> -u token --password-stdin
-docker pull registry.api.<cluster-domain>/<org>/<project>/my-image:v1.0
+echo "<auth-token>" | docker login registry.apolo.example.com -u token --password-stdin
+docker pull registry.apolo.example.com/<org>/<project>/my-image:v1.0
 ```
 
-Note that the registry path has no cluster segment — it is `<org>/<project>/<image>`, and the cluster is determined by the registry host.
+The registry path has no cluster segment — the cluster is determined by the registry host. On a cluster without organizations the `<org>` segment is dropped too, leaving `<project>/<image>`; `apolo image ls --full-uri` in the owner's context shows which shape applies.
 
 Access is enforced per image. An image that was not granted fails to pull:
 
 ```
-unexpected status from HEAD request to
-https://registry.api.<cluster-domain>/v2/<org>/<project>/other-image/manifests/latest: 403 Forbidden
+unexpected status from HEAD request to https://registry.apolo.example.com/v2/<org>/<project>/other-image/manifests/latest: 403 Forbidden
 ```
 
 and a `read` grant does not allow pushing:
 
 ```
-unexpected status from PUT request to
-https://registry.api.<cluster-domain>/v2/<org>/<project>/my-image/manifests/v2.0: 403 Forbidden
+unexpected status from PUT request to https://registry.apolo.example.com/v2/<org>/<project>/my-image/manifests/v2.0: 403 Forbidden
 ```
 
 ## 6. Revoke access
@@ -175,7 +188,7 @@ apolo service-account rm acme-corp
 * Scope defaults (`--default-cluster`, `--default-org`, `--default-project`) to where the client will actually work.
 * Store tokens in a secret manager, never in a repository, an image layer, or a chat message.
 * Rotate by recreating the account and re-applying its grants — tokens cannot be regenerated in place.
-* Audit periodically with `apolo acl ls --shared` and `apolo service-account ls`.
+* Audit periodically with `apolo service-account ls`, `apolo acl ls --shared`, and `apolo acl ls -u <role>` for anything granted through a custom role.
 
 ## References
 
