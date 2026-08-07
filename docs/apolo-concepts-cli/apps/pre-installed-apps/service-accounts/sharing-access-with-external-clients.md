@@ -99,7 +99,7 @@ Deliver the token through a secret manager or another secure channel. Tell the c
 
 ### With the Apolo CLI
 
-The client installs the [Apolo CLI](../../../../apolo-concepts-cli/installing.md) and logs in with the auth token. The API URL is the one you see in your own `apolo config show` output — pass it to the client along with the token:
+The client installs the [Apolo CLI](../../../installing.md) and logs in with the auth token. The API URL is the one you see in your own `apolo config show` output — pass it to the client along with the token:
 
 ```bash
 apolo config login-with-token <auth-token> https://api.apolo.example.com/api/v1
