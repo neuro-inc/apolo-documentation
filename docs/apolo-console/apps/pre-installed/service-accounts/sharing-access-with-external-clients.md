@@ -146,7 +146,7 @@ That is the whole step: the CLI authenticates the pull itself, so no `docker log
 
 ### With plain Docker
 
-A client that has Docker but not the Apolo CLI authenticates with the literal username `token` and the auth token as the password:
+A client that has Docker but not the Apolo CLI authenticates with the auth token as the **password**. The username is not checked — `token` is the value the Apolo credential helper sends, so it is the conventional choice:
 
 ```bash
 echo "<auth-token>" | docker login registry.apolo.example.com -u token --password-stdin
