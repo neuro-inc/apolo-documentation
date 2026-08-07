@@ -92,9 +92,11 @@ apolo config login-with-token <auth-token> https://api.<cluster-domain>/api/v1
 ```
 
 ```
-Logged into https://api.dev.apolo.us/api/v1 as alice/service-accounts/acme-corp,
+Logged into https://api.<cluster-domain>/api/v1 as alice/service-accounts/acme-corp,
 current cluster is default, org is apolo project is apoloproject
 ```
+
+The cluster, organization and project come from the defaults the account was created with — the client lands straight in the right context.
 
 For CI jobs and other non-interactive environments, the full token removes the login step entirely — the cluster and API URL are already inside it:
 
