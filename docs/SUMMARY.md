@@ -27,6 +27,7 @@
     * [Disks](apolo-console/apps/pre-installed/disks.md)
     * [Images](apolo-console/apps/pre-installed/images.md)
     * [Secrets](apolo-console/apps/pre-installed/secrets.md)
+    * [Service Accounts](apolo-console/apps/pre-installed/service-accounts.md)
     * [Jobs](apolo-console/apps/pre-installed/jobs/README.md)
       * [Remote Debugging with PyCharm Professional](apolo-console/apps/pre-installed/jobs/remote-debugging-with-pycharm-professional.md)
       * [Remote Debugging with VS Code](apolo-console/apps/pre-installed/jobs/remote-debugging-with-vs-code.md)
