@@ -7,5 +7,6 @@
 | [Disks](disks.md)     | An app for managing block storage, streamlining the configuration, allocation, and maintenance of persistent disks.                          |
 | [Images](images.md)   | A UI for the container image registry available within the cluster.                                                                          |
 | [Secrets](secrets.md) | A secure secret store integrated with other apps, ensuring safe management and usage of credentials and keys.                                |
+| [Service Accounts](service-accounts.md) | Non-human identities for automation, integrations and external clients, with per-account access management.                  |
 | [Jobs](jobs/)         | A tool enabling the execution of containerized workloads, seamlessly integrated with other apps and cluster resources.                       |
 | [Flows](flows.md)     | A workflow engine designed to execute jobs organized in Directed Acyclic Graphs (DAGs) with integrated data caching for enhanced efficiency. |

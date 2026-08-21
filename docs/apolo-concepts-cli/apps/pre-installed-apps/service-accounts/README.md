@@ -15,7 +15,7 @@ A service account is a non-human identity that belongs to your Apolo user. It is
 Every service account is created with a default cluster, organization and project, and is backed by a **role** of the form `<owner>/service-accounts/<name>`. That role is the principal you grant permissions to — the service account itself has no access to your resources until you share something with its role.
 
 {% hint style="info" %}
-Service accounts are managed through the Apolo CLI and the platform API. Unlike the other pre-installed apps, they have no screen in the Apolo Console yet.
+Service accounts can be managed on the [Service Accounts](../../../../apolo-console/apps/pre-installed/service-accounts.md) page in the Apolo Console as well as through the Apolo CLI and the platform API. This page documents the CLI workflow.
 {% endhint %}
 
 To hand a service account to someone outside of Apolo, see [Sharing access with external clients](sharing-access-with-external-clients.md).
