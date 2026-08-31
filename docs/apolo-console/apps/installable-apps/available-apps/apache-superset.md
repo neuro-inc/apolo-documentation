@@ -13,14 +13,14 @@
 
 #### Installation and Deployment on Apolo
 
-You can deploy Apache Superset on the Apolo platform using the **`Apache Superset`** app. Apolo automates resource allocation, persistent storage, ingress, and environment variable injection, so you can focus on model configuration.
+You can deploy Apache Superset on the Apolo platform using the **`Apache Superset`** app. Apolo automates resource allocation, persistent storage, ingress, and environment variable injection, so you can focus on your data and dashboards.
 
 **Highlights of the Apolo Installation Flow**:
 
-1. **Resource Allocation**: Choose an Apolo preset (e.g. `gpu-xlarge`, `mi210x2`) that specifies CPU, memory, and GPU resources.
-2. **Ingress Setup**: Enable an ingress to expose vLLM’s HTTP endpoint for external access.
-3. **Integration with Postgres**: You can bring Postgresql instance, for example deployed on Apolo.
-4. **Configuration for an admin user**: Configure a Web access.
+1. **Resource Allocation**: Choose Apolo presets (e.g. `cpu-medium`, `cpu-small`) for the Web UI, worker, and Redis. Superset is a CPU workload.
+2. **Ingress Setup**: Enable an ingress to expose Superset’s HTTP endpoint for external access.
+3. **Integration with Postgres**: Bring your own Postgres instance, or let Apolo deploy a dedicated one within the app by selecting a preset.
+4. **Configuration for an admin user**: Configure the admin credentials for Web access.
 
 ***
 
@@ -38,11 +38,15 @@ Step2 - Select the Preset you want to use for Superset worker
 
 <figure><img src="../../../../.gitbook/assets/image (51).png" alt=""><figcaption><p>Superset Worker Configuration</p></figcaption></figure>
 
-Step3 - Choose if you want to connect your Superset app to an existing Postgres database, and connect it with url, or you want to deploy with Superset Postgres (will be created automatically)
+Step3 - Select the Preset you want to use for the Redis instance
+
+<figure><img src="../../../../.gitbook/assets/superset-redis-preset.png" alt=""><figcaption><p>Superset Redis Configuration</p></figcaption></figure>
+
+Step4 - Choose if you want to connect your Superset app to an existing Postgres database, and connect it with url, or you want to deploy with Superset Postgres (will be created automatically)
 
 <figure><img src="../../../../.gitbook/assets/image (52).png" alt=""><figcaption></figcaption></figure>
 
-Step4 - Admin user configuration
+Step5 - Admin user configuration
 
 <figure><img src="../../../../.gitbook/assets/image (53).png" alt=""><figcaption><p>Admin configuration</p></figcaption></figure>
 

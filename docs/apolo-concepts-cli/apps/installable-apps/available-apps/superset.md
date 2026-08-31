@@ -8,7 +8,7 @@ For more information about the Superset app, as well as detailed instruction of 
 
 ### Managing application via Apolo CLI <a href="#managing-application-via-apolo-cli" id="managing-application-via-apolo-cli"></a>
 
-Shell can be installed on Apolo either via the CLI or the Web Console. Below are the detailed instructions for installing using Apolo CLI.
+Superset can be installed on Apolo either via the CLI or the Web Console. Below are the detailed instructions for installing using Apolo CLI.
 
 **Install via Apolo CLI**
 
@@ -30,40 +30,35 @@ apolo app-template get superset > superset.yaml
 #   path: "<path-from-get-values-response>"
 
 template_name: superset
-template_version: v25.7.0
+template_version: v25.12.0
 input:
   # Enable access to your application over the internet using HTTPS.
   ingress_http:
-    # Require authenticated user credentials with appropriate permissions for all incoming HTTPS requests to the application.
-    auth: true
-  # Set the configuration for Superset worker.
-  worker_config:
-    # Select the resource preset used per service replica.
-    preset:
-      # The name of the preset.
-      name: ''
+    # Configure authentication for this ingress.
+    auth:
+      # Authentication type identifier.
+      type: apolo_auth
   # Set the configuration for Superset Web UI.
   web_config:
     # Select the resource preset used per service replica.
     preset:
       # The name of the preset.
-      name: ''
-  # Set your own postgres as a database for Superset app. If it was not provided, postgres instance will be created within the same app.
+      name: cpu-medium
+  # Set the configuration for Superset worker.
+  worker_config:
+    # Select the resource preset used per service replica.
+    preset:
+      name: cpu-medium
+  # Select the resource preset used for the Redis instance.
+  redis_preset:
+    name: cpu-small
+  # Database for Superset. Provide a preset to let Apolo deploy a dedicated
+  # Postgres within the app (shown here), or supply the credentials of an
+  # existing Postgres instead (see the note below).
   postgres_config:
-    user: ''
-    password: ''
-    host: ''
-    port: 8080
-    pgbouncer_host: ''
-    pgbouncer_port: 0
-    dbname:
-    jdbc_uri:
-    pgbouncer_jdbc_uri:
-    pgbouncer_uri:
-    uri:
-    # Configuration for the Postgres connection URI.
-    postgres_uri:
-  # Set the admin user fields to be
+    preset:
+      name: cpu-medium
+  # Set the admin user fields.
   admin_user:
     # Set Admin Username.
     username: admin
@@ -77,11 +72,30 @@ input:
     password: admin
 ```
 
+To use an **existing** Postgres instead of a dedicated one, replace
+`postgres_config` with the connection credentials. `pgbouncer_host` and
+`pgbouncer_port` are optional:
+
+```yaml
+  postgres_config:
+    user: ''
+    # Apolo Secret holding the password.
+    password:
+      key: ''
+    host: ''
+    port: 5432
+    dbname:
+    # Optional PGBouncer connection details.
+    pgbouncer_host:
+    pgbouncer_port:
+```
+
 Explanation of configuration parameters:
 
-1. **Resource Preset**: Choose a compute preset to define the hardware resources allocated. Example: `H100x1`
-2. **HTTP Authentication**: Enabled for secure access.
-3. **Admin User:** Set admin login credentials
+1. **Resource Presets**: Choose compute presets for the Web UI, worker, and Redis. Superset is a CPU workload, so CPU presets such as `cpu-medium` / `cpu-small` are sufficient.
+2. **Postgres**: Provide a `preset` to have Apolo deploy a dedicated Postgres for the app, or supply the credentials of an existing Postgres.
+3. **HTTP Authentication**: Enabled for secure access.
+4. **Admin User:** Set admin login credentials.
 
 **Step 3** — Deploy the application in your Apolo project:
 
