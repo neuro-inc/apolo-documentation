@@ -93,9 +93,9 @@ This command displays a list of your app instances, their unique ID, and their c
 When a newer version of the app's template is available, the `Version` column shows it next to the installed one:
 
 ```
- ID                                     Name                       Display Name   Template   Version                       State
- ------------------------------------   -------------------------- -------------- ---------- ----------------------------- ---------
-  f42138e1-9c4e-4ac6-b217-1fca435a7d6d   apolo-demo-user-postgre... PostgreSQL     postgres   v26.5.0 (v26.8.0 available)   healthy
+ ID            ...   Template   Version                       State
+ -----------   ---   --------   ---------------------------   -------
+  f42138e1...   ...   postgres   v26.5.0 (v26.8.0 available)   healthy
   ...
 ```
 
@@ -152,7 +152,8 @@ To move an installed app to a newer version of its template, set the target vers
 3.  Run `configure` with the `--upgrade` flag:
 
     ```bash
-    apolo app configure f42138e1-9c4e-4ac6-b217-1fca435a7d6d --file postgres.yaml --upgrade
+    apolo app configure f42138e1-9c4e-4ac6-b217-1fca435a7d6d \
+      --file postgres.yaml --upgrade
     ```
 
     The CLI confirms the version the app is on now:
