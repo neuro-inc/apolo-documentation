@@ -90,6 +90,17 @@ This command displays a list of your app instances, their unique ID, and their c
   ...
 ```
 
+When a newer version of the app's template is available, the `Version` column shows it next to the installed one:
+
+```
+ ID                                     Name                       Display Name   Template   Version                       State
+ ------------------------------------   -------------------------- -------------- ---------- ----------------------------- ---------
+  f42138e1-9c4e-4ac6-b217-1fca435a7d6d   apolo-demo-user-postgre... PostgreSQL     postgres   v26.5.0 (v26.8.0 available)   healthy
+  ...
+```
+
+See [Upgrade app](managing-apps.md#upgrade-app) for how to move the app to that version.
+
 ### **View app logs**
 
 To view the logs for a running application, use the `logs` command with the application's `ID` (which you can get from `apolo app ls`).
@@ -109,10 +120,51 @@ The CLI will stream the application's logs directly to your terminal.
 In order to reconfigure the application providing new inputs, update the previously mentioned configuration file and trigger update pointing Apolo CLI to the application instance you are re-configuring:
 
 ```bash
-apolo app config 5a5fa379-4635-4418-959f-457b44280c21 --file vscode.yaml
+apolo app configure 5a5fa379-4635-4418-959f-457b44280c21 --file vscode.yaml
 ```
 
+Reconfiguring keeps the app on the template version it was installed with, even if `template_version` in the file is different. In that case the CLI tells you which version the app stays on.
+
 For more detailed description of application updates, refer to the web [console application management](../../../apolo-console/apps/installable-apps/managing-apps.md) pages.
+
+### Upgrade app
+
+{% hint style="info" %}
+Upgrading requires Apolo CLI 26.9.0 or newer. Check your version with `apolo --version`.
+{% endhint %}
+
+To move an installed app to a newer version of its template, set the target version in the configuration file and pass the `--upgrade` flag to the `configure` command.
+
+1.  Find the version to upgrade to. `apolo app ls` shows the newest one in the `Version` column, and the following command lists all versions of a template:
+
+    ```bash
+    apolo app-template ls-versions postgres
+    ```
+2.  Set `template_version` in the app's configuration file to that version, or to `latest`:
+
+    ```yaml
+    template_name: postgres
+    template_version: v26.8.0
+    display_name: PostgreSQL
+    input:
+      ...
+    ```
+3.  Run `configure` with the `--upgrade` flag:
+
+    ```bash
+    apolo app configure f42138e1-9c4e-4ac6-b217-1fca435a7d6d --file postgres.yaml --upgrade
+    ```
+
+    The CLI confirms the version the app is on now:
+
+    ```
+    App f42138e1-9c4e-4ac6-b217-1fca435a7d6d configured using postgres.yaml.
+    The app is now on v26.8.0.
+    ```
+
+The inputs from the file are applied together with the upgrade and are validated against the new version, so check the inputs of the target version with `apolo app-template get postgres -V v26.8.0` if it changed them.
+
+An app can only be moved to a newer version of the same template. Moving to an older version is refused.
 
 ### **Uninstall an app**
 
