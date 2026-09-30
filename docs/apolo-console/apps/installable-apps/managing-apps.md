@@ -71,6 +71,25 @@ Always check application inputs description before re-configuring the applicatio
 
 If something goes wrong during the update, consider rolling back to the previous inputs version by performing reconfiguration using previous inputs.
 
+### Application upgrade
+
+An installed app stays on the version of the template it was installed with. When a newer version of the template is available, the **Details** tab shows it next to the installed version.
+
+<figure><img src="../../../.gitbook/assets/console-app-upgrade-hint.jpg" alt=""><figcaption><p>Application details: a newer version is available</p></figcaption></figure>
+
+To move the app to the newer version:
+
+1. Open the application details page and click the **Configure** button.
+2. Select the version in the **Template version** field at the top of the page. The field lists the newer versions and the installed one, and it is shown only when a newer version exists.
+3. Check the inputs. The form switches to the inputs of the selected version and keeps the current values of the app, so look for inputs the new version has added or changed.
+4.  Click the **Upgrade** button. While the installed version is selected, the same button reads **Update** and the app stays on its version.
+
+    <figure><img src="../../../.gitbook/assets/console-app-upgrade-configure.jpg" alt=""><figcaption><p>Application configure: a newer version is selected</p></figcaption></figure>
+
+The upgrade runs as a reconfiguration: the inputs are validated against the new version, and the change is recorded as a new revision on the **Revisions** tab.
+
+An app can only be moved to a newer version of the same template. The same upgrade is available [from the CLI](../../../apolo-concepts-cli/apps/installable-apps/managing-apps.md#upgrade-app).
+
 ## **Use installed app**
 
 After installing an application, you can use it depending on its type. Some of the apps do not provide any direct usage endpoints as mentioned above, like DockerHub app. Check particular application documentation in [available-apps](available-apps/ "mention") to see it's usage examples.
