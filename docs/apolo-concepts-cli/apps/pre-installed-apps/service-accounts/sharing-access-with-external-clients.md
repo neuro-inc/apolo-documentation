@@ -127,8 +127,10 @@ The auth token is a bearer token for the platform API, so any HTTP client works:
 
 ```bash
 curl -H "Authorization: Bearer <auth-token>" \
-  https://api.apolo.example.com/api/v1/jobs
+  "https://api.apolo.example.com/api/v1/jobs?cluster_name=<cluster>&limit=1"
 ```
+
+Job listing requires `cluster_name`; without it the API answers `400 Bad Request` even with a valid token.
 
 This is a good way for the client to confirm the token arrived intact: with a valid token the call returns `200 OK`, and a truncated or expired one returns `401 Unauthorized`. Pick an endpoint that is actually authenticated for this check — some paths answer `200` regardless of the header and prove nothing.
 
