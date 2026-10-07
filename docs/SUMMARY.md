@@ -65,6 +65,7 @@
       * [PrivateGPT](apolo-console/apps/installable-apps/available-apps/privategpt.md)
       * [Apache Superset](apolo-console/apps/installable-apps/available-apps/apache-superset.md)
       * [Valkey](apolo-console/apps/installable-apps/available-apps/valkey.md)
+      * [Bifrost](apolo-console/apps/installable-apps/available-apps/bifrost.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
