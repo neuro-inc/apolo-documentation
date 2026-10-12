@@ -30,7 +30,7 @@ Add one entry per database:
 
 * **PostgreSQL Credentials** – pick a user of an installed [PostgreSQL](postgre-sql/) app through **App Integration**. The user's database is the one pgAdmin opens
 * **Display Name** – the name of the server in pgAdmin, the database name by default
-* **Read Only** – on by default, see [Read-Only Sessions](#read-only-sessions)
+* **Allow Writes** – off by default: sessions are read-only, see [Read-Only Sessions](#read-only-sessions)
 
 ### 4. Install
 
@@ -46,7 +46,7 @@ To add or remove a database, open the installed app, change **Databases** and sa
 
 ## Read-Only Sessions
 
-With **Read Only** on, every session to the database starts with `default_transaction_read_only = on`, and a write fails with `cannot execute INSERT in a read-only transaction`.
+Unless **Allow Writes** is on, every session to the database starts with `default_transaction_read_only = on`, and a write fails with `cannot execute INSERT in a read-only transaction`.
 
 This prevents changing data by mistake. It is not a permission: a session can turn it off with `SET default_transaction_read_only = off`. To make writes impossible, give pgAdmin a PostgreSQL user that has only read privileges.
 
