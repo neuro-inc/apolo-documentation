@@ -68,6 +68,7 @@
       * [Apache Superset](apolo-console/apps/installable-apps/available-apps/apache-superset.md)
       * [Valkey](apolo-console/apps/installable-apps/available-apps/valkey.md)
       * [Bifrost](apolo-console/apps/installable-apps/available-apps/bifrost.md)
+      * [pgAdmin](apolo-console/apps/installable-apps/available-apps/pgadmin.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
