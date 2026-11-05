@@ -13,8 +13,9 @@ While the Images app provides a graphical interface for viewing image properties
 * `apolo image ls`: Lists images in your current project and cluster. Supports filtering by name, organization, and project.
 * `apolo image tags`: Lists all tags associated with an image.
 * `apolo image rm`: Removes images from the platform registry.
-* `apolo image size`: Shows the size of a specific image.
+* `apolo image size`: Shows the size of a specific image. For a multi-platform image it counts the layers of all platform images once; build attestations are not included.
 * `apolo image digest`: Retrieves the digest of an image from the remote registry.
+* `apolo image inspect`: Shows the platforms an image is built for and its attestations, such as SBOM and provenance, with the digest and size of each.
 
 ### **Working with Images**
 
@@ -44,6 +45,20 @@ apolo image pull image:/project/my-alpine:production alpine:from-registry
 
 # Pull from another project
 apolo image pull image:/other-project/alpine:shared
+
+# Pull an image built for another platform, e.g. an amd64 image on an Apple Silicon Mac
+apolo image pull --platform linux/amd64 image:myimage
+
+# Pull every platform of a multi-platform image into one local tag
+apolo image pull --all-platforms image:myimage
+```
+
+By default, Docker pulls the image for your machine's platform. If the image has no build for it, the command shows Docker's `no matching manifest` error; use `--platform` to pick a platform. `--platform` can be repeated. Pulling several platforms (repeated `--platform` or `--all-platforms`) requires the [containerd image store](https://docs.docker.com/engine/storage/containerd/) in Docker.
+
+To see which platforms and attestations an image has before pulling it:
+
+```bash
+apolo image inspect image:myimage
 ```
 
 ### **Image Naming Convention**
