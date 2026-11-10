@@ -56,6 +56,24 @@ When working with the CLI, image names follow a specific URL scheme:
 
 Note: All commands provide additional help information through the `--help` option, which details available flags and usage examples.
 
+### **Image Retention**
+
+The platform registry cleans up old images automatically. The cleanup runs weekly, on Saturday at 01:00 UTC. In each image repository of a project, the following images are kept:
+
+* the 10 most recently pushed tags;
+* every tag that was pushed or pulled in the last 90 days.
+
+All other tags are removed. Untagged images are removed as well, one day later.
+
+Build cache repositories (`image:/<project>/layer-cache/cache`), which `apolo-flow` and `apolo-extras` builds use to speed up Kaniko builds, keep only the 3 most recent tags.
+
+To keep an old image, pull it: any pull resets the 90-day period. You can also push it again under the same or a new tag:
+
+```bash
+apolo image pull image:myimage:v1.0
+apolo image push myimage:v1.0 image:myimage:v1.0
+```
+
 ### **Using External Images**
 
 While the Images app and CLI provide tools for managing images in the platform registry, you can also run jobs using external Docker images. Simply specify the full image path when using `apolo job run`:
