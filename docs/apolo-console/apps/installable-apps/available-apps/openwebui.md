@@ -38,7 +38,8 @@ The following installation options are available:
 * **OpenWebUI App Configuration:**
   * **Postgres User Credentials:** Select the credentials for the PostgreSQL database that will be used for both the chat history and the vector embeddings. Refer to [Potstgres app](postgre-sql/) documentation for instructions on how to install it.
   * **OpenAI Compatible Embeddings API:** Choose the API for text embeddings. Refer to [Text Embeddings app](text-embeddings-inference.md) documentation for instructions on how to install it.
-  * **OpenAI Compatible Chat API:** Select the chat API to be used. Refer to [vLLM app](llm-inference/) documentation for instructions on how to install it.
+  * **LLM Chat API:** Select the chat API of a single model server. Refer to [vLLM app](llm-inference/) documentation for instructions on how to install it.
+  * **Model Gateway API:** Select the **OpenAI Compatible API** of a model gateway such as [Bifrost](bifrost.md) instead of an LLM Chat API. Set exactly one of the two. The chat model picker then shows every model the gateway lists; limit it with **Model IDs** in **Admin Settings > Connections**. The gateway must publish at least one chat model. The Embeddings API can be an embeddings API of the same gateway. Connection and Documents settings saved in **Admin Settings** take precedence, so an existing installation switched to a gateway keeps the old values until they are changed there.
 * **Networking Settings**
   * **Enable HTTP Ingress:** This option is enabled by default, so your application is only accessible to authenticated users in Apolo with permissions in the current project.
 * **Metadata:** Enter the application display name.

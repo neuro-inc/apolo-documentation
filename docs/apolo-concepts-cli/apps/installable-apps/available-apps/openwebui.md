@@ -53,6 +53,7 @@ Explanation of configuration parameters:
 * **pgvector\_user:** Select the credentials for the PostgreSQL database that will be used for both the chat history and the vector embeddings.
 * **embeddings\_api:** OpenAI Compatible Embeddings API
 * **llm\_chat\_api:** OpenAI Compatible Chat API
+* **openai\_api:** OpenAI Compatible API of a model gateway such as [Bifrost](../../../../apolo-console/apps/installable-apps/available-apps/bifrost.md), set instead of `llm_chat_api`
 * **ingress\_http**: enable Apolo authentification
 
 **Step 3** — Deploy the application in your Apolo project:

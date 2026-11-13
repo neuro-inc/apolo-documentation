@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Bifrost](https://docs.getbifrost.ai/overview) is an AI gateway. It puts the vLLM applications of your project and hosted model providers behind one OpenAI-compatible API, and adds:
+[Bifrost](https://docs.getbifrost.ai/overview) is an AI gateway. It puts the vLLM and Text Embeddings Inference applications of your project and hosted model providers behind one OpenAI-compatible API, and adds:
 
 * Virtual keys with budgets and rate limits
 * Load balancing and failover between backends
@@ -48,25 +48,41 @@ Storage cannot be changed after installation.
 * **Encryption Key** – an Apolo Secret with the key that encrypts stored provider keys and virtual keys. Generate it once, for example with `openssl rand -base64 32`. It cannot be changed after installation: with a different key the gateway cannot read its data and does not start
 * **Require Virtual Key** – reject model requests that carry no virtual key. Leave it off if other apps of the project use the gateway through integrations. Turn it on when the ingress has no authentication
 
-### 5. vLLM Backends
+### 5. Chat Backends
 
-Add one entry per [vLLM](llm-inference/) app the gateway should serve:
+Add one entry per [vLLM](llm-inference/) app with a chat model the gateway should serve:
 
 * **vLLM API** – pick the chat API of the vLLM app through **App Integration**
 * **API Key** – an Apolo Secret, only if the vLLM server was started with an API key
 * **Served Model Name** – only if the server serves the model under a name other than the Hugging Face model name
 
-### 6. External Providers
+### 6. Embeddings Backends
+
+Add one entry per embeddings model the gateway should serve, from a [vLLM](llm-inference/) or [Text Embeddings Inference](text-embeddings-inference.md) app:
+
+* **Embeddings API** – pick the embeddings API of the app through **App Integration**
+* **API Key** and **Served Model Name** – as for chat backends
+
+A model name can be a chat backend or an embeddings backend, not both.
+
+### 7. External Providers
 
 Add one entry per hosted provider account: choose the provider and an Apolo Secret with its API key. Supported providers: OpenAI, Anthropic, Gemini, Mistral, Groq, Cohere, OpenRouter, Perplexity, Cerebras, xAI, Hugging Face and Nebius.
 
-### 7. Install
+The gateway serves every model of the provider. To let other apps pick a provider model as an integration, list it:
+
+* **Chat Models** – for example `gpt-4o-mini`
+* **Embedding Models** – for example `text-embedding-3-small`. Not available for Anthropic, Groq, Perplexity, Cerebras and xAI
+
+Write the model as the provider names it, without the provider prefix: `gpt-4o-mini`, not `openai/gpt-4o-mini`.
+
+### 8. Install
 
 Click **Install**. When the app is healthy, its outputs show the dashboard URL and the API endpoints.
 
 ## Managing Providers
 
-Backends and providers are managed in the app configuration, not in the dashboard. To add or remove one, open the installed app, change **vLLM Backends** or **External Providers** and save.
+Backends and providers are managed in the app configuration, not in the dashboard. To add or remove one, open the installed app, change **Chat Backends**, **Embeddings Backends** or **External Providers** and save.
 
 On every start the gateway brings its providers in line with the configuration. A provider or a provider key added in the dashboard is removed on the next restart.
 
@@ -76,15 +92,28 @@ Virtual keys, budgets, rate limits, teams and routing rules are managed in the d
 
 ### Model Names
 
-Request a vLLM model as `vllm/<model name>`, for example `vllm/meta-llama/Llama-3.1-8B-Instruct`. Request a hosted model as `<provider>/<model>`, for example `openai/gpt-4o-mini`.
+Request a model of a chat or embeddings backend as `vllm/<model name>`, for example `vllm/meta-llama/Llama-3.1-8B-Instruct` or `vllm/BAAI/bge-small-en-v1.5`, also when the backend is a Text Embeddings Inference app. Request a hosted model as `<provider>/<model>`, for example `openai/gpt-4o-mini`.
 
-Always use the `vllm/` prefix for vLLM models. A name without it is treated as `<provider>/<model>` when it starts with a provider name: `openai/gpt-oss-20b` is sent to OpenAI, `vllm/openai/gpt-oss-20b` to your vLLM app.
+Always use the `vllm/` prefix for backend models. A name without it is treated as `<provider>/<model>` when it starts with a provider name: `openai/gpt-oss-20b` is sent to OpenAI, `vllm/openai/gpt-oss-20b` to your vLLM app.
 
 `GET /v1/models` lists every model the gateway serves.
 
+### Endpoints
+
+* Chat backends: `/v1/chat/completions`, `/v1/completions` and `/v1/responses`, with streaming
+* Embeddings backends: `/v1/embeddings`
+* Listed provider chat models: `/v1/chat/completions`
+* Listed provider embeddings models: `/v1/embeddings`
+
+The **OpenAI Compatible API** output lists the same for each model.
+
 ### From Another App in the Project
 
-The **Chat APIs** output holds one API per vLLM model. An app that takes an OpenAI-compatible chat API as an integration can pick it in **App Integration**.
+The app publishes three kinds of integrations. Pick them in **App Integration** of the other app:
+
+* **OpenAI Compatible API** – the whole gateway with every published model and the endpoints it serves. For apps that list the models themselves, such as **Model Gateway API** in [OpenWebUI](openwebui.md)
+* **Chat APIs** – one chat API per chat backend and per listed provider chat model
+* **Embeddings APIs** – one embeddings API per embeddings backend and per listed provider embeddings model
 
 Inside the project the gateway is reached at the internal URL from the **Gateway API** output without a platform token:
 
@@ -101,6 +130,12 @@ response = client.chat.completions.create(
     messages=[{"role": "user", "content": "Hello"}],
 )
 print(response.choices[0].message.content)
+
+embeddings = client.embeddings.create(
+    model="vllm/BAAI/bge-small-en-v1.5",
+    input=["Hello", "World"],
+)
+print(len(embeddings.data[0].embedding))
 ```
 
 ### From Outside the Cluster
