@@ -69,6 +69,8 @@
       * [Valkey](apolo-console/apps/installable-apps/available-apps/valkey.md)
       * [Bifrost](apolo-console/apps/installable-apps/available-apps/bifrost.md)
       * [pgAdmin](apolo-console/apps/installable-apps/available-apps/pgadmin.md)
+      * [Triton Inference Server](apolo-console/apps/installable-apps/available-apps/triton-inference-server.md)
+      * [Triton Model Repository](apolo-console/apps/installable-apps/available-apps/triton-model-repository.md)
 
 ## Apolo CLI <a href="#apolo-concepts-cli" id="apolo-concepts-cli"></a>
 
@@ -106,6 +108,7 @@
       * [GPT OSS](apolo-concepts-cli/apps/installable-apps/available-apps/gpt-oss.md)
       * [Mistral](apolo-concepts-cli/apps/installable-apps/available-apps/mistral.md)
       * [Text Embeddings Inference](apolo-concepts-cli/apps/installable-apps/available-apps/text-embeddings-inference.md)
+      * [Triton Inference Server](apolo-concepts-cli/apps/installable-apps/available-apps/triton-inference-server.md)
 
 ## Administration
 
